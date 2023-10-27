@@ -1,0 +1,138 @@
+site_name: ASGBD (PostgreSQL)
+
+#nav:
+#    - Inicio: index.md
+#    - Introducción: 00_introduccion.md
+#    - Instalación: 01_instalacion.md
+#    - Conceptos Clave: 
+#        - Conceptos Clave: 02_conceptos_clave.md
+#        - Imágenes: docker/imagenes.md
+#        - Contenedores: docker/contenedores.md
+#        - Volúmenes: docker/volumenes.md
+#        - Redes: docker/redes.md 
+#    - About:
+#        - License: license.md
+#        - Release Notes: release-notes.md
+nav:
+  - 01.-Tutorial:
+    - ./01.-Tutorial/index.md
+    - 01.-Cómo empezar:
+      - 01.-Instalación: ./01.-Tutorial/01.-Cómo empezar/01.-Instalación.md
+      - 02.-Fundamentos arquitectónicos: ./01.-Tutorial/01.-Cómo empezar/02.-Fundamentos arquitectónicos.md
+      - 03.-Creando una Base de Datos: ./01.-Tutorial/01.-Cómo empezar/03.-Creando una Base de Datos.md
+      - 04.-Accediendo a una base de datos: ./01.-Tutorial/01.-Cómo empezar/04.-Accediendo a una base de datos.md
+    - 02.-El lenguaje SQL:
+      - 01.-Introducción: ./01.-Tutorial/02.-El lenguaje SQL/01.-Introducción.md
+      - 02.-Conceptos: ./01.-Tutorial/02.-El lenguaje SQL/02.-Conceptos.md
+      - 03.-Creando una nueva tabla: ./01.-Tutorial/02.-El lenguaje SQL/03.-Creando una nueva tabla.md
+      - 04.-Cargando una tabla con filas: ./01.-Tutorial/02.-El lenguaje SQL/04.-Cargando una tabla con filas.md
+      - 05.-Consulta de tablas: ./01.-Tutorial/02.-El lenguaje SQL/05.-Consulta de tablas.md
+      - 06.-Uniones de tablas: ./01.-Tutorial/02.-El lenguaje SQL/06.-Uniones de tablas.md
+      - 07.-Funciones agregadas: ./01.-Tutorial/02.-El lenguaje SQL/07.-Funciones agregadas.md
+      - 08.-Actualizaciones: ./01.-Tutorial/02.-El lenguaje SQL/08.-Actualizaciones.md
+      - 09.-Borrados: ./01.-Tutorial/02.-El lenguaje SQL/09.-Borrados.md
+    - 03.-Características avanzadas:
+      - 01.-Introducción: ./01.-Tutorial/03.-Características avanzadas/01.-Introducción.md
+      - 02.-Vistas: ./01.-Tutorial/03.-Características avanzadas/02.-Vistas.md
+      - 03.-Claves foráneas: ./01.-Tutorial/03.-Características avanzadas/03.-Claves foráneas.md
+      - 04.-Transacciones: ./01.-Tutorial/03.-Características avanzadas/04.-Transacciones.md
+      - 05.-Funciones de ventanas: ./01.-Tutorial/03.-Características avanzadas/05.-Funciones de ventanas.md
+      - 06.-Herencia: ./01.-Tutorial/03.-Características avanzadas/06.-Herencia.md
+      - 07.-Conclusión: ./01.-Tutorial/03.-Características avanzadas/07.-Conclusión.md
+  - 02.- El lenguaje SQL:
+    - ./02.- El lenguaje SQL/index.md
+    - 01.-Sintaxis SQL:
+      - 01.-Estructura léxica:
+        - ./02.- El lenguaje SQL/01.-Sintaxis SQL/01.-Estructura léxica/index.md
+        - 01.-Identificadores y palabras clave: ./02.- El lenguaje SQL/01.-Sintaxis SQL/01.-Estructura léxica/01.-Identificadores y palabras clave.md
+        - 02.-Constantes: ./02.- El lenguaje SQL/01.-Sintaxis SQL/01.-Estructura léxica/02.-Constantes.md
+        - 03.-Operadores: ./02.- El lenguaje SQL/01.-Sintaxis SQL/01.-Estructura léxica/03.-Operadores.md
+        - 04.-Comentarios: ./02.- El lenguaje SQL/01.-Sintaxis SQL/01.-Estructura léxica/04.-Comentarios.md
+        - 05.-Precedencia de Operadores: ./02.- El lenguaje SQL/01.-Sintaxis SQL/01.-Estructura léxica/05.-Precedencia de Operadores.md
+      - 02.-Expresiones de valor:
+        - ./02.- El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/index.md
+        - 01.-Referencias de columnas: ./02.- El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/01.-Referencias de columnas.md
+        - 02.-Parámetros de posición: ./02.- El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/02.-Parámetros de posición.md
+        - 03.-Suscriptores: ./02.- El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/03.-Suscriptores.md
+        - 04.-Selección de Campo: ./02.- El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/04.-Selección de Campo.md
+        - 05.-Invocatorias de operador: ./02.- El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/05.-Invocatorias de operador.md
+        - 06.-Llamadas de función: ./02.- El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/06.-Llamadas de función.md
+        - 07.-Expresiones agregadas: ./02.- El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/07.-Expresiones agregadas.md
+        - 08.-Llamadas de función de ventanas: ./02.- El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/08.-Llamadas de función de ventanas.md
+        - 09.-Tipos de fusión: ./02.- El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/09.-Tipos de fusión.md
+        - 10.-Expresiones de la colación: ./02.- El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/10.-Expresiones de la colación.md
+        - 11.-Sucoquesas de escalar: ./02.- El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/11.-Sucoquesas de escalar.md
+        - 12.-Constructores de Array: ./02.- El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/12.-Constructores de Array.md
+        - 13.-Constructores de filas: ./02.- El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/13.-Constructores de filas.md
+        - 14.-Reglas de evaluación de la expresión: ./02.- El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/14.-Reglas de evaluación de la expresión.md
+
+theme:
+    features:
+        - navigation.top
+        - navigation.top.sticky
+        - navigation.tabs
+        - navigation.indexes
+
+    language : es
+
+    name: 'material'
+    palette:
+
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+
+# gigante
+      primary: blue grey
+      accent: green
+
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+# gigante
+      primary: blue grey
+      accent: green
+
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+
+# Extensions
+markdown_extensions:
+  - footnotes
+  # - attr_list
+  - pymdownx.arithmatex:
+      generic: true
+  # - pymdownx.superfences
+  # - pymdownx.details
+  # - pymdownx.magiclink
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - def_list
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+
+  - toc:
+      permalink: true
+
+plugins:
+  - search
+  - roamlinks 
+  - mermaid2
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - https://unpkg.com/mermaid/dist/mermaid.min.js 
+
+extra:
+  static:
+    - carpe
