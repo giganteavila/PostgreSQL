@@ -1,0 +1,1 @@
+Los tipos enumerados (enum) son tipos de datos que comprenden un  conjunto de valores estático y ordenado. Son equivalentes a la  `enum`tipos soportados en varios lenguajes de programación. Un ejemplo de tipo enum podría ser los días de la semana, o un conjunto de valores de estado  para un pedazo de datos.

@@ -1,0 +1,3 @@
+Una *expresión* de *la tabla* calcula una mesa. La expresión de la tabla contiene un  `FROM`cláusula que se sigue opcionalmente `WHERE`, `GROUP BY`, y  `HAVING`cláusulas. Las expresiones de la mesa trivial simplemente se refieren a una tabla  en el disco, una llamada tabla base, pero las expresiones más complejas  se pueden utilizar para modificar o combinar tablas de base de varias  maneras.
+
+La opcional `WHERE`, `GROUP BY`, y  `HAVING`cláusulas de la expresión de la tabla especifican una cartera de sucesivas  transformaciones realizadas sobre la mesa derivada en el  `FROM`cláusula. Todas estas transformaciones producen una tabla virtual que proporciona las filas que se pasan a la lista selecta para calcular las filas de  salida de la consulta.

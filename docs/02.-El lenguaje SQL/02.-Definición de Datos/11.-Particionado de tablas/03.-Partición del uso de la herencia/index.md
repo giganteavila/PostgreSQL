@@ -1,0 +1,5 @@
+Si bien la partición declarativa incorporada es adecuada para casos  de uso más común, hay algunas circunstancias en las que un enfoque más  flexible puede ser útil. La partición se puede implementar utilizando la herencia de la tabla, lo que permite varias características no  soportadas por particiones declarativas, tales como:
+
+- Para la partición declarativa, las particiones deben tener exactamente el  mismo conjunto de columnas que la tabla dividida, mientras que con la  herencia de la tabla, las tablas de hijos pueden tener columnas  adicionales no presentes en el padre.
+- La herencia de tabla permite la herencia múltiple.
+- La partición declarativa sólo admite rango, lista y partición de hach  fuertes, mientras que la herencia de tabla permite dividir los datos de  una manera que el usuario es elija. (Nota, sin embargo, que si la  exclusión de las restricciones no puede podar las tablas de niños con  eficacia, el desempeño de las consultas podría ser deficiente.)

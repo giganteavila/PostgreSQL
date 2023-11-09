@@ -1,0 +1,1 @@
+Los capítulos anteriores explicaban cómo crear tablas, cómo llenarlos de datos y cómo manipular esos datos. Ahora finalmente discutimos cómo  recuperar los datos de la base de datos.

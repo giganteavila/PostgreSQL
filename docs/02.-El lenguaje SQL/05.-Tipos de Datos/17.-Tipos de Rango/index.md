@@ -1,0 +1,5 @@
+Los tipos de rango son tipos de datos que representan una gama de valores de algún tipo de elemento (llamado *subtipo* del rango). Por ejemplo, rangos de  `timestamp`podría ser utilizado para representar los rangos de tiempo que una sala de  reuniones está reservada. En este caso el tipo de datos es  `tsrange`(corto para el rango de marcas de tiempo), y  `timestamp`es el subtipo. El subtipo debe tener un orden total para que esté bien  definido si los valores de los elementos están dentro, antes o después  de una serie de valores.
+
+Los tipos de rango son útiles porque representan muchos valores de  elementos en un solo valor de rango, y debido a que conceptos como  rangos superpuestos se pueden expresar claramente. El uso de rangos de  tiempo y fecha para fines de programación es el ejemplo más claro; pero  los rangos de precios, la medición va desde un instrumento, y así  sucesivamente también puede ser útil.
+
+Cada tipo de rango tiene un tipo multirango correspondiente. Un  multirango es una lista ordenada de rangos no vacíos, no vacíos. La  mayoría de los operadores de gama también trabajan en multirangoza, y  tienen algunas funciones propias.

@@ -1,0 +1,1 @@
+Como se muestra en la sección anterior, la expresión de la tabla en el  `SELECT`El comando construye una tabla virtual intermedia posiblemente combinando  tablas, vistas, eliminando filas, agrupando, etc. Esta tabla se pasa  finalmente al procesamiento por la *lista de selección*. La lista selecta determina qué *columnas* de la tabla intermedia son realmente salida.

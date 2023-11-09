@@ -1,0 +1,5 @@
+ SQLLas declaraciones pueden, intencionalmente o no, requerir la mezcla de diferentes tipos de datos en la misma expresión. PostgreSQL cuenta con amplias instalaciones para evaluar expresiones de tipo mixto.
+
+En muchos casos, un usuario no necesita entender los detalles del  mecanismo de conversión de tipo. Sin embargo, las conversiones  implícitas realizadas por PostgreSQL pueden afectar los resultados de una consulta. Cuando sea necesario, estos resultados pueden adaptarse mediante la conversión *explícita* de tipo.
+
+Este capítulo introduce los mecanismos y convenciones de conversión de tipo PostgreSQL. Consulte las secciones pertinentes del [capítulo 8](https://www.postgresql.org/docs/current/datatype.html) y [del capítulo 9](https://www.postgresql.org/docs/current/functions.html) para obtener más información sobre tipos de datos específicos y funciones y operadores permitidos.

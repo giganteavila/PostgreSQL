@@ -1,0 +1,3 @@
+Las funciones y expresiones de función descritas en esta sección operan sobre valores de tipo `xml`. Véase [la](https://www.postgresql.org/docs/current/datatype-xml.html) sección [8.13](https://www.postgresql.org/docs/current/datatype-xml.html) para obtener información sobre la  `xml`tipo. Las expresiones función  `xmlparse`y  `xmlserialize`para la conversión a e-tipo  `xml`están documentados allí, no en esta sección.
+
+El uso de la mayoría de estas funciones requiere que PostgreSQL se haya construido con `configure --with-libxml`.

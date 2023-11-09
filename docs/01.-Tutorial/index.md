@@ -1,0 +1,3 @@
+# 
+
+Bienvenido a PostgreSQL. Los siguientes capítulos están destinados a dar una simple introducción a PostgreSQL, conceptos de base de datos relacionales y el lenguaje SQL a aquellos  que son nuevos en cualquiera de estos aspectos. Sólo asumimos algunos  conocimientos generales sobre cómo usar las computadoras. No se requiere ningún Unix/Linux en particular o experiencia de programación. Esta parte  está destinada principalmente a dar una experiencia práctica con  aspectos importantes del sistema PostgreSQL. No intenta ser un tratamiento completo o exhaustivo de los temas que cubre.

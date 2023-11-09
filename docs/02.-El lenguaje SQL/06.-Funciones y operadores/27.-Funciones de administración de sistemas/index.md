@@ -1,0 +1,1 @@
+Las funciones descritas en esta sección se utilizan para controlar y monitorear una instalación de PostgreSQL.

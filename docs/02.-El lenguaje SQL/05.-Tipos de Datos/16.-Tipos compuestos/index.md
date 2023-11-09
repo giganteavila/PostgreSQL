@@ -1,0 +1,1 @@
+Un *tipo compuesto* representa la estructura de una fila o registro; es esencialmente sólo una lista de nombres de campo y sus tipos de datos. PostgreSQL permite utilizar tipos compuestos en muchas de las mismas formas en que se pueden utilizar tipos simples. Por ejemplo, una columna de una tabla puede ser declarada de tipo compuesto.

@@ -1,0 +1,1 @@
+Las expresiones descritas en esta sección comprueban las propiedades de  `xml`valores.

@@ -1,0 +1,1 @@
+Uno podría necesitar insertar una gran cantidad de datos al popular  primero una base de datos. Esta sección contiene algunas sugerencias  sobre cómo hacer este proceso lo más eficiente posible.

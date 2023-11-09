@@ -1,0 +1,1 @@
+Los ejemplos de la sección anterior ilustraron la correspondencia  completa de texto utilizando simples cadenas constantes. Esta sección  muestra cómo buscar los datos de la tabla, opcionalmente usando índices.

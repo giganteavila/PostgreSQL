@@ -1,0 +1,1 @@
+Un conjunto de funciones y expresiones similares a las funciones está  disponible para producir contenido XML a partir de datos SQL. Como tal,  son especialmente adecuados para formatear los resultados de las  consultas en documentos XML para su procesamiento en aplicaciones de  clientes.

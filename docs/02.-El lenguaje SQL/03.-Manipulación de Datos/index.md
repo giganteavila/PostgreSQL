@@ -1,0 +1,1 @@
+En el capítulo anterior se discutió cómo crear tablas y otras  estructuras para mantener sus datos. Ahora es el momento de llenar las  tablas con datos. Este capítulo abarca cómo insertar, actualizar y  eliminar los datos de la tabla. El capítulo después de esto finalmente  explicará cómo extraer sus datos perdidos desde hace mucho tiempo de la  base de datos.

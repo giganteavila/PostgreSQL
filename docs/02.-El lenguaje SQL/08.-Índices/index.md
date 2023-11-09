@@ -1,0 +1,1 @@
+Los índices son una forma común de mejorar el rendimiento de la base de  datos. Un índice permite al servidor de base de datos encontrar y  recuperar filas específicas mucho más rápido de lo que podría hacer sin  un índice. Pero los índices también añaden gastos generales al sistema  de base de datos en su conjunto, por lo que deben usarse sensatamente.

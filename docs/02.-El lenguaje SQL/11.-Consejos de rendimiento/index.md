@@ -1,0 +1,1 @@
+El rendimiento de la consulta puede verse afectado por muchas cosas.  Algunos de estos pueden ser controlados por el usuario, mientras que  otros son fundamentales para el diseño subyacente del sistema. Este  capítulo proporciona algunas pistas sobre la comprensión y sintonía de  la actuación de PostgreSQL.

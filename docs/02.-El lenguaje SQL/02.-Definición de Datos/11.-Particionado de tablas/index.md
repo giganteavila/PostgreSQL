@@ -1,0 +1,1 @@
+PostgreSQL soporta la partición básica de la tabla. Esta sección describe por qué y cómo implementar la partición como parte del diseño de su base de  datos.

@@ -1,0 +1,550 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../03.-Claves%20for%C3%A1neas/" rel="prev"/>
+<link href="../05.-Funciones%20de%20ventanas/" rel="next"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.3, mkdocs-material-9.1.11" name="generator"/>
+<title>04.-Transacciones - ASGBD</title>
+<link href="../../../assets/stylesheets/main.85bb2934.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.a6bdf11c.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="green" data-md-color-primary="blue-grey" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Cabecera" class="md-header__inner md-grid">
+<a aria-label="ASGBD" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="ASGBD">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            ASGBD
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              04.-Transacciones
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="green" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="blue-grey" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="green" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="blue-grey" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Búsqueda" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Búsqueda" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Buscar" class="md-search__options">
+<button aria-label="Limpiar" class="md-search__icon md-icon" tabindex="-1" title="Limpiar" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Pestañas" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../..">
+      PostgreSQL
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="../../01.-C%C3%B3mo%20empezar/01.-Instalaci%C3%B3n/">
+        01.-Tutorial
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../02.-%20El%20lenguaje%20SQL/">
+        02.- El lenguaje SQL
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navegación" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="ASGBD" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="ASGBD">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    ASGBD
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+        PostgreSQL
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          01.-Tutorial
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          01.-Tutorial
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          01.-Cómo empezar
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_1">
+<span class="md-nav__icon md-icon"></span>
+          01.-Cómo empezar
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01.-C%C3%B3mo%20empezar/01.-Instalaci%C3%B3n/">
+        01.-Instalación
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01.-C%C3%B3mo%20empezar/02.-Fundamentos%20arquitect%C3%B3nicos/">
+        02.-Fundamentos arquitectónicos
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01.-C%C3%B3mo%20empezar/03.-Creando%20una%20Base%20de%20Datos/">
+        03.-Creando una Base de Datos
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01.-C%C3%B3mo%20empezar/04.-Accediendo%20a%20una%20base%20de%20datos/">
+        04.-Accediendo a una base de datos
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          02.-El lenguaje SQL
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_2">
+<span class="md-nav__icon md-icon"></span>
+          02.-El lenguaje SQL
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-El%20lenguaje%20SQL/01.-Introducci%C3%B3n/">
+        01.-Introducción
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-El%20lenguaje%20SQL/02.-Conceptos/">
+        02.-Conceptos
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-El%20lenguaje%20SQL/03.-Creando%20una%20nueva%20tabla/">
+        03.-Creando una nueva tabla
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-El%20lenguaje%20SQL/04.-Cargando%20una%20tabla%20con%20filas/">
+        04.-Cargando una tabla con filas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-El%20lenguaje%20SQL/05.-Consulta%20de%20tablas/">
+        05.-Consulta de tablas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-El%20lenguaje%20SQL/06.-Uniones%20de%20tablas/">
+        06.-Uniones de tablas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-El%20lenguaje%20SQL/07.-Funciones%20agregadas/">
+        07.-Funciones agregadas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-El%20lenguaje%20SQL/08.-Actualizaciones/">
+        08.-Actualizaciones
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-El%20lenguaje%20SQL/09.-Borrados/">
+        09.-Borrados
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          03.-Características avanzadas
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+          03.-Características avanzadas
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../01.-Introducci%C3%B3n/">
+        01.-Introducción
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../02.-Vistas/">
+        02.-Vistas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../03.-Claves%20for%C3%A1neas/">
+        03.-Claves foráneas
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
+        04.-Transacciones
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../05.-Funciones%20de%20ventanas/">
+        05.-Funciones de ventanas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../06.-Herencia/">
+        06.-Herencia
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../07.-Conclusi%C3%B3n/">
+        07.-Conclusión
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../02.-%20El%20lenguaje%20SQL/">02.- El lenguaje SQL</a>
+<label for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          02.- El lenguaje SQL
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+          01.-Sintaxis SQL
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+          01.-Sintaxis SQL
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../02.-%20El%20lenguaje%20SQL/01.-Sintaxis%20SQL/01.-Estructura%20l%C3%A9xica/">01.-Estructura léxica</a>
+<label for="__nav_3_2_1">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_1_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_2_1">
+<span class="md-nav__icon md-icon"></span>
+          01.-Estructura léxica
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-%20El%20lenguaje%20SQL/01.-Sintaxis%20SQL/01.-Estructura%20l%C3%A9xica/01.-Identificadores%20y%20palabras%20clave/">
+        01.-Identificadores y palabras clave
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-%20El%20lenguaje%20SQL/01.-Sintaxis%20SQL/01.-Estructura%20l%C3%A9xica/02.-Constantes/">
+        02.-Constantes
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-%20El%20lenguaje%20SQL/01.-Sintaxis%20SQL/01.-Estructura%20l%C3%A9xica/03.-Operadores/">
+        03.-Operadores
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-%20El%20lenguaje%20SQL/01.-Sintaxis%20SQL/01.-Estructura%20l%C3%A9xica/04.-Comentarios/">
+        04.-Comentarios
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-%20El%20lenguaje%20SQL/01.-Sintaxis%20SQL/01.-Estructura%20l%C3%A9xica/05.-Precedencia%20de%20Operadores/">
+        05.-Precedencia de Operadores
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../02.-%20El%20lenguaje%20SQL/01.-Sintaxis%20SQL/02.-Expresiones%20de%20valor/">02.-Expresiones de valor</a>
+<label for="__nav_3_2_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_2_2">
+<span class="md-nav__icon md-icon"></span>
+          02.-Expresiones de valor
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-%20El%20lenguaje%20SQL/01.-Sintaxis%20SQL/02.-Expresiones%20de%20valor/01.-Referencias%20de%20columnas/">
+        01.-Referencias de columnas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-%20El%20lenguaje%20SQL/01.-Sintaxis%20SQL/02.-Expresiones%20de%20valor/02.-Par%C3%A1metros%20de%20posici%C3%B3n/">
+        02.-Parámetros de posición
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-%20El%20lenguaje%20SQL/01.-Sintaxis%20SQL/02.-Expresiones%20de%20valor/03.-Suscriptores/">
+        03.-Suscriptores
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-%20El%20lenguaje%20SQL/01.-Sintaxis%20SQL/02.-Expresiones%20de%20valor/04.-Selecci%C3%B3n%20de%20Campo/">
+        04.-Selección de Campo
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-%20El%20lenguaje%20SQL/01.-Sintaxis%20SQL/02.-Expresiones%20de%20valor/05.-Invocatorias%20de%20operador/">
+        05.-Invocatorias de operador
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-%20El%20lenguaje%20SQL/01.-Sintaxis%20SQL/02.-Expresiones%20de%20valor/06.-Llamadas%20de%20funci%C3%B3n/">
+        06.-Llamadas de función
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-%20El%20lenguaje%20SQL/01.-Sintaxis%20SQL/02.-Expresiones%20de%20valor/07.-Expresiones%20agregadas/">
+        07.-Expresiones agregadas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-%20El%20lenguaje%20SQL/01.-Sintaxis%20SQL/02.-Expresiones%20de%20valor/08.-Llamadas%20de%20funci%C3%B3n%20de%20ventanas/">
+        08.-Llamadas de función de ventanas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-%20El%20lenguaje%20SQL/01.-Sintaxis%20SQL/02.-Expresiones%20de%20valor/09.-Tipos%20de%20fusi%C3%B3n/">
+        09.-Tipos de fusión
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-%20El%20lenguaje%20SQL/01.-Sintaxis%20SQL/02.-Expresiones%20de%20valor/10.-Expresiones%20de%20la%20colaci%C3%B3n/">
+        10.-Expresiones de la colación
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-%20El%20lenguaje%20SQL/01.-Sintaxis%20SQL/02.-Expresiones%20de%20valor/11.-Sucoquesas%20de%20escalar/">
+        11.-Sucoquesas de escalar
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-%20El%20lenguaje%20SQL/01.-Sintaxis%20SQL/02.-Expresiones%20de%20valor/12.-Constructores%20de%20Array/">
+        12.-Constructores de Array
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-%20El%20lenguaje%20SQL/01.-Sintaxis%20SQL/02.-Expresiones%20de%20valor/13.-Constructores%20de%20filas/">
+        13.-Constructores de filas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-%20El%20lenguaje%20SQL/01.-Sintaxis%20SQL/02.-Expresiones%20de%20valor/14.-Reglas%20de%20evaluaci%C3%B3n%20de%20la%20expresi%C3%B3n/">
+        14.-Reglas de evaluación de la expresión
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1>04.-Transacciones</h1>
+<p><em>Las transacciones</em> son un concepto fundamental de todos los sistemas de bases de datos. El punto esencial de una transacción es que agrupa múltiples pasos en una  operación única, todo o nada. Los estados intermedios entre los pasos no son visibles para otras transacciones simultáneas, y si se produce  algún fallo que impide que la transacción se complete, entonces ninguno  de los pasos afecta a la base de datos en absoluto.</p>
+<p>Por ejemplo, considere una base de datos bancaria que contenga  saldos para diversas cuentas de clientes, así como saldos totales de  depósitos para sucursales. Supongamos que queremos registrar un pago de  $100.00 de la cuenta de Alice a la cuenta de Bob. Simplificando  escandalosamente, los comandos SQL para esto podrían parecer:</p>
+<pre><code>UPDATE accounts SET balance = balance - 100.00
+    WHERE name = 'Alice';
+UPDATE branches SET balance = balance - 100.00
+    WHERE name = (SELECT branch_name FROM accounts WHERE name = 'Alice');
+UPDATE accounts SET balance = balance + 100.00
+    WHERE name = 'Bob';
+UPDATE branches SET balance = balance + 100.00
+    WHERE name = (SELECT branch_name FROM accounts WHERE name = 'Bob');
+</code></pre>
+<p>Los detalles de estos comandos no son importantes aquí; el punto  importante es que hay varias actualizaciones separadas involucradas para lograr esta operación bastante simple. Los oficiales de nuestro banco  querrán estar seguros de que o todas estas actualizaciones ocurren, o  ninguna de ellas sucede. Ciertamente no haría por un fallo del sistema  que resultó en que Bob recibiera $100.00 que no fue debitado de Alice.  Alice tampoco seguiría siendo una clienta feliz si fuera cargada sin que Bob fuera acreditado. Necesitamos una garantía de que si algo sale mal a lo largo de la operación, ninguno de los pasos ejecutados hasta ahora  entrará en vigor. Agrupar las actualizaciones en una <em>transacción</em> nos da esta garantía. Se dice que una transacción es <em>atómica:</em> desde el punto de vista de otras transacciones, o bien ocurre completamente o no en absoluto.</p>
+<p>También queremos una garantía de que una vez que una transacción  sea completada y reconocida por el sistema de bases de datos, de hecho  se haya registrado permanentemente y no se pierda incluso si se produce  un accidente poco después. Por ejemplo, si estamos grabando un retiro de efectivo por parte de Bob, no queremos ninguna posibilidad de que el  adeudo a su cuenta desaparezca en un accidente justo después de salir  por la puerta del banco. Una base de datos transaccional garantiza que  todas las actualizaciones realizadas por una transacción se registran en el almacenamiento permanente (es decir, en el disco) antes de que se  informe de la transacción.</p>
+<p>Otra propiedad importante de las bases de datos transaccionales  está estrechamente relacionada con la noción de actualizaciones  atómicas: cuando varias transacciones se ejecutan simultáneamente, cada  una no debería ser capaz de ver los cambios incompletos realizados por  otros. Por ejemplo, si una transacción está ocupada por un total de  todos los saldos de la sucursal, no haría para que incluyera el adeudo  de la sucursal de Alice, pero no el crédito a la sucursal de Bob, ni  viceversa. Así que las transacciones deben ser todo o nada no sólo en  términos de su efecto permanente en la base de datos, sino también en  términos de su visibilidad a medida que suceden. Las actualizaciones  realizadas hasta ahora por una transacción abierta son invisibles a  otras transacciones hasta que la transacción se complete, con lo cual  todas las actualizaciones se hacen visibles simultáneamente.</p>
+<p>En PostgreSQL, una transacción se establece alrededor de los comandos SQL de la transacción con  <code>BEGIN</code>y  <code>COMMIT</code>comandos. Así que nuestra transacción bancaria en realidad se vería como:</p>
+<pre><code>BEGIN;
+UPDATE accounts SET balance = balance - 100.00
+    WHERE name = 'Alice';
+-- etc etc
+COMMIT;
+</code></pre>
+<p>Si, a lo largo de la transacción, decidimos que no queremos  comprometernos (quizás nos acabamos de notar que el saldo de Alice salió negativo), podemos emitir el comando  <code>ROLLBACK</code>en vez de <code>COMMIT</code>, y todas nuestras actualizaciones hasta ahora serán canceladas.</p>
+<p>PostgreSQL realmente trata cada declaración de SQL como si se ejecutara dentro de una transacción. Si no emites un  <code>BEGIN</code>comando, entonces cada declaración individual tiene un  <code>BEGIN</code>y (si tiene éxito)  <code>COMMIT</code>Envuelto alrededor de ella. Un grupo de declaraciones rodeados de  <code>BEGIN</code>y  <code>COMMIT</code>A veces se llama bloque de <em>transacciones</em>.</p>
+<blockquote>
+<p>Nota
+Algunas bibliotecas clientes emiten  <code>BEGIN</code>y  <code>COMMIT</code>comandos automáticamente, para que pueda obtener el efecto de los bloques de  transacciones sin preguntar. Coma control la documentación de la  interfaz que está utilizando.</p>
+</blockquote>
+<p>Es posible controlar las declaraciones en una transacción de una manera más granular a través del uso de <em>puntos de ahorro</em>. Savepoints le permite descartar selectivamente partes de la  transacción, al tiempo que compromete el resto. Después de definir un  punto de salvación con <code>SAVEPOINT</code>, puede si es necesario volver al punto de salvado con <code>ROLLBACK TO</code>. Todos los cambios de base de datos de la transacción entre definir el  punto de reserva y volver a ella se descartan, pero los cambios antes  del punto de salvado se mantienen.</p>
+<p>Después de volver a un punto de salva, se sigue definiendo, por lo  que puede volver a él varias veces. Por el contrario, si usted está  seguro de que no tendrá que volver a un punto de salvado en particular  de nuevo, se puede liberar, por lo que el sistema puede liberar algunos  recursos. Tenga en cuenta que la liberación o la vuelta a un punto de  ahorro liberará automáticamente todos los puntos de ahorro que se  definieron después de él.</p>
+<p>Todo esto está sucediendo dentro del bloque de transacciones, por  lo que nada de esto es visible para otras sesiones de base de datos.  Cuando y si usted comete el bloque de transacciones, las acciones  comprometidas se hacen visibles como una unidad a otras sesiones,  mientras que las acciones de la espalda enrollada nunca se hacen  visibles en absoluto.</p>
+<p>Recordando la base de datos del banco, supongamos que debitamos  $100.00 de la cuenta de Alice, y la cuenta de acreditar a Bob, sólo para encontrar más tarde que deberíamos haber acreditado la cuenta de Wally. Podríamos hacerlo usando puntos de ahorro como este:</p>
+<pre><code>BEGIN;
+UPDATE accounts SET balance = balance - 100.00
+    WHERE name = 'Alice';
+SAVEPOINT my_savepoint;
+UPDATE accounts SET balance = balance + 100.00
+    WHERE name = 'Bob';
+-- oops ... forget that and use Wally's account
+ROLLBACK TO my_savepoint;
+UPDATE accounts SET balance = balance + 100.00
+    WHERE name = 'Wally';
+COMMIT;
+</code></pre>
+<p>Este ejemplo es, por supuesto, demasiado simplificado, pero hay  mucho control posible en un bloque de transacciones a través del uso de  puntos de ahorro. Además,  <code>ROLLBACK TO</code>es la única manera de recuperar el control de un bloque de transacciones  que fue puesto en estado abortado por el sistema debido a un error, a  falta de rodarlo completamente y empezar de nuevo.</p>
+</article>
+</div>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+            Volver al principio
+          </button>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.top.sticky", "navigation.tabs", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+<script src="../../../assets/javascripts/bundle.fac441b0.min.js"></script>
+<script src="../../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>

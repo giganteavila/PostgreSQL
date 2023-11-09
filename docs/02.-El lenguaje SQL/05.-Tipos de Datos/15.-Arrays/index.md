@@ -1,0 +1,1 @@
+PostgreSQL permite definir columnas de una tabla como matrices multidimensionales  de longitud variable. Se pueden crear los Arrays de cualquier tipo de  base incorporado o definido por el usuario, tipo enum, tipo compuesto,  tipo de rango o dominio.

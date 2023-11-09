@@ -1,0 +1,1 @@
+En esta sección se describen funciones y operadores adicionales que son útiles en relación con la búsqueda de texto.

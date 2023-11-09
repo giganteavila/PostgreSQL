@@ -1,0 +1,1 @@
+Las funciones descritas en esta sección se utilizan para obtener diversa información sobre una instalación de PostgreSQL.

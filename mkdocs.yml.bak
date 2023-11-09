@@ -1,4 +1,4 @@
-site_name: ASGBD (PostgreSQL)
+site_name: ASGBD
 
 #nav:
 #    - Inicio: index.md
@@ -14,8 +14,8 @@ site_name: ASGBD (PostgreSQL)
 #        - License: license.md
 #        - Release Notes: release-notes.md
 nav:
+  - ./index.md
   - 01.-Tutorial:
-    - ./01.-Tutorial/index.md
     - 01.-Cómo empezar:
       - 01.-Instalación: ./01.-Tutorial/01.-Cómo empezar/01.-Instalación.md
       - 02.-Fundamentos arquitectónicos: ./01.-Tutorial/01.-Cómo empezar/02.-Fundamentos arquitectónicos.md
