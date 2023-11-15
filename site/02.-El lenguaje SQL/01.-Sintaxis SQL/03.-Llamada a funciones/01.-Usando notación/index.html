@@ -1,0 +1,3299 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../" rel="prev"/>
+<link href="../02.-Usando%20notaci%C3%B3n%20nombrada/" rel="next"/>
+<link href="../../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.3, mkdocs-material-9.1.11" name="generator"/>
+<title>01.-Usando notación - ASGBD</title>
+<link href="../../../../assets/stylesheets/main.85bb2934.min.css" rel="stylesheet"/>
+<link href="../../../../assets/stylesheets/palette.a6bdf11c.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="green" data-md-color-primary="blue-grey" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Cabecera" class="md-header__inner md-grid">
+<a aria-label="ASGBD" class="md-header__button md-logo" data-md-component="logo" href="../../../.." title="ASGBD">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            ASGBD
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              01.-Usando notación
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="green" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="blue-grey" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="green" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="blue-grey" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Búsqueda" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Búsqueda" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Buscar" class="md-search__options">
+<button aria-label="Limpiar" class="md-search__icon md-icon" tabindex="-1" title="Limpiar" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Pestañas" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../..">
+      PostgreSQL
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../../01.-Tutorial/">
+        01.-Tutorial
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="../../../">
+        02.-El lenguaje SQL
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navegación" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="ASGBD" class="md-nav__button md-logo" data-md-component="logo" href="../../../.." title="ASGBD">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    ASGBD
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../..">
+        PostgreSQL
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../../01.-Tutorial/">01.-Tutorial</a>
+<label for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          01.-Tutorial
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          01.-Cómo empezar
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_2">
+<span class="md-nav__icon md-icon"></span>
+          01.-Cómo empezar
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../01.-Tutorial/01.-C%C3%B3mo%20empezar/01.-Instalaci%C3%B3n/">
+        01.-Instalación
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../01.-Tutorial/01.-C%C3%B3mo%20empezar/02.-Fundamentos%20arquitect%C3%B3nicos/">
+        02.-Fundamentos arquitectónicos
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../01.-Tutorial/01.-C%C3%B3mo%20empezar/03.-Creando%20una%20Base%20de%20Datos/">
+        03.-Creando una Base de Datos
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../01.-Tutorial/01.-C%C3%B3mo%20empezar/04.-Accediendo%20a%20una%20base%20de%20datos/">
+        04.-Accediendo a una base de datos
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          02.-El lenguaje SQL
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+          02.-El lenguaje SQL
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../01.-Tutorial/02.-El%20lenguaje%20SQL/01.-Introducci%C3%B3n/">
+        01.-Introducción
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../01.-Tutorial/02.-El%20lenguaje%20SQL/02.-Conceptos/">
+        02.-Conceptos
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../01.-Tutorial/02.-El%20lenguaje%20SQL/03.-Creando%20una%20nueva%20tabla/">
+        03.-Creando una nueva tabla
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../01.-Tutorial/02.-El%20lenguaje%20SQL/04.-Cargando%20una%20tabla%20con%20filas/">
+        04.-Cargando una tabla con filas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../01.-Tutorial/02.-El%20lenguaje%20SQL/05.-Consulta%20de%20tablas/">
+        05.-Consulta de tablas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../01.-Tutorial/02.-El%20lenguaje%20SQL/06.-Uniones%20de%20tablas/">
+        06.-Uniones de tablas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../01.-Tutorial/02.-El%20lenguaje%20SQL/07.-Funciones%20agregadas/">
+        07.-Funciones agregadas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../01.-Tutorial/02.-El%20lenguaje%20SQL/08.-Actualizaciones/">
+        08.-Actualizaciones
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../01.-Tutorial/02.-El%20lenguaje%20SQL/09.-Borrados/">
+        09.-Borrados
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+          03.-Características avanzadas
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_4">
+<span class="md-nav__icon md-icon"></span>
+          03.-Características avanzadas
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/01.-Introducci%C3%B3n/">
+        01.-Introducción
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/02.-Vistas/">
+        02.-Vistas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/03.-Claves%20for%C3%A1neas/">
+        03.-Claves foráneas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/04.-Transacciones/">
+        04.-Transacciones
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/05.-Funciones%20de%20ventanas/">
+        05.-Funciones de ventanas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/06.-Herencia/">
+        06.-Herencia
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/07.-Conclusi%C3%B3n/">
+        07.-Conclusión
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../">02.-El lenguaje SQL</a>
+<label for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          02.-El lenguaje SQL
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+          01.-Sintaxis SQL
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_3_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+          01.-Sintaxis SQL
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2_1" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../01.-Estructura%20l%C3%A9xica/">01.-Estructura léxica</a>
+<label for="__nav_3_2_1">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_1_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_2_1">
+<span class="md-nav__icon md-icon"></span>
+          01.-Estructura léxica
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01.-Estructura%20l%C3%A9xica/01.-Identificadores%20y%20palabras%20clave/">
+        01.-Identificadores y palabras clave
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01.-Estructura%20l%C3%A9xica/02.-Constantes/">
+        02.-Constantes
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01.-Estructura%20l%C3%A9xica/03.-Operadores/">
+        03.-Operadores
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01.-Estructura%20l%C3%A9xica/04.-Comentarios/">
+        04.-Comentarios
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01.-Estructura%20l%C3%A9xica/05.-Precedencia%20de%20Operadores/">
+        05.-Precedencia de Operadores
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../02.-Expresiones%20de%20valor/">02.-Expresiones de valor</a>
+<label for="__nav_3_2_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_2_2">
+<span class="md-nav__icon md-icon"></span>
+          02.-Expresiones de valor
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-Expresiones%20de%20valor/01.-Referencias%20de%20columnas/">
+        01.-Referencias de columnas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-Expresiones%20de%20valor/02.-Par%C3%A1metros%20de%20posici%C3%B3n/">
+        02.-Parámetros de posición
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-Expresiones%20de%20valor/03.-Suscriptores/">
+        03.-Suscriptores
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-Expresiones%20de%20valor/04.-Selecci%C3%B3n%20de%20Campo/">
+        04.-Selección de Campo
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-Expresiones%20de%20valor/05.-Invocatorias%20de%20operador/">
+        05.-Invocatorias de operador
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-Expresiones%20de%20valor/06.-Llamadas%20de%20funci%C3%B3n/">
+        06.-Llamadas de función
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-Expresiones%20de%20valor/07.-Expresiones%20agregadas/">
+        07.-Expresiones agregadas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-Expresiones%20de%20valor/08.-Llamadas%20de%20funci%C3%B3n%20de%20ventanas/">
+        08.-Llamadas de función de ventanas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-Expresiones%20de%20valor/09.-Tipos%20de%20fusi%C3%B3n/">
+        09.-Tipos de fusión
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-Expresiones%20de%20valor/10.-Expresiones%20de%20la%20colaci%C3%B3n/">
+        10.-Expresiones de la colación
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-Expresiones%20de%20valor/11.-Sucoquesas%20de%20escalar/">
+        11.-Sucoquesas de escalar
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-Expresiones%20de%20valor/12.-Constructores%20de%20Array/">
+        12.-Constructores de Array
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-Expresiones%20de%20valor/13.-Constructores%20de%20filas/">
+        13.-Constructores de filas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-Expresiones%20de%20valor/14.-Reglas%20de%20evaluaci%C3%B3n%20de%20la%20expresi%C3%B3n/">
+        14.-Reglas de evaluación de la expresión
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3_2_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../">03.-Llamada a funciones</a>
+<label for="__nav_3_2_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_3_2_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_2_3">
+<span class="md-nav__icon md-icon"></span>
+          03.-Llamada a funciones
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
+        01.-Usando notación
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../02.-Usando%20notaci%C3%B3n%20nombrada/">
+        02.-Usando notación nombrada
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../03.-Usando%20Notaci%C3%B3n%20Mixta/">
+        03.-Usando Notación Mixta
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../02.-Definici%C3%B3n%20de%20Datos/">02.-Definición de Datos</a>
+<label for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+          02.-Definición de Datos
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/01.-B%C3%A1sicos%20de%20la%20tabla/">
+        01.-Básicos de la tabla
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/02.-Valores%20predeterminados/">
+        02.-Valores predeterminados
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/03.-Columnas%20generadas/">
+        03.-Columnas generadas
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_3_5" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../02.-Definici%C3%B3n%20de%20Datos/04.-Restricciones/">04.-Restricciones</a>
+<label for="__nav_3_3_5">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_5_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_3_5">
+<span class="md-nav__icon md-icon"></span>
+          04.-Restricciones
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/04.-Restricciones/01.-Comprobar%20restricciones/">
+        01.-Comprobar restricciones
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/04.-Restricciones/02.-No-Null%20Constraints/">
+        02.-No-Null Constraints
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/04.-Restricciones/03.-Restricciones%20%C3%BAnicas/">
+        03.-Restricciones únicas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/04.-Restricciones/04.-Claves%20primarias/">
+        04.-Claves primarias
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/04.-Restricciones/05.-Claves%20for%C3%A1neas/">
+        05.-Claves foráneas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/04.-Restricciones/06.-Restricciones%20de%20exclusi%C3%B3n/">
+        06.-Restricciones de exclusión
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/05.-Columnas%20de%20sistema/">
+        05.-Columnas de sistema
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_3_7" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../02.-Definici%C3%B3n%20de%20Datos/06.-Tablas%20de%20modificaci%C3%B3n/">06.-Tablas de modificación</a>
+<label for="__nav_3_3_7">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_7_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_3_7">
+<span class="md-nav__icon md-icon"></span>
+          06.-Tablas de modificación
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/06.-Tablas%20de%20modificaci%C3%B3n/01.-A%C3%B1adir%20una%20columna/">
+        01.-Añadir una columna
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/06.-Tablas%20de%20modificaci%C3%B3n/02.-Quitar%20una%20columna/">
+        02.-Quitar una columna
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/06.-Tablas%20de%20modificaci%C3%B3n/03.-A%C3%B1adir%20una%20restricci%C3%B3n/">
+        03.-Añadir una restricción
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/06.-Tablas%20de%20modificaci%C3%B3n/04.-Quitar%20una%20restricci%C3%B3n/">
+        04.-Quitar una restricción
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/06.-Tablas%20de%20modificaci%C3%B3n/05.-Cambiar%20el%20valor%20predeterminado%20de%20una%20columna/">
+        05.-Cambiar el valor predeterminado de una columna
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/06.-Tablas%20de%20modificaci%C3%B3n/06.-Cambiar%20el%20tipo%20de%20datos%20de%20una%20columna/">
+        06.-Cambiar el tipo de datos de una columna
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/06.-Tablas%20de%20modificaci%C3%B3n/07.-Renombrando%20una%20columna/">
+        07.-Renombrando una columna
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/06.-Tablas%20de%20modificaci%C3%B3n/08.-Renombrando%20una%20tabla/">
+        08.-Renombrando una tabla
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/07.-Privilegios/">
+        07.-Privilegios
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/08.-Pol%C3%ADticas%20de%20seguridad%20de%20filas/">
+        08.-Políticas de seguridad de filas
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_3_10" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../02.-Definici%C3%B3n%20de%20Datos/09.-Esquemas/">09.-Esquemas</a>
+<label for="__nav_3_3_10">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_10_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_3_10">
+<span class="md-nav__icon md-icon"></span>
+          09.-Esquemas
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/09.-Esquemas/01.-Creaci%C3%B3n%20de%20un%20esquema/">
+        01.-Creación de un esquema
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/09.-Esquemas/02.-El%20esquema%20p%C3%BAblico/">
+        02.-El esquema público
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/09.-Esquemas/03.-El%20camino%20de%20b%C3%BAsqueda%20de%20esquemas/">
+        03.-El camino de búsqueda de esquemas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/09.-Esquemas/04.-Esquemas%20y%20privilegios/">
+        04.-Esquemas y privilegios
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/09.-Esquemas/05.-El%20esquema%20de%20cat%C3%A1logo%20del%20sistema/">
+        05.-El esquema de catálogo del sistema
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/09.-Esquemas/06.-Patrones%20de%20uso/">
+        06.-Patrones de uso
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/09.-Esquemas/07.-Portabilidad/">
+        07.-Portabilidad
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_3_11" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../02.-Definici%C3%B3n%20de%20Datos/10.-Herencia/">10.-Herencia</a>
+<label for="__nav_3_3_11">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_11_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_3_11">
+<span class="md-nav__icon md-icon"></span>
+          10.-Herencia
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/10.-Herencia/01.-Advertencias/">
+        01.-Advertencias
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_3_12" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../02.-Definici%C3%B3n%20de%20Datos/11.-Particionado%20de%20tablas/">11.-Particionado de tablas</a>
+<label for="__nav_3_3_12">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_12_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_3_12">
+<span class="md-nav__icon md-icon"></span>
+          11.-Particionado de tablas
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/11.-Particionado%20de%20tablas/01.-Vista%20General/">
+        01.-Vista General
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_3_12_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../02.-Definici%C3%B3n%20de%20Datos/11.-Particionado%20de%20tablas/02.-Partici%C3%B3n%20declarativa/">02.-Partición declarativa</a>
+<label for="__nav_3_3_12_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_12_3_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_3_3_12_3">
+<span class="md-nav__icon md-icon"></span>
+          02.-Partición declarativa
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/11.-Particionado%20de%20tablas/02.-Partici%C3%B3n%20declarativa/01.-Ejemplo/">
+        01.-Ejemplo
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/11.-Particionado%20de%20tablas/02.-Partici%C3%B3n%20declarativa/02.-Mantenimiento%20de%20particiones/">
+        02.-Mantenimiento de particiones
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/11.-Particionado%20de%20tablas/02.-Partici%C3%B3n%20declarativa/03.-Limitaciones/">
+        03.-Limitaciones
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_3_12_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../02.-Definici%C3%B3n%20de%20Datos/11.-Particionado%20de%20tablas/03.-Partici%C3%B3n%20del%20uso%20de%20la%20herencia/">03.-Partición del uso de la herencia</a>
+<label for="__nav_3_3_12_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_12_4_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_3_3_12_4">
+<span class="md-nav__icon md-icon"></span>
+          03.-Partición del uso de la herencia
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/11.-Particionado%20de%20tablas/03.-Partici%C3%B3n%20del%20uso%20de%20la%20herencia/01.-Ejemplo/">
+        01.-Ejemplo
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/11.-Particionado%20de%20tablas/03.-Partici%C3%B3n%20del%20uso%20de%20la%20herencia/02.-Mantenimiento%20de%20la%20particiones%20con%20herencia/">
+        02.-Mantenimiento de la particiones con herencia
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/11.-Particionado%20de%20tablas/03.-Partici%C3%B3n%20del%20uso%20de%20la%20herencia/03.-Advertencias/">
+        03.-Advertencias
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/11.-Particionado%20de%20tablas/04.-Partici%C3%B3n%20de%20poda/">
+        04.-Partición de poda
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/11.-Particionado%20de%20tablas/05.-Partici%C3%B3n%20y%20restricci%C3%B3n%20de%20la%20exclusi%C3%B3n/">
+        05.-Partición y restricción de la exclusión
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/11.-Particionado%20de%20tablas/06.-Buenas%20pr%C3%A1cticas%20para%20la%20partici%C3%B3n%20declarativa/">
+        06.-Buenas prácticas para la partición declarativa
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/12.-Datos%20for%C3%A1neos/">
+        12.-Datos foráneos
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/13.-Otros%20objetos%20de%20la%20BD/">
+        13.-Otros objetos de la BD
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../02.-Definici%C3%B3n%20de%20Datos/14.-Seguimiento%20de%20la%20dependencia/">
+        14.-Seguimiento de la dependencia
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../03.-Manipulaci%C3%B3n%20de%20Datos/">03.-Manipulación de Datos</a>
+<label for="__nav_3_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_4">
+<span class="md-nav__icon md-icon"></span>
+          03.-Manipulación de Datos
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../03.-Manipulaci%C3%B3n%20de%20Datos/01.-Inserci%C3%B3n%20de%20Datos/">
+        01.-Inserción de Datos
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../03.-Manipulaci%C3%B3n%20de%20Datos/02.-Actualizaci%C3%B3n%20de%20Datos/">
+        02.-Actualización de Datos
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../03.-Manipulaci%C3%B3n%20de%20Datos/03.-Supresi%C3%B3n%20de%20Datos/">
+        03.-Supresión de Datos
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../03.-Manipulaci%C3%B3n%20de%20Datos/04.-Devoluci%C3%B3n%20de%20Datos%20de%20filas%20modificadas/">
+        04.-Devolución de Datos de filas modificadas
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_5" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../04.-Consultas/">04.-Consultas</a>
+<label for="__nav_3_5">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_5">
+<span class="md-nav__icon md-icon"></span>
+          04.-Consultas
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../04.-Consultas/01.-Vista%20general/">
+        01.-Vista general
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_5_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../04.-Consultas/02.-Expresiones%20de%20tablas/">02.-Expresiones de tablas</a>
+<label for="__nav_3_5_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_5_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_5_3">
+<span class="md-nav__icon md-icon"></span>
+          02.-Expresiones de tablas
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_5_3_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../04.-Consultas/02.-Expresiones%20de%20tablas/01.-La%20cl%C3%A1usula%20FROM/">01.-La cláusula FROM</a>
+<label for="__nav_3_5_3_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_5_3_2_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_3_5_3_2">
+<span class="md-nav__icon md-icon"></span>
+          01.-La cláusula FROM
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../04.-Consultas/02.-Expresiones%20de%20tablas/01.-La%20cl%C3%A1usula%20FROM/01.-Uni%C3%B3n%20de%20tablas/">
+        01.-Unión de tablas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../04.-Consultas/02.-Expresiones%20de%20tablas/01.-La%20cl%C3%A1usula%20FROM/02.-Tablas%20y%20alias%20de%20columnas/">
+        02.-Tablas y alias de columnas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../04.-Consultas/02.-Expresiones%20de%20tablas/01.-La%20cl%C3%A1usula%20FROM/03.-Subclases/">
+        03.-Subclases
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../04.-Consultas/02.-Expresiones%20de%20tablas/01.-La%20cl%C3%A1usula%20FROM/04.-Funciones%20de%20Tabla/">
+        04.-Funciones de Tabla
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../04.-Consultas/02.-Expresiones%20de%20tablas/01.-La%20cl%C3%A1usula%20FROM/05.-%20La%20subclase%20LATERAL/">
+        05.- La subclase LATERAL
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../04.-Consultas/02.-Expresiones%20de%20tablas/02.-La%20Cl%C3%A1usula%20WHERE/">
+        02.-La Cláusula WHERE
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../04.-Consultas/02.-Expresiones%20de%20tablas/03.-Las%20cl%C3%A1usulas%20GROUP%20BY%20%20y%20HAVING/">
+        03.-Las cláusulas GROUP BY  y HAVING
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../04.-Consultas/02.-Expresiones%20de%20tablas/04.-GROUPING%20SETS%2C%20CUBE%20%20y%20ROLLUP/">
+        04.-GROUPING SETS, CUBE  y ROLLUP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../04.-Consultas/02.-Expresiones%20de%20tablas/05.-Procesamiento%20de%20la%20funci%C3%B3n%20de%20la%20ventana/">
+        05.-Procesamiento de la función de la ventana
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_5_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../04.-Consultas/03.-%20Selecci%C3%B3n%20de%20listas/">03.- Selección de listas</a>
+<label for="__nav_3_5_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_5_4_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_5_4">
+<span class="md-nav__icon md-icon"></span>
+          03.- Selección de listas
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../04.-Consultas/03.-%20Selecci%C3%B3n%20de%20listas/01.-Art%C3%ADculos%20de%20la%20lista/">
+        01.-Artículos de la lista
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../04.-Consultas/03.-%20Selecci%C3%B3n%20de%20listas/02.-Etiquetas%20de%20columnas/">
+        02.-Etiquetas de columnas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../04.-Consultas/03.-%20Selecci%C3%B3n%20de%20listas/03.-DISTINCT/">
+        03.-DISTINCT
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../04.-Consultas/04.-Combinando%20consultas%20%28UNION%2C%20INTERSECT%2C%20EXCEPT%29/">
+        04.-Combinando consultas (UNION, INTERSECT, EXCEPT)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../04.-Consultas/05.-Ordenando%20filas%20%28ORDER%20BY%29/">
+        05.-Ordenando filas (ORDER BY)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../04.-Consultas/06.-LIMIT%20y%20OFFSET/">
+        06.-LIMIT y OFFSET
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../04.-Consultas/07.-Listas%20VALUES/">
+        07.-Listas VALUES
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../04.-Consultas/08.-Constultas%20WITH%20%28Expresiones%20de%20tablas%20comunes%29/">
+        08.-Constultas WITH (Expresiones de tablas comunes)
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_5_10" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../04.-Consultas/08.-Consultas%20WITH%20%28Expresiones%20de%20tablas%20comunes%29/">08.-Consultas WITH (Expresiones de tablas comunes)</a>
+<label for="__nav_3_5_10">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_5_10_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_5_10">
+<span class="md-nav__icon md-icon"></span>
+          08.-Consultas WITH (Expresiones de tablas comunes)
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../04.-Consultas/08.-Consultas%20WITH%20%28Expresiones%20de%20tablas%20comunes%29/01.-SELECT%20en%20WITH/">
+        01.-SELECT en WITH
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_5_10_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../04.-Consultas/08.-Consultas%20WITH%20%28Expresiones%20de%20tablas%20comunes%29/02.-Consultas%20recursivas/index">02.-Consultas recursivas</a>
+<label for="__nav_3_5_10_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_5_10_3_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_3_5_10_3">
+<span class="md-nav__icon md-icon"></span>
+          02.-Consultas recursivas
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../04.-Consultas/08.-Consultas%20WITH%20%28Expresiones%20de%20tablas%20comunes%29/02.-Consultas%20recursivas/01.-Orden%20de%20b%C3%BAsqueda/">
+        01.-Orden de búsqueda
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../04.-Consultas/08.-Consultas%20WITH%20%28Expresiones%20de%20tablas%20comunes%29/02.-Consultas%20recursivas/01.-SELECT%20en%20WITH/">
+        01.-SELECT en WITH
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../04.-Consultas/08.-Consultas%20WITH%20%28Expresiones%20de%20tablas%20comunes%29/02.-Consultas%20recursivas/02.-Detecci%C3%B3n%20de%20ciclos/">
+        02.-Detección de ciclos
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../04.-Consultas/08.-Consultas%20WITH%20%28Expresiones%20de%20tablas%20comunes%29/03.-Materializaci%C3%B3n%20com%C3%BAn%20de%20la%20expresi%C3%B3n%20de%20tabla/">
+        03.-Materialización común de la expresión de tabla
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../04.-Consultas/08.-Consultas%20WITH%20%28Expresiones%20de%20tablas%20comunes%29/04.-Declaraciones%20de%20Data-Modifying%20en%20WITH/">
+        04.-Declaraciones de Data-Modifying en WITH
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_6" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../05.-Tipos%20de%20Datos/">05.-Tipos de Datos</a>
+<label for="__nav_3_6">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_6">
+<span class="md-nav__icon md-icon"></span>
+          05.-Tipos de Datos
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_6_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../05.-Tipos%20de%20Datos/01.-Tipos%20Num%C3%A9ricos/">01.-Tipos Numéricos</a>
+<label for="__nav_3_6_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_6_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_6_2">
+<span class="md-nav__icon md-icon"></span>
+          01.-Tipos Numéricos
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/01.-Tipos%20Num%C3%A9ricos/01.-Tipos%20enteros/">
+        01.-Tipos enteros
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/01.-Tipos%20Num%C3%A9ricos/02.-N%C3%BAmeros%20de%20precisi%C3%B3n%20arbitraria/">
+        02.-Números de precisión arbitraria
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/01.-Tipos%20Num%C3%A9ricos/03.-Tipos%20en%20punto%20flotante/">
+        03.-Tipos en punto flotante
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/01.-Tipos%20Num%C3%A9ricos/04.-Tipos%20de%20serie/">
+        04.-Tipos de serie
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/02.-Tipos%20monetarios/">
+        02.-Tipos monetarios
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/03.-Tipos%20car%C3%A1cter/">
+        03.-Tipos carácter
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_6_5" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../05.-Tipos%20de%20Datos/04.-Tipos%20de%20datos%20binarios/">04.-Tipos de datos binarios</a>
+<label for="__nav_3_6_5">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_6_5_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_6_5">
+<span class="md-nav__icon md-icon"></span>
+          04.-Tipos de datos binarios
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/04.-Tipos%20de%20datos%20binarios/01.-Formato%20byteaHex/">
+        01.-Formato byteaHex
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/04.-Tipos%20de%20datos%20binarios/02.-Formato%20byteaEscapar/">
+        02.-Formato byteaEscapar
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_6_6" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../05.-Tipos%20de%20Datos/05.-Tipos%20Fecha-Hora/">05.-Tipos Fecha-Hora</a>
+<label for="__nav_3_6_6">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_6_6_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_6_6">
+<span class="md-nav__icon md-icon"></span>
+          05.-Tipos Fecha-Hora
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_6_6_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_6_6_2" id="__nav_3_6_6_2_label" tabindex="0">
+          01.-Fecha-aportación de tiempo.md (Conflicto de mayúsculas y minúsculas)
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_6_6_2_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_3_6_6_2">
+<span class="md-nav__icon md-icon"></span>
+          01.-Fecha-aportación de tiempo.md (Conflicto de mayúsculas y minúsculas)
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/05.-Tipos%20Fecha-Hora/01.-Fecha-aportaci%C3%B3n%20de%20tiempo.md%20%28Conflicto%20de%20may%C3%BAsculas%20y%20min%C3%BAsculas%29/01.-Fechas/">
+        01.-Fechas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/05.-Tipos%20Fecha-Hora/01.-Fecha-aportaci%C3%B3n%20de%20tiempo.md%20%28Conflicto%20de%20may%C3%BAsculas%20y%20min%C3%BAsculas%29/02.-Horas/">
+        02.-Horas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/05.-Tipos%20Fecha-Hora/01.-Fecha-aportaci%C3%B3n%20de%20tiempo.md%20%28Conflicto%20de%20may%C3%BAsculas%20y%20min%C3%BAsculas%29/03.-Mess%20de%20tiempo/">
+        03.-Mess de tiempo
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/05.-Tipos%20Fecha-Hora/01.-Fecha-aportaci%C3%B3n%20de%20tiempo.md%20%28Conflicto%20de%20may%C3%BAsculas%20y%20min%C3%BAsculas%29/04.-Valores%20especiales/">
+        04.-Valores especiales
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/05.-Tipos%20Fecha-Hora/02.-Formato%20de%20salida/">
+        02.-Formato de salida
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/05.-Tipos%20Fecha-Hora/03.-Zonas%20horarias/">
+        03.-Zonas horarias
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/05.-Tipos%20Fecha-Hora/04.-Intervalo%20de%20valores/">
+        04.-Intervalo de valores
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/05.-Tipos%20Fecha-Hora/05.-Salida%20de%20intervalos/">
+        05.-Salida de intervalos
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/06.-Tipo%20booleano/">
+        06.-Tipo booleano
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_6_8" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../05.-Tipos%20de%20Datos/07.-Tipos%20enumerados/">07.-Tipos enumerados</a>
+<label for="__nav_3_6_8">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_6_8_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_6_8">
+<span class="md-nav__icon md-icon"></span>
+          07.-Tipos enumerados
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/07.-Tipos%20enumerados/01.-Declaraci%C3%B3n%20de%20los%20tipos%20enumerados/">
+        01.-Declaración de los tipos enumerados
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/07.-Tipos%20enumerados/02.-Ordenando/">
+        02.-Ordenando
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/07.-Tipos%20enumerados/03.-Tipo%20de%20Seguridad/">
+        03.-Tipo de Seguridad
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/07.-Tipos%20enumerados/04.-Detalles%20de%20la%20implementaci%C3%B3n/">
+        04.-Detalles de la implementación
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_6_9" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../05.-Tipos%20de%20Datos/08.-Tipos%20Geom%C3%A9tricos/">08.-Tipos Geométricos</a>
+<label for="__nav_3_6_9">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_6_9_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_6_9">
+<span class="md-nav__icon md-icon"></span>
+          08.-Tipos Geométricos
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/08.-Tipos%20Geom%C3%A9tricos/01.-Puntos/">
+        01.-Puntos
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/08.-Tipos%20Geom%C3%A9tricos/02.-L%C3%ADneas/">
+        02.-Líneas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/08.-Tipos%20Geom%C3%A9tricos/03.-Segmentos%20de%20l%C3%ADnea/">
+        03.-Segmentos de línea
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/08.-Tipos%20Geom%C3%A9tricos/04.-Cajas/">
+        04.-Cajas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/08.-Tipos%20Geom%C3%A9tricos/05.-Caminos/">
+        05.-Caminos
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/08.-Tipos%20Geom%C3%A9tricos/06.-Pol%C3%ADgonos/">
+        06.-Polígonos
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/08.-Tipos%20Geom%C3%A9tricos/07.-C%C3%ADrculos/">
+        07.-Círculos
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_6_10" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../05.-Tipos%20de%20Datos/09.-Tipos%20de%20direcci%C3%B3n%20de%20red/">09.-Tipos de dirección de red</a>
+<label for="__nav_3_6_10">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_6_10_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_6_10">
+<span class="md-nav__icon md-icon"></span>
+          09.-Tipos de dirección de red
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/09.-Tipos%20de%20direcci%C3%B3n%20de%20red/01.-inet/">
+        01.-inet
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/09.-Tipos%20de%20direcci%C3%B3n%20de%20red/02.-cidr/">
+        02.-cidr
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/09.-Tipos%20de%20direcci%C3%B3n%20de%20red/03.-inet%20vs%20cidr/">
+        03.-inet vs cidr
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/09.-Tipos%20de%20direcci%C3%B3n%20de%20red/04.-macaddr/">
+        04.-macaddr
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/09.-Tipos%20de%20direcci%C3%B3n%20de%20red/05.-macaddr8/">
+        05.-macaddr8
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/10.-Tipo%20cadena%20de%20bits/">
+        10.-Tipo cadena de bits
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_6_12" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../05.-Tipos%20de%20Datos/11.-Tipos%20de%20b%C3%BAsqueda%20de%20texto/">11.-Tipos de búsqueda de texto</a>
+<label for="__nav_3_6_12">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_6_12_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_6_12">
+<span class="md-nav__icon md-icon"></span>
+          11.-Tipos de búsqueda de texto
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/11.-Tipos%20de%20b%C3%BAsqueda%20de%20texto/01.-tsvector/">
+        01.-tsvector
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/11.-Tipos%20de%20b%C3%BAsqueda%20de%20texto/02.-tsquery/">
+        02.-tsquery
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/12.-Tipo%20UUID/">
+        12.-Tipo UUID
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_6_14" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_6_14" id="__nav_3_6_14_label" tabindex="0">
+          13.-El tipo XML
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_6_14_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_6_14">
+<span class="md-nav__icon md-icon"></span>
+          13.-El tipo XML
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/13.-El%20tipo%20XML/01.-Creaci%C3%B3n%20de%20valores%20XML/">
+        01.-Creación de valores XML
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/13.-El%20tipo%20XML/02.-Manejo%20de%20la%20codificaci%C3%B3n%20de%20codificaci%C3%B3n/">
+        02.-Manejo de la codificación de codificación
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/13.-El%20tipo%20XML/03.-Acceso%20a%20valores%20XML/">
+        03.-Acceso a valores XML
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/13.-El%20tipo%20XML/Untitled/">
+        Untitled
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/13.-El%20tipo%20XML/index./">
+        index.
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_6_15" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../05.-Tipos%20de%20Datos/14.-El%20Tipo%20JSON/">14.-El Tipo JSON</a>
+<label for="__nav_3_6_15">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_6_15_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_6_15">
+<span class="md-nav__icon md-icon"></span>
+          14.-El Tipo JSON
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/14.-El%20Tipo%20JSON/01.-Entradas%20JSON%20y%20sintaxis%20de%20salida/">
+        01.-Entradas JSON y sintaxis de salida
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/14.-El%20Tipo%20JSON/02.-Dise%C3%B1ar%20documentos%20JSON/">
+        02.-Diseñar documentos JSON
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/14.-El%20Tipo%20JSON/03.-jsonb%20Contenci%C3%B3n%20y%20existencia/">
+        03.-jsonb Contención y existencia
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/14.-El%20Tipo%20JSON/04.-jsonb%20Indexaci%C3%B3n/">
+        04.-jsonb Indexación
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/14.-El%20Tipo%20JSON/05.-jsonb%20Suscripci%C3%B3n/">
+        05.-jsonb Suscripción
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/14.-El%20Tipo%20JSON/06.-Transformaci%C3%B3n/">
+        06.-Transformación
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/14.-El%20Tipo%20JSON/07.-Tipo%20jsonpath/">
+        07.-Tipo jsonpath
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_6_16" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../05.-Tipos%20de%20Datos/15.-Arrays/">15.-Arrays</a>
+<label for="__nav_3_6_16">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_6_16_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_6_16">
+<span class="md-nav__icon md-icon"></span>
+          15.-Arrays
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/15.-Arrays/01.-Declaraci%C3%B3n%20de%20los%20tipos%20de%20Array/">
+        01.-Declaración de los tipos de Array
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/15.-Arrays/02.-Entrada%20de%20valores%20en%20Arrays/">
+        02.-Entrada de valores en Arrays
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/15.-Arrays/03.-Accediendo%20a%20los%20Arrays/">
+        03.-Accediendo a los Arrays
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/15.-Arrays/04.-Modificando%20Arrays/">
+        04.-Modificando Arrays
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/15.-Arrays/05.-Buscando%20en%20Arrays/">
+        05.-Buscando en Arrays
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/15.-Arrays/06.-Entradas%20en%20Arrays%20y%20sintaxis%20de%20salida/">
+        06.-Entradas en Arrays y sintaxis de salida
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_6_17" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../05.-Tipos%20de%20Datos/16.-Tipos%20compuestos/">16.-Tipos compuestos</a>
+<label for="__nav_3_6_17">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_6_17_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_6_17">
+<span class="md-nav__icon md-icon"></span>
+          16.-Tipos compuestos
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/16.-Tipos%20compuestos/01.-Declaraci%C3%B3n%20de%20tipos%20compuestos/">
+        01.-Declaración de tipos compuestos
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/16.-Tipos%20compuestos/02.-Construcci%C3%B3n%20de%20tipos%20compuestos/">
+        02.-Construcción de tipos compuestos
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/16.-Tipos%20compuestos/03.-Acceso%20a%20tipos%20compuestos/">
+        03.-Acceso a tipos compuestos
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/16.-Tipos%20compuestos/04.-Modificaci%C3%B3n%20de%20tipos%20compuestos/">
+        04.-Modificación de tipos compuestos
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/16.-Tipos%20compuestos/05.-Uso%20de%20tipos%20compuestos%20en%20consultas/">
+        05.-Uso de tipos compuestos en consultas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/16.-Tipos%20compuestos/06.-Entrada%20de%20tipos%20compuestos%20y%20sintaxis%20de%20salida/">
+        06.-Entrada de tipos compuestos y sintaxis de salida
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_6_18" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../05.-Tipos%20de%20Datos/17.-Tipos%20de%20Rango/">17.-Tipos de Rango</a>
+<label for="__nav_3_6_18">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_6_18_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_6_18">
+<span class="md-nav__icon md-icon"></span>
+          17.-Tipos de Rango
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/17.-Tipos%20de%20Rango/01.-Gama%20de%20distribuci%C3%B3n%20y%20tipos%20multidisco%20construidos/">
+        01.-Gama de distribución y tipos multidisco construidos
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/17.-Tipos%20de%20Rango/02.-Ejemplos/">
+        02.-Ejemplos
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/17.-Tipos%20de%20Rango/03.-Escenas%20inclusivas%20y%20exclusivas/">
+        03.-Escenas inclusivas y exclusivas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/17.-Tipos%20de%20Rango/04.-Cora%20Ranges%20infinitos%20%28no%20consolidados%29/">
+        04.-Cora Ranges infinitos (no consolidados)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/17.-Tipos%20de%20Rango/05.-Aparcar%20entrada-producto/">
+        05.-Aparcar entrada-producto
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/17.-Tipos%20de%20Rango/06.-Construcci%C3%B3n%20de%20rangos%20y%20Multidiscos/">
+        06.-Construcción de rangos y Multidiscos
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/17.-Tipos%20de%20Rango/07.-Tipos%20de%20rango%20discretos/">
+        07.-Tipos de rango discretos
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/17.-Tipos%20de%20Rango/08.-Definir%20nuevos%20tipos%20de%20rango/">
+        08.-Definir nuevos tipos de rango
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/17.-Tipos%20de%20Rango/09.-Indiceci%C3%B3n/">
+        09.-Indiceción
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/17.-Tipos%20de%20Rango/10.-Limitaciones%20en%20las%20cordilleras/">
+        10.-Limitaciones en las cordilleras
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/18.-Tipos%20Dominio/">
+        18.-Tipos Dominio
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/19.-Tipos%20de%20Identificador%20de%20Objetos/">
+        19.-Tipos de Identificador de Objetos
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/20.-Tipo%20pg_lsn/">
+        20.-Tipo pg_lsn
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../05.-Tipos%20de%20Datos/21.-Pseudo%20tipos/">
+        21.-Pseudo tipos
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_7" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../06.-Funciones%20y%20operadores/">06.-Funciones y operadores</a>
+<label for="__nav_3_7">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_7">
+<span class="md-nav__icon md-icon"></span>
+          06.-Funciones y operadores
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/01.-Operadores%20l%C3%B3gicos/">
+        01.-Operadores lógicos
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/02.-Funciones%20y%20operadores%20de%20comparaci%C3%B3n/">
+        02.-Funciones y operadores de comparación
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/03.-Funciones%20y%20operadores%20matem%C3%A1ticos/">
+        03.-Funciones y operadores matemáticos
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_7_5" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../06.-Funciones%20y%20operadores/04.-Operadores%20y%20Funciones%20de%20cadena/">04.-Operadores y Funciones de cadena</a>
+<label for="__nav_3_7_5">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_7_5_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_7_5">
+<span class="md-nav__icon md-icon"></span>
+          04.-Operadores y Funciones de cadena
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/04.-Operadores%20y%20Funciones%20de%20cadena/01.-Formatos/">
+        01.-Formatos
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/05.-Funciones%20binarias%20de%20cuerda%20y%20operadores/">
+        05.-Funciones binarias de cuerda y operadores
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/06.-Funciones%20de%20cuerda%20de%20cuerda%20y%20operadores/">
+        06.-Funciones de cuerda de cuerda y operadores
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_7_8" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../06.-Funciones%20y%20operadores/07.-Emparejado%20de%20patrones/">07.-Emparejado de patrones</a>
+<label for="__nav_3_7_8">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_7_8_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_7_8">
+<span class="md-nav__icon md-icon"></span>
+          07.-Emparejado de patrones
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/07.-Emparejado%20de%20patrones/01.-LIKE/">
+        01.-LIKE
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/07.-Emparejado%20de%20patrones/02.-SIMILAR%20TO%20Regular%20Expressions/">
+        02.-SIMILAR TO Regular Expressions
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_7_8_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../06.-Funciones%20y%20operadores/07.-Emparejado%20de%20patrones/03.-Expresiones%20Regulares%20POSIX/">03.-Expresiones Regulares POSIX</a>
+<label for="__nav_3_7_8_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_7_8_4_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_3_7_8_4">
+<span class="md-nav__icon md-icon"></span>
+          03.-Expresiones Regulares POSIX
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/07.-Emparejado%20de%20patrones/03.-Expresiones%20Regulares%20POSIX/01.-Detalles%20de%20la%20Expresi%C3%B3n%20Regular/">
+        01.-Detalles de la Expresión Regular
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/07.-Emparejado%20de%20patrones/03.-Expresiones%20Regulares%20POSIX/02.-Expresiones%20de%20Bracket/">
+        02.-Expresiones de Bracket
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/07.-Emparejado%20de%20patrones/03.-Expresiones%20Regulares%20POSIX/03.-Expresiones%20Regulares%20de%20Escape/">
+        03.-Expresiones Regulares de Escape
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/07.-Emparejado%20de%20patrones/03.-Expresiones%20Regulares%20POSIX/04.-P%C3%A1rrafo.%20La%20expresi%C3%B3n%20REgular%20Metasyntax/">
+        04.-Párrafo. La expresión REgular Metasyntax
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/07.-Emparejado%20de%20patrones/03.-Expresiones%20Regulares%20POSIX/05.-Reglas%20de%20partido%20de%20Expresiones%20Regulares/">
+        05.-Reglas de partido de Expresiones Regulares
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/07.-Emparejado%20de%20patrones/03.-Expresiones%20Regulares%20POSIX/06.-L%C3%ADmites%20y%20compatibilidad/">
+        06.-Límites y compatibilidad
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/07.-Emparejado%20de%20patrones/03.-Expresiones%20Regulares%20POSIX/07.-Expresiones%20Regulares%20b%C3%A1sicas/">
+        07.-Expresiones Regulares básicas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/07.-Emparejado%20de%20patrones/03.-Expresiones%20Regulares%20POSIX/08.-Diferencias%20de%20SQL%20est%C3%A1ndar%20y%20XQuery/">
+        08.-Diferencias de SQL estándar y XQuery
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/08.-Funciones%20de%20Formato%20de%20tipo%20de%20datos/">
+        08.-Funciones de Formato de tipo de datos
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_7_10" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../06.-Funciones%20y%20operadores/09.-Funciones%20y%20Operadores%20de%20Fecha-Hora/">09.-Funciones y Operadores de Fecha-Hora</a>
+<label for="__nav_3_7_10">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_7_10_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_7_10">
+<span class="md-nav__icon md-icon"></span>
+          09.-Funciones y Operadores de Fecha-Hora
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/09.-Funciones%20y%20Operadores%20de%20Fecha-Hora/01.-EXTRACT%2C%20date_part/">
+        01.-EXTRACT, date_part
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/09.-Funciones%20y%20Operadores%20de%20Fecha-Hora/02.-date_trunc/">
+        02.-date_trunc
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/09.-Funciones%20y%20Operadores%20de%20Fecha-Hora/03.-date_bin/">
+        03.-date_bin
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/09.-Funciones%20y%20Operadores%20de%20Fecha-Hora/04.-AT%20TIME%20ZONE/">
+        04.-AT TIME ZONE
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/09.-Funciones%20y%20Operadores%20de%20Fecha-Hora/05.-Fecha-Hora%20en%20curso/">
+        05.-Fecha-Hora en curso
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/09.-Funciones%20y%20Operadores%20de%20Fecha-Hora/06.-Execuci%C3%B3n%20atrasada/">
+        06.-Execución atrasada
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/10.-Funciones%20de%20soporte%20de%20Enum/">
+        10.-Funciones de soporte de Enum
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/11.-Funciones%20geom%C3%A9tricas%20y%20operadores/">
+        11.-Funciones geométricas y operadores
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/12.-Funciones%20de%20direcci%C3%B3n%20de%20red%20y%20operadores/">
+        12.-Funciones de dirección de red y operadores
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/13.-Funciones%20de%20b%C3%BAsqueda%20de%20texto%20y%20operadores/">
+        13.-Funciones de búsqueda de texto y operadores
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/14.-Funciones%20UUID/">
+        14.-Funciones UUID
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_7_16" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../06.-Funciones%20y%20operadores/15.-Funciones%20XML/">15.-Funciones XML</a>
+<label for="__nav_3_7_16">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_7_16_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_7_16">
+<span class="md-nav__icon md-icon"></span>
+          15.-Funciones XML
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_7_16_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../06.-Funciones%20y%20operadores/15.-Funciones%20XML/01.-Generando%20Contenido%20XML.md/">01.-Generando Contenido XML.md</a>
+<label for="__nav_3_7_16_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_7_16_2_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_3_7_16_2">
+<span class="md-nav__icon md-icon"></span>
+          01.-Generando Contenido XML.md
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/15.-Funciones%20XML/01.-Generando%20Contenido%20XML.md/01.-xmlcomment/">
+        01.-xmlcomment
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/15.-Funciones%20XML/01.-Generando%20Contenido%20XML.md/02.-xmlconcat/">
+        02.-xmlconcat
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/15.-Funciones%20XML/01.-Generando%20Contenido%20XML.md/03.-xmlelement/">
+        03.-xmlelement
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/15.-Funciones%20XML/01.-Generando%20Contenido%20XML.md/04.-xmlforest/">
+        04.-xmlforest
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/15.-Funciones%20XML/01.-Generando%20Contenido%20XML.md/05.-xmlpi/">
+        05.-xmlpi
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/15.-Funciones%20XML/01.-Generando%20Contenido%20XML.md/06.-xmlroot/">
+        06.-xmlroot
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/15.-Funciones%20XML/01.-Generando%20Contenido%20XML.md/07.-xmlagg/">
+        07.-xmlagg
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_7_16_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../06.-Funciones%20y%20operadores/15.-Funciones%20XML/02.-Predicados%20XML/">02.-Predicados XML</a>
+<label for="__nav_3_7_16_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_7_16_3_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_3_7_16_3">
+<span class="md-nav__icon md-icon"></span>
+          02.-Predicados XML
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/15.-Funciones%20XML/02.-Predicados%20XML/01.-IS%20DOCUMENT/">
+        01.-IS DOCUMENT
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/15.-Funciones%20XML/02.-Predicados%20XML/02.-IS%20NOT%20DOCUMENT/">
+        02.-IS NOT DOCUMENT
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/15.-Funciones%20XML/02.-Predicados%20XML/03.-XMLEXISTS/">
+        03.-XMLEXISTS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/15.-Funciones%20XML/02.-Predicados%20XML/04.-xml_is_well_formed/">
+        04.-xml_is_well_formed
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_7_16_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../06.-Funciones%20y%20operadores/15.-Funciones%20XML/03.-Procesado%20XML/">03.-Procesado XML</a>
+<label for="__nav_3_7_16_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_7_16_4_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_3_7_16_4">
+<span class="md-nav__icon md-icon"></span>
+          03.-Procesado XML
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/15.-Funciones%20XML/03.-Procesado%20XML/01.-xpath/">
+        01.-xpath
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/15.-Funciones%20XML/03.-Procesado%20XML/02.-xpath_exists/">
+        02.-xpath_exists
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/15.-Funciones%20XML/03.-Procesado%20XML/03.-XMLTABLE/">
+        03.-XMLTABLE
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/15.-Funciones%20XML/03.-Procesado%20XML/04.-Mapeo%20de%20tablas%20a%20XML/">
+        04.-Mapeo de tablas a XML
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/15.-Funciones%20XML/04.-Mapeo%20de%20tablas%20a%20XML/">
+        04.-Mapeo de tablas a XML
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_7_17" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../06.-Funciones%20y%20operadores/16.-Funciones%20y%20Operadores%20JSON/">16.-Funciones y Operadores JSON</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_7_17_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_7_17">
+<span class="md-nav__icon md-icon"></span>
+          16.-Funciones y Operadores JSON
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/17.-Funciones%20de%20manipulaci%C3%B3n%20de%20secuencias/">
+        17.-Funciones de manipulación de secuencias
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_7_19" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../06.-Funciones%20y%20operadores/18.-Conditional%20Expressions/">18.-Conditional Expressions</a>
+<label for="__nav_3_7_19">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_7_19_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_7_19">
+<span class="md-nav__icon md-icon"></span>
+          18.-Conditional Expressions
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/18.-Conditional%20Expressions/01.-CASE/">
+        01.-CASE
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/18.-Conditional%20Expressions/02.-COALESCE/">
+        02.-COALESCE
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/18.-Conditional%20Expressions/03.-NULLIF/">
+        03.-NULLIF
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/18.-Conditional%20Expressions/04.-GREATEST%20y%20LEAST/">
+        04.-GREATEST y LEAST
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/19.-Funciones%20de%20Array%20y%20operadores/">
+        19.-Funciones de Array y operadores
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/20.-Funciones%20de%20rango-multirango%20y%20operadores/">
+        20.-Funciones de rango-multirango y operadores
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/21.-Funciones%20agregadas/">
+        21.-Funciones agregadas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/22.-Funciones%20de%20ventanas/">
+        22.-Funciones de ventanas
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_7_24" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../06.-Funciones%20y%20operadores/23.-Expresiones%20de%20subconsultas/">23.-Expresiones de subconsultas</a>
+<label for="__nav_3_7_24">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_7_24_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_7_24">
+<span class="md-nav__icon md-icon"></span>
+          23.-Expresiones de subconsultas
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/23.-Expresiones%20de%20subconsultas/01.-EXISTS/">
+        01.-EXISTS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/23.-Expresiones%20de%20subconsultas/02.-IN/">
+        02.-IN
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/23.-Expresiones%20de%20subconsultas/03.-NOT%20IN/">
+        03.-NOT IN
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/23.-Expresiones%20de%20subconsultas/04.-ANY-SOME/">
+        04.-ANY-SOME
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/23.-Expresiones%20de%20subconsultas/05.-ALL/">
+        05.-ALL
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/23.-Expresiones%20de%20subconsultas/06.-Comparaciones%20de%20una%20sola%20fila/">
+        06.-Comparaciones de una sola fila
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_7_25" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../06.-Funciones%20y%20operadores/24.-Comparaciones%20de%20filas%20y%20Array/">24.-Comparaciones de filas y Array</a>
+<label for="__nav_3_7_25">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_7_25_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_7_25">
+<span class="md-nav__icon md-icon"></span>
+          24.-Comparaciones de filas y Array
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/24.-Comparaciones%20de%20filas%20y%20Array/01.-IN/">
+        01.-IN
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/24.-Comparaciones%20de%20filas%20y%20Array/02.-NOT%20IN/">
+        02.-NOT IN
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/24.-Comparaciones%20de%20filas%20y%20Array/03.-ANY-SOME%28arroqueo%29/">
+        03.-ANY-SOME(arroqueo)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/24.-Comparaciones%20de%20filas%20y%20Array/04.-ALL%28arroqueo%29/">
+        04.-ALL(arroqueo)
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/24.-Comparaciones%20de%20filas%20y%20Array/05.-Comparaci%C3%B3n%20de%20constructor%20de%20filas/">
+        05.-Comparación de constructor de filas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/24.-Comparaciones%20de%20filas%20y%20Array/06.-Comparaci%C3%B3n%20de%20tipo%20compuesto/">
+        06.-Comparación de tipo compuesto
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/25.-Establecer%20funciones%20de%20retorno/">
+        25.-Establecer funciones de retorno
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_7_27" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../06.-Funciones%20y%20operadores/26.Funciones%20y%20operadores%20de%20informaci%C3%B3n%20del%20sistema/">26.Funciones y operadores de información del sistema</a>
+<label for="__nav_3_7_27">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_7_27_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_7_27">
+<span class="md-nav__icon md-icon"></span>
+          26.Funciones y operadores de información del sistema
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/26.Funciones%20y%20operadores%20de%20informaci%C3%B3n%20del%20sistema/01.-Funciones%20de%20informaci%C3%B3n%20de%20sesi%C3%B3n/">
+        01.-Funciones de información de sesión
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/26.Funciones%20y%20operadores%20de%20informaci%C3%B3n%20del%20sistema/010.-Funciones%20de%20datos%20de%20control/">
+        010.-Funciones de datos de control
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/26.Funciones%20y%20operadores%20de%20informaci%C3%B3n%20del%20sistema/02.-Acceso%20Funciones%20de%20investigaci%C3%B3n%20de%20Privilege/">
+        02.-Acceso Funciones de investigación de Privilege
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/26.Funciones%20y%20operadores%20de%20informaci%C3%B3n%20del%20sistema/03.-Funciones%20de%20investigaci%C3%B3n%20de%20visibilidad%20de%20esquema/">
+        03.-Funciones de investigación de visibilidad de esquema
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/26.Funciones%20y%20operadores%20de%20informaci%C3%B3n%20del%20sistema/04.-Funciones%20de%20informaci%C3%B3n%20cat%C3%A1logo%20del%20sistema/">
+        04.-Funciones de información catálogo del sistema
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/26.Funciones%20y%20operadores%20de%20informaci%C3%B3n%20del%20sistema/05.-Informaci%C3%B3n%20sobre%20objetos%20y%20funciones%20de%20atenci%C3%B3n/">
+        05.-Información sobre objetos y funciones de atención
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/26.Funciones%20y%20operadores%20de%20informaci%C3%B3n%20del%20sistema/06.-Comentarios%20Funciones%20de%20informaci%C3%B3n/">
+        06.-Comentarios Funciones de información
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/26.Funciones%20y%20operadores%20de%20informaci%C3%B3n%20del%20sistema/07.-Validez%20de%20datos%20Funciones%20de%20Comprobar/">
+        07.-Validez de datos Funciones de Comprobar
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/26.Funciones%20y%20operadores%20de%20informaci%C3%B3n%20del%20sistema/08.-ID%20de%20transacci%C3%B3n%20e%20funciones%20de%20informaci%C3%B3n%20instant%C3%A1neas/">
+        08.-ID de transacción e funciones de información instantáneas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/26.Funciones%20y%20operadores%20de%20informaci%C3%B3n%20del%20sistema/09.-Funciones%20de%20informaci%C3%B3n%20de%20transacci%C3%B3n%20comprometidas/">
+        09.-Funciones de información de transacción comprometidas
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_7_28" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../06.-Funciones%20y%20operadores/27.-Funciones%20de%20administraci%C3%B3n%20de%20sistemas/">27.-Funciones de administración de sistemas</a>
+<label for="__nav_3_7_28">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_7_28_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_7_28">
+<span class="md-nav__icon md-icon"></span>
+          27.-Funciones de administración de sistemas
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/27.-Funciones%20de%20administraci%C3%B3n%20de%20sistemas/01.-Funciones%20de%20configuraci%C3%B3n/">
+        01.-Funciones de configuración
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/27.-Funciones%20de%20administraci%C3%B3n%20de%20sistemas/02.-Funciones%20de%20se%C3%B1alizaci%C3%B3n%20del%20servidor/">
+        02.-Funciones de señalización del servidor
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/27.-Funciones%20de%20administraci%C3%B3n%20de%20sistemas/03.-Funciones%20de%20control%20de%20copia%20de%20seguridad/">
+        03.-Funciones de control de copia de seguridad
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/27.-Funciones%20de%20administraci%C3%B3n%20de%20sistemas/04.-Funciones%20de%20control%20de%20recuperaci%C3%B3n/">
+        04.-Funciones de control de recuperación
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/27.-Funciones%20de%20administraci%C3%B3n%20de%20sistemas/05.-Funciones%20de%20sincronizaci%C3%B3n%20instant%C3%A1neas/">
+        05.-Funciones de sincronización instantáneas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/27.-Funciones%20de%20administraci%C3%B3n%20de%20sistemas/06.-Funciones%20de%20gesti%C3%B3n%20de%20la%20replicaci%C3%B3n/">
+        06.-Funciones de gestión de la replicación
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/27.-Funciones%20de%20administraci%C3%B3n%20de%20sistemas/07.-Funciones%20de%20gesti%C3%B3n%20de%20objetos%20de%20base%20de%20datos/">
+        07.-Funciones de gestión de objetos de base de datos
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/27.-Funciones%20de%20administraci%C3%B3n%20de%20sistemas/08.-Funciones%20de%20mantenimiento%20de%20%C3%ADndices/">
+        08.-Funciones de mantenimiento de índices
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/27.-Funciones%20de%20administraci%C3%B3n%20de%20sistemas/09.-Funciones%20de%20acceso%20a%20archivos%20gen%C3%A9ricos/">
+        09.-Funciones de acceso a archivos genéricos
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/27.-Funciones%20de%20administraci%C3%B3n%20de%20sistemas/10.-Funciones%20de%20bloqueo%20de%20asesoramiento/">
+        10.-Funciones de bloqueo de asesoramiento
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/28.-Funciones%20de%20disparadores/">
+        28.-Funciones de disparadores
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_7_30" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../06.-Funciones%20y%20operadores/29.-Funciones%20de%20disparadores%20de%20eventos/">29.-Funciones de disparadores de eventos</a>
+<label for="__nav_3_7_30">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_7_30_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_7_30">
+<span class="md-nav__icon md-icon"></span>
+          29.-Funciones de disparadores de eventos
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/29.-Funciones%20de%20disparadores%20de%20eventos/01.-Captura%20de%20cambios%20a%20final%20de%20comando/">
+        01.-Captura de cambios a final de comando
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/29.-Funciones%20de%20disparadores%20de%20eventos/02.-Procesado%20de%20objetos%20abandonados%20por%20el%20comando%20DDL/">
+        02.-Procesado de objetos abandonados por el comando DDL
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/29.-Funciones%20de%20disparadores%20de%20eventos/03.-Manejo%20de%20un%20eventro%20de%20reescritura%20de%20tabla/">
+        03.-Manejo de un eventro de reescritura de tabla
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_7_31" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../06.-Funciones%20y%20operadores/30.-Funciones%20de%20informaci%C3%B3n%20estad%C3%ADstica/">30.-Funciones de información estadística</a>
+<label for="__nav_3_7_31">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_7_31_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_7_31">
+<span class="md-nav__icon md-icon"></span>
+          30.-Funciones de información estadística
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../06.-Funciones%20y%20operadores/30.-Funciones%20de%20informaci%C3%B3n%20estad%C3%ADstica/01.-Inspecci%C3%B3n%20de%20listas%20MCV/">
+        01.-Inspección de listas MCV
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_8" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../07.-Conversi%C3%B3n%20de%20tipos/">07.-Conversión de tipos</a>
+<label for="__nav_3_8">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_8_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_8">
+<span class="md-nav__icon md-icon"></span>
+          07.-Conversión de tipos
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../07.-Conversi%C3%B3n%20de%20tipos/01.-Resumen/">
+        01.-Resumen
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../07.-Conversi%C3%B3n%20de%20tipos/02.-Operadores/">
+        02.-Operadores
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../07.-Conversi%C3%B3n%20de%20tipos/03.-Funciones/">
+        03.-Funciones
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../07.-Conversi%C3%B3n%20de%20tipos/04.-Almacenamiento%20de%20valor/">
+        04.-Almacenamiento de valor
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../07.-Conversi%C3%B3n%20de%20tipos/05.-UNION%2C%20CASE%2C%20y%20construcciones%20relacionadas/">
+        05.-UNION, CASE, y construcciones relacionadas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../07.-Conversi%C3%B3n%20de%20tipos/06.-SELECTColumnas%20de%20salida/">
+        06.-SELECTColumnas de salida
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_9" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../08.-%C3%8Dndices/">08.-Índices</a>
+<label for="__nav_3_9">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_9_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_9">
+<span class="md-nav__icon md-icon"></span>
+          08.-Índices
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../08.-%C3%8Dndices/01.-Introducci%C3%B3n/">
+        01.-Introducción
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_9_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../08.-%C3%8Dndices/02.-Tipos%20de%20%C3%ADndices/">02.-Tipos de índices</a>
+<label for="__nav_3_9_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_9_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_9_3">
+<span class="md-nav__icon md-icon"></span>
+          02.-Tipos de índices
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../08.-%C3%8Dndices/02.-Tipos%20de%20%C3%ADndices/01.-B-Tree/">
+        01.-B-Tree
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../08.-%C3%8Dndices/02.-Tipos%20de%20%C3%ADndices/02.-Hash/">
+        02.-Hash
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../08.-%C3%8Dndices/02.-Tipos%20de%20%C3%ADndices/03.-GiST/">
+        03.-GiST
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../08.-%C3%8Dndices/02.-Tipos%20de%20%C3%ADndices/04.-SP-GiST/">
+        04.-SP-GiST
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../08.-%C3%8Dndices/02.-Tipos%20de%20%C3%ADndices/05.-GIN/">
+        05.-GIN
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../08.-%C3%8Dndices/02.-Tipos%20de%20%C3%ADndices/06.-BRIN/">
+        06.-BRIN
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../08.-%C3%8Dndices/03.-Indices%20de%20Multicolumn/">
+        03.-Indices de Multicolumn
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../08.-%C3%8Dndices/04.-Indices%20y%20ORDER%20BY/">
+        04.-Indices y ORDER BY
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../08.-%C3%8Dndices/05.-Combinaci%C3%B3n%20de%20m%C3%BAltiples%20%C3%ADndices/">
+        05.-Combinación de múltiples índices
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../08.-%C3%8Dndices/06.-Indices%20%C3%BAnicos/">
+        06.-Indices únicos
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../08.-%C3%8Dndices/07.-Indices%20de%20expresiones/">
+        07.-Indices de expresiones
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../08.-%C3%8Dndices/08.-Indices%20parciales/">
+        08.-Indices parciales
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../08.-%C3%8Dndices/09.-Indices%20de%20escaneos%20y%20%C3%ADndices%20de%20cobertura/">
+        09.-Indices de escaneos y índices de cobertura
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../08.-%C3%8Dndices/10.-Clases%20de%20operador%20y%20familias%20operadoras/">
+        10.-Clases de operador y familias operadoras
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../08.-%C3%8Dndices/11.-Indices%20y%20Collaciones/">
+        11.-Indices y Collaciones
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../08.-%C3%8Dndices/12.-Examinando%20el%20uso%20del%20%C3%ADndice/">
+        12.-Examinando el uso del índice
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_10" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../09.-B%C3%BAsqueda%20de%20texto%20completo/">09.-Búsqueda de texto completo</a>
+<label for="__nav_3_10">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_10_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_10">
+<span class="md-nav__icon md-icon"></span>
+          09.-Búsqueda de texto completo
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_10_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../09.-B%C3%BAsqueda%20de%20texto%20completo/01.-Introducci%C3%B3n/">01.-Introducción</a>
+<label for="__nav_3_10_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_10_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_10_2">
+<span class="md-nav__icon md-icon"></span>
+          01.-Introducción
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../09.-B%C3%BAsqueda%20de%20texto%20completo/01.-Introducci%C3%B3n/01.-Qu%C3%A9%20es%20un%20documento%3F/">
+        01.-Qué es un documento?
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../09.-B%C3%BAsqueda%20de%20texto%20completo/01.-Introducci%C3%B3n/02.-A%20juego%20de%20texto%20b%C3%A1sico/">
+        02.-A juego de texto básico
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../09.-B%C3%BAsqueda%20de%20texto%20completo/01.-Introducci%C3%B3n/03.-Configuraciones/">
+        03.-Configuraciones
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_10_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../09.-B%C3%BAsqueda%20de%20texto%20completo/02.-Tablas%20e%20%C3%ADndices/">02.-Tablas e índices</a>
+<label for="__nav_3_10_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_10_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_10_3">
+<span class="md-nav__icon md-icon"></span>
+          02.-Tablas e índices
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../09.-B%C3%BAsqueda%20de%20texto%20completo/02.-Tablas%20e%20%C3%ADndices/01.-Buscando%20una%20mesa/">
+        01.-Buscando una mesa
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../09.-B%C3%BAsqueda%20de%20texto%20completo/02.-Tablas%20e%20%C3%ADndices/02.-Creaci%C3%B3n%20de%20%C3%ADndices/">
+        02.-Creación de índices
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_10_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../09.-B%C3%BAsqueda%20de%20texto%20completo/03.-Controlar%20la%20b%C3%BAsqueda%20de%20texto/">03.-Controlar la búsqueda de texto</a>
+<label for="__nav_3_10_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_10_4_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_10_4">
+<span class="md-nav__icon md-icon"></span>
+          03.-Controlar la búsqueda de texto
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../09.-B%C3%BAsqueda%20de%20texto%20completo/03.-Controlar%20la%20b%C3%BAsqueda%20de%20texto/01.-Documentos%20de%20Parsing/">
+        01.-Documentos de Parsing
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../09.-B%C3%BAsqueda%20de%20texto%20completo/03.-Controlar%20la%20b%C3%BAsqueda%20de%20texto/02.-Parsing%20Quejas/">
+        02.-Parsing Quejas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../09.-B%C3%BAsqueda%20de%20texto%20completo/03.-Controlar%20la%20b%C3%BAsqueda%20de%20texto/03.-Resultados%20de%20la%20b%C3%BAsqueda%20de%20clasificaci%C3%B3n/">
+        03.-Resultados de la búsqueda de clasificación
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../09.-B%C3%BAsqueda%20de%20texto%20completo/03.-Controlar%20la%20b%C3%BAsqueda%20de%20texto/04.-Resultados%20destacados/">
+        04.-Resultados destacados
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_10_5" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../09.-B%C3%BAsqueda%20de%20texto%20completo/04.-Caracter%C3%ADsticas%20adicionales/">04.-Características adicionales</a>
+<label for="__nav_3_10_5">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_10_5_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_10_5">
+<span class="md-nav__icon md-icon"></span>
+          04.-Características adicionales
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../09.-B%C3%BAsqueda%20de%20texto%20completo/04.-Caracter%C3%ADsticas%20adicionales/01.-Documentos%20de%20Manipular/">
+        01.-Documentos de Manipular
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../09.-B%C3%BAsqueda%20de%20texto%20completo/04.-Caracter%C3%ADsticas%20adicionales/02.-Manipulan%20las%20consultas/">
+        02.-Manipulan las consultas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../09.-B%C3%BAsqueda%20de%20texto%20completo/04.-Caracter%C3%ADsticas%20adicionales/03.-Desencantes%20para%20actualizaciones%20autom%C3%A1ticas/">
+        03.-Desencantes para actualizaciones automáticas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../09.-B%C3%BAsqueda%20de%20texto%20completo/04.-Caracter%C3%ADsticas%20adicionales/04.-Recoger%20estad%C3%ADsticas%20de%20documentos/">
+        04.-Recoger estadísticas de documentos
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../09.-B%C3%BAsqueda%20de%20texto%20completo/05.-Parsers/">
+        05.-Parsers
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_10_7" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../09.-B%C3%BAsqueda%20de%20texto%20completo/06.-Diccionarios/">06.-Diccionarios</a>
+<label for="__nav_3_10_7">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_10_7_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_10_7">
+<span class="md-nav__icon md-icon"></span>
+          06.-Diccionarios
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../09.-B%C3%BAsqueda%20de%20texto%20completo/06.-Diccionarios/01.-Detenga%20las%20palabras/">
+        01.-Detenga las palabras
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../09.-B%C3%BAsqueda%20de%20texto%20completo/06.-Diccionarios/02.-Diccionario%20simple/">
+        02.-Diccionario simple
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../09.-B%C3%BAsqueda%20de%20texto%20completo/06.-Diccionarios/03.-Diccionario%20de%20sin%C3%B3nimos/">
+        03.-Diccionario de sinónimos
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../09.-B%C3%BAsqueda%20de%20texto%20completo/06.-Diccionarios/04.-Diccionario%20de%20tesaaurio/">
+        04.-Diccionario de tesaaurio
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../09.-B%C3%BAsqueda%20de%20texto%20completo/06.-Diccionarios/05.-Diccionario%20de%20Ispell/">
+        05.-Diccionario de Ispell
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../09.-B%C3%BAsqueda%20de%20texto%20completo/06.-Diccionarios/06.-Diccionario%20de%20bolas%20de%20nieve/">
+        06.-Diccionario de bolas de nieve
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../09.-B%C3%BAsqueda%20de%20texto%20completo/07.-Ejemplo%20de%20configuraci%C3%B3n/">
+        07.-Ejemplo de configuración
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_10_9" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../09.-B%C3%BAsqueda%20de%20texto%20completo/08.-Probar%20y%20depuraci%C3%B3n%20de%20la%20b%C3%BAsqueda%20de%20texto/">08.-Probar y depuración de la búsqueda de texto</a>
+<label for="__nav_3_10_9">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_10_9_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_10_9">
+<span class="md-nav__icon md-icon"></span>
+          08.-Probar y depuración de la búsqueda de texto
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../09.-B%C3%BAsqueda%20de%20texto%20completo/08.-Probar%20y%20depuraci%C3%B3n%20de%20la%20b%C3%BAsqueda%20de%20texto/01.-Pruebas%20de%20configuraci%C3%B3n/">
+        01.-Pruebas de configuración
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../09.-B%C3%BAsqueda%20de%20texto%20completo/08.-Probar%20y%20depuraci%C3%B3n%20de%20la%20b%C3%BAsqueda%20de%20texto/02.-Pruebas%20de%20Parser/">
+        02.-Pruebas de Parser
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../09.-B%C3%BAsqueda%20de%20texto%20completo/08.-Probar%20y%20depuraci%C3%B3n%20de%20la%20b%C3%BAsqueda%20de%20texto/03.-Pruebas%20de%20Diccionario/">
+        03.-Pruebas de Diccionario
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../09.-B%C3%BAsqueda%20de%20texto%20completo/09.-Tipos%20de%20%C3%ADndice%20preferidos%20para%20la%20b%C3%BAsqueda%20de%20texto/">
+        09.-Tipos de índice preferidos para la búsqueda de texto
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../09.-B%C3%BAsqueda%20de%20texto%20completo/10.-Apoyo%20psql/">
+        10.-Apoyo psql
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../09.-B%C3%BAsqueda%20de%20texto%20completo/11.-Limitaciones/">
+        11.-Limitaciones
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_11" id="__nav_3_11_label" tabindex="0">
+          10.-Control de la concurrencia
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_11_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_11">
+<span class="md-nav__icon md-icon"></span>
+          10.-Control de la concurrencia
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../10.-Control%20de%20la%20concurrencia/01.-Introducci%C3%B3n/">
+        01.-Introducción
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_11_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_11_2" id="__nav_3_11_2_label" tabindex="0">
+          02.-Aislamiento de transacción
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_11_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_11_2">
+<span class="md-nav__icon md-icon"></span>
+          02.-Aislamiento de transacción
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../10.-Control%20de%20la%20concurrencia/02.-Aislamiento%20de%20transacci%C3%B3n/01%20Leer%20Nivel%20de%20aislamiento%20comprometido/">
+        01 Leer Nivel de aislamiento comprometido
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../10.-Control%20de%20la%20concurrencia/02.-Aislamiento%20de%20transacci%C3%B3n/02.%20Nivel%20de%20aislamiento%20de%20lectura%20reparable/">
+        02. Nivel de aislamiento de lectura reparable
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../10.-Control%20de%20la%20concurrencia/02.-Aislamiento%20de%20transacci%C3%B3n/03.%20Nivel%20de%20aislamiento%20en%20serie/">
+        03. Nivel de aislamiento en serie
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_11_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_11_3" id="__nav_3_11_3_label" tabindex="0">
+          03.-Bloqueo explícito
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_11_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_11_3">
+<span class="md-nav__icon md-icon"></span>
+          03.-Bloqueo explícito
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../10.-Control%20de%20la%20concurrencia/03.-Bloqueo%20expl%C3%ADcito/01.-Bloques%20de%20nivel%20de%20mesa/">
+        01.-Bloques de nivel de mesa
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../10.-Control%20de%20la%20concurrencia/03.-Bloqueo%20expl%C3%ADcito/02.-Esclujas%20de%20nivel%20de%20filas/">
+        02.-Esclujas de nivel de filas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../10.-Control%20de%20la%20concurrencia/03.-Bloqueo%20expl%C3%ADcito/03.-Clocks%20de%20nivel%20de%20p%C3%A1gina/">
+        03.-Clocks de nivel de página
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../10.-Control%20de%20la%20concurrencia/03.-Bloqueo%20expl%C3%ADcito/04.-Deadlocks/">
+        04.-Deadlocks
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../10.-Control%20de%20la%20concurrencia/03.-Bloqueo%20expl%C3%ADcito/05.-Cerdillos%20de%20asesoramiento/">
+        05.-Cerdillos de asesoramiento
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_11_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_11_4" id="__nav_3_11_4_label" tabindex="0">
+          04.-Controles de coherencia de datos en el nivel de aplicación
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_11_4_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_11_4">
+<span class="md-nav__icon md-icon"></span>
+          04.-Controles de coherencia de datos en el nivel de aplicación
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../10.-Control%20de%20la%20concurrencia/04.-Controles%20de%20coherencia%20de%20datos%20en%20el%20nivel%20de%20aplicaci%C3%B3n/01.-Hacer%20cumplir%20con%20las%20transacciones%20en%20serie/">
+        01.-Hacer cumplir con las transacciones en serie
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../10.-Control%20de%20la%20concurrencia/04.-Controles%20de%20coherencia%20de%20datos%20en%20el%20nivel%20de%20aplicaci%C3%B3n/02.-Hacer%20coincidir%20la%20coherencia%20con%20las%20esclujas%20de%20bloqueo%20expl%C3%ADcito/">
+        02.-Hacer coincidir la coherencia con las esclujas de bloqueo explícito
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../10.-Control%20de%20la%20concurrencia/05.-Maneje%20de%20fracaso%20de%20serializaci%C3%B3n/">
+        05.-Maneje de fracaso de serialización
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../10.-Control%20de%20la%20concurrencia/06.-Las%20advertencias/">
+        06.-Las advertencias
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../10.-Control%20de%20la%20concurrencia/07.-Bloqueo%20e%20%C3%ADndices/">
+        07.-Bloqueo e índices
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_12" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../11.-Consejos%20de%20rendimiento/">11.-Consejos de rendimiento</a>
+<label for="__nav_3_12">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_12_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_12">
+<span class="md-nav__icon md-icon"></span>
+          11.-Consejos de rendimiento
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_12_2" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../11.-Consejos%20de%20rendimiento/01.-Usando%20EXPLAIN/">01.-Usando EXPLAIN</a>
+<label for="__nav_3_12_2">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_12_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_12_2">
+<span class="md-nav__icon md-icon"></span>
+          01.-Usando EXPLAIN
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../11.-Consejos%20de%20rendimiento/01.-Usando%20EXPLAIN/01.-EXPLAIN%20Funciones%20b%C3%A1sicas/">
+        01.-EXPLAIN Funciones básicas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../11.-Consejos%20de%20rendimiento/01.-Usando%20EXPLAIN/02.-EXPLAIN%20ANALYZE/">
+        02.-EXPLAIN ANALYZE
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../11.-Consejos%20de%20rendimiento/01.-Usando%20EXPLAIN/03.-Las%20advertencias/">
+        03.-Las advertencias
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_12_3" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../11.-Consejos%20de%20rendimiento/02.-Estad%C3%ADsticas%20utilizadas%20por%20el%20planificador/">02.-Estadísticas utilizadas por el planificador</a>
+<label for="__nav_3_12_3">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_12_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_12_3">
+<span class="md-nav__icon md-icon"></span>
+          02.-Estadísticas utilizadas por el planificador
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../11.-Consejos%20de%20rendimiento/02.-Estad%C3%ADsticas%20utilizadas%20por%20el%20planificador/01.-Estad%C3%ADsticas%20de%20una%20sola%20columna/">
+        01.-Estadísticas de una sola columna
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../11.-Consejos%20de%20rendimiento/02.-Estad%C3%ADsticas%20utilizadas%20por%20el%20planificador/02.-Estad%C3%ADsticas%20ampliadas/">
+        02.-Estadísticas ampliadas
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../11.-Consejos%20de%20rendimiento/03.-Controlando%20el%20planificador%20con%20cl%C3%A1usulas%20expl%C3%ADcitas%20JOIN/">
+        03.-Controlando el planificador con cláusulas explícitas JOIN
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_12_5" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../11.-Consejos%20de%20rendimiento/04.-Poblando%20una%20base%20de%20datos/">04.-Poblando una base de datos</a>
+<label for="__nav_3_12_5">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_12_5_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_12_5">
+<span class="md-nav__icon md-icon"></span>
+          04.-Poblando una base de datos
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../11.-Consejos%20de%20rendimiento/04.-Poblando%20una%20base%20de%20datos/01.-Desactivar%20el%20autocommito/">
+        01.-Desactivar el autocommito
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../11.-Consejos%20de%20rendimiento/04.-Poblando%20una%20base%20de%20datos/02.-Uso%20COPY/">
+        02.-Uso COPY
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../11.-Consejos%20de%20rendimiento/04.-Poblando%20una%20base%20de%20datos/03.-Eliminar%20%C3%ADndices/">
+        03.-Eliminar índices
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../11.-Consejos%20de%20rendimiento/04.-Poblando%20una%20base%20de%20datos/04.-Eliminar%20las%20restricciones%20de%20la%20clave%20extranjera/">
+        04.-Eliminar las restricciones de la clave extranjera
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../11.-Consejos%20de%20rendimiento/04.-Poblando%20una%20base%20de%20datos/05.-Aumento%20maintenance_work_mem/">
+        05.-Aumento maintenance_work_mem
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../11.-Consejos%20de%20rendimiento/04.-Poblando%20una%20base%20de%20datos/06.-Aumento%20max_wal_size/">
+        06.-Aumento max_wal_size
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../11.-Consejos%20de%20rendimiento/04.-Poblando%20una%20base%20de%20datos/07.-Desactivar%20la%20r%C3%A9plica%20de%20WAL%20Archival%20y%20Streaming/">
+        07.-Desactivar la réplica de WAL Archival y Streaming
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../11.-Consejos%20de%20rendimiento/04.-Poblando%20una%20base%20de%20datos/08.-Corre%20ANALYZEDespu%C3%A9s/">
+        08.-Corre ANALYZEDespués
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../11.-Consejos%20de%20rendimiento/04.-Poblando%20una%20base%20de%20datos/09.-Algunas%20notas%20sobre%20pg.dump/">
+        09.-Algunas notas sobre pg.dump
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../11.-Consejos%20de%20rendimiento/05.-Configuraciones%20no%20durables/">
+        05.-Configuraciones no durables
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_13" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../12.-Consultas%20paralelas/">12.-Consultas paralelas</a>
+<label for="__nav_3_13">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_13_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_13">
+<span class="md-nav__icon md-icon"></span>
+          12.-Consultas paralelas
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../12.-Consultas%20paralelas/01.-C%C3%B3mo%20funcionan%20las%20consultas%20paralelas/">
+        01.-Cómo funcionan las consultas paralelas
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../12.-Consultas%20paralelas/02.-%C2%BFCu%C3%A1ndo%20puede%20usarse%20una%20consulta%20paralela%3F/">
+        02.-¿Cuándo puede usarse una consulta paralela?
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_13_4" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../12.-Consultas%20paralelas/03.-Planes%20paralelos/">03.-Planes paralelos</a>
+<label for="__nav_3_13_4">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_13_4_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_13_4">
+<span class="md-nav__icon md-icon"></span>
+          03.-Planes paralelos
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../12.-Consultas%20paralelas/03.-Planes%20paralelos/01.-Parallel%20Scans/">
+        01.-Parallel Scans
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../12.-Consultas%20paralelas/03.-Planes%20paralelos/02.-Parallel%20Joins/">
+        02.-Parallel Joins
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../12.-Consultas%20paralelas/03.-Planes%20paralelos/03.-Parallel%20Aggregation/">
+        03.-Parallel Aggregation
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../12.-Consultas%20paralelas/03.-Planes%20paralelos/04.-Parallel%20Append/">
+        04.-Parallel Append
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../12.-Consultas%20paralelas/03.-Planes%20paralelos/05.-Parallel%20Plan%20Tips/">
+        05.-Parallel Plan Tips
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../12.-Consultas%20paralelas/03.-Planes%20paralelos/crea.sh">
+        crea
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_13_5" type="checkbox"/>
+<div class="md-nav__link md-nav__link--index">
+<a href="../../../12.-Consultas%20paralelas/04.-Seguridad%20paralela/">04.-Seguridad paralela</a>
+<label for="__nav_3_13_5">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_13_5_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_13_5">
+<span class="md-nav__icon md-icon"></span>
+          04.-Seguridad paralela
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../12.-Consultas%20paralelas/04.-Seguridad%20paralela/01.-Etiquetado%20paralelo%20para%20funciones%20y%20agregados/">
+        01.-Etiquetado paralelo para funciones y agregados
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1>01.-Usando notación</h1>
+<p>La notación de posición es el mecanismo tradicional para pasar argumentos a funciones en PostgreSQL. Un ejemplo es:</p>
+<pre><code>SELECT concat.lower-or-upper ('Hola', 'Mundo', verdad);
+ concat.lower-or-upper
+--------------------
+ HELLO MUNDO
+(1 fila)
+</code></pre>
+<p>Todos los argumentos se especifican en orden. El resultado es de la máxima situación desde  <code>uppercase</code>se especifica como <code>true</code>. Otro ejemplo es:</p>
+<pre><code>SELECT concat.lower-orupper ('Hola', 'Mundo');
+ concat.lower-or-upper
+--------------------
+ hola mundo
+(1 fila)
+</code></pre>
+<p>Aquí, el  <code>uppercase</code>se omite el parámetro, por lo que recibe su valor predeterminado de <code>false</code>, dando lugar a una menor salida de casos. En notación posicional, los  argumentos pueden omitirse de derecha a izquierdas siempre y cuando  tengan incumplimientos.</p>
+</article>
+</div>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+            Volver al principio
+          </button>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.top", "navigation.top.sticky", "navigation.tabs", "navigation.indexes"], "search": "../../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+<script src="../../../../assets/javascripts/bundle.fac441b0.min.js"></script>
+<script src="../../../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>

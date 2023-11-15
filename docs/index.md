@@ -1,5 +1,5 @@
 # PostgreSQL
-## Qué es PostgreSQL?
+## ¿Qué es PostgreSQL?
 
 PostgreSQL es un potente sistema de bases de datos de **código abierto** que utiliza y extiende el lenguaje SQL combinado con muchas características que almacenan y escalan las cargas de datos más complicadas. Los orígenes de PostgreSQL se remontan a **1986** como parte del proyecto [POSTGRES](https://www.postgresql.org/docs/current/history.html) en la Universidad de California en Berkeley y tiene más de 35 años de desarrollo activo en la plataforma central.
 
@@ -7,7 +7,7 @@ PostgreSQL se ha ganado una sólida reputación por su **arquitectura probada**,
 
 [Empezar](https://www.postgresql.org/docs/current/tutorial.html) con el uso de PostgreSQL nunca ha sido más fácil: elige un proyecto que quieres construir, y deja que PostgreSQL almacene de forma segura y robusta tus datos.
 
-## Por qué usar PostgreSQL?
+## ¿Por qué usar PostgreSQL?
 
 PostgreSQL viene con [muchas características](https://www.postgresql.org/about/featurematrix/) destinadas a ayudar a los desarrolladores a construir aplicaciones, administradores para proteger la integridad de los datos y construir entornos tolerantes a fallos, y ayudarle a administrar sus datos sin importar el conjunto de datos tan grande o pequeño. Además de ser [de código libre y abierto](https://www.postgresql.org/about/license/), PostgreSQL es **muy extensible**. Por ejemplo, puede definir sus propios tipos de datos, construir funciones personalizadas, incluso escribir código de [diferentes lenguajes](https://www.postgresql.org/docs/current/xplang.html) de [programación](https://www.postgresql.org/docs/current/xplang.html) sin recompilar su base de datos.
 
@@ -63,7 +63,7 @@ Hay muchas más características que se pueden descubrir en la [documentación](
 
 PostgreSQL ha demostrado ser altamente escalable tanto en la cantidad de datos que puede gestionar y en el número de usuarios concurrentes que puede acomodarse. Hay clústeres activos PostgreSQL en entornos de producción que manejan muchos terabytes de datos, y sistemas especializados que manejan petabytes.
 
-## Alguna pregunta?
+## ¿Alguna pregunta?
 
 El primer lugar al que acudir para cualquier pregunta en PostgreSQL es su [documentación de renombre mundial](https://www.postgresql.org/docs/) que discute cómo usar PostgreSQL en profundidad.
 

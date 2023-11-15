@@ -7,6 +7,13 @@ nav:
     - core-plugins: ./.obsidian/core-plugins.json
     - hotkeys: ./.obsidian/hotkeys.json
     - workspace: ./.obsidian/workspace.json
+  - 00.-Conceptos Básicos sobre SGBD:
+    - 01.-Datos y archivos: ./00.-Conceptos Básicos sobre SGBD/01.-Datos y archivos.md
+    - 02.-Tipos de gestión de Información mediante el ordenador: ./00.-Conceptos Básicos sobre SGBD/02.-Tipos de gestión de Información mediante el ordenador.md
+    - 03.-Funcionamiento de un SGBD: ./00.-Conceptos Básicos sobre SGBD/03.-Funcionamiento de un SGBD.md
+    - 04.-Tipos de SGBD: ./00.-Conceptos Básicos sobre SGBD/04.-Tipos de SGBD.md
+    - 05.-Archivos: ./00.-Conceptos Básicos sobre SGBD/05.-Archivos.md
+    - 06.-Estándares y modelo ANSI: ./00.-Conceptos Básicos sobre SGBD/06.-Estándares y modelo ANSI.md
   - 01.-Tutorial:
     - ./01.-Tutorial/index.md
     - 01.-Cómo empezar:
@@ -151,7 +158,7 @@ nav:
       - 05.-Ordenando filas (ORDER BY): ./02.-El lenguaje SQL/04.-Consultas/05.-Ordenando filas (ORDER BY).md
       - 06.-LIMIT y OFFSET: ./02.-El lenguaje SQL/04.-Consultas/06.-LIMIT y OFFSET.md
       - 07.-Listas VALUES: ./02.-El lenguaje SQL/04.-Consultas/07.-Listas VALUES.md
-      - 08: ./02.-El lenguaje SQL/04.-Consultas/08.-Constultas WITH (Expresiones de tablas comunes)md
+      - 08.-Constultas WITH (Expresiones de tablas comunes): ./02.-El lenguaje SQL/04.-Consultas/08.-Constultas WITH (Expresiones de tablas comunes).md
       - 08.-Consultas WITH (Expresiones de tablas comunes):
         - ./02.-El lenguaje SQL/04.-Consultas/08.-Consultas WITH (Expresiones de tablas comunes)/index.md
         - 01.-SELECT en WITH: ./02.-El lenguaje SQL/04.-Consultas/08.-Consultas WITH (Expresiones de tablas comunes)/01.-SELECT en WITH.md
@@ -166,7 +173,7 @@ nav:
       - ./02.-El lenguaje SQL/05.-Tipos de Datos/index.md
       - 01.-Tipos Numéricos:
         - ./02.-El lenguaje SQL/05.-Tipos de Datos/01.-Tipos Numéricos/index.md
-        - 01.Tipos enteros: ./02.-El lenguaje SQL/05.-Tipos de Datos/01.-Tipos Numéricos/01.Tipos enteros.md
+        - 01.-Tipos enteros: ./02.-El lenguaje SQL/05.-Tipos de Datos/01.-Tipos Numéricos/01.-Tipos enteros.md
         - 02.-Números de precisión arbitraria: ./02.-El lenguaje SQL/05.-Tipos de Datos/01.-Tipos Numéricos/02.-Números de precisión arbitraria.md
         - 03.-Tipos en punto flotante: ./02.-El lenguaje SQL/05.-Tipos de Datos/01.-Tipos Numéricos/03.-Tipos en punto flotante.md
         - 04.-Tipos de serie: ./02.-El lenguaje SQL/05.-Tipos de Datos/01.-Tipos Numéricos/04.-Tipos de serie.md
@@ -265,9 +272,14 @@ nav:
       - 21.-Pseudo tipos: ./02.-El lenguaje SQL/05.-Tipos de Datos/21.-Pseudo tipos.md
     - 06.-Funciones y operadores:
       - ./02.-El lenguaje SQL/06.-Funciones y operadores/index.md
+      - 01.-Operadores lógicos: ./02.-El lenguaje SQL/06.-Funciones y operadores/01.-Operadores lógicos.md
+      - 02.-Funciones y operadores de comparación: ./02.-El lenguaje SQL/06.-Funciones y operadores/02.-Funciones y operadores de comparación.md
+      - 03.-Funciones y operadores matemáticos: ./02.-El lenguaje SQL/06.-Funciones y operadores/03.-Funciones y operadores matemáticos.md
       - 04.-Operadores y Funciones de cadena:
         - ./02.-El lenguaje SQL/06.-Funciones y operadores/04.-Operadores y Funciones de cadena/index.md
         - 01.-Formatos: ./02.-El lenguaje SQL/06.-Funciones y operadores/04.-Operadores y Funciones de cadena/01.-Formatos.md
+      - 05.-Funciones binarias de cuerda y operadores: ./02.-El lenguaje SQL/06.-Funciones y operadores/05.-Funciones binarias de cuerda y operadores.md
+      - 06.-Funciones de cuerda de cuerda y operadores: ./02.-El lenguaje SQL/06.-Funciones y operadores/06.-Funciones de cuerda de cuerda y operadores.md
       - 07.-Emparejado de patrones:
         - ./02.-El lenguaje SQL/06.-Funciones y operadores/07.-Emparejado de patrones/index.md
         - 01.-LIKE: ./02.-El lenguaje SQL/06.-Funciones y operadores/07.-Emparejado de patrones/01.-LIKE.md
@@ -282,6 +294,7 @@ nav:
           - 06.-Límites y compatibilidad: ./02.-El lenguaje SQL/06.-Funciones y operadores/07.-Emparejado de patrones/03.-Expresiones Regulares POSIX/06.-Límites y compatibilidad.md
           - 07.-Expresiones Regulares básicas: ./02.-El lenguaje SQL/06.-Funciones y operadores/07.-Emparejado de patrones/03.-Expresiones Regulares POSIX/07.-Expresiones Regulares básicas.md
           - 08.-Diferencias de SQL estándar y XQuery: ./02.-El lenguaje SQL/06.-Funciones y operadores/07.-Emparejado de patrones/03.-Expresiones Regulares POSIX/08.-Diferencias de SQL estándar y XQuery.md
+      - 08.-Funciones de Formato de tipo de datos: ./02.-El lenguaje SQL/06.-Funciones y operadores/08.-Funciones de Formato de tipo de datos.md
       - 09.-Funciones y Operadores de Fecha-Hora:
         - ./02.-El lenguaje SQL/06.-Funciones y operadores/09.-Funciones y Operadores de Fecha-Hora/index.md
         - 01.-EXTRACT, date_part: ./02.-El lenguaje SQL/06.-Funciones y operadores/09.-Funciones y Operadores de Fecha-Hora/01.-EXTRACT, date_part.md
@@ -290,7 +303,6 @@ nav:
         - 04.-AT TIME ZONE: ./02.-El lenguaje SQL/06.-Funciones y operadores/09.-Funciones y Operadores de Fecha-Hora/04.-AT TIME ZONE.md
         - 05.-Fecha-Hora en curso: ./02.-El lenguaje SQL/06.-Funciones y operadores/09.-Funciones y Operadores de Fecha-Hora/05.-Fecha-Hora en curso.md
         - 06.-Execución atrasada: ./02.-El lenguaje SQL/06.-Funciones y operadores/09.-Funciones y Operadores de Fecha-Hora/06.-Execución atrasada.md
-      - 1.-Operadores lógicos: ./02.-El lenguaje SQL/06.-Funciones y operadores/1.-Operadores lógicos.md
       - 10.-Funciones de soporte de Enum: ./02.-El lenguaje SQL/06.-Funciones y operadores/10.-Funciones de soporte de Enum.md
       - 11.-Funciones geométricas y operadores: ./02.-El lenguaje SQL/06.-Funciones y operadores/11.-Funciones geométricas y operadores.md
       - 12.-Funciones de dirección de red y operadores: ./02.-El lenguaje SQL/06.-Funciones y operadores/12.-Funciones de dirección de red y operadores.md
@@ -321,6 +333,7 @@ nav:
           - 04.-Mapeo de tablas a XML: ./02.-El lenguaje SQL/06.-Funciones y operadores/15.-Funciones XML/03.-Procesado XML/04.-Mapeo de tablas a XML.md
         - 04.-Mapeo de tablas a XML: ./02.-El lenguaje SQL/06.-Funciones y operadores/15.-Funciones XML/04.-Mapeo de tablas a XML.md
       - 16.-Funciones y Operadores JSON:
+        - ./02.-El lenguaje SQL/06.-Funciones y operadores/16.-Funciones y Operadores JSON/index.md
       - 17.-Funciones de manipulación de secuencias: ./02.-El lenguaje SQL/06.-Funciones y operadores/17.-Funciones de manipulación de secuencias.md
       - 18.-Conditional Expressions:
         - ./02.-El lenguaje SQL/06.-Funciones y operadores/18.-Conditional Expressions/index.md
@@ -329,7 +342,6 @@ nav:
         - 03.-NULLIF: ./02.-El lenguaje SQL/06.-Funciones y operadores/18.-Conditional Expressions/03.-NULLIF.md
         - 04.-GREATEST y LEAST: ./02.-El lenguaje SQL/06.-Funciones y operadores/18.-Conditional Expressions/04.-GREATEST y LEAST.md
       - 19.-Funciones de Array y operadores: ./02.-El lenguaje SQL/06.-Funciones y operadores/19.-Funciones de Array y operadores.md
-      - 2.-Funciones y operadores de comparación: ./02.-El lenguaje SQL/06.-Funciones y operadores/2.-Funciones y operadores de comparación.md
       - 20.-Funciones de rango-multirango y operadores: ./02.-El lenguaje SQL/06.-Funciones y operadores/20.-Funciones de rango-multirango y operadores.md
       - 21.-Funciones agregadas: ./02.-El lenguaje SQL/06.-Funciones y operadores/21.-Funciones agregadas.md
       - 22.-Funciones de ventanas: ./02.-El lenguaje SQL/06.-Funciones y operadores/22.-Funciones de ventanas.md
@@ -380,13 +392,9 @@ nav:
         - 01.-Captura de cambios a final de comando: ./02.-El lenguaje SQL/06.-Funciones y operadores/29.-Funciones de disparadores de eventos/01.-Captura de cambios a final de comando.md
         - 02.-Procesado de objetos abandonados por el comando DDL: ./02.-El lenguaje SQL/06.-Funciones y operadores/29.-Funciones de disparadores de eventos/02.-Procesado de objetos abandonados por el comando DDL.md
         - 03.-Manejo de un eventro de reescritura de tabla: ./02.-El lenguaje SQL/06.-Funciones y operadores/29.-Funciones de disparadores de eventos/03.-Manejo de un eventro de reescritura de tabla.md
-      - 3.-Funciones y operadores matemáticos: ./02.-El lenguaje SQL/06.-Funciones y operadores/3.-Funciones y operadores matemáticos.md
       - 30.-Funciones de información estadística:
         - ./02.-El lenguaje SQL/06.-Funciones y operadores/30.-Funciones de información estadística/index.md
         - 01.-Inspección de listas MCV: ./02.-El lenguaje SQL/06.-Funciones y operadores/30.-Funciones de información estadística/01.-Inspección de listas MCV.md
-      - 5.-Funciones binarias de cuerda y operadores: ./02.-El lenguaje SQL/06.-Funciones y operadores/5.-Funciones binarias de cuerda y operadores.md
-      - 6.-Funciones de cuerda de cuerda y operadores: ./02.-El lenguaje SQL/06.-Funciones y operadores/6.-Funciones de cuerda de cuerda y operadores.md
-      - 8.-Funciones de Formato de tipo de datos: ./02.-El lenguaje SQL/06.-Funciones y operadores/8.-Funciones de Formato de tipo de datos.md
     - 07.-Conversión de tipos:
       - ./02.-El lenguaje SQL/07.-Conversión de tipos/index.md
       - 01.-Resumen: ./02.-El lenguaje SQL/07.-Conversión de tipos/01.-Resumen.md
@@ -469,12 +477,9 @@ nav:
         - 03.-Clocks de nivel de página: ./02.-El lenguaje SQL/10.-Control de la concurrencia/03.-Bloqueo explícito/03.-Clocks de nivel de página.md
         - 04.-Deadlocks: ./02.-El lenguaje SQL/10.-Control de la concurrencia/03.-Bloqueo explícito/04.-Deadlocks.md
         - 05.-Cerdillos de asesoramiento: ./02.-El lenguaje SQL/10.-Control de la concurrencia/03.-Bloqueo explícito/05.-Cerdillos de asesoramiento.md
-      - 04.-Controles de coherencia de datos en el nivel de aplicación
-:
-        - 01.-Hacer cumplir con las transacciones en serie: ./02.-El lenguaje SQL/10.-Control de la concurrencia/04.-Controles de coherencia de datos en el nivel de aplicación
-/01.-Hacer cumplir con las transacciones en serie.md
-        - 02.-Hacer coincidir la coherencia con las esclujas de bloqueo explícito: ./02.-El lenguaje SQL/10.-Control de la concurrencia/04.-Controles de coherencia de datos en el nivel de aplicación
-/02.-Hacer coincidir la coherencia con las esclujas de bloqueo explícito.md
+      - 04.-Controles de coherencia de datos en el nivel de aplicación:
+        - 01.-Hacer cumplir con las transacciones en serie: ./02.-El lenguaje SQL/10.-Control de la concurrencia/04.-Controles de coherencia de datos en el nivel de aplicación/01.-Hacer cumplir con las transacciones en serie.md
+        - 02.-Hacer coincidir la coherencia con las esclujas de bloqueo explícito: ./02.-El lenguaje SQL/10.-Control de la concurrencia/04.-Controles de coherencia de datos en el nivel de aplicación/02.-Hacer coincidir la coherencia con las esclujas de bloqueo explícito.md
       - 05.-Maneje de fracaso de serialización: ./02.-El lenguaje SQL/10.-Control de la concurrencia/05.-Maneje de fracaso de serialización.md
       - 06.-Las advertencias: ./02.-El lenguaje SQL/10.-Control de la concurrencia/06.-Las advertencias.md
       - 07.-Bloqueo e índices: ./02.-El lenguaje SQL/10.-Control de la concurrencia/07.-Bloqueo e índices.md

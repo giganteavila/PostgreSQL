@@ -1,0 +1,1062 @@
+:: ASGBD00001 ::
+¿Cuál es el nombre del organismo internacional encargado de la definición de normas en el ámbito electrónico?
+{  
+= IEC
+~%-25% ISO
+~%-25% ANSI
+~%-25% Codasyl
+}
+
+:: ASGBD00001 ::
+¿Qué organismos participaron en la conferencia Codasyl?
+{
+= Organismos privados y públicos de EE.UU.
+~%-25% Solo organismos privados
+~%-25% Solo organismos públicos 
+~%-25% Organismos europeos
+}
+
+:: ASGBD00001 ::
+¿Qué modelo de base de datos definió el grupo DBTG de Codasyl?  
+{
+= Modelo en red
+~%-25% Modelo relacional
+~%-25% Modelo jerárquico
+~%-25% Modelo orientado a objetos
+}
+
+:: ASGBD00001 ::
+¿Qué nombre recibe el comité de ISO dedicado a la tecnología de la información?
+{
+= JTC 1
+~%-25% SC 21  
+~%-25% WG 3
+~%-25% DBTG
+}
+
+:: ASGBD00001 ::
+¿Qué grupo de trabajo de SC 21 se encarga de la estandarización de las bases de datos en ISO?
+{  
+= WG 3
+~%-25% JTC 1
+~%-25% SC 21
+~%-25% DBTG 
+}
+
+:: ASGBD00001 ::
+¿Qué tipo de modelo define el grupo de trabajo WG3 de ISO?
+{
+= Modelo relacional  
+~%-25% Modelo jerárquico
+~%-25% Modelo en red
+~%-25% Modelo orientado a objetos
+}
+
+:: ASGBD00001 ::
+¿Qué sección de ANSI se encarga de los estándares informáticos?
+{
+= X3  
+~%-25% SPARC
+~%-25% SC 21
+~%-25% JTC 1
+}  
+
+¿Qué subcomité de ANSI definió el modelo relacional de bases de datos?
+{
+= SPARC
+~%-25% X3
+~%-25% JTC 1  
+~%-25% SC 21
+}
+
+:: ASGBD00001 ::
+¿Qué tipo de modelo conceptual definió ANSI/X3/SPARC?  
+{
+= Modelo de 3 niveles (externo, conceptual e interno)
+~%-25% Modelo relacional
+~%-25% Modelo orientado a objetos  
+~%-25% Modelo en red
+}
+
+:: ASGBD00001 ::
+¿Qué nivel del modelo ANSI es independiente del sistema gestor de bases de datos que se utilice?
+{
+= Nivel conceptual
+~%-25% Nivel interno  
+~%-25% Nivel externo
+~%-25% Nivel físico 
+}
+
+:: ASGBD00001 ::
+¿Qué nivel del modelo ANSI depende del hardware utilizado?
+{  
+= Nivel físico
+~%-25% Nivel interno
+~%-25% Nivel conceptual
+~%-25% Nivel externo
+}
+
+:: ASGBD00001 ::
+¿Qué nivel del modelo ANSI es el más cercano al usuario final?
+{
+= Nivel externo
+~%-25% Nivel físico
+~%-25% Nivel interno
+~%-25% Nivel conceptual  
+}
+
+:: ASGBD00001 ::
+¿Qué interfaz del modelo ANSI permite crear el esquema externo?  
+{
+= Interfaz 5
+~%-25% Interfaz 4
+~%-25% Interfaz 3
+~%-25% Interfaz 1
+}
+
+:: ASGBD00001 ::
+¿Qué interfaz del modelo ANSI permite crear el esquema interno?
+{
+= Interfaz 4
+~%-25% Interfaz 3  
+~%-25% Interfaz 2
+~%-25% Interfaz 1
+}  
+
+¿Qué interfaz del modelo ANSI almacena los metadatos del esquema interno?
+{
+= Interfaz 6
+~%-25% Interfaz 5
+~%-25% Interfaz 4  
+~%-25% Interfaz 3
+}
+
+:: ASGBD00001 ::
+¿Qué interfaz del modelo ANSI transforma el esquema externo en conceptual durante la manipulación?
+{   
+= Interfaz 9
+~%-25% Interfaz 8
+~%-25% Interfaz 10
+~%-25% Interfaz 11
+}
+
+:: ASGBD00001 ::
+¿Qué interfaz del modelo ANSI permite al usuario acceder a los datos?
+{
+= Interfaz 8
+~%-25% Interfaz 9  
+~%-25% Interfaz 10 
+~%-25% Interfaz 11
+}
+
+:: ASGBD00001 ::
+¿Qué interfaz del modelo ANSI transforma el esquema conceptual en interno durante la manipulación?
+{
+= Interfaz 10
+~%-25% Interfaz 9
+~%-25% Interfaz 8
+~%-25% Interfaz 11   
+}
+
+:: ASGBD00001 ::
+¿Qué interfaz del modelo ANSI accede finalmente a los datos?  
+{
+= Interfaz 14
+~%-25% Interfaz 13
+~%-25% Interfaz 12
+~%-25% Interfaz 11
+}
+
+:: ASGBD00001 ::
+¿Qué significa la sigla DDL?
+{
+= Lenguaje de Definición de Datos
+~%-25% Lenguaje de Modificación de Datos
+~%-25% Lenguaje de Consulta de Datos
+~%-25% Lenguaje de Control de Datos
+}
+
+:: ASGBD00001 ::
+¿Qué significa la sigla DML?
+{   
+= Lenguaje de Modificación de Datos  
+~%-25% Lenguaje de Definición de Datos
+~%-25% Lenguaje de Consulta de Datos 
+~%-25% Lenguaje de Control de Datos
+}
+
+:: ASGBD00001 ::
+¿Qué significa la sigla DQL?
+{
+= Lenguaje de Consulta de Datos
+~%-25% Lenguaje de Definición de Datos   
+~%-25% Lenguaje de Modificación de Datos
+~%-25% Lenguaje de Control de Datos
+}  
+
+¿Qué significa la sigla DCL?
+{
+= Lenguaje de Control de Datos
+~%-25% Lenguaje de Definición de Datos
+~%-25% Lenguaje de Modificación de Datos  
+~%-25% Lenguaje de Consulta de Datos
+}
+
+:: ASGBD00001 ::
+¿Qué función de los SGBD permite crear estructuras para organizar los datos? 
+{
+= Función de definición  
+~%-25% Función de manipulación
+~%-25% Función de consulta
+~%-25% Función de control
+}
+
+:: ASGBD00001 ::
+¿Qué función de los SGBD permite modificar y consultar los datos?
+{
+= Función de manipulación
+~%-25% Función de definición 
+~%-25% Función de consulta
+~%-25% Función de control
+}  
+
+¿Qué función de los SGBD permite establecer permisos sobre los datos?
+{
+= Función de control
+~%-25% Función de definición
+~%-25% Función de manipulación
+~%-25% Función de consulta
+}
+
+:: ASGBD00001 ::
+¿Qué estructura de un SGBD almacena los metadatos?
+{  
+= Diccionario de datos
+~%-25% Área de datos
+~%-25% Área de índices 
+~%-25% Área de desbordamiento  
+}
+
+:: ASGBD00001 ::
+¿Qué software crea y administra las bases de datos?
+{
+= SGBD
+~%-25% RDBMS
+~%-25% DBMS
+~%-25% CASE  
+}  
+
+¿Qué tipo de herramienta ayuda a diseñar bases de datos?
+{   
+= Herramienta CASE
+~%-25% RDBMS
+~%-25% SGBD
+~%-25% DBMS
+}
+
+:: ASGBD00001 ::
+¿Qué modelo de base de datos organiza los datos en tablas?
+{
+= Modelo relacional
+~%-25% Modelo jerárquico 
+~%-25% Modelo en red
+~%-25% Modelo orientado a objetos
+}
+
+:: ASGBD00001 ::
+¿Qué modelo de base de datos organiza los datos en forma de árbol?
+{  
+= Modelo jerárquico
+~%-25% Modelo relacional
+~%-25% Modelo en red
+~%-25% Modelo orientado a objetos
+}
+
+:: ASGBD00001 ::
+¿Qué modelo de base de datos puede representar cualquier relación entre datos?
+{
+= Modelo en red  
+~%-25% Modelo relacional
+~%-25% Modelo jerárquico
+~%-25% Modelo orientado a objetos
+}  
+
+¿Qué modelo de base de datos integra datos y métodos?
+{
+= Modelo orientado a objetos
+~%-25% Modelo relacional
+~%-25% Modelo jerárquico
+~%-25% Modelo en red
+}
+
+:: ASGBD00001 ::
+¿Qué tipo de modelo es el modelo Entidad-Relación?
+{
+= Modelo conceptual
+~%-25% Modelo lógico
+~%-25% Modelo físico
+~%-25% Modelo externo
+}
+
+:: ASGBD00001 ::
+¿Qué tipo de modelo es el modelo relacional?  
+{
+= Modelo lógico
+~%-25% Modelo conceptual
+~%-25% Modelo físico
+~%-25% Modelo externo
+}
+
+:: ASGBD00001 ::
+¿Qué ventaja tiene el modelo relacional frente al modelo en red?
+{
+= Mayor simplicidad de manejo
+~%-25% Mejor rendimiento
+~%-25% Mayor flexibilidad en las relaciones
+~%-25% Mejor representación de la realidad
+}
+
+:: ASGBD00001 ::
+¿Qué desventaja tiene el modelo relacional frente al jerárquico?  
+{   
+= Mayor complejidad del software
+~%-25% Peor representación de relaciones
+~%-25% Menor flexibilidad en las consultas
+~%-25% Menor rendimiento
+}  
+
+¿Qué característica distingue a las bases de datos NoSQL?
+{
+= No usan el modelo relacional
+~%-25% No tienen lenguaje SQL
+~%-25% No son transaccionales
+~%-25% No son Open Source
+}
+
+:: ASGBD00001 ::
+¿Qué problema intentan resolver las bases de datos NoSQL?
+{
+= Alto volumen de lectura/escritura
+~%-25% Bajo rendimiento en consultas
+~%-25% Poca flexibilidad en las relaciones
+~%-25% Escasa seguridad
+}
+
+:: ASGBD00001 ::
+¿Qué tipo de bases de datos son las orientadas a objetos? 
+{
+= Tercera generación  
+~%-25% Primera generación
+~%-25% Segunda generación
+~%-25% Cuarta generación
+}
+
+:: ASGBD00001 ::
+¿Qué tipo de bases de datos son las relacionales?
+{
+= Segunda generación
+~%-25% Primera generación 
+~%-25% Tercera generación
+~%-25% Cuarta generación
+}
+
+:: ASGBD00001 ::
+¿Qué organismo intenta estandarizar las bases de datos orientadas a objetos?
+{
+= ODMG
+~%-25% ANSI
+~%-25% ISO  
+~%-25% IEC
+}
+
+:: ASGBD00001 ::
+¿Qué modelo intenta estandarizar ODMG?
+{
+= Modelo orientado a objetos
+~%-25% Modelo relacional
+~%-25% Modelo en red
+~%-25% Modelo jerárquico 
+}
+
+:: ASGBD00001 ::
+¿Qué bases de datos son objeto-relacionales?
+{  
+= Las que mezclan features orientadas a objetos y relacionales
+~%-25% Las puramente orientadas a objetos
+~%-25% Las puramente relacionales
+~%-25% Las jerárquicas  
+}
+
+:: ASGBD00001 ::
+¿Qué estándar introduce características orientadas a objetos en las bases relacionales?
+{
+= SQL/1999
+~%-25% SQL/92
+~%-25% CODASYL  
+~%-25% ODMG
+}
+
+:: ASGBD00001 ::
+¿Qué característica orientada a objetos introduce SQL/1999?
+{
+= Tipos definidos por el usuario
+~%-25% Herencia
+~%-25% Polimorfismo
+~%-25% Encapsulamiento 
+}
+
+:: ASGBD00001 ::
+¿Qué característica NO es propia de las bases de datos orientadas a objetos?
+{
+= Tablas
+~%-25% Tipos complejos  
+~%-25% Herencia
+~%-25% Métodos
+}
+
+:: ASGBD00001 ::
+¿Qué modelo de base de datos tiene mayor independencia física?
+{  
+= Relacional
+~%-25% Jerárquico
+~%-25% En red
+~%-25% Orientado a objetos
+}
+
+:: ASGBD00001 ::
+¿Qué modelo tiene mayor independencia lógica?
+{
+= Relacional
+~%-25% Jerárquico  
+~%-25% En red
+~%-25% Orientado a objetos
+}
+
+:: ASGBD00001 ::
+¿Qué desventaja tiene un SGBD monocapa?  
+{
+= Solo apto para bases de datos pequeñas
+~%-25% Complejidad de instalación
+~%-25% Limitado rendimiento
+~%-25% Escasa seguridad
+}
+
+:: ASGBD00001 ::
+¿Qué ventaja tiene un SGBD bicapa?
+{
+= Separación de datos y aplicaciones
+~%-25% Mayor rendimiento
+~%-25% Mejor escalabilidad
+~%-25% Mayor seguridad
+}
+
+:: ASGBD00001 ::
+¿Qué tipología sigue un SGBD con varios servidores de bases de datos?   
+{
+= Cliente/multiservidor
+~%-25% Monocapa
+~%-25% Cliente/servidor único
+~%-25% Tres capas
+}
+
+:: ASGBD00001 ::
+¿Qué ventaja aporta una arquitectura de tres o más capas?
+{
+= Mayor seguridad
+~%-25% Mejor rendimiento
+~%-25% Mayor simplicidad
+~%-25% Mayor escalabilidad
+}  
+
+¿Qué desventaja tenía el modelo de ficheros secuenciales?
+{
+= Lentitud en consultas aleatorias
+~%-25% Complejidad en la programación
+~%-25% Limitado volumen de datos
+~%-25% Imposibilidad de borrar registros
+}
+
+:: ASGBD00001 ::
+¿Qué ventaja tenían los ficheros secuenciales indexados? 
+{
+= Rapidez en consultas
+~%-25% Simplicidad de mantenimiento
+~%-25% Posibilidad de expansión
+~%-25% Bajo consumo de espacio
+}
+
+:: ASGBD00001 ::
+¿Qué problema tenían los ficheros secuenciales indexados?
+{
+= Costosa reorganización periódica
+~%-25% Limitado volumen de datos
+~%-25% Imposibilidad de expansión 
+~%-25% Complejidad de programación
+}
+
+:: ASGBD00001 ::
+¿Qué interfaz del modelo ANSI crea el esquema conceptual?
+{
+= Interfaz 1
+~%-25% Interfaz 2
+~%-25% Interfaz 3  
+~%-25% Interfaz 4
+}
+
+:: ASGBD00001 ::
+¿Qué interfaz del modelo ANSI almacena los metadatos del esquema conceptual?  
+{
+= Interfaz 2
+~%-25% Interfaz 1
+~%-25% Interfaz 3
+~%-25% Interfaz 4
+}
+
+:: ASGBD00001 ::
+¿Qué interfaz del modelo ANSI permite el acceso a los metadatos?
+{
+= Interfaz 13
+~%-25% Interfaz 12  
+~%-25% Interfaz 11
+~%-25% Interfaz 10
+}
+
+:: ASGBD00001 ::
+¿Qué interfaz del modelo ANSI transforma el esquema interno a datos?
+{
+= Interfaz 12
+~%-25% Interfaz 11
+~%-25% Interfaz 10
+~%-25% Interfaz 9
+}
+
+:: ASGBD00001 ::
+¿Qué desventaja tiene el modelo jerárquico?
+{
+= No representa bien muchas relaciones
+~%-25% Complejidad de uso
+~%-25% Limitaciones en el volumen de datos
+~%-25% Escaso rendimiento
+}
+
+:: ASGBD00001 ::
+¿Qué problema tenía el modelo de red Codasyl?  
+{
+= Excesiva complejidad
+~%-25% Limitado tipo de relaciones
+~%-25% Bajo rendimiento
+~%-25% Escaso volumen de datos
+}
+
+:: ASGBD00001 ::
+¿Qué desventaja tenía el modelo en red?
+{  
+= Complejidad de programación
+~%-25% Limitaciones en las relaciones
+~%-25% Problemas de rendimiento
+~%-25% Poca flexibilidad en consultas
+}
+
+:: ASGBD00001 ::
+¿Qué desventaja tienen los ficheros indexados-encadenados?  
+{
+= Requiere compactación periódica
+~%-25% Limitaciones en tipos de consultas
+~%-25% Complejidad de mantenimiento
+~%-25% Problemas de rendimiento 
+}
+
+:: ASGBD00001 ::
+¿Qué problema tenían los ficheros de acceso aleatorio?
+{
+= No aptos por sí solos para bases de datos
+~%-25% Imposible expansión
+~%-25% Limitado volumen de datos
+~%-25% Complejidad de mantenimiento
+}
+
+:: ASGBD00001 ::
+¿Qué ventaja tenían los ficheros secuenciales?
+{
+= Datos compactos
+~%-25% Simplicidad de programación
+~%-25% Rapidez en consultas aleatorias 
+~%-25% Posibilidad de borrar registros
+}
+
+:: ASGBD00001 ::
+¿Qué problema tenían los ficheros secuenciales encadenados?  
+{
+= Lentitud en operaciones por punteros
+~%-25% Imposible expansión
+~%-25% Limitaciones en consultas
+~%-25% Complejidad de programación
+}  
+
+¿Qué ventaja tienen los ficheros secuenciales encadenados?
+{
+= Velocidad en consultas aleatorias
+~%-25% Posibilidad de expansión
+~%-25% Simplicidad de programación
+~%-25% Permite borrar registros
+}
+
+:: ASGBD00001 ::
+¿Qué diferencia hay entre datos y metadatos?
+{
+= Los metadatos describen datos
+~%-25% No hay diferencia
+~%-25% Los datos describen metadatos
+~%-25% Los metadatos son datos sin estructurar
+}
+
+:: ASGBD00001 ::
+¿Qué utilidad tienen los metadatos en una base de datos?
+{
+= Describir y documentar los datos
+~%-25% Almacenar los datos principales
+~%-25% Establecer la seguridad
+~%-25% Crear informes
+}
+
+:: ASGBD00001 ::
+¿Qué es el diccionario de datos de un SGBD?  
+{
+= Almacén de metadatos
+~%-25% Tablas con los datos principales
+~%-25% Índices de la base de datos
+~%-25% Configuración del SGBD
+}
+
+:: ASGBD00001 ::
+¿Cómo se denomina al software para crear esquemas conceptuales?
+{
+= Herramienta CASE  
+~%-25% RDBMS
+~%-25% SQL
+~%-25% SGBD
+}
+
+:: ASGBD00001 ::
+¿Cómo se denomina al software que gestiona una base de datos?
+{
+= SGBD
+~%-25% SQL
+~%-25% CASE
+~%-25% RDBMS
+}
+
+:: ASGBD00001 ::
+¿Qué modelo de base de datos es más antiguo?
+{
+= Jerárquico
+~%-25% Relacional  
+~%-25% Orientado a objetos
+~%-25% En red
+}  
+
+¿Qué modelo apareció después del jerárquico?
+{
+= En red
+~%-25% Relacional
+~%-25% Orientado a objetos
+~%-25% Objeto-relacional
+}
+
+:: ASGBD00001 ::
+¿Qué modelo apareció después del relacional?
+{   
+= Orientado a objetos
+~%-25% Jerárquico
+~%-25% En red
+~%-25% Objeto-relacional
+}
+
+:: ASGBD00001 ::
+¿Qué lenguaje es considerado estándar para el modelo relacional?  
+{
+= SQL
+~%-25% CODASYL
+~%-25% C++
+~%-25% COBOL
+}
+
+:: ASGBD00001 ::
+¿Qué lenguaje definieron los estándares CODASYL?
+{  
+= CODASYL
+~%-25% SQL
+~%-25% C++
+~%-25% COBOL
+}
+
+:: ASGBD00001 ::
+¿Qué lenguaje se utilizaba en el modelo jerárquico IMS?
+{
+= IMS  
+~%-25% SQL
+~%-25% CODASYL
+~%-25% COBOL
+}
+
+:: ASGBD00001 ::
+¿Qué lenguaje se usa en la programación orientada a objetos?
+{
+= C++
+~%-25% SQL
+~%-25% IMS
+~%-25% CODASYL
+}
+
+:: ASGBD00001 ::
+¿Qué tipo de lenguaje es SQL? 
+{
+= Lenguaje de consulta y manipulación de datos
+~%-25% Lenguaje de programación
+~%-25% Lenguaje de modelado
+~%-25% Lenguaje de scripting
+}  
+
+¿Qué permite la independencia física en una base de datos?
+{  
+= Cambiar hardware sin modificar esquema
+~%-25% Cambiar esquema sin modificar datos
+~%-25% Modificar aplicaciones sin alterar datos
+~%-25% Añadir datos sin cambiar esquema  
+}
+
+:: ASGBD00001 ::
+¿Qué permite la independencia lógica en una base de datos? 
+{
+= Cambiar esquema sin modificar aplicaciones
+~%-25% Cambiar aplicaciones sin alterar esquema 
+~%-25% Añadir datos sin modificar aplicaciones
+~%-25% Cambiar hardware sin modificar datos
+}
+
+:: ASGBD00001 ::
+¿Qué elemento fundamenta la independencia física y lógica?
+{
+= Metadatos
+~%-25% Tablas de datos
+~%-25% Aplicaciones
+~%-25% Índices
+}
+
+:: ASGBD00001 ::
+¿Qué elementos forman el esquema externo?
+{
+= Vistas de los usuarios finales  
+~%-25% Tablas lógicas
+~%-25% Metadatos
+~%-25% Archivos físicos
+}
+
+:: ASGBD00001 ::
+¿Qué elementos forman el esquema conceptual?  
+{
+= Relaciones lógicas entre datos
+~%-25% Vistas de los usuarios
+~%-25% Archivos físicos
+~%-25% Detalles de implementación
+}
+
+:: ASGBD00001 ::
+¿Qué elementos forman el esquema interno?
+{
+= Detalles de implementación física
+~%-25% Relaciones lógicas  
+~%-25% Vistas de usuario
+~%-25% Metadatos
+}  
+
+¿Qué elementos forman el nivel físico?
+{
+= Archivos y datos en bruto
+~%-25% Relaciones lógicas
+~%-25% Vistas de usuario  
+~%-25% Metadatos
+}
+
+:: ASGBD00001 ::
+¿Qué tipo de modelo es independiente del SGBD?
+{
+= Conceptual
+~%-25% Interno
+~%-25% Externo
+~%-25% Físico
+}
+
+:: ASGBD00001 ::
+¿Qué tipo de modelo depende del hardware? 
+{   
+= Físico
+~%-25% Interno  
+~%-25% Externo
+~%-25% Conceptual
+}
+
+:: ASGBD00001 ::
+¿Qué tipo de modelo está próximo al usuario?
+{  
+= Externo
+~%-25% Físico
+~%-25% Interno 
+~%-25% Conceptual
+}
+
+:: ASGBD00001 ::
+¿Qué modelo se implementa en un SGBD concreto?
+{
+= Interno  
+~%-25% Externo
+~%-25% Físico
+~%-25% Conceptual
+}
+
+:: ASGBD00001 ::
+¿Qué desventaja tiene un SGBD monocapa?
+{
+= Solo apto para bases de datos pequeñas  
+~%-25% Complejidad de instalación 
+~%-25% Limitado rendimiento
+~%-25% Escasa seguridad
+}
+
+:: ASGBD00001 ::
+¿Qué ventaja tiene un SGBD bicapa?  
+{
+= Separación de datos y aplicaciones
+~%-25% Mayor rendimiento
+~%-25% Mejor escalabilidad
+~%-25% Mayor seguridad
+}
+
+:: ASGBD00001 ::
+¿Qué tipología sigue un SGBD con varios servidores de bases de datos?
+{
+= Cliente/multiservidor
+~%-25% Monocapa
+~%-25% Cliente/servidor único
+~%-25% Tres capas
+}
+
+:: ASGBD00001 ::
+¿Qué ventaja aporta una arquitectura de tres o más capas?   
+{
+= Mayor seguridad
+~%-25% Mejor rendimiento
+~%-25% Mayor simplicidad
+~%-25% Mayor escalabilidad 
+}
+
+:: ASGBD00001 ::
+¿Qué desventaja tenía el modelo de ficheros secuenciales?
+{
+= Lentitud en consultas aleatorias
+~%-25% Complejidad en la programación
+~%-25% Limitado volumen de datos  
+~%-25% Imposibilidad de borrar registros
+}  
+
+¿Qué ventaja tenían los ficheros secuenciales indexados?
+{
+= Rapidez en consultas
+~%-25% Simplicidad de mantenimiento
+~%-25% Posibilidad de expansión
+~%-25% Bajo consumo de espacio
+}
+
+:: ASGBD00001 ::
+¿Qué problema tenían los ficheros secuenciales indexados?  
+{
+= Costosa reorganización periódica
+~%-25% Limitado volumen de datos
+~%-25% Imposibilidad de expansión
+~%-25% Complejidad de programación 
+}
+
+:: ASGBD00001 ::
+¿Qué interfaz del modelo ANSI crea el esquema conceptual?
+{
+= Interfaz 1
+~%-25% Interfaz 2  
+~%-25% Interfaz 3
+~%-25% Interfaz 4
+}
+
+:: ASGBD00001 ::
+¿Qué interfaz del modelo ANSI almacena los metadatos del esquema conceptual?
+{
+= Interfaz 2
+~%-25% Interfaz 1
+~%-25% Interfaz 3
+~%-25% Interfaz 4
+}  
+
+¿Qué interfaz del modelo ANSI permite el acceso a los metadatos? 
+{
+= Interfaz 13
+~%-25% Interfaz 12
+~%-25% Interfaz 11  
+~%-25% Interfaz 10
+}
+
+:: ASGBD00001 ::
+¿Qué interfaz del modelo ANSI transforma el esquema interno a datos?
+{
+= Interfaz 12  
+~%-25% Interfaz 11
+~%-25% Interfaz 10
+~%-25% Interfaz 9
+}
+
+:: ASGBD00001 ::
+¿Qué desventaja tiene el modelo jerárquico?  
+{
+= No representa bien muchas relaciones
+~%-25% Complejidad de uso 
+~%-25% Limitaciones en el volumen de datos
+~%-25% Escaso rendimiento
+}
+
+:: ASGBD00001 ::
+¿Qué problema tenía el modelo de red Codasyl?
+{
+= Excesiva complejidad
+~%-25% Limitado tipo de relaciones
+~%-25% Bajo rendimiento  
+~%-25% Escaso volumen de datos
+}  
+
+¿Qué desventaja tenía el modelo en red?
+{
+= Complejidad de programación
+~%-25% Limitaciones en las relaciones
+~%-25% Problemas de rendimiento
+~%-25% Poca flexibilidad en consultas
+}
+
+:: ASGBD00001 ::
+¿Qué desventaja tienen los ficheros indexados-encadenados?
+{
+= Requiere compactación periódica  
+~%-25% Limitaciones en tipos de consultas
+~%-25% Complejidad de mantenimiento
+~%-25% Problemas de rendimiento
+}  
+
+¿Qué problema tenían los ficheros de acceso aleatorio?
+{
+= No aptos por sí solos para bases de datos
+~%-25% Imposible expansión
+~%-25% Limitado volumen de datos 
+~%-25% Complejidad de mantenimiento
+}
+
+:: ASGBD00001 ::
+¿Qué ventaja tenían los ficheros secuenciales?  
+{
+= Datos compactos
+~%-25% Simplicidad de programación 
+~%-25% Rapidez en consultas aleatorias
+~%-25% Posibilidad de borrar registros
+}
+
+:: ASGBD00001 ::
+¿Qué problema tenían los ficheros secuenciales encadenados?
+{
+= Lentitud en operaciones por punteros
+~%-25% Imposible expansión 
+~%-25% Limitaciones en consultas
+~%-25% Complejidad de programación
+}
+
+:: ASGBD00001 ::
+¿Qué ventaja tienen los ficheros secuenciales encadenados?  
+{
+= Velocidad en consultas aleatorias
+~%-25% Posibilidad de expansión
+~%-25% Simplicidad de programación
+~%-25% Permite borrar registros
+} 
+
+¿Qué diferencia hay entre datos y metadatos?
+{
+= Los metadatos describen datos
+~%-25% No hay diferencia  
+~%-25% Los datos describen metadatos
+~%-25% Los metadatos son datos sin estructurar
+}
+
+:: ASGBD00001 ::
+¿Qué utilidad tienen los metadatos en una base de datos?  
+{
+= Describir y documentar los datos
+~%-25% Almacenar los datos principales
+~%-25% Establecer la seguridad
+~%-25% Crear informes
+}
+
+:: ASGBD00001 ::
+¿Qué es el diccionario de datos de un SGBD?
+{
+= Almacén de metadatos
+~%-25% Tablas con los datos principales
+~%-25% Índices de la base de datos
+~%-25% Configuración del SGBD  
+}
+
+:: ASGBD00001 ::
+¿Cómo se denomina al software para crear esquemas conceptuales? 
+{
+= Herramienta CASE
+~%-25% RDBMS  
+~%-25% SQL
+~%-25% SGBD
+}
+
+:: ASGBD00001 ::
+¿Cómo se denomina al software que gestiona una base de datos?
+{
+= SGBD
+~%-25% SQL
+~%-25% CASE
+~%-25% RDBMS
+}
+
+:: ASGBD00001 ::
+¿Qué modelo de base de datos es más antiguo?  
+{
+= Jerárquico
+~%-25% Relacional
+~%-25% Orientado a objetos
+~%-25% En red
+}
+
+:: ASGBD00001 ::
+¿Qué modelo apareció después del jerárquico?
+{
+= En red  
+~%-25% Relacional
+~%-25% Orientado a objetos
+~%-25% Objeto-relacional
+}
+
+:: ASGBD00001 ::
+¿Qué modelo apareció después del relacional?
+{
+= Orientado a objetos
+~%-25% Jerárquico
+~%-25% En red
+~%-25% Objeto-relacional  
+}
+
+:: ASGBD00001 ::
+¿Qué lenguaje es considerado estándar para el modelo relacional?
+{
+= SQL
+~%-25% CODASYL  
+~%-25% C++ 
+~%-25% COBOL
+}

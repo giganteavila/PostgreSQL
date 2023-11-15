@@ -15,7 +15,22 @@ site_name: ASGBD
 #        - Release Notes: release-notes.md
 nav:
   - ./index.md
+  - .obsidian:
+    - app: ./.obsidian/app.json
+    - appearance: ./.obsidian/appearance.json
+    - core-plugins-migration: ./.obsidian/core-plugins-migration.json
+    - core-plugins: ./.obsidian/core-plugins.json
+    - hotkeys: ./.obsidian/hotkeys.json
+    - workspace: ./.obsidian/workspace.json
+  - 00.-Conceptos Básicos sobre SGBD:
+    - 01.-Datos y archivos: ./00.-Conceptos Básicos sobre SGBD/01.-Datos y archivos.md
+    - 02.-Tipos de gestión de Información mediante el ordenador: ./00.-Conceptos Básicos sobre SGBD/02.-Tipos de gestión de Información mediante el ordenador.md
+    - 03.-Funcionamiento de un SGBD: ./00.-Conceptos Básicos sobre SGBD/03.-Funcionamiento de un SGBD.md
+    - 04.-Tipos de SGBD: ./00.-Conceptos Básicos sobre SGBD/04.-Tipos de SGBD.md
+    - 05.-Archivos: ./00.-Conceptos Básicos sobre SGBD/05.-Archivos.md
+    - 06.-Estándares y modelo ANSI: ./00.-Conceptos Básicos sobre SGBD/06.-Estándares y modelo ANSI.md
   - 01.-Tutorial:
+    - ./01.-Tutorial/index.md
     - 01.-Cómo empezar:
       - 01.-Instalación: ./01.-Tutorial/01.-Cómo empezar/01.-Instalación.md
       - 02.-Fundamentos arquitectónicos: ./01.-Tutorial/01.-Cómo empezar/02.-Fundamentos arquitectónicos.md
@@ -39,32 +54,489 @@ nav:
       - 05.-Funciones de ventanas: ./01.-Tutorial/03.-Características avanzadas/05.-Funciones de ventanas.md
       - 06.-Herencia: ./01.-Tutorial/03.-Características avanzadas/06.-Herencia.md
       - 07.-Conclusión: ./01.-Tutorial/03.-Características avanzadas/07.-Conclusión.md
-  - 02.- El lenguaje SQL:
-    - ./02.- El lenguaje SQL/index.md
+  - 02.-El lenguaje SQL:
+    - ./02.-El lenguaje SQL/index.md
     - 01.-Sintaxis SQL:
       - 01.-Estructura léxica:
-        - ./02.- El lenguaje SQL/01.-Sintaxis SQL/01.-Estructura léxica/index.md
-        - 01.-Identificadores y palabras clave: ./02.- El lenguaje SQL/01.-Sintaxis SQL/01.-Estructura léxica/01.-Identificadores y palabras clave.md
-        - 02.-Constantes: ./02.- El lenguaje SQL/01.-Sintaxis SQL/01.-Estructura léxica/02.-Constantes.md
-        - 03.-Operadores: ./02.- El lenguaje SQL/01.-Sintaxis SQL/01.-Estructura léxica/03.-Operadores.md
-        - 04.-Comentarios: ./02.- El lenguaje SQL/01.-Sintaxis SQL/01.-Estructura léxica/04.-Comentarios.md
-        - 05.-Precedencia de Operadores: ./02.- El lenguaje SQL/01.-Sintaxis SQL/01.-Estructura léxica/05.-Precedencia de Operadores.md
+        - ./02.-El lenguaje SQL/01.-Sintaxis SQL/01.-Estructura léxica/index.md
+        - 01.-Identificadores y palabras clave: ./02.-El lenguaje SQL/01.-Sintaxis SQL/01.-Estructura léxica/01.-Identificadores y palabras clave.md
+        - 02.-Constantes: ./02.-El lenguaje SQL/01.-Sintaxis SQL/01.-Estructura léxica/02.-Constantes.md
+        - 03.-Operadores: ./02.-El lenguaje SQL/01.-Sintaxis SQL/01.-Estructura léxica/03.-Operadores.md
+        - 04.-Comentarios: ./02.-El lenguaje SQL/01.-Sintaxis SQL/01.-Estructura léxica/04.-Comentarios.md
+        - 05.-Precedencia de Operadores: ./02.-El lenguaje SQL/01.-Sintaxis SQL/01.-Estructura léxica/05.-Precedencia de Operadores.md
       - 02.-Expresiones de valor:
-        - ./02.- El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/index.md
-        - 01.-Referencias de columnas: ./02.- El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/01.-Referencias de columnas.md
-        - 02.-Parámetros de posición: ./02.- El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/02.-Parámetros de posición.md
-        - 03.-Suscriptores: ./02.- El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/03.-Suscriptores.md
-        - 04.-Selección de Campo: ./02.- El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/04.-Selección de Campo.md
-        - 05.-Invocatorias de operador: ./02.- El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/05.-Invocatorias de operador.md
-        - 06.-Llamadas de función: ./02.- El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/06.-Llamadas de función.md
-        - 07.-Expresiones agregadas: ./02.- El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/07.-Expresiones agregadas.md
-        - 08.-Llamadas de función de ventanas: ./02.- El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/08.-Llamadas de función de ventanas.md
-        - 09.-Tipos de fusión: ./02.- El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/09.-Tipos de fusión.md
-        - 10.-Expresiones de la colación: ./02.- El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/10.-Expresiones de la colación.md
-        - 11.-Sucoquesas de escalar: ./02.- El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/11.-Sucoquesas de escalar.md
-        - 12.-Constructores de Array: ./02.- El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/12.-Constructores de Array.md
-        - 13.-Constructores de filas: ./02.- El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/13.-Constructores de filas.md
-        - 14.-Reglas de evaluación de la expresión: ./02.- El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/14.-Reglas de evaluación de la expresión.md
+        - ./02.-El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/index.md
+        - 01.-Referencias de columnas: ./02.-El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/01.-Referencias de columnas.md
+        - 02.-Parámetros de posición: ./02.-El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/02.-Parámetros de posición.md
+        - 03.-Suscriptores: ./02.-El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/03.-Suscriptores.md
+        - 04.-Selección de Campo: ./02.-El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/04.-Selección de Campo.md
+        - 05.-Invocatorias de operador: ./02.-El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/05.-Invocatorias de operador.md
+        - 06.-Llamadas de función: ./02.-El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/06.-Llamadas de función.md
+        - 07.-Expresiones agregadas: ./02.-El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/07.-Expresiones agregadas.md
+        - 08.-Llamadas de función de ventanas: ./02.-El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/08.-Llamadas de función de ventanas.md
+        - 09.-Tipos de fusión: ./02.-El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/09.-Tipos de fusión.md
+        - 10.-Expresiones de la colación: ./02.-El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/10.-Expresiones de la colación.md
+        - 11.-Sucoquesas de escalar: ./02.-El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/11.-Sucoquesas de escalar.md
+        - 12.-Constructores de Array: ./02.-El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/12.-Constructores de Array.md
+        - 13.-Constructores de filas: ./02.-El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/13.-Constructores de filas.md
+        - 14.-Reglas de evaluación de la expresión: ./02.-El lenguaje SQL/01.-Sintaxis SQL/02.-Expresiones de valor/14.-Reglas de evaluación de la expresión.md
+      - 03.-Llamada a funciones:
+        - ./02.-El lenguaje SQL/01.-Sintaxis SQL/03.-Llamada a funciones/index.md
+        - 01.-Usando notación: ./02.-El lenguaje SQL/01.-Sintaxis SQL/03.-Llamada a funciones/01.-Usando notación.md
+        - 02.-Usando notación nombrada: ./02.-El lenguaje SQL/01.-Sintaxis SQL/03.-Llamada a funciones/02.-Usando notación nombrada.md
+        - 03.-Usando Notación Mixta: ./02.-El lenguaje SQL/01.-Sintaxis SQL/03.-Llamada a funciones/03.-Usando Notación Mixta.md
+    - 02.-Definición de Datos:
+      - ./02.-El lenguaje SQL/02.-Definición de Datos/index.md
+      - 01.-Básicos de la tabla: ./02.-El lenguaje SQL/02.-Definición de Datos/01.-Básicos de la tabla.md
+      - 02.-Valores predeterminados: ./02.-El lenguaje SQL/02.-Definición de Datos/02.-Valores predeterminados.md
+      - 03.-Columnas generadas: ./02.-El lenguaje SQL/02.-Definición de Datos/03.-Columnas generadas.md
+      - 04.-Restricciones:
+        - ./02.-El lenguaje SQL/02.-Definición de Datos/04.-Restricciones/index.md
+        - 01.-Comprobar restricciones: ./02.-El lenguaje SQL/02.-Definición de Datos/04.-Restricciones/01.-Comprobar restricciones.md
+        - 02.-No-Null Constraints: ./02.-El lenguaje SQL/02.-Definición de Datos/04.-Restricciones/02.-No-Null Constraints.md
+        - 03.-Restricciones únicas: ./02.-El lenguaje SQL/02.-Definición de Datos/04.-Restricciones/03.-Restricciones únicas.md
+        - 04.-Claves primarias: ./02.-El lenguaje SQL/02.-Definición de Datos/04.-Restricciones/04.-Claves primarias.md
+        - 05.-Claves foráneas: ./02.-El lenguaje SQL/02.-Definición de Datos/04.-Restricciones/05.-Claves foráneas.md
+        - 06.-Restricciones de exclusión: ./02.-El lenguaje SQL/02.-Definición de Datos/04.-Restricciones/06.-Restricciones de exclusión.md
+      - 05.-Columnas de sistema: ./02.-El lenguaje SQL/02.-Definición de Datos/05.-Columnas de sistema.md
+      - 06.-Tablas de modificación:
+        - ./02.-El lenguaje SQL/02.-Definición de Datos/06.-Tablas de modificación/index.md
+        - 01.-Añadir una columna: ./02.-El lenguaje SQL/02.-Definición de Datos/06.-Tablas de modificación/01.-Añadir una columna.md
+        - 02.-Quitar una columna: ./02.-El lenguaje SQL/02.-Definición de Datos/06.-Tablas de modificación/02.-Quitar una columna.md
+        - 03.-Añadir una restricción: ./02.-El lenguaje SQL/02.-Definición de Datos/06.-Tablas de modificación/03.-Añadir una restricción.md
+        - 04.-Quitar una restricción: ./02.-El lenguaje SQL/02.-Definición de Datos/06.-Tablas de modificación/04.-Quitar una restricción.md
+        - 05.-Cambiar el valor predeterminado de una columna: ./02.-El lenguaje SQL/02.-Definición de Datos/06.-Tablas de modificación/05.-Cambiar el valor predeterminado de una columna.md
+        - 06.-Cambiar el tipo de datos de una columna: ./02.-El lenguaje SQL/02.-Definición de Datos/06.-Tablas de modificación/06.-Cambiar el tipo de datos de una columna.md
+        - 07.-Renombrando una columna: ./02.-El lenguaje SQL/02.-Definición de Datos/06.-Tablas de modificación/07.-Renombrando una columna.md
+        - 08.-Renombrando una tabla: ./02.-El lenguaje SQL/02.-Definición de Datos/06.-Tablas de modificación/08.-Renombrando una tabla.md
+      - 07.-Privilegios: ./02.-El lenguaje SQL/02.-Definición de Datos/07.-Privilegios.md
+      - 08.-Políticas de seguridad de filas: ./02.-El lenguaje SQL/02.-Definición de Datos/08.-Políticas de seguridad de filas.md
+      - 09.-Esquemas:
+        - ./02.-El lenguaje SQL/02.-Definición de Datos/09.-Esquemas/index.md
+        - 01.-Creación de un esquema: ./02.-El lenguaje SQL/02.-Definición de Datos/09.-Esquemas/01.-Creación de un esquema.md
+        - 02.-El esquema público: ./02.-El lenguaje SQL/02.-Definición de Datos/09.-Esquemas/02.-El esquema público.md
+        - 03.-El camino de búsqueda de esquemas: ./02.-El lenguaje SQL/02.-Definición de Datos/09.-Esquemas/03.-El camino de búsqueda de esquemas.md
+        - 04.-Esquemas y privilegios: ./02.-El lenguaje SQL/02.-Definición de Datos/09.-Esquemas/04.-Esquemas y privilegios.md
+        - 05.-El esquema de catálogo del sistema: ./02.-El lenguaje SQL/02.-Definición de Datos/09.-Esquemas/05.-El esquema de catálogo del sistema.md
+        - 06.-Patrones de uso: ./02.-El lenguaje SQL/02.-Definición de Datos/09.-Esquemas/06.-Patrones de uso.md
+        - 07.-Portabilidad: ./02.-El lenguaje SQL/02.-Definición de Datos/09.-Esquemas/07.-Portabilidad.md
+      - 10.-Herencia:
+        - ./02.-El lenguaje SQL/02.-Definición de Datos/10.-Herencia/index.md
+        - 01.-Advertencias: ./02.-El lenguaje SQL/02.-Definición de Datos/10.-Herencia/01.-Advertencias.md
+      - 11.-Particionado de tablas:
+        - ./02.-El lenguaje SQL/02.-Definición de Datos/11.-Particionado de tablas/index.md
+        - 01.-Vista General: ./02.-El lenguaje SQL/02.-Definición de Datos/11.-Particionado de tablas/01.-Vista General.md
+        - 02.-Partición declarativa:
+          - ./02.-El lenguaje SQL/02.-Definición de Datos/11.-Particionado de tablas/02.-Partición declarativa/index.md
+          - 01.-Ejemplo: ./02.-El lenguaje SQL/02.-Definición de Datos/11.-Particionado de tablas/02.-Partición declarativa/01.-Ejemplo.md
+          - 02.-Mantenimiento de particiones: ./02.-El lenguaje SQL/02.-Definición de Datos/11.-Particionado de tablas/02.-Partición declarativa/02.-Mantenimiento de particiones.md
+          - 03.-Limitaciones: ./02.-El lenguaje SQL/02.-Definición de Datos/11.-Particionado de tablas/02.-Partición declarativa/03.-Limitaciones.md
+        - 03.-Partición del uso de la herencia:
+          - ./02.-El lenguaje SQL/02.-Definición de Datos/11.-Particionado de tablas/03.-Partición del uso de la herencia/index.md
+          - 01.-Ejemplo: ./02.-El lenguaje SQL/02.-Definición de Datos/11.-Particionado de tablas/03.-Partición del uso de la herencia/01.-Ejemplo.md
+          - 02.-Mantenimiento de la particiones con herencia: ./02.-El lenguaje SQL/02.-Definición de Datos/11.-Particionado de tablas/03.-Partición del uso de la herencia/02.-Mantenimiento de la particiones con herencia.md
+          - 03.-Advertencias: ./02.-El lenguaje SQL/02.-Definición de Datos/11.-Particionado de tablas/03.-Partición del uso de la herencia/03.-Advertencias.md
+        - 04.-Partición de poda: ./02.-El lenguaje SQL/02.-Definición de Datos/11.-Particionado de tablas/04.-Partición de poda.md
+        - 05.-Partición y restricción de la exclusión: ./02.-El lenguaje SQL/02.-Definición de Datos/11.-Particionado de tablas/05.-Partición y restricción de la exclusión.md
+        - 06.-Buenas prácticas para la partición declarativa: ./02.-El lenguaje SQL/02.-Definición de Datos/11.-Particionado de tablas/06.-Buenas prácticas para la partición declarativa.md
+      - 12.-Datos foráneos: ./02.-El lenguaje SQL/02.-Definición de Datos/12.-Datos foráneos.md
+      - 13.-Otros objetos de la BD: ./02.-El lenguaje SQL/02.-Definición de Datos/13.-Otros objetos de la BD.md
+      - 14.-Seguimiento de la dependencia: ./02.-El lenguaje SQL/02.-Definición de Datos/14.-Seguimiento de la dependencia.md
+    - 03.-Manipulación de Datos:
+      - ./02.-El lenguaje SQL/03.-Manipulación de Datos/index.md
+      - 01.-Inserción de Datos: ./02.-El lenguaje SQL/03.-Manipulación de Datos/01.-Inserción de Datos.md
+      - 02.-Actualización de Datos: ./02.-El lenguaje SQL/03.-Manipulación de Datos/02.-Actualización de Datos.md
+      - 03.-Supresión de Datos: ./02.-El lenguaje SQL/03.-Manipulación de Datos/03.-Supresión de Datos.md
+      - 04.-Devolución de Datos de filas modificadas: ./02.-El lenguaje SQL/03.-Manipulación de Datos/04.-Devolución de Datos de filas modificadas.md
+    - 04.-Consultas:
+      - ./02.-El lenguaje SQL/04.-Consultas/index.md
+      - 01.-Vista general: ./02.-El lenguaje SQL/04.-Consultas/01.-Vista general.md
+      - 02.-Expresiones de tablas:
+        - ./02.-El lenguaje SQL/04.-Consultas/02.-Expresiones de tablas/index.md
+        - 01.-La cláusula FROM:
+          - ./02.-El lenguaje SQL/04.-Consultas/02.-Expresiones de tablas/01.-La cláusula FROM/index.md
+          - 01.-Unión de tablas: ./02.-El lenguaje SQL/04.-Consultas/02.-Expresiones de tablas/01.-La cláusula FROM/01.-Unión de tablas.md
+          - 02.-Tablas y alias de columnas: ./02.-El lenguaje SQL/04.-Consultas/02.-Expresiones de tablas/01.-La cláusula FROM/02.-Tablas y alias de columnas.md
+          - 03.-Subclases: ./02.-El lenguaje SQL/04.-Consultas/02.-Expresiones de tablas/01.-La cláusula FROM/03.-Subclases.md
+          - 04.-Funciones de Tabla: ./02.-El lenguaje SQL/04.-Consultas/02.-Expresiones de tablas/01.-La cláusula FROM/04.-Funciones de Tabla.md
+          - 05.- La subclase LATERAL: ./02.-El lenguaje SQL/04.-Consultas/02.-Expresiones de tablas/01.-La cláusula FROM/05.- La subclase LATERAL.md
+        - 02.-La Cláusula WHERE: ./02.-El lenguaje SQL/04.-Consultas/02.-Expresiones de tablas/02.-La Cláusula WHERE.md
+        - 03.-Las cláusulas GROUP BY  y HAVING: ./02.-El lenguaje SQL/04.-Consultas/02.-Expresiones de tablas/03.-Las cláusulas GROUP BY  y HAVING.md
+        - 04.-GROUPING SETS, CUBE  y ROLLUP: ./02.-El lenguaje SQL/04.-Consultas/02.-Expresiones de tablas/04.-GROUPING SETS, CUBE  y ROLLUP.md
+        - 05.-Procesamiento de la función de la ventana: ./02.-El lenguaje SQL/04.-Consultas/02.-Expresiones de tablas/05.-Procesamiento de la función de la ventana.md
+      - 03.- Selección de listas:
+        - ./02.-El lenguaje SQL/04.-Consultas/03.- Selección de listas/index.md
+        - 01.-Artículos de la lista: ./02.-El lenguaje SQL/04.-Consultas/03.- Selección de listas/01.-Artículos de la lista.md
+        - 02.-Etiquetas de columnas: ./02.-El lenguaje SQL/04.-Consultas/03.- Selección de listas/02.-Etiquetas de columnas.md
+        - 03.-DISTINCT: ./02.-El lenguaje SQL/04.-Consultas/03.- Selección de listas/03.-DISTINCT.md
+      - 04.-Combinando consultas (UNION, INTERSECT, EXCEPT): ./02.-El lenguaje SQL/04.-Consultas/04.-Combinando consultas (UNION, INTERSECT, EXCEPT).md
+      - 05.-Ordenando filas (ORDER BY): ./02.-El lenguaje SQL/04.-Consultas/05.-Ordenando filas (ORDER BY).md
+      - 06.-LIMIT y OFFSET: ./02.-El lenguaje SQL/04.-Consultas/06.-LIMIT y OFFSET.md
+      - 07.-Listas VALUES: ./02.-El lenguaje SQL/04.-Consultas/07.-Listas VALUES.md
+      - 08.-Constultas WITH (Expresiones de tablas comunes): ./02.-El lenguaje SQL/04.-Consultas/08.-Constultas WITH (Expresiones de tablas comunes).md
+      - 08.-Consultas WITH (Expresiones de tablas comunes):
+        - ./02.-El lenguaje SQL/04.-Consultas/08.-Consultas WITH (Expresiones de tablas comunes)/index.md
+        - 01.-SELECT en WITH: ./02.-El lenguaje SQL/04.-Consultas/08.-Consultas WITH (Expresiones de tablas comunes)/01.-SELECT en WITH.md
+        - 02.-Consultas recursivas:
+          - 01.-Orden de búsqueda: ./02.-El lenguaje SQL/04.-Consultas/08.-Consultas WITH (Expresiones de tablas comunes)/02.-Consultas recursivas/01.-Orden de búsqueda.md
+          - 01.-SELECT en WITH: ./02.-El lenguaje SQL/04.-Consultas/08.-Consultas WITH (Expresiones de tablas comunes)/02.-Consultas recursivas/01.-SELECT en WITH.md
+          - 02.-Detección de ciclos: ./02.-El lenguaje SQL/04.-Consultas/08.-Consultas WITH (Expresiones de tablas comunes)/02.-Consultas recursivas/02.-Detección de ciclos.md
+          - index: ./02.-El lenguaje SQL/04.-Consultas/08.-Consultas WITH (Expresiones de tablas comunes)/02.-Consultas recursivas/index
+        - 03.-Materialización común de la expresión de tabla: ./02.-El lenguaje SQL/04.-Consultas/08.-Consultas WITH (Expresiones de tablas comunes)/03.-Materialización común de la expresión de tabla.md
+        - 04.-Declaraciones de Data-Modifying en WITH: ./02.-El lenguaje SQL/04.-Consultas/08.-Consultas WITH (Expresiones de tablas comunes)/04.-Declaraciones de Data-Modifying en WITH.md
+    - 05.-Tipos de Datos:
+      - ./02.-El lenguaje SQL/05.-Tipos de Datos/index.md
+      - 01.-Tipos Numéricos:
+        - ./02.-El lenguaje SQL/05.-Tipos de Datos/01.-Tipos Numéricos/index.md
+        - 01.-Tipos enteros: ./02.-El lenguaje SQL/05.-Tipos de Datos/01.-Tipos Numéricos/01.-Tipos enteros.md
+        - 02.-Números de precisión arbitraria: ./02.-El lenguaje SQL/05.-Tipos de Datos/01.-Tipos Numéricos/02.-Números de precisión arbitraria.md
+        - 03.-Tipos en punto flotante: ./02.-El lenguaje SQL/05.-Tipos de Datos/01.-Tipos Numéricos/03.-Tipos en punto flotante.md
+        - 04.-Tipos de serie: ./02.-El lenguaje SQL/05.-Tipos de Datos/01.-Tipos Numéricos/04.-Tipos de serie.md
+      - 02.-Tipos monetarios: ./02.-El lenguaje SQL/05.-Tipos de Datos/02.-Tipos monetarios.md
+      - 03.-Tipos carácter: ./02.-El lenguaje SQL/05.-Tipos de Datos/03.-Tipos carácter.md
+      - 04.-Tipos de datos binarios:
+        - ./02.-El lenguaje SQL/05.-Tipos de Datos/04.-Tipos de datos binarios/index.md
+        - 01.-Formato byteaHex: ./02.-El lenguaje SQL/05.-Tipos de Datos/04.-Tipos de datos binarios/01.-Formato byteaHex.md
+        - 02.-Formato byteaEscapar: ./02.-El lenguaje SQL/05.-Tipos de Datos/04.-Tipos de datos binarios/02.-Formato byteaEscapar.md
+      - 05.-Tipos Fecha-Hora:
+        - ./02.-El lenguaje SQL/05.-Tipos de Datos/05.-Tipos Fecha-Hora/index.md
+        - 01.-Fecha-aportación de tiempo.md (Conflicto de mayúsculas y minúsculas):
+          - 01.-Fechas: ./02.-El lenguaje SQL/05.-Tipos de Datos/05.-Tipos Fecha-Hora/01.-Fecha-aportación de tiempo.md (Conflicto de mayúsculas y minúsculas)/01.-Fechas.md
+          - 02.-Horas: ./02.-El lenguaje SQL/05.-Tipos de Datos/05.-Tipos Fecha-Hora/01.-Fecha-aportación de tiempo.md (Conflicto de mayúsculas y minúsculas)/02.-Horas.md
+          - 03.-Mess de tiempo: ./02.-El lenguaje SQL/05.-Tipos de Datos/05.-Tipos Fecha-Hora/01.-Fecha-aportación de tiempo.md (Conflicto de mayúsculas y minúsculas)/03.-Mess de tiempo.md
+          - 04.-Valores especiales: ./02.-El lenguaje SQL/05.-Tipos de Datos/05.-Tipos Fecha-Hora/01.-Fecha-aportación de tiempo.md (Conflicto de mayúsculas y minúsculas)/04.-Valores especiales.md
+        - 02.-Formato de salida: ./02.-El lenguaje SQL/05.-Tipos de Datos/05.-Tipos Fecha-Hora/02.-Formato de salida.md
+        - 03.-Zonas horarias: ./02.-El lenguaje SQL/05.-Tipos de Datos/05.-Tipos Fecha-Hora/03.-Zonas horarias.md
+        - 04.-Intervalo de valores: ./02.-El lenguaje SQL/05.-Tipos de Datos/05.-Tipos Fecha-Hora/04.-Intervalo de valores.md
+        - 05.-Salida de intervalos: ./02.-El lenguaje SQL/05.-Tipos de Datos/05.-Tipos Fecha-Hora/05.-Salida de intervalos.md
+      - 06.-Tipo booleano: ./02.-El lenguaje SQL/05.-Tipos de Datos/06.-Tipo booleano.md
+      - 07.-Tipos enumerados:
+        - ./02.-El lenguaje SQL/05.-Tipos de Datos/07.-Tipos enumerados/index.md
+        - 01.-Declaración de los tipos enumerados: ./02.-El lenguaje SQL/05.-Tipos de Datos/07.-Tipos enumerados/01.-Declaración de los tipos enumerados.md
+        - 02.-Ordenando: ./02.-El lenguaje SQL/05.-Tipos de Datos/07.-Tipos enumerados/02.-Ordenando.md
+        - 03.-Tipo de Seguridad: ./02.-El lenguaje SQL/05.-Tipos de Datos/07.-Tipos enumerados/03.-Tipo de Seguridad.md
+        - 04.-Detalles de la implementación: ./02.-El lenguaje SQL/05.-Tipos de Datos/07.-Tipos enumerados/04.-Detalles de la implementación.md
+      - 08.-Tipos Geométricos:
+        - ./02.-El lenguaje SQL/05.-Tipos de Datos/08.-Tipos Geométricos/index.md
+        - 01.-Puntos: ./02.-El lenguaje SQL/05.-Tipos de Datos/08.-Tipos Geométricos/01.-Puntos.md
+        - 02.-Líneas: ./02.-El lenguaje SQL/05.-Tipos de Datos/08.-Tipos Geométricos/02.-Líneas.md
+        - 03.-Segmentos de línea: ./02.-El lenguaje SQL/05.-Tipos de Datos/08.-Tipos Geométricos/03.-Segmentos de línea.md
+        - 04.-Cajas: ./02.-El lenguaje SQL/05.-Tipos de Datos/08.-Tipos Geométricos/04.-Cajas.md
+        - 05.-Caminos: ./02.-El lenguaje SQL/05.-Tipos de Datos/08.-Tipos Geométricos/05.-Caminos.md
+        - 06.-Polígonos: ./02.-El lenguaje SQL/05.-Tipos de Datos/08.-Tipos Geométricos/06.-Polígonos.md
+        - 07.-Círculos: ./02.-El lenguaje SQL/05.-Tipos de Datos/08.-Tipos Geométricos/07.-Círculos.md
+      - 09.-Tipos de dirección de red:
+        - ./02.-El lenguaje SQL/05.-Tipos de Datos/09.-Tipos de dirección de red/index.md
+        - 01.-inet: ./02.-El lenguaje SQL/05.-Tipos de Datos/09.-Tipos de dirección de red/01.-inet.md
+        - 02.-cidr: ./02.-El lenguaje SQL/05.-Tipos de Datos/09.-Tipos de dirección de red/02.-cidr.md
+        - 03.-inet vs cidr: ./02.-El lenguaje SQL/05.-Tipos de Datos/09.-Tipos de dirección de red/03.-inet vs cidr.md
+        - 04.-macaddr: ./02.-El lenguaje SQL/05.-Tipos de Datos/09.-Tipos de dirección de red/04.-macaddr.md
+        - 05.-macaddr8: ./02.-El lenguaje SQL/05.-Tipos de Datos/09.-Tipos de dirección de red/05.-macaddr8.md
+      - 10.-Tipo cadena de bits: ./02.-El lenguaje SQL/05.-Tipos de Datos/10.-Tipo cadena de bits.md
+      - 11.-Tipos de búsqueda de texto:
+        - ./02.-El lenguaje SQL/05.-Tipos de Datos/11.-Tipos de búsqueda de texto/index.md
+        - 01.-tsvector: ./02.-El lenguaje SQL/05.-Tipos de Datos/11.-Tipos de búsqueda de texto/01.-tsvector.md
+        - 02.-tsquery: ./02.-El lenguaje SQL/05.-Tipos de Datos/11.-Tipos de búsqueda de texto/02.-tsquery.md
+      - 12.-Tipo UUID: ./02.-El lenguaje SQL/05.-Tipos de Datos/12.-Tipo UUID.md
+      - 13.-El tipo XML:
+        - 01.-Creación de valores XML: ./02.-El lenguaje SQL/05.-Tipos de Datos/13.-El tipo XML/01.-Creación de valores XML.md
+        - 02.-Manejo de la codificación de codificación: ./02.-El lenguaje SQL/05.-Tipos de Datos/13.-El tipo XML/02.-Manejo de la codificación de codificación.md
+        - 03.-Acceso a valores XML: ./02.-El lenguaje SQL/05.-Tipos de Datos/13.-El tipo XML/03.-Acceso a valores XML.md
+        - Untitled: ./02.-El lenguaje SQL/05.-Tipos de Datos/13.-El tipo XML/Untitled.md
+        - index.: ./02.-El lenguaje SQL/05.-Tipos de Datos/13.-El tipo XML/index..md
+      - 14.-El Tipo JSON:
+        - ./02.-El lenguaje SQL/05.-Tipos de Datos/14.-El Tipo JSON/index.md
+        - 01.-Entradas JSON y sintaxis de salida: ./02.-El lenguaje SQL/05.-Tipos de Datos/14.-El Tipo JSON/01.-Entradas JSON y sintaxis de salida.md
+        - 02.-Diseñar documentos JSON: ./02.-El lenguaje SQL/05.-Tipos de Datos/14.-El Tipo JSON/02.-Diseñar documentos JSON.md
+        - 03.-jsonb Contención y existencia: ./02.-El lenguaje SQL/05.-Tipos de Datos/14.-El Tipo JSON/03.-jsonb Contención y existencia.md
+        - 04.-jsonb Indexación: ./02.-El lenguaje SQL/05.-Tipos de Datos/14.-El Tipo JSON/04.-jsonb Indexación.md
+        - 05.-jsonb Suscripción: ./02.-El lenguaje SQL/05.-Tipos de Datos/14.-El Tipo JSON/05.-jsonb Suscripción.md
+        - 06.-Transformación: ./02.-El lenguaje SQL/05.-Tipos de Datos/14.-El Tipo JSON/06.-Transformación.md
+        - 07.-Tipo jsonpath: ./02.-El lenguaje SQL/05.-Tipos de Datos/14.-El Tipo JSON/07.-Tipo jsonpath.md
+      - 15.-Arrays:
+        - ./02.-El lenguaje SQL/05.-Tipos de Datos/15.-Arrays/index.md
+        - 01.-Declaración de los tipos de Array: ./02.-El lenguaje SQL/05.-Tipos de Datos/15.-Arrays/01.-Declaración de los tipos de Array.md
+        - 02.-Entrada de valores en Arrays: ./02.-El lenguaje SQL/05.-Tipos de Datos/15.-Arrays/02.-Entrada de valores en Arrays.md
+        - 03.-Accediendo a los Arrays: ./02.-El lenguaje SQL/05.-Tipos de Datos/15.-Arrays/03.-Accediendo a los Arrays.md
+        - 04.-Modificando Arrays: ./02.-El lenguaje SQL/05.-Tipos de Datos/15.-Arrays/04.-Modificando Arrays.md
+        - 05.-Buscando en Arrays: ./02.-El lenguaje SQL/05.-Tipos de Datos/15.-Arrays/05.-Buscando en Arrays.md
+        - 06.-Entradas en Arrays y sintaxis de salida: ./02.-El lenguaje SQL/05.-Tipos de Datos/15.-Arrays/06.-Entradas en Arrays y sintaxis de salida.md
+      - 16.-Tipos compuestos:
+        - ./02.-El lenguaje SQL/05.-Tipos de Datos/16.-Tipos compuestos/index.md
+        - 01.-Declaración de tipos compuestos: ./02.-El lenguaje SQL/05.-Tipos de Datos/16.-Tipos compuestos/01.-Declaración de tipos compuestos.md
+        - 02.-Construcción de tipos compuestos: ./02.-El lenguaje SQL/05.-Tipos de Datos/16.-Tipos compuestos/02.-Construcción de tipos compuestos.md
+        - 03.-Acceso a tipos compuestos: ./02.-El lenguaje SQL/05.-Tipos de Datos/16.-Tipos compuestos/03.-Acceso a tipos compuestos.md
+        - 04.-Modificación de tipos compuestos: ./02.-El lenguaje SQL/05.-Tipos de Datos/16.-Tipos compuestos/04.-Modificación de tipos compuestos.md
+        - 05.-Uso de tipos compuestos en consultas: ./02.-El lenguaje SQL/05.-Tipos de Datos/16.-Tipos compuestos/05.-Uso de tipos compuestos en consultas.md
+        - 06.-Entrada de tipos compuestos y sintaxis de salida: ./02.-El lenguaje SQL/05.-Tipos de Datos/16.-Tipos compuestos/06.-Entrada de tipos compuestos y sintaxis de salida.md
+      - 17.-Tipos de Rango:
+        - ./02.-El lenguaje SQL/05.-Tipos de Datos/17.-Tipos de Rango/index.md
+        - 01.-Gama de distribución y tipos multidisco construidos: ./02.-El lenguaje SQL/05.-Tipos de Datos/17.-Tipos de Rango/01.-Gama de distribución y tipos multidisco construidos.md
+        - 02.-Ejemplos: ./02.-El lenguaje SQL/05.-Tipos de Datos/17.-Tipos de Rango/02.-Ejemplos.md
+        - 03.-Escenas inclusivas y exclusivas: ./02.-El lenguaje SQL/05.-Tipos de Datos/17.-Tipos de Rango/03.-Escenas inclusivas y exclusivas.md
+        - 04.-Cora Ranges infinitos (no consolidados): ./02.-El lenguaje SQL/05.-Tipos de Datos/17.-Tipos de Rango/04.-Cora Ranges infinitos (no consolidados).md
+        - 05.-Aparcar entrada-producto: ./02.-El lenguaje SQL/05.-Tipos de Datos/17.-Tipos de Rango/05.-Aparcar entrada-producto.md
+        - 06.-Construcción de rangos y Multidiscos: ./02.-El lenguaje SQL/05.-Tipos de Datos/17.-Tipos de Rango/06.-Construcción de rangos y Multidiscos.md
+        - 07.-Tipos de rango discretos: ./02.-El lenguaje SQL/05.-Tipos de Datos/17.-Tipos de Rango/07.-Tipos de rango discretos.md
+        - 08.-Definir nuevos tipos de rango: ./02.-El lenguaje SQL/05.-Tipos de Datos/17.-Tipos de Rango/08.-Definir nuevos tipos de rango.md
+        - 09.-Indiceción: ./02.-El lenguaje SQL/05.-Tipos de Datos/17.-Tipos de Rango/09.-Indiceción.md
+        - 10.-Limitaciones en las cordilleras: ./02.-El lenguaje SQL/05.-Tipos de Datos/17.-Tipos de Rango/10.-Limitaciones en las cordilleras.md
+      - 18.-Tipos Dominio: ./02.-El lenguaje SQL/05.-Tipos de Datos/18.-Tipos Dominio.md
+      - 19.-Tipos de Identificador de Objetos: ./02.-El lenguaje SQL/05.-Tipos de Datos/19.-Tipos de Identificador de Objetos.md
+      - 20.-Tipo pg_lsn: ./02.-El lenguaje SQL/05.-Tipos de Datos/20.-Tipo pg_lsn.md
+      - 21.-Pseudo tipos: ./02.-El lenguaje SQL/05.-Tipos de Datos/21.-Pseudo tipos.md
+    - 06.-Funciones y operadores:
+      - ./02.-El lenguaje SQL/06.-Funciones y operadores/index.md
+      - 01.-Operadores lógicos: ./02.-El lenguaje SQL/06.-Funciones y operadores/01.-Operadores lógicos.md
+      - 02.-Funciones y operadores de comparación: ./02.-El lenguaje SQL/06.-Funciones y operadores/02.-Funciones y operadores de comparación.md
+      - 03.-Funciones y operadores matemáticos: ./02.-El lenguaje SQL/06.-Funciones y operadores/03.-Funciones y operadores matemáticos.md
+      - 04.-Operadores y Funciones de cadena:
+        - ./02.-El lenguaje SQL/06.-Funciones y operadores/04.-Operadores y Funciones de cadena/index.md
+        - 01.-Formatos: ./02.-El lenguaje SQL/06.-Funciones y operadores/04.-Operadores y Funciones de cadena/01.-Formatos.md
+      - 05.-Funciones binarias de cuerda y operadores: ./02.-El lenguaje SQL/06.-Funciones y operadores/05.-Funciones binarias de cuerda y operadores.md
+      - 06.-Funciones de cuerda de cuerda y operadores: ./02.-El lenguaje SQL/06.-Funciones y operadores/06.-Funciones de cuerda de cuerda y operadores.md
+      - 07.-Emparejado de patrones:
+        - ./02.-El lenguaje SQL/06.-Funciones y operadores/07.-Emparejado de patrones/index.md
+        - 01.-LIKE: ./02.-El lenguaje SQL/06.-Funciones y operadores/07.-Emparejado de patrones/01.-LIKE.md
+        - 02.-SIMILAR TO Regular Expressions: ./02.-El lenguaje SQL/06.-Funciones y operadores/07.-Emparejado de patrones/02.-SIMILAR TO Regular Expressions.md
+        - 03.-Expresiones Regulares POSIX:
+          - ./02.-El lenguaje SQL/06.-Funciones y operadores/07.-Emparejado de patrones/03.-Expresiones Regulares POSIX/index.md
+          - 01.-Detalles de la Expresión Regular: ./02.-El lenguaje SQL/06.-Funciones y operadores/07.-Emparejado de patrones/03.-Expresiones Regulares POSIX/01.-Detalles de la Expresión Regular.md
+          - 02.-Expresiones de Bracket: ./02.-El lenguaje SQL/06.-Funciones y operadores/07.-Emparejado de patrones/03.-Expresiones Regulares POSIX/02.-Expresiones de Bracket.md
+          - 03.-Expresiones Regulares de Escape: ./02.-El lenguaje SQL/06.-Funciones y operadores/07.-Emparejado de patrones/03.-Expresiones Regulares POSIX/03.-Expresiones Regulares de Escape.md
+          - 04.-Párrafo. La expresión REgular Metasyntax: ./02.-El lenguaje SQL/06.-Funciones y operadores/07.-Emparejado de patrones/03.-Expresiones Regulares POSIX/04.-Párrafo. La expresión REgular Metasyntax.md
+          - 05.-Reglas de partido de Expresiones Regulares: ./02.-El lenguaje SQL/06.-Funciones y operadores/07.-Emparejado de patrones/03.-Expresiones Regulares POSIX/05.-Reglas de partido de Expresiones Regulares.md
+          - 06.-Límites y compatibilidad: ./02.-El lenguaje SQL/06.-Funciones y operadores/07.-Emparejado de patrones/03.-Expresiones Regulares POSIX/06.-Límites y compatibilidad.md
+          - 07.-Expresiones Regulares básicas: ./02.-El lenguaje SQL/06.-Funciones y operadores/07.-Emparejado de patrones/03.-Expresiones Regulares POSIX/07.-Expresiones Regulares básicas.md
+          - 08.-Diferencias de SQL estándar y XQuery: ./02.-El lenguaje SQL/06.-Funciones y operadores/07.-Emparejado de patrones/03.-Expresiones Regulares POSIX/08.-Diferencias de SQL estándar y XQuery.md
+      - 08.-Funciones de Formato de tipo de datos: ./02.-El lenguaje SQL/06.-Funciones y operadores/08.-Funciones de Formato de tipo de datos.md
+      - 09.-Funciones y Operadores de Fecha-Hora:
+        - ./02.-El lenguaje SQL/06.-Funciones y operadores/09.-Funciones y Operadores de Fecha-Hora/index.md
+        - 01.-EXTRACT, date_part: ./02.-El lenguaje SQL/06.-Funciones y operadores/09.-Funciones y Operadores de Fecha-Hora/01.-EXTRACT, date_part.md
+        - 02.-date_trunc: ./02.-El lenguaje SQL/06.-Funciones y operadores/09.-Funciones y Operadores de Fecha-Hora/02.-date_trunc.md
+        - 03.-date_bin: ./02.-El lenguaje SQL/06.-Funciones y operadores/09.-Funciones y Operadores de Fecha-Hora/03.-date_bin.md
+        - 04.-AT TIME ZONE: ./02.-El lenguaje SQL/06.-Funciones y operadores/09.-Funciones y Operadores de Fecha-Hora/04.-AT TIME ZONE.md
+        - 05.-Fecha-Hora en curso: ./02.-El lenguaje SQL/06.-Funciones y operadores/09.-Funciones y Operadores de Fecha-Hora/05.-Fecha-Hora en curso.md
+        - 06.-Execución atrasada: ./02.-El lenguaje SQL/06.-Funciones y operadores/09.-Funciones y Operadores de Fecha-Hora/06.-Execución atrasada.md
+      - 10.-Funciones de soporte de Enum: ./02.-El lenguaje SQL/06.-Funciones y operadores/10.-Funciones de soporte de Enum.md
+      - 11.-Funciones geométricas y operadores: ./02.-El lenguaje SQL/06.-Funciones y operadores/11.-Funciones geométricas y operadores.md
+      - 12.-Funciones de dirección de red y operadores: ./02.-El lenguaje SQL/06.-Funciones y operadores/12.-Funciones de dirección de red y operadores.md
+      - 13.-Funciones de búsqueda de texto y operadores: ./02.-El lenguaje SQL/06.-Funciones y operadores/13.-Funciones de búsqueda de texto y operadores.md
+      - 14.-Funciones UUID: ./02.-El lenguaje SQL/06.-Funciones y operadores/14.-Funciones UUID.md
+      - 15.-Funciones XML:
+        - ./02.-El lenguaje SQL/06.-Funciones y operadores/15.-Funciones XML/index.md
+        - 01.-Generando Contenido XML.md:
+          - ./02.-El lenguaje SQL/06.-Funciones y operadores/15.-Funciones XML/01.-Generando Contenido XML.md/index.md
+          - 01.-xmlcomment: ./02.-El lenguaje SQL/06.-Funciones y operadores/15.-Funciones XML/01.-Generando Contenido XML.md/01.-xmlcomment.md
+          - 02.-xmlconcat: ./02.-El lenguaje SQL/06.-Funciones y operadores/15.-Funciones XML/01.-Generando Contenido XML.md/02.-xmlconcat.md
+          - 03.-xmlelement: ./02.-El lenguaje SQL/06.-Funciones y operadores/15.-Funciones XML/01.-Generando Contenido XML.md/03.-xmlelement.md
+          - 04.-xmlforest: ./02.-El lenguaje SQL/06.-Funciones y operadores/15.-Funciones XML/01.-Generando Contenido XML.md/04.-xmlforest.md
+          - 05.-xmlpi: ./02.-El lenguaje SQL/06.-Funciones y operadores/15.-Funciones XML/01.-Generando Contenido XML.md/05.-xmlpi.md
+          - 06.-xmlroot: ./02.-El lenguaje SQL/06.-Funciones y operadores/15.-Funciones XML/01.-Generando Contenido XML.md/06.-xmlroot.md
+          - 07.-xmlagg: ./02.-El lenguaje SQL/06.-Funciones y operadores/15.-Funciones XML/01.-Generando Contenido XML.md/07.-xmlagg.md
+        - 02.-Predicados XML:
+          - ./02.-El lenguaje SQL/06.-Funciones y operadores/15.-Funciones XML/02.-Predicados XML/index.md
+          - 01.-IS DOCUMENT: ./02.-El lenguaje SQL/06.-Funciones y operadores/15.-Funciones XML/02.-Predicados XML/01.-IS DOCUMENT.md
+          - 02.-IS NOT DOCUMENT: ./02.-El lenguaje SQL/06.-Funciones y operadores/15.-Funciones XML/02.-Predicados XML/02.-IS NOT DOCUMENT.md
+          - 03.-XMLEXISTS: ./02.-El lenguaje SQL/06.-Funciones y operadores/15.-Funciones XML/02.-Predicados XML/03.-XMLEXISTS.md
+          - 04.-xml_is_well_formed: ./02.-El lenguaje SQL/06.-Funciones y operadores/15.-Funciones XML/02.-Predicados XML/04.-xml_is_well_formed.md
+        - 03.-Procesado XML:
+          - ./02.-El lenguaje SQL/06.-Funciones y operadores/15.-Funciones XML/03.-Procesado XML/index.md
+          - 01.-xpath: ./02.-El lenguaje SQL/06.-Funciones y operadores/15.-Funciones XML/03.-Procesado XML/01.-xpath.md
+          - 02.-xpath_exists: ./02.-El lenguaje SQL/06.-Funciones y operadores/15.-Funciones XML/03.-Procesado XML/02.-xpath_exists.md
+          - 03.-XMLTABLE: ./02.-El lenguaje SQL/06.-Funciones y operadores/15.-Funciones XML/03.-Procesado XML/03.-XMLTABLE.md
+          - 04.-Mapeo de tablas a XML: ./02.-El lenguaje SQL/06.-Funciones y operadores/15.-Funciones XML/03.-Procesado XML/04.-Mapeo de tablas a XML.md
+        - 04.-Mapeo de tablas a XML: ./02.-El lenguaje SQL/06.-Funciones y operadores/15.-Funciones XML/04.-Mapeo de tablas a XML.md
+      - 16.-Funciones y Operadores JSON:
+        - ./02.-El lenguaje SQL/06.-Funciones y operadores/16.-Funciones y Operadores JSON/index.md
+      - 17.-Funciones de manipulación de secuencias: ./02.-El lenguaje SQL/06.-Funciones y operadores/17.-Funciones de manipulación de secuencias.md
+      - 18.-Conditional Expressions:
+        - ./02.-El lenguaje SQL/06.-Funciones y operadores/18.-Conditional Expressions/index.md
+        - 01.-CASE: ./02.-El lenguaje SQL/06.-Funciones y operadores/18.-Conditional Expressions/01.-CASE.md
+        - 02.-COALESCE: ./02.-El lenguaje SQL/06.-Funciones y operadores/18.-Conditional Expressions/02.-COALESCE.md
+        - 03.-NULLIF: ./02.-El lenguaje SQL/06.-Funciones y operadores/18.-Conditional Expressions/03.-NULLIF.md
+        - 04.-GREATEST y LEAST: ./02.-El lenguaje SQL/06.-Funciones y operadores/18.-Conditional Expressions/04.-GREATEST y LEAST.md
+      - 19.-Funciones de Array y operadores: ./02.-El lenguaje SQL/06.-Funciones y operadores/19.-Funciones de Array y operadores.md
+      - 20.-Funciones de rango-multirango y operadores: ./02.-El lenguaje SQL/06.-Funciones y operadores/20.-Funciones de rango-multirango y operadores.md
+      - 21.-Funciones agregadas: ./02.-El lenguaje SQL/06.-Funciones y operadores/21.-Funciones agregadas.md
+      - 22.-Funciones de ventanas: ./02.-El lenguaje SQL/06.-Funciones y operadores/22.-Funciones de ventanas.md
+      - 23.-Expresiones de subconsultas:
+        - ./02.-El lenguaje SQL/06.-Funciones y operadores/23.-Expresiones de subconsultas/index.md
+        - 01.-EXISTS: ./02.-El lenguaje SQL/06.-Funciones y operadores/23.-Expresiones de subconsultas/01.-EXISTS.md
+        - 02.-IN: ./02.-El lenguaje SQL/06.-Funciones y operadores/23.-Expresiones de subconsultas/02.-IN.md
+        - 03.-NOT IN: ./02.-El lenguaje SQL/06.-Funciones y operadores/23.-Expresiones de subconsultas/03.-NOT IN.md
+        - 04.-ANY-SOME: ./02.-El lenguaje SQL/06.-Funciones y operadores/23.-Expresiones de subconsultas/04.-ANY-SOME.md
+        - 05.-ALL: ./02.-El lenguaje SQL/06.-Funciones y operadores/23.-Expresiones de subconsultas/05.-ALL.md
+        - 06.-Comparaciones de una sola fila: ./02.-El lenguaje SQL/06.-Funciones y operadores/23.-Expresiones de subconsultas/06.-Comparaciones de una sola fila.md
+      - 24.-Comparaciones de filas y Array:
+        - ./02.-El lenguaje SQL/06.-Funciones y operadores/24.-Comparaciones de filas y Array/index.md
+        - 01.-IN: ./02.-El lenguaje SQL/06.-Funciones y operadores/24.-Comparaciones de filas y Array/01.-IN.md
+        - 02.-NOT IN: ./02.-El lenguaje SQL/06.-Funciones y operadores/24.-Comparaciones de filas y Array/02.-NOT IN.md
+        - 03.-ANY-SOME(arroqueo): ./02.-El lenguaje SQL/06.-Funciones y operadores/24.-Comparaciones de filas y Array/03.-ANY-SOME(arroqueo).md
+        - 04.-ALL(arroqueo): ./02.-El lenguaje SQL/06.-Funciones y operadores/24.-Comparaciones de filas y Array/04.-ALL(arroqueo).md
+        - 05.-Comparación de constructor de filas: ./02.-El lenguaje SQL/06.-Funciones y operadores/24.-Comparaciones de filas y Array/05.-Comparación de constructor de filas.md
+        - 06.-Comparación de tipo compuesto: ./02.-El lenguaje SQL/06.-Funciones y operadores/24.-Comparaciones de filas y Array/06.-Comparación de tipo compuesto.md
+      - 25.-Establecer funciones de retorno: ./02.-El lenguaje SQL/06.-Funciones y operadores/25.-Establecer funciones de retorno.md
+      - 26.Funciones y operadores de información del sistema:
+        - ./02.-El lenguaje SQL/06.-Funciones y operadores/26.Funciones y operadores de información del sistema/index.md
+        - 01.-Funciones de información de sesión: ./02.-El lenguaje SQL/06.-Funciones y operadores/26.Funciones y operadores de información del sistema/01.-Funciones de información de sesión.md
+        - 010.-Funciones de datos de control: ./02.-El lenguaje SQL/06.-Funciones y operadores/26.Funciones y operadores de información del sistema/010.-Funciones de datos de control.md
+        - 02.-Acceso Funciones de investigación de Privilege: ./02.-El lenguaje SQL/06.-Funciones y operadores/26.Funciones y operadores de información del sistema/02.-Acceso Funciones de investigación de Privilege.md
+        - 03.-Funciones de investigación de visibilidad de esquema: ./02.-El lenguaje SQL/06.-Funciones y operadores/26.Funciones y operadores de información del sistema/03.-Funciones de investigación de visibilidad de esquema.md
+        - 04.-Funciones de información catálogo del sistema: ./02.-El lenguaje SQL/06.-Funciones y operadores/26.Funciones y operadores de información del sistema/04.-Funciones de información catálogo del sistema.md
+        - 05.-Información sobre objetos y funciones de atención: ./02.-El lenguaje SQL/06.-Funciones y operadores/26.Funciones y operadores de información del sistema/05.-Información sobre objetos y funciones de atención.md
+        - 06.-Comentarios Funciones de información: ./02.-El lenguaje SQL/06.-Funciones y operadores/26.Funciones y operadores de información del sistema/06.-Comentarios Funciones de información.md
+        - 07.-Validez de datos Funciones de Comprobar: ./02.-El lenguaje SQL/06.-Funciones y operadores/26.Funciones y operadores de información del sistema/07.-Validez de datos Funciones de Comprobar.md
+        - 08.-ID de transacción e funciones de información instantáneas: ./02.-El lenguaje SQL/06.-Funciones y operadores/26.Funciones y operadores de información del sistema/08.-ID de transacción e funciones de información instantáneas.md
+        - 09.-Funciones de información de transacción comprometidas: ./02.-El lenguaje SQL/06.-Funciones y operadores/26.Funciones y operadores de información del sistema/09.-Funciones de información de transacción comprometidas.md
+      - 27.-Funciones de administración de sistemas:
+        - ./02.-El lenguaje SQL/06.-Funciones y operadores/27.-Funciones de administración de sistemas/index.md
+        - 01.-Funciones de configuración: ./02.-El lenguaje SQL/06.-Funciones y operadores/27.-Funciones de administración de sistemas/01.-Funciones de configuración.md
+        - 02.-Funciones de señalización del servidor: ./02.-El lenguaje SQL/06.-Funciones y operadores/27.-Funciones de administración de sistemas/02.-Funciones de señalización del servidor.md
+        - 03.-Funciones de control de copia de seguridad: ./02.-El lenguaje SQL/06.-Funciones y operadores/27.-Funciones de administración de sistemas/03.-Funciones de control de copia de seguridad.md
+        - 04.-Funciones de control de recuperación: ./02.-El lenguaje SQL/06.-Funciones y operadores/27.-Funciones de administración de sistemas/04.-Funciones de control de recuperación.md
+        - 05.-Funciones de sincronización instantáneas: ./02.-El lenguaje SQL/06.-Funciones y operadores/27.-Funciones de administración de sistemas/05.-Funciones de sincronización instantáneas.md
+        - 06.-Funciones de gestión de la replicación: ./02.-El lenguaje SQL/06.-Funciones y operadores/27.-Funciones de administración de sistemas/06.-Funciones de gestión de la replicación.md
+        - 07.-Funciones de gestión de objetos de base de datos: ./02.-El lenguaje SQL/06.-Funciones y operadores/27.-Funciones de administración de sistemas/07.-Funciones de gestión de objetos de base de datos.md
+        - 08.-Funciones de mantenimiento de índices: ./02.-El lenguaje SQL/06.-Funciones y operadores/27.-Funciones de administración de sistemas/08.-Funciones de mantenimiento de índices.md
+        - 09.-Funciones de acceso a archivos genéricos: ./02.-El lenguaje SQL/06.-Funciones y operadores/27.-Funciones de administración de sistemas/09.-Funciones de acceso a archivos genéricos.md
+        - 10.-Funciones de bloqueo de asesoramiento: ./02.-El lenguaje SQL/06.-Funciones y operadores/27.-Funciones de administración de sistemas/10.-Funciones de bloqueo de asesoramiento.md
+      - 28.-Funciones de disparadores: ./02.-El lenguaje SQL/06.-Funciones y operadores/28.-Funciones de disparadores.md
+      - 29.-Funciones de disparadores de eventos:
+        - ./02.-El lenguaje SQL/06.-Funciones y operadores/29.-Funciones de disparadores de eventos/index.md
+        - 01.-Captura de cambios a final de comando: ./02.-El lenguaje SQL/06.-Funciones y operadores/29.-Funciones de disparadores de eventos/01.-Captura de cambios a final de comando.md
+        - 02.-Procesado de objetos abandonados por el comando DDL: ./02.-El lenguaje SQL/06.-Funciones y operadores/29.-Funciones de disparadores de eventos/02.-Procesado de objetos abandonados por el comando DDL.md
+        - 03.-Manejo de un eventro de reescritura de tabla: ./02.-El lenguaje SQL/06.-Funciones y operadores/29.-Funciones de disparadores de eventos/03.-Manejo de un eventro de reescritura de tabla.md
+      - 30.-Funciones de información estadística:
+        - ./02.-El lenguaje SQL/06.-Funciones y operadores/30.-Funciones de información estadística/index.md
+        - 01.-Inspección de listas MCV: ./02.-El lenguaje SQL/06.-Funciones y operadores/30.-Funciones de información estadística/01.-Inspección de listas MCV.md
+    - 07.-Conversión de tipos:
+      - ./02.-El lenguaje SQL/07.-Conversión de tipos/index.md
+      - 01.-Resumen: ./02.-El lenguaje SQL/07.-Conversión de tipos/01.-Resumen.md
+      - 02.-Operadores: ./02.-El lenguaje SQL/07.-Conversión de tipos/02.-Operadores.md
+      - 03.-Funciones: ./02.-El lenguaje SQL/07.-Conversión de tipos/03.-Funciones.md
+      - 04.-Almacenamiento de valor: ./02.-El lenguaje SQL/07.-Conversión de tipos/04.-Almacenamiento de valor.md
+      - 05.-UNION, CASE, y construcciones relacionadas: ./02.-El lenguaje SQL/07.-Conversión de tipos/05.-UNION, CASE, y construcciones relacionadas.md
+      - 06.-SELECTColumnas de salida: ./02.-El lenguaje SQL/07.-Conversión de tipos/06.-SELECTColumnas de salida.md
+    - 08.-Índices:
+      - ./02.-El lenguaje SQL/08.-Índices/index.md
+      - 01.-Introducción: ./02.-El lenguaje SQL/08.-Índices/01.-Introducción.md
+      - 02.-Tipos de índices:
+        - ./02.-El lenguaje SQL/08.-Índices/02.-Tipos de índices/index.md
+        - 01.-B-Tree: ./02.-El lenguaje SQL/08.-Índices/02.-Tipos de índices/01.-B-Tree.md
+        - 02.-Hash: ./02.-El lenguaje SQL/08.-Índices/02.-Tipos de índices/02.-Hash.md
+        - 03.-GiST: ./02.-El lenguaje SQL/08.-Índices/02.-Tipos de índices/03.-GiST.md
+        - 04.-SP-GiST: ./02.-El lenguaje SQL/08.-Índices/02.-Tipos de índices/04.-SP-GiST.md
+        - 05.-GIN: ./02.-El lenguaje SQL/08.-Índices/02.-Tipos de índices/05.-GIN.md
+        - 06.-BRIN: ./02.-El lenguaje SQL/08.-Índices/02.-Tipos de índices/06.-BRIN.md
+      - 03.-Indices de Multicolumn: ./02.-El lenguaje SQL/08.-Índices/03.-Indices de Multicolumn.md
+      - 04.-Indices y ORDER BY: ./02.-El lenguaje SQL/08.-Índices/04.-Indices y ORDER BY.md
+      - 05.-Combinación de múltiples índices: ./02.-El lenguaje SQL/08.-Índices/05.-Combinación de múltiples índices.md
+      - 06.-Indices únicos: ./02.-El lenguaje SQL/08.-Índices/06.-Indices únicos.md
+      - 07.-Indices de expresiones: ./02.-El lenguaje SQL/08.-Índices/07.-Indices de expresiones.md
+      - 08.-Indices parciales: ./02.-El lenguaje SQL/08.-Índices/08.-Indices parciales.md
+      - 09.-Indices de escaneos y índices de cobertura: ./02.-El lenguaje SQL/08.-Índices/09.-Indices de escaneos y índices de cobertura.md
+      - 10.-Clases de operador y familias operadoras: ./02.-El lenguaje SQL/08.-Índices/10.-Clases de operador y familias operadoras.md
+      - 11.-Indices y Collaciones: ./02.-El lenguaje SQL/08.-Índices/11.-Indices y Collaciones.md
+      - 12.-Examinando el uso del índice: ./02.-El lenguaje SQL/08.-Índices/12.-Examinando el uso del índice.md
+    - 09.-Búsqueda de texto completo:
+      - ./02.-El lenguaje SQL/09.-Búsqueda de texto completo/index.md
+      - 01.-Introducción:
+        - ./02.-El lenguaje SQL/09.-Búsqueda de texto completo/01.-Introducción/index.md
+        - 01.-Qué es un documento?: ./02.-El lenguaje SQL/09.-Búsqueda de texto completo/01.-Introducción/01.-Qué es un documento?.md
+        - 02.-A juego de texto básico: ./02.-El lenguaje SQL/09.-Búsqueda de texto completo/01.-Introducción/02.-A juego de texto básico.md
+        - 03.-Configuraciones: ./02.-El lenguaje SQL/09.-Búsqueda de texto completo/01.-Introducción/03.-Configuraciones.md
+      - 02.-Tablas e índices:
+        - ./02.-El lenguaje SQL/09.-Búsqueda de texto completo/02.-Tablas e índices/index.md
+        - 01.-Buscando una mesa: ./02.-El lenguaje SQL/09.-Búsqueda de texto completo/02.-Tablas e índices/01.-Buscando una mesa.md
+        - 02.-Creación de índices: ./02.-El lenguaje SQL/09.-Búsqueda de texto completo/02.-Tablas e índices/02.-Creación de índices.md
+      - 03.-Controlar la búsqueda de texto:
+        - ./02.-El lenguaje SQL/09.-Búsqueda de texto completo/03.-Controlar la búsqueda de texto/index.md
+        - 01.-Documentos de Parsing: ./02.-El lenguaje SQL/09.-Búsqueda de texto completo/03.-Controlar la búsqueda de texto/01.-Documentos de Parsing.md
+        - 02.-Parsing Quejas: ./02.-El lenguaje SQL/09.-Búsqueda de texto completo/03.-Controlar la búsqueda de texto/02.-Parsing Quejas.md
+        - 03.-Resultados de la búsqueda de clasificación: ./02.-El lenguaje SQL/09.-Búsqueda de texto completo/03.-Controlar la búsqueda de texto/03.-Resultados de la búsqueda de clasificación.md
+        - 04.-Resultados destacados: ./02.-El lenguaje SQL/09.-Búsqueda de texto completo/03.-Controlar la búsqueda de texto/04.-Resultados destacados.md
+      - 04.-Características adicionales:
+        - ./02.-El lenguaje SQL/09.-Búsqueda de texto completo/04.-Características adicionales/index.md
+        - 01.-Documentos de Manipular: ./02.-El lenguaje SQL/09.-Búsqueda de texto completo/04.-Características adicionales/01.-Documentos de Manipular.md
+        - 02.-Manipulan las consultas: ./02.-El lenguaje SQL/09.-Búsqueda de texto completo/04.-Características adicionales/02.-Manipulan las consultas.md
+        - 03.-Desencantes para actualizaciones automáticas: ./02.-El lenguaje SQL/09.-Búsqueda de texto completo/04.-Características adicionales/03.-Desencantes para actualizaciones automáticas.md
+        - 04.-Recoger estadísticas de documentos: ./02.-El lenguaje SQL/09.-Búsqueda de texto completo/04.-Características adicionales/04.-Recoger estadísticas de documentos.md
+      - 05.-Parsers: ./02.-El lenguaje SQL/09.-Búsqueda de texto completo/05.-Parsers.md
+      - 06.-Diccionarios:
+        - ./02.-El lenguaje SQL/09.-Búsqueda de texto completo/06.-Diccionarios/index.md
+        - 01.-Detenga las palabras: ./02.-El lenguaje SQL/09.-Búsqueda de texto completo/06.-Diccionarios/01.-Detenga las palabras.md
+        - 02.-Diccionario simple: ./02.-El lenguaje SQL/09.-Búsqueda de texto completo/06.-Diccionarios/02.-Diccionario simple.md
+        - 03.-Diccionario de sinónimos: ./02.-El lenguaje SQL/09.-Búsqueda de texto completo/06.-Diccionarios/03.-Diccionario de sinónimos.md
+        - 04.-Diccionario de tesaaurio: ./02.-El lenguaje SQL/09.-Búsqueda de texto completo/06.-Diccionarios/04.-Diccionario de tesaaurio.md
+        - 05.-Diccionario de Ispell: ./02.-El lenguaje SQL/09.-Búsqueda de texto completo/06.-Diccionarios/05.-Diccionario de Ispell.md
+        - 06.-Diccionario de bolas de nieve: ./02.-El lenguaje SQL/09.-Búsqueda de texto completo/06.-Diccionarios/06.-Diccionario de bolas de nieve.md
+      - 07.-Ejemplo de configuración: ./02.-El lenguaje SQL/09.-Búsqueda de texto completo/07.-Ejemplo de configuración.md
+      - 08.-Probar y depuración de la búsqueda de texto:
+        - ./02.-El lenguaje SQL/09.-Búsqueda de texto completo/08.-Probar y depuración de la búsqueda de texto/index.md
+        - 01.-Pruebas de configuración: ./02.-El lenguaje SQL/09.-Búsqueda de texto completo/08.-Probar y depuración de la búsqueda de texto/01.-Pruebas de configuración.md
+        - 02.-Pruebas de Parser: ./02.-El lenguaje SQL/09.-Búsqueda de texto completo/08.-Probar y depuración de la búsqueda de texto/02.-Pruebas de Parser.md
+        - 03.-Pruebas de Diccionario: ./02.-El lenguaje SQL/09.-Búsqueda de texto completo/08.-Probar y depuración de la búsqueda de texto/03.-Pruebas de Diccionario.md
+      - 09.-Tipos de índice preferidos para la búsqueda de texto: ./02.-El lenguaje SQL/09.-Búsqueda de texto completo/09.-Tipos de índice preferidos para la búsqueda de texto.md
+      - 10.-Apoyo psql: ./02.-El lenguaje SQL/09.-Búsqueda de texto completo/10.-Apoyo psql.md
+      - 11.-Limitaciones: ./02.-El lenguaje SQL/09.-Búsqueda de texto completo/11.-Limitaciones.md
+    - 10.-Control de la concurrencia:
+      - 01.-Introducción: ./02.-El lenguaje SQL/10.-Control de la concurrencia/01.-Introducción.md
+      - 02.-Aislamiento de transacción:
+        - 01 Leer Nivel de aislamiento comprometido: ./02.-El lenguaje SQL/10.-Control de la concurrencia/02.-Aislamiento de transacción/01 Leer Nivel de aislamiento comprometido.md
+        - 02. Nivel de aislamiento de lectura reparable: ./02.-El lenguaje SQL/10.-Control de la concurrencia/02.-Aislamiento de transacción/02. Nivel de aislamiento de lectura reparable.md
+        - 03. Nivel de aislamiento en serie: ./02.-El lenguaje SQL/10.-Control de la concurrencia/02.-Aislamiento de transacción/03. Nivel de aislamiento en serie.md
+      - 03.-Bloqueo explícito:
+        - 01.-Bloques de nivel de mesa: ./02.-El lenguaje SQL/10.-Control de la concurrencia/03.-Bloqueo explícito/01.-Bloques de nivel de mesa.md
+        - 02.-Esclujas de nivel de filas: ./02.-El lenguaje SQL/10.-Control de la concurrencia/03.-Bloqueo explícito/02.-Esclujas de nivel de filas.md
+        - 03.-Clocks de nivel de página: ./02.-El lenguaje SQL/10.-Control de la concurrencia/03.-Bloqueo explícito/03.-Clocks de nivel de página.md
+        - 04.-Deadlocks: ./02.-El lenguaje SQL/10.-Control de la concurrencia/03.-Bloqueo explícito/04.-Deadlocks.md
+        - 05.-Cerdillos de asesoramiento: ./02.-El lenguaje SQL/10.-Control de la concurrencia/03.-Bloqueo explícito/05.-Cerdillos de asesoramiento.md
+      - 04.-Controles de coherencia de datos en el nivel de aplicación:
+        - 01.-Hacer cumplir con las transacciones en serie: ./02.-El lenguaje SQL/10.-Control de la concurrencia/04.-Controles de coherencia de datos en el nivel de aplicación/01.-Hacer cumplir con las transacciones en serie.md
+        - 02.-Hacer coincidir la coherencia con las esclujas de bloqueo explícito: ./02.-El lenguaje SQL/10.-Control de la concurrencia/04.-Controles de coherencia de datos en el nivel de aplicación/02.-Hacer coincidir la coherencia con las esclujas de bloqueo explícito.md
+      - 05.-Maneje de fracaso de serialización: ./02.-El lenguaje SQL/10.-Control de la concurrencia/05.-Maneje de fracaso de serialización.md
+      - 06.-Las advertencias: ./02.-El lenguaje SQL/10.-Control de la concurrencia/06.-Las advertencias.md
+      - 07.-Bloqueo e índices: ./02.-El lenguaje SQL/10.-Control de la concurrencia/07.-Bloqueo e índices.md
+    - 11.-Consejos de rendimiento:
+      - ./02.-El lenguaje SQL/11.-Consejos de rendimiento/index.md
+      - 01.-Usando EXPLAIN:
+        - ./02.-El lenguaje SQL/11.-Consejos de rendimiento/01.-Usando EXPLAIN/index.md
+        - 01.-EXPLAIN Funciones básicas: ./02.-El lenguaje SQL/11.-Consejos de rendimiento/01.-Usando EXPLAIN/01.-EXPLAIN Funciones básicas.md
+        - 02.-EXPLAIN ANALYZE: ./02.-El lenguaje SQL/11.-Consejos de rendimiento/01.-Usando EXPLAIN/02.-EXPLAIN ANALYZE.md
+        - 03.-Las advertencias: ./02.-El lenguaje SQL/11.-Consejos de rendimiento/01.-Usando EXPLAIN/03.-Las advertencias.md
+      - 02.-Estadísticas utilizadas por el planificador:
+        - ./02.-El lenguaje SQL/11.-Consejos de rendimiento/02.-Estadísticas utilizadas por el planificador/index.md
+        - 01.-Estadísticas de una sola columna: ./02.-El lenguaje SQL/11.-Consejos de rendimiento/02.-Estadísticas utilizadas por el planificador/01.-Estadísticas de una sola columna.md
+        - 02.-Estadísticas ampliadas: ./02.-El lenguaje SQL/11.-Consejos de rendimiento/02.-Estadísticas utilizadas por el planificador/02.-Estadísticas ampliadas.md
+      - 03.-Controlando el planificador con cláusulas explícitas JOIN: ./02.-El lenguaje SQL/11.-Consejos de rendimiento/03.-Controlando el planificador con cláusulas explícitas JOIN.md
+      - 04.-Poblando una base de datos:
+        - ./02.-El lenguaje SQL/11.-Consejos de rendimiento/04.-Poblando una base de datos/index.md
+        - 01.-Desactivar el autocommito: ./02.-El lenguaje SQL/11.-Consejos de rendimiento/04.-Poblando una base de datos/01.-Desactivar el autocommito.md
+        - 02.-Uso COPY: ./02.-El lenguaje SQL/11.-Consejos de rendimiento/04.-Poblando una base de datos/02.-Uso COPY.md
+        - 03.-Eliminar índices: ./02.-El lenguaje SQL/11.-Consejos de rendimiento/04.-Poblando una base de datos/03.-Eliminar índices.md
+        - 04.-Eliminar las restricciones de la clave extranjera: ./02.-El lenguaje SQL/11.-Consejos de rendimiento/04.-Poblando una base de datos/04.-Eliminar las restricciones de la clave extranjera.md
+        - 05.-Aumento maintenance_work_mem: ./02.-El lenguaje SQL/11.-Consejos de rendimiento/04.-Poblando una base de datos/05.-Aumento maintenance_work_mem.md
+        - 06.-Aumento max_wal_size: ./02.-El lenguaje SQL/11.-Consejos de rendimiento/04.-Poblando una base de datos/06.-Aumento max_wal_size.md
+        - 07.-Desactivar la réplica de WAL Archival y Streaming: ./02.-El lenguaje SQL/11.-Consejos de rendimiento/04.-Poblando una base de datos/07.-Desactivar la réplica de WAL Archival y Streaming.md
+        - 08.-Corre ANALYZEDespués: ./02.-El lenguaje SQL/11.-Consejos de rendimiento/04.-Poblando una base de datos/08.-Corre ANALYZEDespués.md
+        - 09.-Algunas notas sobre pg.dump: ./02.-El lenguaje SQL/11.-Consejos de rendimiento/04.-Poblando una base de datos/09.-Algunas notas sobre pg.dump.md
+      - 05.-Configuraciones no durables: ./02.-El lenguaje SQL/11.-Consejos de rendimiento/05.-Configuraciones no durables.md
+    - 12.-Consultas paralelas:
+      - ./02.-El lenguaje SQL/12.-Consultas paralelas/index.md
+      - 01.-Cómo funcionan las consultas paralelas: ./02.-El lenguaje SQL/12.-Consultas paralelas/01.-Cómo funcionan las consultas paralelas.md
+      - 02.-¿Cuándo puede usarse una consulta paralela?: ./02.-El lenguaje SQL/12.-Consultas paralelas/02.-¿Cuándo puede usarse una consulta paralela?.md
+      - 03.-Planes paralelos:
+        - ./02.-El lenguaje SQL/12.-Consultas paralelas/03.-Planes paralelos/index.md
+        - 01.-Parallel Scans: ./02.-El lenguaje SQL/12.-Consultas paralelas/03.-Planes paralelos/01.-Parallel Scans.md
+        - 02.-Parallel Joins: ./02.-El lenguaje SQL/12.-Consultas paralelas/03.-Planes paralelos/02.-Parallel Joins.md
+        - 03.-Parallel Aggregation: ./02.-El lenguaje SQL/12.-Consultas paralelas/03.-Planes paralelos/03.-Parallel Aggregation.md
+        - 04.-Parallel Append: ./02.-El lenguaje SQL/12.-Consultas paralelas/03.-Planes paralelos/04.-Parallel Append.md
+        - 05.-Parallel Plan Tips: ./02.-El lenguaje SQL/12.-Consultas paralelas/03.-Planes paralelos/05.-Parallel Plan Tips.md
+        - crea: ./02.-El lenguaje SQL/12.-Consultas paralelas/03.-Planes paralelos/crea.sh
+      - 04.-Seguridad paralela:
+        - ./02.-El lenguaje SQL/12.-Consultas paralelas/04.-Seguridad paralela/index.md
+        - 01.-Etiquetado paralelo para funciones y agregados: ./02.-El lenguaje SQL/12.-Consultas paralelas/04.-Seguridad paralela/01.-Etiquetado paralelo para funciones y agregados.md
 
 theme:
     features:

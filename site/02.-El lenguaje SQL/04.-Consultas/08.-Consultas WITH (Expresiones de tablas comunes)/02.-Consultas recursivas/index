@@ -1,0 +1,40 @@
+La opcional  `RECURSIVE`cambios modificadores  `WITH`de una mera comodidad sintáctica en una característica que logra cosas que no son posibles en SQL estándar. Usando `RECURSIVE`, a  `WITH`la consulta puede referirse a su propia salida. Un ejemplo muy simple es esta consulta para sumar los enteros de 1 a 100:
+
+```
+CON RECURSIVA t(n) AS (
+    VALUES (1)
+  UNION TODOS
+    SELECT no1 DESDE DESDE LO DONO n 100
+)
+SELECT sum(n) DEST;
+```
+
+La forma general de un recursivo  `WITH`la consulta es siempre un *término no recursivo*, entonces  `UNION`(o `UNION ALL`), entonces un *término recursivo*, donde sólo el término recursivo puede contener una referencia a la  propia salida de la consulta. Esa consulta se ejecuta de la siguiente  manera:
+
+**Evaluación de la consulta recursiva**
+
+1. Evaluar el término no recursivo. Para  `UNION`(pero no `UNION ALL`), deseche las filas duplicadas. Incluya todas las filas restantes en el  resultado de la consulta recursiva, y también colóquelas en una *mesa* de *trabajo* temporal.
+2. Mientras la mesa de trabajo no esté vacía, repita estos pasos:
+   1. Evalúe el término recursivo, sustituyendo el contenido actual de la tabla de trabajo por la autorreferencia recursiva. Para  `UNION`(pero no `UNION ALL`), deseche las filas y filas duplicadas que dupliquen cualquier fila de  resultados anterior. Incluya todas las filas restantes en el resultado  de la consulta recursiva, y también colóquelas en una *mesa intermedia* temporal.
+   2. Reemplazar el contenido de la tabla de trabajo por el contenido de la tabla intermedia, y luego vaciar la tabla intermedia.
+
+### Nota
+
+Mientras que  `RECURSIVE`permite especificar las consultas de forma recursiva, internamente tales consultas se evalúan iterativamente.
+
+En el ejemplo anterior, la tabla de trabajo tiene sólo una sola  fila en cada paso, y toma los valores de 1 a 100 en pasos sucesivos. En  el paso 100, no hay salida debido a la  `WHERE`cláusula, y así termina la consulta.
+
+Las consultas recursivas se utilizan típicamente para tratar los  datos jerárquicos o estructurados con árboles. Un ejemplo útil es esta  consulta para encontrar todas las subpartes directas e indirectas de un  producto, dado que sólo se da una tabla que muestra inclusiones  inmediatas:
+
+```
+CON RECURSIVidades incluidos.parto, parte, cantidad) AS (
+    SELECT subpart, parte, cantidad DESDE las partes DONDE parte = 'nuestro producto'
+  UNION TODOS
+    SELECT p.sub-part, p.part, p.cuantidad * pr.quantity
+    Departa pr incluidos, partes p
+    DODE p.part = pr.sub-part
+)
+SELECT subpart, SUM(Cantidad) como total. de cantidad
+Departatro incluido
+GRUPO POR la subparte
+```
