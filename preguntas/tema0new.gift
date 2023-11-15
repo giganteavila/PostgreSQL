@@ -61,14 +61,6 @@
 ~%-25% JTC 1
 }  
 
-¿Qué subcomité de ANSI definió el modelo relacional de bases de datos?
-{
-= SPARC
-~%-25% X3
-~%-25% JTC 1  
-~%-25% SC 21
-}
-
 :: ASGBD00008 ::
 ¿Qué tipo de modelo conceptual definió ANSI/X3/SPARC?  
 {
@@ -123,14 +115,6 @@
 ~%-25% Interfaz 1
 }  
 
-¿Qué interfaz del modelo ANSI almacena los metadatos del esquema interno?
-{
-= Interfaz 6
-~%-25% Interfaz 5
-~%-25% Interfaz 4  
-~%-25% Interfaz 3
-}
-
 :: ASGBD00014 ::
 ¿Qué interfaz del modelo ANSI transforma el esquema externo en conceptual durante la manipulación?
 {   
@@ -158,15 +142,6 @@
 ~%-25% Interfaz 11   
 }
 
-:: ASGBD00017 ::
-¿Qué interfaz del modelo ANSI accede finalmente a los datos?  
-{
-= Interfaz 14
-~%-25% Interfaz 13
-~%-25% Interfaz 12
-~%-25% Interfaz 11
-}
-
 :: ASGBD00018 ::
 ¿Qué significa la sigla DDL?
 {
@@ -192,8 +167,9 @@
 ~%-25% Lenguaje de Definición de Datos   
 ~%-25% Lenguaje de Modificación de Datos
 ~%-25% Lenguaje de Control de Datos
-}  
+}
 
+:: ASGBD00017 ::
 ¿Qué significa la sigla DCL?
 {
 = Lenguaje de Control de Datos
@@ -220,6 +196,7 @@
 ~%-25% Función de control
 }  
 
+:: ASGBD00024 ::
 ¿Qué función de los SGBD permite establecer permisos sobre los datos?
 {
 = Función de control
@@ -235,23 +212,6 @@
 ~%-25% Área de datos
 ~%-25% Área de índices 
 ~%-25% Área de desbordamiento  
-}
-
-:: ASGBD00024 ::
-¿Qué software crea y administra las bases de datos?
-{
-= SGBD
-~%-25% RDBMS
-~%-25% DBMS
-~%-25% CASE  
-}  
-
-¿Qué tipo de herramienta ayuda a diseñar bases de datos?
-{   
-= Herramienta CASE
-~%-25% RDBMS
-~%-25% SGBD
-~%-25% DBMS
 }
 
 :: ASGBD00025 ::
@@ -281,6 +241,7 @@
 ~%-25% Modelo orientado a objetos
 }  
 
+:: ASGBD00104 ::
 ¿Qué modelo de base de datos integra datos y métodos?
 {
 = Modelo orientado a objetos
@@ -323,8 +284,9 @@
 ~%-25% Peor representación de relaciones
 ~%-25% Menor flexibilidad en las consultas
 ~%-25% Menor rendimiento
-}  
+}
 
+:: ASGBD00105 ::
 ¿Qué característica distingue a las bases de datos NoSQL?
 {
 = No usan el modelo relacional
@@ -468,6 +430,7 @@
 ~%-25% Mayor escalabilidad
 }  
 
+:: ASGBD00106 ::
 ¿Qué desventaja tenía el modelo de ficheros secuenciales?
 {
 = Lentitud en consultas aleatorias
@@ -593,6 +556,7 @@
 ~%-25% Complejidad de programación
 }  
 
+:: ASGBD00107 ::
 ¿Qué ventaja tienen los ficheros secuenciales encadenados?
 {
 = Velocidad en consultas aleatorias
@@ -655,6 +619,7 @@
 ~%-25% En red
 }  
 
+:: ASGBD00108 ::
 ¿Qué modelo apareció después del jerárquico?
 {
 = En red
@@ -717,6 +682,7 @@
 ~%-25% Lenguaje de scripting
 }  
 
+:: ASGBD00109 ::
 ¿Qué permite la independencia física en una base de datos?
 {  
 = Cambiar hardware sin modificar esquema
@@ -770,6 +736,7 @@
 ~%-25% Metadatos
 }  
 
+:: ASGBD00110 ::
 ¿Qué elementos forman el nivel físico?
 {
 = Archivos y datos en bruto
@@ -859,6 +826,7 @@
 ~%-25% Imposibilidad de borrar registros
 }  
 
+:: ASGBD00111 ::
 ¿Qué ventaja tenían los ficheros secuenciales indexados?
 {
 = Rapidez en consultas
@@ -894,6 +862,7 @@
 ~%-25% Interfaz 4
 }  
 
+:: ASGBD00112 ::
 ¿Qué interfaz del modelo ANSI permite el acceso a los metadatos? 
 {
 = Interfaz 13
@@ -929,6 +898,7 @@
 ~%-25% Escaso volumen de datos
 }  
 
+:: ASGBD00113 ::
 ¿Qué desventaja tenía el modelo en red?
 {
 = Complejidad de programación
@@ -946,6 +916,7 @@
 ~%-25% Problemas de rendimiento
 }  
 
+:: ASGBD00114 ::
 ¿Qué problema tenían los ficheros de acceso aleatorio?
 {
 = No aptos por sí solos para bases de datos
@@ -981,6 +952,7 @@
 ~%-25% Permite borrar registros
 } 
 
+:: ASGBD00115 ::
 ¿Qué diferencia hay entre datos y metadatos?
 {
 = Los metadatos describen datos
