@@ -15,13 +15,6 @@ site_name: ASGBD
 #        - Release Notes: release-notes.md
 nav:
   - ./index.md
-  - .obsidian:
-    - app: ./.obsidian/app.json
-    - appearance: ./.obsidian/appearance.json
-    - core-plugins-migration: ./.obsidian/core-plugins-migration.json
-    - core-plugins: ./.obsidian/core-plugins.json
-    - hotkeys: ./.obsidian/hotkeys.json
-    - workspace: ./.obsidian/workspace.json
   - 00.-Conceptos Básicos sobre SGBD:
     - 01.-Datos y archivos: ./00.-Conceptos Básicos sobre SGBD/01.-Datos y archivos.md
     - 02.-Tipos de gestión de Información mediante el ordenador: ./00.-Conceptos Básicos sobre SGBD/02.-Tipos de gestión de Información mediante el ordenador.md
