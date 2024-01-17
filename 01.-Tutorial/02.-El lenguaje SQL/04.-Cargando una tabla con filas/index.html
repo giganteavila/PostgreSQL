@@ -23,6 +23,9 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
+<a class="md-skip" href="#ejercicios">
+          Saltar a contenido
+        </a>
 </div>
 <div data-md-component="announce">
 </div>
@@ -133,6 +136,16 @@
     
   
   02.-El lenguaje SQL
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../03.-Tutorial%20Avanzado/01.-Base%20de%20datos%20PostgreSQL%20de%20ejemplo/">
+          
+  
+    
+  
+  03.-Tutorial Avanzado
 
         </a>
 </li>
@@ -318,11 +331,32 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    04.-Cargando una tabla con filas
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     04.-Cargando una tabla con filas
   </span>
 </a>
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejercicios">
+<span class="md-ellipsis">
+      Ejercicios
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../05.-Consulta%20de%20tablas/">
@@ -4334,6 +4368,37 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+<span class="md-ellipsis">
+    03.-Tutorial Avanzado
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            03.-Tutorial Avanzado
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../03.-Tutorial%20Avanzado/01.-Base%20de%20datos%20PostgreSQL%20de%20ejemplo/">
+<span class="md-ellipsis">
+    01.-Base de datos PostgreSQL de ejemplo
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../03.-Tutorial%20Avanzado/dvdrental.tar">
+<span class="md-ellipsis">
+    dvdrental
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </div>
@@ -4343,6 +4408,19 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejercicios">
+<span class="md-ellipsis">
+      Ejercicios
+    </span>
+</a>
+</li>
+</ul>
 </nav>
 </div>
 </div>
@@ -4371,6 +4449,20 @@
 <pre><code class="language-postgresql">COPY weather FROM '/home/user/weather.txt';
 </code></pre>
 <p>donde el nombre del archivo para el archivo fuente debe estar  disponible en la máquina que ejecuta el proceso de backend, no en el  cliente, ya que el proceso de backend lee el archivo directamente.  Puedes leer más sobre el  comando <code>COPY</code> en <a href="https://www.postgresql.org/docs/current/sql-copy.html">COPY</a>.</p>
+<h2 id="ejercicios">Ejercicios<a class="headerlink" href="#ejercicios" title="Permanent link">¶</a></h2>
+<ol>
+<li>Inserta 5 registros de prueba en la tabla <code>employees</code> con diferentes valores para cada columna.</li>
+</ol>
+<pre><code class="language-sql">INSERT INTO employees (id, first_name, last_name, email, hire_date)
+VALUES (1, 'Juan', 'Perez', 'jperez@mail.com', '2022-01-05'),
+       (2, 'Maria', 'Garcia', 'mgarcia@mail.com', '2021-05-15'),
+       (3, 'Pedro', 'Gomez', 'pgomez@mail.com', '2020-08-22'),
+       (4, 'Luisa', 'Fernandez', 'lufe@mail.com', '2023-02-01'),
+       (5, 'Pablo', 'Morales', 'pmorales@mail.com', '2019-12-15');
+</code></pre>
+<ol>
+<li>Inserta 10 registros de prueba en la tabla <code>products</code> con precios entre 5 y 100 y stock entre 10 y 50 unidades a partir de un fichero de texto.</li>
+</ol>
 </article>
 </div>
 </div>
