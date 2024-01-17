@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "postgresql"
+version = "0.1.0"
+description = ""
+authors = ["Carolina <giganteavila@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+mkdocs-roamlinks-plugin = "*"
+mkdocs = "^1.5.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

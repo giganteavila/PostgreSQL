@@ -515,3 +515,6 @@ nav:
       - 04.-Seguridad paralela:
         - ./02.-El lenguaje SQL/12.-Consultas paralelas/04.-Seguridad paralela/index.md
         - 01.-Etiquetado paralelo para funciones y agregados: ./02.-El lenguaje SQL/12.-Consultas paralelas/04.-Seguridad paralela/01.-Etiquetado paralelo para funciones y agregados.md
+  - 03.-Tutorial Avanzado:
+    - 01.-Base de datos PostgreSQL de ejemplo: ./03.-Tutorial Avanzado/01.-Base de datos PostgreSQL de ejemplo.md
+    - dvdrental: ./03.-Tutorial Avanzado/dvdrental.tar
