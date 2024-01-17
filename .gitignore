@@ -1,4 +1,3 @@
-
 Recursos.md
 apuntes BD.pdf
 mkdocs.yml.bak
@@ -8,3 +7,4 @@ publica.sh
 preguntas/
 .obsidian/
 docs/.obsidian/
+.gitignore
