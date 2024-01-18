@@ -1,0 +1,833 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../01.-Base%20de%20datos%20PostgreSQL%20de%20ejemplo/" rel="prev"/>
+<link href="../../dvdrental.tar" rel="next"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.4.9" name="generator"/>
+<title>01.-SELECT - ASGBD</title>
+<link href="../../../assets/stylesheets/main.78cf6014.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="green" data-md-color-primary="blue-grey" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#select">
+          Saltar a contenido
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Cabecera" class="md-header__inner md-grid">
+<a aria-label="ASGBD" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="ASGBD">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            ASGBD
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              01.-SELECT
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="green" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="blue-grey" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="green" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="blue-grey" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Búsqueda" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Búsqueda" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Buscar" class="md-search__options">
+<button aria-label="Limpiar" class="md-search__icon md-icon" tabindex="-1" title="Limpiar" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Pestañas" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../..">
+        
+  
+    
+  
+  PostgreSQL
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../00.-Conceptos%20B%C3%A1sicos%20sobre%20SGBD/01.-Datos%20y%20archivos/">
+          
+  
+    
+  
+  00.-Conceptos Básicos sobre SGBD
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../01.-Tutorial/">
+          
+  
+    
+  
+  01.-Tutorial
+
+        </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../../01.-Base%20de%20datos%20PostgreSQL%20de%20ejemplo/">
+          
+  
+    
+  
+  02.-Tutorial Avanzado
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navegación" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="ASGBD" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="ASGBD">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    ASGBD
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+<span class="md-ellipsis">
+    PostgreSQL
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+<span class="md-ellipsis">
+    00.-Conceptos Básicos sobre SGBD
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            00.-Conceptos Básicos sobre SGBD
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../00.-Conceptos%20B%C3%A1sicos%20sobre%20SGBD/01.-Datos%20y%20archivos/">
+<span class="md-ellipsis">
+    01.-Datos y archivos
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../00.-Conceptos%20B%C3%A1sicos%20sobre%20SGBD/02.-Tipos%20de%20gesti%C3%B3n%20de%20Informaci%C3%B3n%20mediante%20el%20ordenador/">
+<span class="md-ellipsis">
+    02.-Tipos de gestión de Información mediante el ordenador
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../00.-Conceptos%20B%C3%A1sicos%20sobre%20SGBD/03.-Funcionamiento%20de%20un%20SGBD/">
+<span class="md-ellipsis">
+    03.-Funcionamiento de un SGBD
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../00.-Conceptos%20B%C3%A1sicos%20sobre%20SGBD/04.-Tipos%20de%20SGBD/">
+<span class="md-ellipsis">
+    04.-Tipos de SGBD
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../00.-Conceptos%20B%C3%A1sicos%20sobre%20SGBD/05.-Archivos/">
+<span class="md-ellipsis">
+    05.-Archivos
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../00.-Conceptos%20B%C3%A1sicos%20sobre%20SGBD/06.-Est%C3%A1ndares%20y%20modelo%20ANSI/">
+<span class="md-ellipsis">
+    06.-Estándares y modelo ANSI
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../01.-Tutorial/">
+<span class="md-ellipsis">
+    01.-Tutorial
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            01.-Tutorial
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+<span class="md-ellipsis">
+    01.-Cómo empezar
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+            01.-Cómo empezar
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/01.-C%C3%B3mo%20empezar/01.-Instalaci%C3%B3n/">
+<span class="md-ellipsis">
+    01.-Instalación
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/01.-C%C3%B3mo%20empezar/02.-Fundamentos%20arquitect%C3%B3nicos/">
+<span class="md-ellipsis">
+    02.-Fundamentos arquitectónicos
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/01.-C%C3%B3mo%20empezar/03.-Creando%20una%20Base%20de%20Datos/">
+<span class="md-ellipsis">
+    03.-Creando una Base de Datos
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/01.-C%C3%B3mo%20empezar/04.-Accediendo%20a%20una%20base%20de%20datos/">
+<span class="md-ellipsis">
+    04.-Accediendo a una base de datos
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+<span class="md-ellipsis">
+    02.-El lenguaje SQL
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+            02.-El lenguaje SQL
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/01.-Introducci%C3%B3n/">
+<span class="md-ellipsis">
+    01.-Introducción
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/02.-Conceptos/">
+<span class="md-ellipsis">
+    02.-Conceptos
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/03.-Creando%20una%20nueva%20tabla/">
+<span class="md-ellipsis">
+    03.-Creando una nueva tabla
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/04.-Cargando%20una%20tabla%20con%20filas/">
+<span class="md-ellipsis">
+    04.-Cargando una tabla con filas
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/05.-Consulta%20de%20tablas/">
+<span class="md-ellipsis">
+    05.-Consulta de tablas
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/06.-Uniones%20de%20tablas/">
+<span class="md-ellipsis">
+    06.-Uniones de tablas
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/07.-Funciones%20agregadas/">
+<span class="md-ellipsis">
+    07.-Funciones agregadas
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/08.-Actualizaciones/">
+<span class="md-ellipsis">
+    08.-Actualizaciones
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/09.-Borrados/">
+<span class="md-ellipsis">
+    09.-Borrados
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+<span class="md-ellipsis">
+    03.-Características avanzadas
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_4">
+<span class="md-nav__icon md-icon"></span>
+            03.-Características avanzadas
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/01.-Introducci%C3%B3n/">
+<span class="md-ellipsis">
+    01.-Introducción
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/02.-Vistas/">
+<span class="md-ellipsis">
+    02.-Vistas
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/03.-Claves%20for%C3%A1neas/">
+<span class="md-ellipsis">
+    03.-Claves foráneas
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/04.-Transacciones/">
+<span class="md-ellipsis">
+    04.-Transacciones
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/05.-Funciones%20de%20ventanas/">
+<span class="md-ellipsis">
+    05.-Funciones de ventanas
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/06.-Herencia/">
+<span class="md-ellipsis">
+    06.-Herencia
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/07.-Conclusi%C3%B3n/">
+<span class="md-ellipsis">
+    07.-Conclusión
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+<span class="md-ellipsis">
+    02.-Tutorial Avanzado
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            02.-Tutorial Avanzado
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01.-Base%20de%20datos%20PostgreSQL%20de%20ejemplo/">
+<span class="md-ellipsis">
+    01.-Base de datos PostgreSQL de ejemplo
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+<span class="md-ellipsis">
+    01.-Consultas
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+            01.-Consultas
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    01.-SELECT
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    01.-SELECT
+  </span>
+</a>
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sintaxis-de-declaracion-postgresql-select">
+<span class="md-ellipsis">
+      Sintaxis de declaración PostgreSQL SELECT
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejemplos-de-postgresql-select">
+<span class="md-ellipsis">
+      Ejemplos de PostgreSQL SELECT
+    </span>
+</a>
+<nav aria-label="Ejemplos de PostgreSQL SELECT" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-usar-la-declaracion-select-para-consultar-los-datos-de-una-columna">
+<span class="md-ellipsis">
+      1) Usar la declaración SELECT para consultar los datos de una columna
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-ejemplo-uso-de-select-para-consultar-datos-de-varias-columnas">
+<span class="md-ellipsis">
+      2) Ejemplo.- Uso de SELECT para consultar datos de varias columnas
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-ejemplo-uso-de-select-para-consultar-datos-de-todas-las-columnas-de-una-tabla">
+<span class="md-ellipsis">
+      3) Ejemplo.- Uso de SELECT para consultar datos de todas las columnas de una tabla
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-ejemplo-uso-de-select-con-expresiones">
+<span class="md-ellipsis">
+      4) Ejemplo.- Uso de SELECT con expresiones
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#5-uso-de-sql-select-sin-una-clausula-from">
+<span class="md-ellipsis">
+      5) Uso de SQL SELECT sin una cláusula FROM
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#resumen">
+<span class="md-ellipsis">
+      Resumen
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../dvdrental.tar">
+<span class="md-ellipsis">
+    dvdrental
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sintaxis-de-declaracion-postgresql-select">
+<span class="md-ellipsis">
+      Sintaxis de declaración PostgreSQL SELECT
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejemplos-de-postgresql-select">
+<span class="md-ellipsis">
+      Ejemplos de PostgreSQL SELECT
+    </span>
+</a>
+<nav aria-label="Ejemplos de PostgreSQL SELECT" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-usar-la-declaracion-select-para-consultar-los-datos-de-una-columna">
+<span class="md-ellipsis">
+      1) Usar la declaración SELECT para consultar los datos de una columna
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-ejemplo-uso-de-select-para-consultar-datos-de-varias-columnas">
+<span class="md-ellipsis">
+      2) Ejemplo.- Uso de SELECT para consultar datos de varias columnas
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-ejemplo-uso-de-select-para-consultar-datos-de-todas-las-columnas-de-una-tabla">
+<span class="md-ellipsis">
+      3) Ejemplo.- Uso de SELECT para consultar datos de todas las columnas de una tabla
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-ejemplo-uso-de-select-con-expresiones">
+<span class="md-ellipsis">
+      4) Ejemplo.- Uso de SELECT con expresiones
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#5-uso-de-sql-select-sin-una-clausula-from">
+<span class="md-ellipsis">
+      5) Uso de SQL SELECT sin una cláusula FROM
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#resumen">
+<span class="md-ellipsis">
+      Resumen
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="select">SELECT<a class="headerlink" href="#select" title="Permanent link">¶</a></h1>
+<p><strong>Resumen</strong> : Vas a aprender a utilizar la declaración básica <strong>PostgreSQL SELECT</strong> para consultar datos de una tabla.</p>
+<p>Una de las tareas más comunes, cuando se trabaja con la base de datos, es recuperar los datos de las tablas utilizando la declaración <code>SELECT</code>.</p>
+<p>La declaración  <code>SELECT</code> es una de las declaraciones más complejas en PostgreSQL.  Tiene muchas cláusulas que se puede utilizar para formar una consulta flexible.</p>
+<p>Debido a su complejidad, lo dividiremos en muchos ejercicios más cortos y fáciles de entender para que puedas aprender sobre cada cláusula más rápido.</p>
+<p>La declaración <code>SELECT</code> tiene las siguientes cláusulas:</p>
+<ul>
+<li>Seleccionar filas distintas usando el operador  <code>DISTINCT</code>.</li>
+<li>Ordenar las filas usando la cláusula <code>ORDER BY</code>.</li>
+<li>Filtrar filas usando la cláusula  <code>WHERE</code>.</li>
+<li>Seleccione un subconjunto de filas de una tabla usando la cláusula <code>LIMIT</code> o  <code>FETCH</code>.</li>
+<li>Agrupar filas en grupos usando  la cláusula <code>GROUP BY</code>.</li>
+<li>Grupos de filtro utilizando la cláusula <code>HAVING</code></li>
+<li>Unirse a otras tablas usando uniones con las cláusulas <code>INNER JOIN</code>, <code>LEFT JOIN</code>, <code>FULL OUTER JOIN</code>,  <code>CROSS JOIN</code>.</li>
+<li>Realizar operaciones establecidas mediante <code>UNION</code>, <code>INTERSECT</code>, y <code>EXCEPT</code>.</li>
+</ul>
+<p>En este tutorial, vas a enfocarte en las cláusulas <code>SELECT</code> y  <code>FROM</code>.</p>
+<h2 id="sintaxis-de-declaracion-postgresql-select">Sintaxis de declaración PostgreSQL SELECT<a class="headerlink" href="#sintaxis-de-declaracion-postgresql-select" title="Permanent link">¶</a></h2>
+<p>Comenzamos con la forma básica de la declaración <code>SELECT</code> que recupera los datos de una sola tabla.</p>
+<p>A continuación se ilustra la sintaxis de la  <code>SELECT</code>de la declaración:</p>
+<pre><code class="language-postgresql">SELECT
+   select_list
+FROM
+   table_name;
+</code></pre>
+<p>En esta sintaxis:</p>
+<ul>
+<li>Primero, especifique una lista de selección que puede ser una columna o una lista de columnas en una tabla de la que desea recuperar datos. Si  especifica una lista de columnas, necesita colocar una coma (<code>,</code>) entre dos columnas para separarlas. Si desea seleccionar datos de todas las columnas de la tabla, puede utilizar un asterisco (<code>*</code>) abreviatura en lugar de especificar todos los nombres de la columna. La <code>select_list</code> también puede contener expresiones o valores literales.</li>
+<li>En segundo lugar, proporcione el nombre de la tabla desde la que desea consultar los datos después de la palabra clave <code>FROM</code>.</li>
+</ul>
+<p>La cláusula  <code>FROM</code> es opcional. Si no estás consultando datos de ninguna tabla, puedes omitir la cláusula  <code>FROM</code> en la declaración  <code>SELECT</code>.</p>
+<p>PostgreSQL evalúa la cláusula  <code>FROM</code> antes de la cláusula <code>SELECT</code> en la declaración del  <code>SELECT</code>:</p>
+<p><img alt="img" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Select.png"/></p>
+<p>Tenga en cuenta que las palabras clave SQL son insensibles a mayúsculas/minúsculas. Significa que  <code>SELECT</code> es equivalente a  <code>select</code> a <code>Select</code>. Por convención, usaremos todas las palabras clave SQL en mayúsculas para hacer las consultas más fáciles de leer.</p>
+<h2 id="ejemplos-de-postgresql-select">Ejemplos de PostgreSQL SELECT<a class="headerlink" href="#ejemplos-de-postgresql-select" title="Permanent link">¶</a></h2>
+<p>Exploremos algunos ejemplos de uso de la declaración  <code>SELECT</code>.</p>
+<p>Usaremos la tabla  <code>customer</code> en la BD  <code>dvdrental</code> para la demostración.</p>
+<p><img alt="customer table" src="https://www.postgresqltutorial.com/wp-content/uploads/2019/05/customer.png"/></p>
+<p>Primero, conéctese al servidor PostgreSQL usando el usuario  <code>postgres</code>:</p>
+<pre><code class="language-postgresql">psql -U postgres
+</code></pre>
+<p>Se le pedirá que introduzca una contraseña para el usuario  <code>postgres</code>.  Después de introducir la contraseña correctamente, estará conectado al servidor PostgreSQL:</p>
+<pre><code class="language-postgresql">postgres=#
+</code></pre>
+<p>En segundo lugar, cambie la base de datos actual a dvdrental:</p>
+<pre><code class="language-postgresql">\c dvdrental
+</code></pre>
+<p>Tercero, ejecutar la consulta en los siguientes ejemplos.</p>
+<h3 id="1-usar-la-declaracion-select-para-consultar-los-datos-de-una-columna">1) Usar la declaración <code>SELECT</code> para consultar los datos de una columna<a class="headerlink" href="#1-usar-la-declaracion-select-para-consultar-los-datos-de-una-columna" title="Permanent link">¶</a></h3>
+<p>Este ejemplo utiliza la declaración <code>SELECT</code> para encontrar los nombres de los primeros nombres de todos los clientes de la tabla <code>customer</code>:</p>
+<pre><code class="language-postgresql">SELECT first_name FROM customer;
+</code></pre>
+<p>Aquí está la salida parcial:</p>
+<pre><code class="language-postgresql"> first_name
+-------------
+ Jared
+ Mary
+ Patricia
+ Linda
+ Barbara
+...
+</code></pre>
+<p>Observe que añadimos un punto y coma (<code>;</code>) al final de la declaración <code>SELECT</code>. El punto y coma no es parte de la declaración SQL; más bien, sirve como señal a PostgreSQL indicando la conclusión de una declaración SQL. Además, se utilizan los (<code>;</code>)  para separar dos o más declaraciones SQL.</p>
+<h3 id="2-ejemplo-uso-de-select-para-consultar-datos-de-varias-columnas">2) Ejemplo.- Uso de SELECT para consultar datos de varias columnas<a class="headerlink" href="#2-ejemplo-uso-de-select-para-consultar-datos-de-varias-columnas" title="Permanent link">¶</a></h3>
+<p>La siguiente consulta utiliza  <code>SELECT</code> para recuperar el nombre, apellido y correo electrónico de los clientes de la tabla <code>customer</code>:</p>
+<pre><code class="language-postgresql">SELECT
+   first_name,
+   last_name,
+   email
+FROM
+   customer;
+</code></pre>
+<p>Salida parcial:</p>
+<pre><code> first_name  |  last_name   |                  email
+-------------+--------------+------------------------------------------
+ Jared       | Ely          | jared.ely@sakilacustomer.org
+ Mary        | Smith        | mary.smith@sakilacustomer.org
+ Patricia    | Johnson      | patricia.johnson@sakilacustomer.org
+...
+</code></pre>
+<p>La salida muestra tres columnas correspondientes de nombre, apellido y correo electrónico.</p>
+<h3 id="3-ejemplo-uso-de-select-para-consultar-datos-de-todas-las-columnas-de-una-tabla">3) Ejemplo.- Uso de SELECT para consultar datos de todas las columnas de una tabla<a class="headerlink" href="#3-ejemplo-uso-de-select-para-consultar-datos-de-todas-las-columnas-de-una-tabla" title="Permanent link">¶</a></h3>
+<p>La siguiente consulta utiliza la la declaración  <code>SELECT *</code> para recuperar los datos de todas las columnas de la  tabla <code>customer</code>:</p>
+<pre><code class="language-postgresql">SELECT * FROM customer;
+</code></pre>
+<p>Salida parcial:</p>
+<pre><code> customer_id | store_id | first_name  |  last_name   |                  email                   | address_id | activebool | create_date |       last_update       | active
+-------------+----------+-------------+--------------+------------------------------------------+------------+------------+-------------+-------------------------+--------
+         524 |        1 | Jared       | Ely          | jared.ely@sakilacustomer.org             |        530 | t          | 2006-02-14  | 2013-05-26 14:49:45.738 |      1
+           1 |        1 | Mary        | Smith        | mary.smith@sakilacustomer.org            |          5 | t          | 2006-02-14  | 2013-05-26 14:49:45.738 |      1
+           2 |        1 | Patricia    | Johnson      | patricia.johnson@sakilacustomer.org      |          6 | t          | 2006-02-14  | 2013-05-26 14:49:45.738 |      1
+...
+</code></pre>
+<p>En este ejemplo, usamos un asterisco (<code>*</code>) en la cláusula <code>SELECT</code>, que sirve de abreviatura para "todas las columnas".</p>
+<p>En lugar de enumerar todas las columnas en la cláusula  <code>SELECT</code> individualmente, podemos utilizar el asterisco (<code>*</code>) para hacer la consulta más corta.</p>
+<p>Sin embargo, el uso del asterisco (<code>*</code>) en la declaración  <code>SELECT</code> se considera una mala práctica cuando se incrustan declaraciones de SQL en el código de solicitud, como Python, Java o PHP por las siguientes razones:</p>
+<ul>
+<li>Rendimiento de la base de datos.- Supongamos que se tiene una tabla con muchas columnas y datos sustanciales, la delcaración  <code>SELECT</code> con el asterisco (<code>*</code>) seleccionará los datos de todas las columnas de la tabla,  potencialmente recuperando más datos de los requeridos para la  aplicación.</li>
+<li>Rendimiento de la aplicación. La recuperación de  datos innecesarios aumenta el tráfico entre el servidor PostgreSQL y el servidor de la aplicación. En consecuencia, esto puede resultar en tiempos de respuesta más lentos y una escalabilidad reducida para sus  aplicaciones.</li>
+</ul>
+<p>Por estas razones, se recomienda especificar explícitamente los nombres de las columnas requeridas en la cláusula  <code>SELECT</code> siempre que sea posible. Esto garantiza que sólo los datos necesarios se recuperen de la base de datos, contribuyendo a consultas más  eficientes y optimizadas.</p>
+<p>La abreviatura (*) debe reservarse exclusivamente para las consultas ad-hoc que examinan los datos de la base de datos.</p>
+<h3 id="4-ejemplo-uso-de-select-con-expresiones">4) Ejemplo.- Uso de SELECT con expresiones<a class="headerlink" href="#4-ejemplo-uso-de-select-con-expresiones" title="Permanent link">¶</a></h3>
+<p>El siguiente ejemplo utiliza el  <code>SELECT</code> para devolver los nombres completos y correos electrónicos de todos los clientes de la tabla <code>customer</code>:</p>
+<pre><code class="language-postgresql">SELECT 
+   first_name || ' ' || last_name,
+   email
+FROM 
+   customer;
+</code></pre>
+<p>Producto:</p>
+<pre><code>       ?column?        |                  email
+-----------------------+------------------------------------------
+ Jared Ely             | jared.ely@sakilacustomer.org
+ Mary Smith            | mary.smith@sakilacustomer.org
+ Patricia Johnson      | patricia.johnson@sakilacustomer.org
+...
+</code></pre>
+<p>En este ejemplo, utilizamos el operador de  <code>||</code> para concatenar el primer nombre, el espacio y el apellido de cada cliente.</p>
+<p>Observa que la primera columna de la salida no tiene un nombre (<code>?column?</code>). Para asignar un nombre a una columna <strong>temporalmente</strong> en la consulta, se puede utilizar un alias de columna:</p>
+<pre><code>expression AS column_alias
+</code></pre>
+<p>La palabra clave <code>AS</code> es opcional. Por lo tanto, se puede utilizar una sintaxis más corta:</p>
+<pre><code>expression column_lias
+</code></pre>
+<p>Por ejemplo, se puede asignar una columna alias <code>full-name</code> a la primera columna de la consulta de la siguiente manera:</p>
+<pre><code class="language-postgresql">SELECT 
+   first_name || ' ' || last_name full_name,
+   email
+FROM 
+   customer;
+</code></pre>
+<p>Salida:</p>
+<pre><code>       full_name       |                  email
+-----------------------+------------------------------------------
+ Jared Ely             | jared.ely@sakilacustomer.org
+ Mary Smith            | mary.smith@sakilacustomer.org
+ Patricia Johnson      | patricia.johnson@sakilacustomer.org
+...
+</code></pre>
+<h3 id="5-uso-de-sql-select-sin-una-clausula-from">5) Uso de SQL SELECT sin una cláusula FROM<a class="headerlink" href="#5-uso-de-sql-select-sin-una-clausula-from" title="Permanent link">¶</a></h3>
+<p>La cláusula  <code>FROM</code> de la declaración <code>SELECT</code> es opcional. Por lo tanto, se puedes omitirlo.</p>
+<p>Típicamente, se usa la cláusula  <code>SELECT</code> con una función para recuperar el resultado de la función. Por ejemplo:</p>
+<pre><code>SELECT NOW();
+</code></pre>
+<p>En este ejemplo, utilizamos la función  <code>NOW()</code> en la declaración  <code>SELECT</code> que devuelve la fecha y hora actuales del servidor PostgreSQL.</p>
+<h2 id="resumen">Resumen<a class="headerlink" href="#resumen" title="Permanent link">¶</a></h2>
+<ul>
+<li>Utiliza la declaración  <code>SELECT ... FROM</code> para recuperar los datos de una tabla.</li>
+<li>PostgreSQL evalúa primero la declaración <code>FROM</code> en la cláusula  <code>SELECT</code>.</li>
+<li>Utiliza un alias de columna para asignar un nombre temporal a una columna o a una expresión en una consulta.</li>
+<li>En PostgreSQL, la cláusula  <code>FROM</code> es opcional.</li>
+</ul>
+</article>
+</div>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+  Volver al principio
+</button>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.top.sticky", "navigation.tabs", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+<script src="../../../assets/javascripts/bundle.6c14ae12.min.js"></script>
+<script src="../../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>
