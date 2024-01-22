@@ -23,7 +23,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#postgresql-select-distinct-examples">
+<a class="md-skip" href="#ejemplos-sql-select-distinct">
           Saltar a contenido
         </a>
 </div>
@@ -509,34 +509,23 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#postgresql-select-distinct-examples">
+<a class="md-nav__link" href="#postgresql-distinct-ejemplo-de-una-columna">
 <span class="md-ellipsis">
-      PostgreSQL SELECT DISTINCT examples
-    </span>
-</a>
-<nav aria-label="PostgreSQL SELECT DISTINCT examples" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#postgresql-distinct-one-column-example">
-<span class="md-ellipsis">
-      PostgreSQL DISTINCT one column example
+      PostgreSQL DISTINCT ejemplo de una columna
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#postgresql-distinct-multiple-columns">
+<a class="md-nav__link" href="#distinct-columnas-multiples">
 <span class="md-ellipsis">
-      PostgreSQL DISTINCT multiple columns
+      DISTINCT columnas múltiples
     </span>
 </a>
 </li>
-</ul>
-</nav>
-</li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#summary">
+<a class="md-nav__link" href="#resumen">
 <span class="md-ellipsis">
-      Summary
+      Resumen
     </span>
 </a>
 </li>
@@ -571,34 +560,23 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#postgresql-select-distinct-examples">
+<a class="md-nav__link" href="#postgresql-distinct-ejemplo-de-una-columna">
 <span class="md-ellipsis">
-      PostgreSQL SELECT DISTINCT examples
-    </span>
-</a>
-<nav aria-label="PostgreSQL SELECT DISTINCT examples" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#postgresql-distinct-one-column-example">
-<span class="md-ellipsis">
-      PostgreSQL DISTINCT one column example
+      PostgreSQL DISTINCT ejemplo de una columna
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#postgresql-distinct-multiple-columns">
+<a class="md-nav__link" href="#distinct-columnas-multiples">
 <span class="md-ellipsis">
-      PostgreSQL DISTINCT multiple columns
+      DISTINCT columnas múltiples
     </span>
 </a>
 </li>
-</ul>
-</nav>
-</li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#summary">
+<a class="md-nav__link" href="#resumen">
 <span class="md-ellipsis">
-      Summary
+      Resumen
     </span>
 </a>
 </li>
@@ -609,89 +587,86 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1>04.-SELECT DISTINCT</h1>
-<p>Introduction to PostgreSQL SELECT DISTINCT clause</p>
-<p>The <code>SELECT DISTINCT</code> removes duplicate rows from a result set. The <code>SELECT DISTINCT</code> clause retains one row for each group of duplicates.</p>
-<p>The <code>SELECT DISTINCT</code> clause can be applied to one or more columns in the select list of the <code>SELECT</code> statement.</p>
-<p>The following illustrates the syntax of the <code>DISTINCT</code> clause:</p>
-<pre><code>SELECT 
-  DISTINCT column1 
+<p>La cláusula <code>SELECT DISTINCT</code> elimina filas duplicadas de un conjunto de resultados. La cláusula <code>SELECT DISTINCT</code> retiene una fila por cada grupo de duplicados.</p>
+<p>La cláusula <code>SELECT DISTINCT</code> puede aplicarse a una o varias columnas de la lista de selección de la sentencia <code>SELECT</code>.</p>
+<p>A continuación se ilustra la sintaxis de la cláusula <code>DISTINCT</code>:</p>
+<pre><code class="language-postgresql">SELECT 
+  DISTINCT columna1 
 FROM 
-  table_name;Code language: SQL (Structured Query Language) (sql)
+  nombre_tabla;Lenguaje de código
 </code></pre>
-<p>In this syntax, the <code>SELECT DISTINCT</code> uses the values of the <code>column1</code> column to evaluate the duplicate.</p>
-<p>If you specify multiple columns, the <code>SELECT DISTINCT</code> clause will evaluate the duplicate based on the combination of values in these columns. For example:</p>
-<pre><code>SELECT
-   DISTINCT column1, column2
+<p>En esta sintaxis, <code>SELECT DISTINCT</code> utiliza los valores de la columna <code>columna1</code> para evaluar el duplicado.</p>
+<p>Si especifica varias columnas, la cláusula <code>SELECT DISTINCT</code> evaluará el duplicado basándose en la combinación de valores de dichas columnas. Por ejemplo</p>
+<pre><code class="language-postgresql">SELECT
+   DISTINCT columna1, columna2
 FROM
-   table_name;Code language: SQL (Structured Query Language) (sql)
+   nombre_tabla;Lenguaje del código
 </code></pre>
-<p>In this syntax, the <code>SELECT DISTINCT</code> uses the combination of values in both <code>column1</code> and <code>column2</code> columns for evaluating the duplicate.</p>
-<p>Note that PostgreSQL also offers the <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-distinct-on/">DISTINCT ON</a> clause that retains the first unique entry of a column or combination of columns in the result set.</p>
-<h2 id="postgresql-select-distinct-examples">PostgreSQL SELECT DISTINCT examples<a class="headerlink" href="#postgresql-select-distinct-examples" title="Permanent link">¶</a></h2>
-<p>Let’s <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-create-table/">create a new table</a> called <code>distinct_demo</code> and <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-insert/">insert data</a> into it to practice the <code>DISTINCT</code> clause.</p>
-<p>Note that you will learn how to create a table and insert data into a table  in the subsequent tutorial. In this tutorial, you just execute the  statement in psql or pgAdmin to execute the statements.</p>
-<p>First, create the <code>distinct_demo</code> table that has three columns: <code>id</code>, <code>bcolor</code> and <code>fcolor</code> using the following <code>CREATE TABLE</code> statement:</p>
-<pre><code>CREATE TABLE distinct_demo (
+<p>En esta sintaxis, el <code>SELECT DISTINCT</code> utiliza la combinación de valores de las columnas <code>columna1</code> y <code>columna2</code> para evaluar el duplicado.</p>
+<p>Tenga en cuenta que PostgreSQL también ofrece la cláusula DISTINCT ON que conserva la primera entrada única de una columna o combinación de columnas en el conjunto de resultados. </p>
+<h1 id="ejemplos-sql-select-distinct">Ejemplos.- SQL SELECT DISTINCT<a class="headerlink" href="#ejemplos-sql-select-distinct" title="Permanent link">¶</a></h1>
+<p>Vamos a crear una nueva tabla llamada <code>distinct_demo</code> e insertar datos en ella para practicar la cláusula <code>DISTINCT</code>.</p>
+<p>Ten en cuenta que aprenderás a crear una tabla y a insertar datos en una tabla en el tutorial siguiente. En este tutorial, solo ejecute la sentencia en psql o pgAdmin para ejecutar las sentencias.</p>
+<p>Primero, crea la tabla <code>distinct_demo</code> que tiene tres columnas: <code>id</code>, <code>bcolor</code> y <code>fcolor</code> usando la siguiente sentencia <code>CREATE TABLE</code>:</p>
+<pre><code class="language-postgresql">CREAR TABLA distinct_demo (
   id SERIAL NOT NULL PRIMARY KEY, 
   bcolor VARCHAR, 
   fcolor VARCHAR
-);Code language: SQL (Structured Query Language) (sql)
+)
 </code></pre>
-<p>Second, insert some rows into the <code>distinct_demo</code> table using the <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-insert/"><code>INSERT</code></a> statement:</p>
-<pre><code>INSERT INTO distinct_demo (bcolor, fcolor) 
+<p>En segundo lugar, inserta algunas filas en la tabla <code>distinct_demo</code> utilizando la sentencia INSERT:</p>
+<pre><code class="language-postgresql">INSERT INTO distinct_demo (bcolor, fcolor) 
 VALUES 
-  ('red', 'red'), 
-  ('red', 'red'), 
-  ('red', NULL), 
-  (NULL, 'red'), 
-  ('red', 'green'), 
-  ('red', 'blue'), 
-  ('green', 'red'), 
-  ('green', 'blue'), 
-  ('green', 'green'), 
-  ('blue', 'red'), 
-  ('blue', 'green'), 
-  ('blue', 'blue');
-Code language: SQL (Structured Query Language) (sql)
+  ('rojo', 'rojo'), 
+  ('rojo', 'rojo'), 
+  ('rojo', NULL), 
+  (NULL, 'rojo'), 
+  ('rojo', 'verde'), 
+  ('rojo', 'azul'), 
+  ('verde', 'rojo'), 
+  ('verde', 'azul'), 
+  ('verde', 'verde'), 
+  ('azul', 'rojo'), 
+  ('azul', 'verde'), 
+  ('azul', 'azul');
 </code></pre>
-<p>Third, retrieve the data from the <code>distinct_demo</code> table using the <code>SELECT</code> statement:</p>
-<pre><code>SELECT 
+<p>En tercer lugar, recupera los datos de la tabla <code>distinct_demo</code> utilizando la sentencia <code>SELECT</code>:</p>
+<pre><code class="language-postgresql">SELECT 
   id, 
   bcolor, 
   fcolor 
 FROM 
-  distinct_demo;Code language: SQL (Structured Query Language) (sql)
+  distinct_demo;
 </code></pre>
 <p><img alt="PostgreSQL Distinct - Sample Table" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Distinct-Sample-Table.png"/></p>
-<h3 id="postgresql-distinct-one-column-example">PostgreSQL DISTINCT one column example<a class="headerlink" href="#postgresql-distinct-one-column-example" title="Permanent link">¶</a></h3>
-<p>The following statement selects unique values in the  <code>bcolor</code> column from the <code>t1</code> table and <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-order-by/">sorts</a> the result set in alphabetical order by using the <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-order-by/"><code>ORDER BY</code></a> clause.</p>
-<pre><code>SELECT 
+<h3 id="postgresql-distinct-ejemplo-de-una-columna">PostgreSQL DISTINCT ejemplo de una columna<a class="headerlink" href="#postgresql-distinct-ejemplo-de-una-columna" title="Permanent link">¶</a></h3>
+<p>La siguiente sentencia selecciona valores únicos en la columna <code>bcolor</code> de la tabla <code>t1</code> y ordena el conjunto de resultados por orden alfabético utilizando el ORDER BY.</p>
+<pre><code class="language-postgresql">SELECT 
   DISTINCT bcolor 
 FROM 
   distinct_demo 
 ORDER BY 
-  bcolor;Code language: SQL (Structured Query Language) (sql)
+  bcolor;
 </code></pre>
 <p><img alt="PostgreSQL Distinct - select distinct one column" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Distinct-select-distinct-one-column.png"/></p>
-<h3 id="postgresql-distinct-multiple-columns">PostgreSQL DISTINCT multiple columns<a class="headerlink" href="#postgresql-distinct-multiple-columns" title="Permanent link">¶</a></h3>
-<p>The following statement demonstrates how to use the <code>DISTINCT</code> clause on multiple columns:</p>
-<pre><code>SELECT 
+<h3 id="distinct-columnas-multiples">DISTINCT columnas múltiples<a class="headerlink" href="#distinct-columnas-multiples" title="Permanent link">¶</a></h3>
+<p>La siguiente sentencia demuestra cómo utilizar la cláusula <code>DISTINCT</code> en múltiples columnas:</p>
+<pre><code class="language-postgresql">SELECT 
   DISTINCT bcolor, 
   fcolor 
 FROM 
   distinct_demo 
 ORDER BY 
   bcolor, 
-  fcolor;Code language: SQL (Structured Query Language) (sql)
+  fcolor;
 </code></pre>
 <p><img alt="PostgreSQL Distinct - select distinct two columns" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Distinct-select-distinct-two-columns.png"/></p>
-<p>Because we specified both <code>bcolor</code> and <code>fcolor</code> columns in the <code>SELECT DISTINCT</code>clause, the statement combined the values in both <code>bcolor</code> and <code>fcolor</code> columns to evaluate the uniqueness of the rows.</p>
-<p>The query returns the unique combination of <code>bcolor</code> and <code>fcolor</code> from the <code>distinct_demo</code> table.</p>
-<p>Notice that the <code>distinct_demo</code> table has two rows with <code>red</code> value in both  <code>bcolor</code> and <code>fcolor</code> columns. When we apply the <code>DISTINCT</code> to both columns, it removes one duplicate row from the result set.</p>
-<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
+<p>Como hemos especificado las columnas <code>bcolor</code> y <code>fcolor</code> en la cláusula <code>SELECT DISTINCT</code>, la sentencia combina los valores de las columnas <code>bcolor</code> y <code>fcolor</code> para evaluar la unicidad de las filas.</p>
+<p>La consulta devuelve la combinación única de <code>bcolor</code> y <code>fcolor</code> de la tabla <code>distinct_demo</code>.</p>
+<p>Observe que la tabla <code>distinct_demo</code> tiene dos filas con el valor <code>red</code> en las columnas <code>bcolor</code> y <code>fcolor</code>. Cuando aplicamos <code>DISTINCT</code> a ambas columnas, se elimina una fila duplicada del conjunto de resultados.</p>
+<h2 id="resumen">Resumen<a class="headerlink" href="#resumen" title="Permanent link">¶</a></h2>
 <ul>
-<li>Use <code>SELECT DISTINCT</code> to remove duplicate rows from a result set of a query.</li>
+<li>Utilice <code>SELECT DISTINCT</code> para eliminar filas duplicadas de un conjunto de resultados de una consulta.</li>
 </ul>
 </article>
 </div>

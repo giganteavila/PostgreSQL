@@ -23,7 +23,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#select">
+<a class="md-skip" href="#sintaxis-de-declaracion-postgresql-select">
           Saltar a contenido
         </a>
 </div>
@@ -470,85 +470,11 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    01.-SELECT
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
 <a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     01.-SELECT
   </span>
 </a>
-<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#sintaxis-de-declaracion-postgresql-select">
-<span class="md-ellipsis">
-      Sintaxis de declaración PostgreSQL SELECT
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ejemplos-de-postgresql-select">
-<span class="md-ellipsis">
-      Ejemplos de PostgreSQL SELECT
-    </span>
-</a>
-<nav aria-label="Ejemplos de PostgreSQL SELECT" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#1-usar-la-declaracion-select-para-consultar-los-datos-de-una-columna">
-<span class="md-ellipsis">
-      1) Usar la declaración SELECT para consultar los datos de una columna
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#2-ejemplo-uso-de-select-para-consultar-datos-de-varias-columnas">
-<span class="md-ellipsis">
-      2) Ejemplo.- Uso de SELECT para consultar datos de varias columnas
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#3-ejemplo-uso-de-select-para-consultar-datos-de-todas-las-columnas-de-una-tabla">
-<span class="md-ellipsis">
-      3) Ejemplo.- Uso de SELECT para consultar datos de todas las columnas de una tabla
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#4-ejemplo-uso-de-select-con-expresiones">
-<span class="md-ellipsis">
-      4) Ejemplo.- Uso de SELECT con expresiones
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#5-uso-de-sql-select-sin-una-clausula-from">
-<span class="md-ellipsis">
-      5) Uso de SQL SELECT sin una cláusula FROM
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#resumen">
-<span class="md-ellipsis">
-      Resumen
-    </span>
-</a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../02.-Alias%20de%20columnas/">
@@ -593,80 +519,12 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#sintaxis-de-declaracion-postgresql-select">
-<span class="md-ellipsis">
-      Sintaxis de declaración PostgreSQL SELECT
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ejemplos-de-postgresql-select">
-<span class="md-ellipsis">
-      Ejemplos de PostgreSQL SELECT
-    </span>
-</a>
-<nav aria-label="Ejemplos de PostgreSQL SELECT" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#1-usar-la-declaracion-select-para-consultar-los-datos-de-una-columna">
-<span class="md-ellipsis">
-      1) Usar la declaración SELECT para consultar los datos de una columna
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#2-ejemplo-uso-de-select-para-consultar-datos-de-varias-columnas">
-<span class="md-ellipsis">
-      2) Ejemplo.- Uso de SELECT para consultar datos de varias columnas
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#3-ejemplo-uso-de-select-para-consultar-datos-de-todas-las-columnas-de-una-tabla">
-<span class="md-ellipsis">
-      3) Ejemplo.- Uso de SELECT para consultar datos de todas las columnas de una tabla
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#4-ejemplo-uso-de-select-con-expresiones">
-<span class="md-ellipsis">
-      4) Ejemplo.- Uso de SELECT con expresiones
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#5-uso-de-sql-select-sin-una-clausula-from">
-<span class="md-ellipsis">
-      5) Uso de SQL SELECT sin una cláusula FROM
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#resumen">
-<span class="md-ellipsis">
-      Resumen
-    </span>
-</a>
-</li>
-</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="select">SELECT<a class="headerlink" href="#select" title="Permanent link">¶</a></h1>
-<p><strong>Resumen</strong> : Vas a aprender a utilizar la declaración básica <strong>PostgreSQL SELECT</strong> para consultar datos de una tabla.</p>
 <p>Una de las tareas más comunes, cuando se trabaja con la base de datos, es recuperar los datos de las tablas utilizando la declaración <code>SELECT</code>.</p>
 <p>La declaración  <code>SELECT</code> es una de las declaraciones más complejas en PostgreSQL.  Tiene muchas cláusulas que se puede utilizar para formar una consulta flexible.</p>
 <p>Debido a su complejidad, lo dividiremos en muchos ejercicios más cortos y fáciles de entender para que puedas aprender sobre cada cláusula más rápido.</p>
@@ -682,7 +540,7 @@
 <li>Realizar operaciones establecidas mediante <code>UNION</code>, <code>INTERSECT</code>, y <code>EXCEPT</code>.</li>
 </ul>
 <p>En este tutorial, vas a enfocarte en las cláusulas <code>SELECT</code> y  <code>FROM</code>.</p>
-<h2 id="sintaxis-de-declaracion-postgresql-select">Sintaxis de declaración PostgreSQL SELECT<a class="headerlink" href="#sintaxis-de-declaracion-postgresql-select" title="Permanent link">¶</a></h2>
+<h1 id="sintaxis-de-declaracion-postgresql-select">Sintaxis de declaración PostgreSQL SELECT<a class="headerlink" href="#sintaxis-de-declaracion-postgresql-select" title="Permanent link">¶</a></h1>
 <p>Comenzamos con la forma básica de la declaración <code>SELECT</code> que recupera los datos de una sola tabla.</p>
 <p>A continuación se ilustra la sintaxis de la  <code>SELECT</code>de la declaración:</p>
 <pre><code class="language-postgresql">SELECT
@@ -699,7 +557,7 @@ FROM
 <p>PostgreSQL evalúa la cláusula  <code>FROM</code> antes de la cláusula <code>SELECT</code> en la declaración del  <code>SELECT</code>:</p>
 <p><img alt="img" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Select.png"/></p>
 <p>Tenga en cuenta que las palabras clave SQL son insensibles a mayúsculas/minúsculas. Significa que  <code>SELECT</code> es equivalente a  <code>select</code> a <code>Select</code>. Por convención, usaremos todas las palabras clave SQL en mayúsculas para hacer las consultas más fáciles de leer.</p>
-<h2 id="ejemplos-de-postgresql-select">Ejemplos de PostgreSQL SELECT<a class="headerlink" href="#ejemplos-de-postgresql-select" title="Permanent link">¶</a></h2>
+<h1 id="ejemplos-de-postgresql-select">Ejemplos de PostgreSQL SELECT<a class="headerlink" href="#ejemplos-de-postgresql-select" title="Permanent link">¶</a></h1>
 <p>Exploremos algunos ejemplos de uso de la declaración  <code>SELECT</code>.</p>
 <p>Usaremos la tabla  <code>customer</code> en la BD  <code>dvdrental</code> para la demostración.</p>
 <p><img alt="customer table" src="https://www.postgresqltutorial.com/wp-content/uploads/2019/05/customer.png"/></p>
@@ -713,7 +571,7 @@ FROM
 <pre><code class="language-postgresql">\c dvdrental
 </code></pre>
 <p>Tercero, ejecutar la consulta en los siguientes ejemplos.</p>
-<h3 id="1-usar-la-declaracion-select-para-consultar-los-datos-de-una-columna">1) Usar la declaración <code>SELECT</code> para consultar los datos de una columna<a class="headerlink" href="#1-usar-la-declaracion-select-para-consultar-los-datos-de-una-columna" title="Permanent link">¶</a></h3>
+<h2 id="usar-la-declaracion-select-para-consultar-los-datos-de-una-columna">Usar la declaración <code>SELECT</code> para consultar los datos de una columna<a class="headerlink" href="#usar-la-declaracion-select-para-consultar-los-datos-de-una-columna" title="Permanent link">¶</a></h2>
 <p>Este ejemplo utiliza la declaración <code>SELECT</code> para encontrar los nombres de los primeros nombres de todos los clientes de la tabla <code>customer</code>:</p>
 <pre><code class="language-postgresql">SELECT first_name FROM customer;
 </code></pre>
@@ -728,7 +586,7 @@ FROM
 ...
 </code></pre>
 <p>Observe que añadimos un punto y coma (<code>;</code>) al final de la declaración <code>SELECT</code>. El punto y coma no es parte de la declaración SQL; más bien, sirve como señal a PostgreSQL indicando la conclusión de una declaración SQL. Además, se utilizan los (<code>;</code>)  para separar dos o más declaraciones SQL.</p>
-<h3 id="2-ejemplo-uso-de-select-para-consultar-datos-de-varias-columnas">2) Ejemplo.- Uso de SELECT para consultar datos de varias columnas<a class="headerlink" href="#2-ejemplo-uso-de-select-para-consultar-datos-de-varias-columnas" title="Permanent link">¶</a></h3>
+<h2 id="ejemplo-uso-de-select-para-consultar-datos-de-varias-columnas">Ejemplo.- Uso de SELECT para consultar datos de varias columnas<a class="headerlink" href="#ejemplo-uso-de-select-para-consultar-datos-de-varias-columnas" title="Permanent link">¶</a></h2>
 <p>La siguiente consulta utiliza  <code>SELECT</code> para recuperar el nombre, apellido y correo electrónico de los clientes de la tabla <code>customer</code>:</p>
 <pre><code class="language-postgresql">SELECT
    first_name,
@@ -746,7 +604,7 @@ FROM
 ...
 </code></pre>
 <p>La salida muestra tres columnas correspondientes de nombre, apellido y correo electrónico.</p>
-<h3 id="3-ejemplo-uso-de-select-para-consultar-datos-de-todas-las-columnas-de-una-tabla">3) Ejemplo.- Uso de SELECT para consultar datos de todas las columnas de una tabla<a class="headerlink" href="#3-ejemplo-uso-de-select-para-consultar-datos-de-todas-las-columnas-de-una-tabla" title="Permanent link">¶</a></h3>
+<h2 id="ejemplo-uso-de-select-para-consultar-datos-de-todas-las-columnas-de-una-tabla">Ejemplo.- Uso de SELECT para consultar datos de todas las columnas de una tabla<a class="headerlink" href="#ejemplo-uso-de-select-para-consultar-datos-de-todas-las-columnas-de-una-tabla" title="Permanent link">¶</a></h2>
 <p>La siguiente consulta utiliza la la declaración  <code>SELECT *</code> para recuperar los datos de todas las columnas de la  tabla <code>customer</code>:</p>
 <pre><code class="language-postgresql">SELECT * FROM customer;
 </code></pre>
@@ -767,7 +625,7 @@ FROM
 </ul>
 <p>Por estas razones, se recomienda especificar explícitamente los nombres de las columnas requeridas en la cláusula  <code>SELECT</code> siempre que sea posible. Esto garantiza que sólo los datos necesarios se recuperen de la base de datos, contribuyendo a consultas más  eficientes y optimizadas.</p>
 <p>La abreviatura (*) debe reservarse exclusivamente para las consultas ad-hoc que examinan los datos de la base de datos.</p>
-<h3 id="4-ejemplo-uso-de-select-con-expresiones">4) Ejemplo.- Uso de SELECT con expresiones<a class="headerlink" href="#4-ejemplo-uso-de-select-con-expresiones" title="Permanent link">¶</a></h3>
+<h2 id="ejemplo-uso-de-select-con-expresiones">Ejemplo.- Uso de SELECT con expresiones<a class="headerlink" href="#ejemplo-uso-de-select-con-expresiones" title="Permanent link">¶</a></h2>
 <p>El siguiente ejemplo utiliza el  <code>SELECT</code> para devolver los nombres completos y correos electrónicos de todos los clientes de la tabla <code>customer</code>:</p>
 <pre><code class="language-postgresql">SELECT 
    first_name || ' ' || last_name,
@@ -805,13 +663,13 @@ FROM
  Patricia Johnson      | patricia.johnson@sakilacustomer.org
 ...
 </code></pre>
-<h3 id="5-uso-de-sql-select-sin-una-clausula-from">5) Uso de SQL SELECT sin una cláusula FROM<a class="headerlink" href="#5-uso-de-sql-select-sin-una-clausula-from" title="Permanent link">¶</a></h3>
+<h2 id="uso-de-sql-select-sin-una-clausula-from">Uso de SQL SELECT sin una cláusula FROM<a class="headerlink" href="#uso-de-sql-select-sin-una-clausula-from" title="Permanent link">¶</a></h2>
 <p>La cláusula  <code>FROM</code> de la declaración <code>SELECT</code> es opcional. Por lo tanto, se puedes omitirlo.</p>
 <p>Típicamente, se usa la cláusula  <code>SELECT</code> con una función para recuperar el resultado de la función. Por ejemplo:</p>
 <pre><code>SELECT NOW();
 </code></pre>
 <p>En este ejemplo, utilizamos la función  <code>NOW()</code> en la declaración  <code>SELECT</code> que devuelve la fecha y hora actuales del servidor PostgreSQL.</p>
-<h2 id="resumen">Resumen<a class="headerlink" href="#resumen" title="Permanent link">¶</a></h2>
+<h1 id="resumen">Resumen<a class="headerlink" href="#resumen" title="Permanent link">¶</a></h1>
 <ul>
 <li>Utiliza la declaración  <code>SELECT ... FROM</code> para recuperar los datos de una tabla.</li>
 <li>PostgreSQL evalúa primero la declaración <code>FROM</code> en la cláusula  <code>SELECT</code>.</li>

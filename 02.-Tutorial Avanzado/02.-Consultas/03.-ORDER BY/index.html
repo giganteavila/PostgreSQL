@@ -23,7 +23,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#introduccion-a-la-clausula-order-by">
+<a class="md-skip" href="#order-by-ejemplos">
           Saltar a contenido
         </a>
 </div>
@@ -484,11 +484,53 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    03.-ORDER BY
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     03.-ORDER BY
   </span>
 </a>
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#uso-de-la-clausula-order-by-de-postgresql-para-ordenar-filas-por-una-columna">
+<span class="md-ellipsis">
+      Uso de la cláusula ORDER BY de PostgreSQL para ordenar filas por una columna
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#uso-de-la-clausula-order-by-de-postgresql-para-ordenar-filas-por-una-columna-en-orden-descendente">
+<span class="md-ellipsis">
+      Uso de la cláusula ORDER BY de PostgreSQL para ordenar filas por una columna en orden descendente
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#uso-de-la-clausula-order-by-de-postgresql-para-ordenar-filas-por-varias-columnas">
+<span class="md-ellipsis">
+      Uso de la cláusula ORDER BY de PostgreSQL para ordenar filas por varias columnas
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#uso-de-la-clausula-order-by-para-ordenar-filas-por-expresiones">
+<span class="md-ellipsis">
+      Uso de la cláusula ORDER BY para ordenar filas por expresiones
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../04.-SELECT%20DISTINCT/">
@@ -519,13 +561,46 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#uso-de-la-clausula-order-by-de-postgresql-para-ordenar-filas-por-una-columna">
+<span class="md-ellipsis">
+      Uso de la cláusula ORDER BY de PostgreSQL para ordenar filas por una columna
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#uso-de-la-clausula-order-by-de-postgresql-para-ordenar-filas-por-una-columna-en-orden-descendente">
+<span class="md-ellipsis">
+      Uso de la cláusula ORDER BY de PostgreSQL para ordenar filas por una columna en orden descendente
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#uso-de-la-clausula-order-by-de-postgresql-para-ordenar-filas-por-varias-columnas">
+<span class="md-ellipsis">
+      Uso de la cláusula ORDER BY de PostgreSQL para ordenar filas por varias columnas
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#uso-de-la-clausula-order-by-para-ordenar-filas-por-expresiones">
+<span class="md-ellipsis">
+      Uso de la cláusula ORDER BY para ordenar filas por expresiones
+    </span>
+</a>
+</li>
+</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="introduccion-a-la-clausula-order-by">Introducción a la cláusula ORDER BY<a class="headerlink" href="#introduccion-a-la-clausula-order-by" title="Permanent link">¶</a></h1>
 <p>Cuando consulta datos de una tabla, la declaración <code>SELECT</code> devuelve filas en un orden no especificado. Para ordenar las filas del conjunto de resultados, utilice la cláusula <code>ORDER BY</code> de la declaración <code>SELECT</code>.</p>
 <p>La cláusula <code>ORDER BY</code>  le permite ordenar las filas devueltas por una cláusula  <code>SELECT</code>  en orden ascendente o descendente según una expresión de clasificación.</p>
 <p>A continuación se ilustra la sintaxis de la cláusula <code>ORDER BY</code> :</p>
@@ -550,7 +625,7 @@ ORDER BY
 <h1 id="order-by-ejemplos">ORDER BY ejemplos<a class="headerlink" href="#order-by-ejemplos" title="Permanent link">¶</a></h1>
 <p>Usaremos la tabla <code>customer</code> de la base de datos de muestra para la demostración.</p>
 <p>​        <img alt="mesa de clientes" src="https://www.postgresqltutorial.com/wp-content/uploads/2019/05/customer.png"/> </p>
-<h2 id="1-uso-de-la-clausula-order-by-de-postgresql-para-ordenar-filas-por-una-columna">1) Uso de la cláusula ORDER BY de PostgreSQL para ordenar filas por una columna<a class="headerlink" href="#1-uso-de-la-clausula-order-by-de-postgresql-para-ordenar-filas-por-una-columna" title="Permanent link">¶</a></h2>
+<h2 id="uso-de-la-clausula-order-by-de-postgresql-para-ordenar-filas-por-una-columna">Uso de la cláusula ORDER BY de PostgreSQL para ordenar filas por una columna<a class="headerlink" href="#uso-de-la-clausula-order-by-de-postgresql-para-ordenar-filas-por-una-columna" title="Permanent link">¶</a></h2>
 <p>La siguiente consulta utiliza la cláusula <code>ORDER BY</code> para ordenar a los clientes por sus nombres en orden ascendente:</p>
 <pre><code class="language-postgresql">SELECT 
   first_name, 
@@ -570,7 +645,7 @@ FROM
 ORDER BY 
   first_name;
 </code></pre>
-<h2 id="2-uso-de-la-clausula-order-by-de-postgresql-para-ordenar-filas-por-una-columna-en-orden-descendente">2) Uso de la cláusula ORDER BY de PostgreSQL para ordenar filas por una columna en orden descendente<a class="headerlink" href="#2-uso-de-la-clausula-order-by-de-postgresql-para-ordenar-filas-por-una-columna-en-orden-descendente" title="Permanent link">¶</a></h2>
+<h2 id="uso-de-la-clausula-order-by-de-postgresql-para-ordenar-filas-por-una-columna-en-orden-descendente">Uso de la cláusula ORDER BY de PostgreSQL para ordenar filas por una columna en orden descendente<a class="headerlink" href="#uso-de-la-clausula-order-by-de-postgresql-para-ordenar-filas-por-una-columna-en-orden-descendente" title="Permanent link">¶</a></h2>
 <p>La siguiente declaración selecciona el nombre y el apellido de la tabla <code>customer</code> y ordena las filas por valores en la columna de apellido en orden descendente:</p>
 <pre><code class="language-postgresql">SELECT 
   first_name, 
@@ -581,7 +656,7 @@ ORDER BY
   last_name DESC;
 </code></pre>
 <p>​        <img alt="PostgreSQL ORDER BY ejemplo DESC de una columna" src="https://www.postgresqltutorial.com/wp-content/uploads/2019/12/PostgreSQL-ORDER-BY-one-column-desc-example.png"/> </p>
-<h2 id="3-uso-de-la-clausula-order-by-de-postgresql-para-ordenar-filas-por-varias-columnas">3) Uso de la cláusula ORDER BY de PostgreSQL para ordenar filas por varias columnas<a class="headerlink" href="#3-uso-de-la-clausula-order-by-de-postgresql-para-ordenar-filas-por-varias-columnas" title="Permanent link">¶</a></h2>
+<h2 id="uso-de-la-clausula-order-by-de-postgresql-para-ordenar-filas-por-varias-columnas">Uso de la cláusula ORDER BY de PostgreSQL para ordenar filas por varias columnas<a class="headerlink" href="#uso-de-la-clausula-order-by-de-postgresql-para-ordenar-filas-por-varias-columnas" title="Permanent link">¶</a></h2>
 <p>La siguiente declaración selecciona el nombre y el apellido de la tabla de clientes y ordena las filas por el nombre en  orden ascendente y el apellido en orden descendente:</p>
 <pre><code class="language-postgresql">SELECT 
   first_name, 
@@ -595,7 +670,7 @@ ORDER BY
 <p>​        <img alt="PostgreSQL ORDEN POR múltiples columnas" src="https://www.postgresqltutorial.com/wp-content/uploads/2019/12/PostgreSQL-ORDER-BY-multiple-columns.png"/> </p>
 <p>En este ejemplo, la cláusula ORDER BY ordena primero las filas por valores en la columna del nombre. Luego ordena las filas ordenadas por valores en la columna de apellido.</p>
 <p>Como se puede ver en la salida, dos clientes con el mismo nombre,  <code>Kelly</code>, tiene el apellido ordenado en orden descendente.</p>
-<h2 id="4-uso-de-la-clausula-order-by-para-ordenar-filas-por-expresiones">4) Uso de la cláusula ORDER BY para ordenar filas por expresiones<a class="headerlink" href="#4-uso-de-la-clausula-order-by-para-ordenar-filas-por-expresiones" title="Permanent link">¶</a></h2>
+<h2 id="uso-de-la-clausula-order-by-para-ordenar-filas-por-expresiones">Uso de la cláusula ORDER BY para ordenar filas por expresiones<a class="headerlink" href="#uso-de-la-clausula-order-by-para-ordenar-filas-por-expresiones" title="Permanent link">¶</a></h2>
 <p>La función <code>LENGTH()</code> acepta una cadena y devuelve su longitud.</p>
 <p>La siguiente sentencia selecciona los nombres y sus longitudes. Ordena las filas por la longitud de los nombres:</p>
 <pre><code class="language-postgresql">SELECT 
