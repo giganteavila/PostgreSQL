@@ -5,11 +5,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="../01.-SELECT/" rel="prev"/>
-<link href="../03.-ORDER%20BY/" rel="next"/>
+<link href="../03.-ORDER%20BY/" rel="prev"/>
+<link href="../../02.-Friltrado%20de%20datos/01.-Where/" rel="next"/>
 <link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.4.9" name="generator"/>
-<title>02.-Alias de columnas - ASGBD</title>
+<title>04.-SELECT DISTINCT - ASGBD</title>
 <link href="../../../assets/stylesheets/main.78cf6014.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,7 +23,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#ejemplos-de-alias-de-columna-de-postgresql">
+<a class="md-skip" href="#ejemplos-sql-select-distinct">
           Saltar a contenido
         </a>
 </div>
@@ -47,7 +47,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              02.-Alias de columnas
+              04.-SELECT DISTINCT
             
           </span>
 </div>
@@ -130,7 +130,7 @@
         </a>
 </li>
 <li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="../../01.-Base%20de%20datos%20PostgreSQL%20de%20ejemplo/">
+<a class="md-tabs__link" href="../../00.-Base%20de%20datos%20PostgreSQL%20de%20ejemplo/">
           
   
     
@@ -448,9 +448,9 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../01.-Base%20de%20datos%20PostgreSQL%20de%20ejemplo/">
+<a class="md-nav__link" href="../../00.-Base%20de%20datos%20PostgreSQL%20de%20ejemplo/">
 <span class="md-ellipsis">
-    01.-Base de datos PostgreSQL de ejemplo
+    00.-Base de datos PostgreSQL de ejemplo
   </span>
 </a>
 </li>
@@ -458,14 +458,14 @@
 <input checked="" class="md-nav__toggle md-toggle" id="__nav_4_2" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
 <span class="md-ellipsis">
-    02.-Consultas
+    01.-Consultas
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-expanded="true" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_2">
 <span class="md-nav__icon md-icon"></span>
-            02.-Consultas
+            01.-Consultas
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -475,17 +475,31 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../02.-Alias%20de%20columnas/">
+<span class="md-ellipsis">
+    02.-Alias de columnas
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../03.-ORDER%20BY/">
+<span class="md-ellipsis">
+    03.-ORDER BY
+  </span>
+</a>
+</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
 <span class="md-ellipsis">
-    02.-Alias de columnas
+    04.-SELECT DISTINCT
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
-    02.-Alias de columnas
+    04.-SELECT DISTINCT
   </span>
 </a>
 <nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
@@ -495,40 +509,57 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#asignar-un-alias-de-columna-a-un-ejemplo-de-columna">
+<a class="md-nav__link" href="#postgresql-distinct-ejemplo-de-una-columna">
 <span class="md-ellipsis">
-      Asignar un alias de columna a un ejemplo de columna
+      PostgreSQL DISTINCT ejemplo de una columna
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#asignar-un-alias-de-columna-a-un-ejemplo-de-expresion">
+<a class="md-nav__link" href="#distinct-columnas-multiples">
 <span class="md-ellipsis">
-      Asignar un alias de columna a un ejemplo de expresión
+      DISTINCT columnas múltiples
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#alias-de-columnas-que-contienen-espacios">
+<a class="md-nav__link" href="#resumen">
 <span class="md-ellipsis">
-      Alias de columnas que contienen espacios
+      Resumen
     </span>
 </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../03.-ORDER%20BY/">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
 <span class="md-ellipsis">
-    03.-ORDER BY
+    02.-Friltrado de datos
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+            02.-Friltrado de datos
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-Friltrado%20de%20datos/01.-Where/">
+<span class="md-ellipsis">
+    01.-Where
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../04.-SELECT%20DISTINCT/">
+<a class="md-nav__link" href="../../02.-Friltrado%20de%20datos/02.-Operador%20AND/">
 <span class="md-ellipsis">
-    04.-SELECT DISTINCT
+    02.-Operador AND
   </span>
 </a>
 </li>
@@ -560,23 +591,23 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#asignar-un-alias-de-columna-a-un-ejemplo-de-columna">
+<a class="md-nav__link" href="#postgresql-distinct-ejemplo-de-una-columna">
 <span class="md-ellipsis">
-      Asignar un alias de columna a un ejemplo de columna
+      PostgreSQL DISTINCT ejemplo de una columna
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#asignar-un-alias-de-columna-a-un-ejemplo-de-expresion">
+<a class="md-nav__link" href="#distinct-columnas-multiples">
 <span class="md-ellipsis">
-      Asignar un alias de columna a un ejemplo de expresión
+      DISTINCT columnas múltiples
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#alias-de-columnas-que-contienen-espacios">
+<a class="md-nav__link" href="#resumen">
 <span class="md-ellipsis">
-      Alias de columnas que contienen espacios
+      Resumen
     </span>
 </a>
 </li>
@@ -587,77 +618,86 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<p>Un alias de columna te permite asignar a una columna o expresión en la lista de selección de una declaración <code>SELECT</code> un nombre temporal. El alias de columna existe temporalmente durante la ejecución de la consulta.</p>
-<p>A continuación se ilustra la sintaxis del uso de un alias de columna:</p>
-<pre><code class="language-postgresql">SELECT column_name AS alias_name
-FROM table_name;
-</code></pre>
-<p>En esta sintaxis, a <code>column_name</code> se le asigna un alias <code>alias_name</code>. La palabra clave <code>AS</code> es opcional por lo que puedes omitirla así:</p>
-<pre><code class="language-postgresql">SELECT column_name alias_name
-FROM table_name;
-</code></pre>
-<p>La siguiente sintaxis ilustra cómo establecer un alias para una expresión en la <code>SELECT</code>cláusula:</p>
-<pre><code class="language-postgresql">SELECT expression AS alias_name
-FROM table_name;
-</code></pre>
-<p>El objetivo principal de los alias de columna es hacer que los encabezados del resultado de una consulta sean más significativos.</p>
-<h1 id="ejemplos-de-alias-de-columna-de-postgresql">Ejemplos de alias de columna de PostgreSQL<a class="headerlink" href="#ejemplos-de-alias-de-columna-de-postgresql" title="Permanent link">¶</a></h1>
-<p>Usaremos la tabla <code>customer</code> de la base de datos de muestra para mostrar cómo trabajar con alias de columnas.</p>
-<p>​        <img alt="mesa de clientes" src="https://www.postgresqltutorial.com/wp-content/uploads/2013/05/customer-table.png"/> </p>
-<h2 id="asignar-un-alias-de-columna-a-un-ejemplo-de-columna">Asignar un alias de columna a un ejemplo de columna<a class="headerlink" href="#asignar-un-alias-de-columna-a-un-ejemplo-de-columna" title="Permanent link">¶</a></h2>
-<p>La siguiente consulta devuelve los nombres y apellidos de todos los clientes de la tabla <code>customer</code>:</p>
+<p>La cláusula <code>SELECT DISTINCT</code> elimina filas duplicadas de un conjunto de resultados. La cláusula <code>SELECT DISTINCT</code> retiene una fila por cada grupo de duplicados.</p>
+<p>La cláusula <code>SELECT DISTINCT</code> puede aplicarse a una o varias columnas de la lista de selección de la sentencia <code>SELECT</code>.</p>
+<p>A continuación se ilustra la sintaxis de la cláusula <code>DISTINCT</code>:</p>
 <pre><code class="language-postgresql">SELECT 
-   first_name, 
-   last_name
-FROM customer;
-</code></pre>
-<p>​        <img alt="Alias de columna de PostgreSQL" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Column-Alias-example-1.png"/> </p>
-<p>Si deseas cambiar el nombre del encabezado <code>last_name</code>, puedes asignarle un nuevo nombre usando un alias de columna como este:</p>
-<pre><code class="language-postgresql">SELECT
-   first_name, 
-   last_name AS surname
-FROM customer;
-</code></pre>
-<p>Esta consulta asignó <code>surname</code> como alias de la columna <code>last_name</code>:</p>
-<p>​        <img alt="Ejemplo de alias de columna de PostgreSQL" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Column-Alias-Surname-example-1.png"/> </p>
-<p>O puede acortarlo eliminando la palabra clave <code>AS</code> de la siguiente manera:</p>
-<pre><code class="language-postgresql">SELECT 
-   first_name, 
-   last_name surname
-FROM customer;
-</code></pre>
-<h2 id="asignar-un-alias-de-columna-a-un-ejemplo-de-expresion">Asignar un alias de columna a un ejemplo de expresión<a class="headerlink" href="#asignar-un-alias-de-columna-a-un-ejemplo-de-expresion" title="Permanent link">¶</a></h2>
-<p>La siguiente consulta devuelve los nombres completos de todos los clientes. Construye el nombre completo concatenando el nombre, el espacio y el apellido:</p>
-<pre><code class="language-postgresql">SELECT 
-   first_name || ' ' || last_name 
+  DISTINCT columna1 
 FROM 
-   customer;
+  nombre_tabla;Lenguaje de código
 </code></pre>
-<p>Tenga en cuenta que en PostgreSQL se utiliza <code>||</code>como operador de concatenación que concatena una o más cadenas en una sola cadena.</p>
-<p>​        <img alt="Ejemplo de alias de PostgreSQL" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Alias-Example.png"/> </p>
-<p>Como puede ver claramente en el resultado, el encabezado de la columna no tiene significado <code>?column?</code>.</p>
-<p>Para solucionar este problema, puede asignar a la expresión <code>first_name || ' ' || last_name</code>un alias de columna, por ejemplo <code>full_name</code>:</p>
+<p>En esta sintaxis, <code>SELECT DISTINCT</code> utiliza los valores de la columna <code>columna1</code> para evaluar el duplicado.</p>
+<p>Si especifica varias columnas, la cláusula <code>SELECT DISTINCT</code> evaluará el duplicado basándose en la combinación de valores de dichas columnas. Por ejemplo</p>
 <pre><code class="language-postgresql">SELECT
-    first_name || ' ' || last_name AS full_name
+   DISTINCT columna1, columna2
 FROM
-    customer;
+   nombre_tabla;Lenguaje del código
 </code></pre>
-<p>​        <img alt="Ejemplo de alias de columna de PostgreSQL" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Alias-column-alias-example.png"/> </p>
-<h2 id="alias-de-columnas-que-contienen-espacios">Alias de columnas que contienen espacios<a class="headerlink" href="#alias-de-columnas-que-contienen-espacios" title="Permanent link">¶</a></h2>
-<p>Si un alias de columna contiene uno o más espacios, debe encerrarlo entre comillas dobles como esta:</p>
-<pre><code class="language-postgresql">column_name AS "column alias"
+<p>En esta sintaxis, el <code>SELECT DISTINCT</code> utiliza la combinación de valores de las columnas <code>columna1</code> y <code>columna2</code> para evaluar el duplicado.</p>
+<p>Tenga en cuenta que PostgreSQL también ofrece la cláusula DISTINCT ON que conserva la primera entrada única de una columna o combinación de columnas en el conjunto de resultados. </p>
+<h1 id="ejemplos-sql-select-distinct">Ejemplos.- SQL SELECT DISTINCT<a class="headerlink" href="#ejemplos-sql-select-distinct" title="Permanent link">¶</a></h1>
+<p>Vamos a crear una nueva tabla llamada <code>distinct_demo</code> e insertar datos en ella para practicar la cláusula <code>DISTINCT</code>.</p>
+<p>Ten en cuenta que aprenderás a crear una tabla y a insertar datos en una tabla en el tutorial siguiente. En este tutorial, solo ejecute la sentencia en psql o pgAdmin para ejecutar las sentencias.</p>
+<p>Primero, crea la tabla <code>distinct_demo</code> que tiene tres columnas: <code>id</code>, <code>bcolor</code> y <code>fcolor</code> usando la siguiente sentencia <code>CREATE TABLE</code>:</p>
+<pre><code class="language-postgresql">CREAR TABLA distinct_demo (
+  id SERIAL NOT NULL PRIMARY KEY, 
+  bcolor VARCHAR, 
+  fcolor VARCHAR
+)
 </code></pre>
-<p>Por ejemplo:</p>
-<pre><code class="language-postgresql">SELECT
-    first_name || ' ' || last_name "full name"
-FROM
-    customer;
+<p>En segundo lugar, inserta algunas filas en la tabla <code>distinct_demo</code> utilizando la sentencia INSERT:</p>
+<pre><code class="language-postgresql">INSERT INTO distinct_demo (bcolor, fcolor) 
+VALUES 
+  ('rojo', 'rojo'), 
+  ('rojo', 'rojo'), 
+  ('rojo', NULL), 
+  (NULL, 'rojo'), 
+  ('rojo', 'verde'), 
+  ('rojo', 'azul'), 
+  ('verde', 'rojo'), 
+  ('verde', 'azul'), 
+  ('verde', 'verde'), 
+  ('azul', 'rojo'), 
+  ('azul', 'verde'), 
+  ('azul', 'azul');
 </code></pre>
-<p>​        <img alt="img" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Column-Alias-with-space.png"/> </p>
-<h1 id="resumen">Resumen<a class="headerlink" href="#resumen" title="Permanent link">¶</a></h1>
+<p>En tercer lugar, recupera los datos de la tabla <code>distinct_demo</code> utilizando la sentencia <code>SELECT</code>:</p>
+<pre><code class="language-postgresql">SELECT 
+  id, 
+  bcolor, 
+  fcolor 
+FROM 
+  distinct_demo;
+</code></pre>
+<p><img alt="PostgreSQL Distinct - Sample Table" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Distinct-Sample-Table.png"/></p>
+<h3 id="postgresql-distinct-ejemplo-de-una-columna">PostgreSQL DISTINCT ejemplo de una columna<a class="headerlink" href="#postgresql-distinct-ejemplo-de-una-columna" title="Permanent link">¶</a></h3>
+<p>La siguiente sentencia selecciona valores únicos en la columna <code>bcolor</code> de la tabla <code>t1</code> y ordena el conjunto de resultados por orden alfabético utilizando el ORDER BY.</p>
+<pre><code class="language-postgresql">SELECT 
+  DISTINCT bcolor 
+FROM 
+  distinct_demo 
+ORDER BY 
+  bcolor;
+</code></pre>
+<p><img alt="PostgreSQL Distinct - select distinct one column" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Distinct-select-distinct-one-column.png"/></p>
+<h3 id="distinct-columnas-multiples">DISTINCT columnas múltiples<a class="headerlink" href="#distinct-columnas-multiples" title="Permanent link">¶</a></h3>
+<p>La siguiente sentencia demuestra cómo utilizar la cláusula <code>DISTINCT</code> en múltiples columnas:</p>
+<pre><code class="language-postgresql">SELECT 
+  DISTINCT bcolor, 
+  fcolor 
+FROM 
+  distinct_demo 
+ORDER BY 
+  bcolor, 
+  fcolor;
+</code></pre>
+<p><img alt="PostgreSQL Distinct - select distinct two columns" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Distinct-select-distinct-two-columns.png"/></p>
+<p>Como hemos especificado las columnas <code>bcolor</code> y <code>fcolor</code> en la cláusula <code>SELECT DISTINCT</code>, la sentencia combina los valores de las columnas <code>bcolor</code> y <code>fcolor</code> para evaluar la unicidad de las filas.</p>
+<p>La consulta devuelve la combinación única de <code>bcolor</code> y <code>fcolor</code> de la tabla <code>distinct_demo</code>.</p>
+<p>Observe que la tabla <code>distinct_demo</code> tiene dos filas con el valor <code>red</code> en las columnas <code>bcolor</code> y <code>fcolor</code>. Cuando aplicamos <code>DISTINCT</code> a ambas columnas, se elimina una fila duplicada del conjunto de resultados.</p>
+<h2 id="resumen">Resumen<a class="headerlink" href="#resumen" title="Permanent link">¶</a></h2>
 <ul>
-<li>Asigne a una columna o expresión un alias de columna usando la sintaxis <code>column_name AS alias_name</code> o  <code>expression AS alias_name</code>. La palabra clave <code>AS</code> es opcional.</li>
-<li>Utilice comillas dobles (“) para rodear los alias de columnas que contengan espacios.</li>
+<li>Utilice <code>SELECT DISTINCT</code> para eliminar filas duplicadas de un conjunto de resultados de una consulta.</li>
 </ul>
 </article>
 </div>
