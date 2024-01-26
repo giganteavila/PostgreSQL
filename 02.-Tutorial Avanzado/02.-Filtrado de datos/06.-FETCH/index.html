@@ -5,11 +5,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="../03.-Creando%20una%20Base%20de%20Datos/" rel="prev"/>
-<link href="../../02.-El%20lenguaje%20SQL/01.-Introducci%C3%B3n/" rel="next"/>
+<link href="../05.-.Operador%20IN/" rel="prev"/>
+<link href="../07.-IN/" rel="next"/>
 <link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.4.9" name="generator"/>
-<title>04.-Accediendo a una base de datos - ASGBD</title>
+<title>06.-FETCH - ASGBD</title>
 <link href="../../../assets/stylesheets/main.78cf6014.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,6 +23,9 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
+<a class="md-skip" href="#fetch-vs-limit">
+          Saltar a contenido
+        </a>
 </div>
 <div data-md-component="announce">
 </div>
@@ -44,7 +47,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              04.-Accediendo a una base de datos
+              06.-FETCH
             
           </span>
 </div>
@@ -116,8 +119,8 @@
 
         </a>
 </li>
-<li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="../../">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../01.-Tutorial/">
           
   
     
@@ -126,8 +129,8 @@
 
         </a>
 </li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../02.-Tutorial%20Avanzado/00.-Base%20de%20datos%20PostgreSQL%20de%20ejemplo/">
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../../00.-Base%20de%20datos%20PostgreSQL%20de%20ejemplo/">
           
   
     
@@ -218,10 +221,10 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../">
+<a class="md-nav__link" href="../../../01.-Tutorial/">
 <span class="md-ellipsis">
     01.-Tutorial
   </span>
@@ -230,50 +233,49 @@
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_3">
 <span class="md-nav__icon md-icon"></span>
             01.-Tutorial
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_3_2" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2" type="checkbox"/>
 <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
 <span class="md-ellipsis">
     01.-Cómo empezar
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="true" aria-labelledby="__nav_3_2_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_3_2">
 <span class="md-nav__icon md-icon"></span>
             01.-Cómo empezar
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../01.-Instalaci%C3%B3n/">
+<a class="md-nav__link" href="../../../01.-Tutorial/01.-C%C3%B3mo%20empezar/01.-Instalaci%C3%B3n/">
 <span class="md-ellipsis">
     01.-Instalación
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../02.-Fundamentos%20arquitect%C3%B3nicos/">
+<a class="md-nav__link" href="../../../01.-Tutorial/01.-C%C3%B3mo%20empezar/02.-Fundamentos%20arquitect%C3%B3nicos/">
 <span class="md-ellipsis">
     02.-Fundamentos arquitectónicos
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../03.-Creando%20una%20Base%20de%20Datos/">
+<a class="md-nav__link" href="../../../01.-Tutorial/01.-C%C3%B3mo%20empezar/03.-Creando%20una%20Base%20de%20Datos/">
 <span class="md-ellipsis">
     03.-Creando una Base de Datos
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/01.-C%C3%B3mo%20empezar/04.-Accediendo%20a%20una%20base%20de%20datos/">
 <span class="md-ellipsis">
     04.-Accediendo a una base de datos
   </span>
@@ -297,63 +299,63 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../02.-El%20lenguaje%20SQL/01.-Introducci%C3%B3n/">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/01.-Introducci%C3%B3n/">
 <span class="md-ellipsis">
     01.-Introducción
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../02.-El%20lenguaje%20SQL/02.-Conceptos/">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/02.-Conceptos/">
 <span class="md-ellipsis">
     02.-Conceptos
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../02.-El%20lenguaje%20SQL/03.-Creando%20una%20nueva%20tabla/">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/03.-Creando%20una%20nueva%20tabla/">
 <span class="md-ellipsis">
     03.-Creando una nueva tabla
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../02.-El%20lenguaje%20SQL/04.-Cargando%20una%20tabla%20con%20filas/">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/04.-Cargando%20una%20tabla%20con%20filas/">
 <span class="md-ellipsis">
     04.-Cargando una tabla con filas
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../02.-El%20lenguaje%20SQL/05.-Consulta%20de%20tablas/">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/05.-Consulta%20de%20tablas/">
 <span class="md-ellipsis">
     05.-Consulta de tablas
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../02.-El%20lenguaje%20SQL/06.-Uniones%20de%20tablas/">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/06.-Uniones%20de%20tablas/">
 <span class="md-ellipsis">
     06.-Uniones de tablas
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../02.-El%20lenguaje%20SQL/07.-Funciones%20agregadas/">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/07.-Funciones%20agregadas/">
 <span class="md-ellipsis">
     07.-Funciones agregadas
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../02.-El%20lenguaje%20SQL/08.-Actualizaciones/">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/08.-Actualizaciones/">
 <span class="md-ellipsis">
     08.-Actualizaciones
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../02.-El%20lenguaje%20SQL/09.-Borrados/">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/09.-Borrados/">
 <span class="md-ellipsis">
     09.-Borrados
   </span>
@@ -377,49 +379,49 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../03.-Caracter%C3%ADsticas%20avanzadas/01.-Introducci%C3%B3n/">
+<a class="md-nav__link" href="../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/01.-Introducci%C3%B3n/">
 <span class="md-ellipsis">
     01.-Introducción
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../03.-Caracter%C3%ADsticas%20avanzadas/02.-Vistas/">
+<a class="md-nav__link" href="../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/02.-Vistas/">
 <span class="md-ellipsis">
     02.-Vistas
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../03.-Caracter%C3%ADsticas%20avanzadas/03.-Claves%20for%C3%A1neas/">
+<a class="md-nav__link" href="../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/03.-Claves%20for%C3%A1neas/">
 <span class="md-ellipsis">
     03.-Claves foráneas
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../03.-Caracter%C3%ADsticas%20avanzadas/04.-Transacciones/">
+<a class="md-nav__link" href="../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/04.-Transacciones/">
 <span class="md-ellipsis">
     04.-Transacciones
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../03.-Caracter%C3%ADsticas%20avanzadas/05.-Funciones%20de%20ventanas/">
+<a class="md-nav__link" href="../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/05.-Funciones%20de%20ventanas/">
 <span class="md-ellipsis">
     05.-Funciones de ventanas
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../03.-Caracter%C3%ADsticas%20avanzadas/06.-Herencia/">
+<a class="md-nav__link" href="../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/06.-Herencia/">
 <span class="md-ellipsis">
     06.-Herencia
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../03.-Caracter%C3%ADsticas%20avanzadas/07.-Conclusi%C3%B3n/">
+<a class="md-nav__link" href="../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/07.-Conclusi%C3%B3n/">
 <span class="md-ellipsis">
     07.-Conclusión
   </span>
@@ -431,22 +433,22 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
 <span class="md-ellipsis">
     02.-Tutorial Avanzado
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
             02.-Tutorial Avanzado
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../02.-Tutorial%20Avanzado/00.-Base%20de%20datos%20PostgreSQL%20de%20ejemplo/">
+<a class="md-nav__link" href="../../00.-Base%20de%20datos%20PostgreSQL%20de%20ejemplo/">
 <span class="md-ellipsis">
     00.-Base de datos PostgreSQL de ejemplo
   </span>
@@ -467,28 +469,28 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../02.-Tutorial%20Avanzado/01.-Consultas/01.-SELECT/">
+<a class="md-nav__link" href="../../01.-Consultas/01.-SELECT/">
 <span class="md-ellipsis">
     01.-SELECT
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../02.-Tutorial%20Avanzado/01.-Consultas/02.-Alias%20de%20columnas/">
+<a class="md-nav__link" href="../../01.-Consultas/02.-Alias%20de%20columnas/">
 <span class="md-ellipsis">
     02.-Alias de columnas
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../02.-Tutorial%20Avanzado/01.-Consultas/03.-ORDER%20BY/">
+<a class="md-nav__link" href="../../01.-Consultas/03.-ORDER%20BY/">
 <span class="md-ellipsis">
     03.-ORDER BY
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../02.-Tutorial%20Avanzado/01.-Consultas/04.-SELECT%20DISTINCT/">
+<a class="md-nav__link" href="../../01.-Consultas/04.-SELECT%20DISTINCT/">
 <span class="md-ellipsis">
     04.-SELECT DISTINCT
   </span>
@@ -497,85 +499,86 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4_3" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4_3" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
 <span class="md-ellipsis">
     02.-Filtrado de datos
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="true" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_3">
 <span class="md-nav__icon md-icon"></span>
             02.-Filtrado de datos
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../02.-Tutorial%20Avanzado/02.-Filtrado%20de%20datos/01.-WHERE/">
+<a class="md-nav__link" href="../01.-WHERE/">
 <span class="md-ellipsis">
     01.-WHERE
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../02.-Tutorial%20Avanzado/02.-Filtrado%20de%20datos/02.-Operador%20AND/">
+<a class="md-nav__link" href="../02.-Operador%20AND/">
 <span class="md-ellipsis">
     02.-Operador AND
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../02.-Tutorial%20Avanzado/02.-Filtrado%20de%20datos/03.-Operador%20OR/">
+<a class="md-nav__link" href="../03.-Operador%20OR/">
 <span class="md-ellipsis">
     03.-Operador OR
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../02.-Tutorial%20Avanzado/02.-Filtrado%20de%20datos/04.-LIMIT/">
+<a class="md-nav__link" href="../04.-LIMIT/">
 <span class="md-ellipsis">
     04.-LIMIT
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../02.-Tutorial%20Avanzado/02.-Filtrado%20de%20datos/05.-.Operador%20IN/">
+<a class="md-nav__link" href="../05.-.Operador%20IN/">
 <span class="md-ellipsis">
     05.-.Operador IN
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../02.-Tutorial%20Avanzado/02.-Filtrado%20de%20datos/06.-FETCH/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     06.-FETCH
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../02.-Tutorial%20Avanzado/02.-Filtrado%20de%20datos/07.-IN/">
+<a class="md-nav__link" href="../07.-IN/">
 <span class="md-ellipsis">
     07.-IN
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../02.-Tutorial%20Avanzado/02.-Filtrado%20de%20datos/08.-BETWEEN/">
+<a class="md-nav__link" href="../08.-BETWEEN/">
 <span class="md-ellipsis">
     08.-BETWEEN
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../02.-Tutorial%20Avanzado/02.-Filtrado%20de%20datos/09.-LIKE/">
+<a class="md-nav__link" href="../09.-LIKE/">
 <span class="md-ellipsis">
     09.-LIKE
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../02.-Tutorial%20Avanzado/02.-Filtrado%20de%20datos/10.-IS%20NULL/">
+<a class="md-nav__link" href="../10.-IS%20NULL/">
 <span class="md-ellipsis">
     10.-IS NULL
   </span>
@@ -585,7 +588,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../02.-Tutorial%20Avanzado/dvdrental.tar">
+<a class="md-nav__link" href="../../dvdrental.tar">
 <span class="md-ellipsis">
     dvdrental
   </span>
@@ -609,61 +612,97 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1>04.-Accediendo a una base de datos</h1>
-<p>Una vez que se haya creado una base de datos, podemos acceder a ella...:</p>
+<p>Para omitir un cierto número de filas y recuperar un número específico de filas, a menudo se utiliza la cláusula <code>LIMIT</code> en la sentencia <code>SELECT</code>.</p>
+<p>La cláusula <code>LIMIT</code> es ampliamente utilizada por muchos Sistemas de Gestión de Bases de Datos Relacionales como MySQL, H2 y HSQLDB. Sin embargo, la cláusula <code>LIMIT</code> no es un estándar SQL.</p>
+<p>Para cumplir con el estándar SQL, PostgreSQL soporta la cláusula <code>FETCH</code> para omitir un cierto número de filas y luego obtener un número específico de filas.</p>
+<p>Tenga en cuenta que la cláusula <code>FETCH</code> se introdujo como parte del estándar SQL en SQL:2008.</p>
+<p>A continuación se ilustra la sintaxis de la cláusula <code>FETCH</code> de PostgreSQL:</p>
+<pre><code class="language-postgresql">OFFSET row_to_skip { ROW | ROWS }
+FETCH { FIRST | NEXT } [ row_count ] { ROW | ROWS } ONLY
+</code></pre>
+<p>En esta sintaxis:</p>
+<p>En primer lugar, especifique el número de filas que desea omitir (<code>row_to_skip</code>) después de la palabra clave <code>OFFSET</code>. El inicio es un número entero cero o positivo. Por defecto es 0, lo que significa que la consulta no se saltará ninguna fila.</p>
+<p>Si <code>row_to_skip</code> es mayor que el número de filas de la tabla, la consulta no devolverá ninguna fila.</p>
+<p>En segundo lugar, indique el número de filas a recuperar (<code>row_count</code>) en la cláusula <code>FETCH</code>. El <code>row_count</code> debe ser un entero 1 o mayor. El valor por defecto es 1.</p>
+<p>El <code>ROW</code> es el sinónimo de <code>ROWS</code>, <code>FIRST</code> es el sinónimo de <code>NEXT</code> así que puedes usarlos indistintamente.</p>
+<p>Debido a que la tabla almacena las filas en un orden no especificado, siempre debe utilizar la cláusula <code>FETCH</code> con la cláusula <code>ORDER BY</code> para que el orden de las filas sea consistente.</p>
+<p>Note que la clausula <code>OFFSET</code> debe venir antes de la clausula <code>FETCH</code> en SQL:2008. Sin embargo, las cláusulas <code>OFFSET</code> y <code>FETCH</code> pueden aparecer en cualquier orden en PostgreSQL.</p>
+<h1 id="fetch-vs-limit">FETCH vs. LIMIT<a class="headerlink" href="#fetch-vs-limit" title="Permanent link">¶</a></h1>
+<p>La cláusula <code>FETCH</code> es funcionalmente equivalente a la cláusula <code>LIMIT</code>. Si planea hacer su aplicación compatible con otros sistemas de bases de datos, debería usar la cláusula <code>FETCH</code> porque sigue el estándar SQL.</p>
+<h1 id="ejemplos-de-fetch-en-postgresql">Ejemplos de FETCH en PostgreSQL<a class="headerlink" href="#ejemplos-de-fetch-en-postgresql" title="Permanent link">¶</a></h1>
+<p>Usemos la tabla <code>film</code> en la <a href="https://www.postgresqltutorial.com/postgresql-getting-started/postgresql-sample-database/">base de datos de ejemplo</a> para la demostración.</p>
+<p><img alt="Film Table" src="https://www.postgresqltutorial.com/wp-content/uploads/2018/03/film_table.png"/></p>
+<p>The following query uses the <code>FETCH</code> clause to select the first film sorted by titles in ascending order:</p>
+<pre><code class="language-postgresql">SELECT
+    film_id,
+    title
+FROM
+    film
+ORDER BY
+    title 
+FETCH FIRST ROW ONLY;
+</code></pre>
+<p>Salida:</p>
+<pre><code> film_id |      title
+---------+------------------
+       1 | Academy Dinosaur
+(1 row)
+</code></pre>
+<p>Equivale a la siguiente consulta:</p>
+<pre><code class="language-postgresql">SELECT
+    film_id,
+    title
+FROM
+    film
+ORDER BY
+    title 
+FETCH FIRST 1 ROW ONLY;
+</code></pre>
+<p>La siguiente consulta utiliza la cláusula <code>FETCH</code> para seleccionar las cinco primeras películas ordenadas por títulos:</p>
+<pre><code class="language-postgresql">SELECT
+    film_id,
+    title
+FROM
+    film
+ORDER BY
+    title 
+FETCH FIRST 5 ROW ONLY;
+</code></pre>
+<p>Salida:</p>
+<pre><code> film_id |      title
+---------+------------------
+       1 | Academy Dinosaur
+       2 | Ace Goldfinger
+       3 | Adaptation Holes
+       4 | Affair Prejudice
+       5 | African Egg
+(5 rows)
+</code></pre>
+<p>La siguiente sentencia devuelve las cinco películas siguientes a las cinco primeras ordenadas por títulos:</p>
+<pre><code class="language-postgresql">SELECT
+    film_id,
+    title
+FROM
+    film
+ORDER BY
+    title 
+OFFSET 5 ROWS 
+FETCH FIRST 5 ROW ONLY; 
+</code></pre>
+<p>Salida:</p>
+<pre><code> film_id |      title
+---------+------------------
+       6 | Agent Truman
+       7 | Airplane Sierra
+       8 | Airport Pollock
+       9 | Alabama Devil
+      10 | Aladdin Calendar
+(5 rows)
+</code></pre>
+<h1 id="resumen">Resumen<a class="headerlink" href="#resumen" title="Permanent link">¶</a></h1>
 <ul>
-<li>
-<p>Ejecutando el programa de terminal interactivo PostgreSQL, llamado <code>psql</code>, que nos permite entrar, editar y ejecutar interactivamente comandos SQL.</p>
-</li>
-<li>
-<p>Usando una herramienta web existente como <code>pgAdmin</code> o una suite de oficina con soporte para <code>ODBC</code> o <code>JDBC</code>  para crear y manipular una base de datos. Estas posibilidades no las cubriremos por ahora.</p>
-</li>
-<li>
-<p>Escribiendo una aplicación personalizada, utilizando una de las varias conexiones con diferentes lenguajes disponibles como pgSQL, Python, Tcl y Perl. Estas posibilidades se examinarán más adelante.</p>
-</li>
+<li>Utilice la cláusula <code>FETCH</code> de PostgreSQL para omitir un cierto número de filas y recuperar un número específico de filas de una consulta.</li>
 </ul>
-<p>Vamos a empezar con <code>psql</code> para probar los ejemplos. Se puede activar para la base de datos <code>mydb</code> escribiendo el comando:</p>
-<pre><code class="language-bash">$ psql mydb
-</code></pre>
-<p>Si no suministramos el nombre de la base de datos, se presupone el nombre de la cuenta de usuario. Ya descubrimos este esquema en la sección anterior usando <code>createdb</code>.</p>
-<p>En <code>psql</code>, nos recibirá el siguiente mensaje:</p>
-<pre><code class="language-postgresql">psql (16.0)
-Escriba "ayuda" para ayuda.
-
-mydb=&gt;
-</code></pre>
-<p>La última línea también podría ser:</p>
-<pre><code class="language-postgresql">mydb=#
-</code></pre>
-<p>Eso significaría que somos un superusuario de la base de datos, que será el caso más probable ya que nosotros fuimos los instaladores de la instancia PostgreSQL. Ser superusuario significa no estar sujeto a controles de acceso. Por ahora no es un hecho importante.</p>
-<p>Si hay problemas de inicio con <code>psql</code> volveremos a la sección anterior. El diagnóstico de <code>createdb</code>y <code>psql</code>son similares, y si el primero funcionaba, el segundo debería funcionar también.</p>
-<p>La última línea impresa por <code>psql</code>es el prompt, e indica que <code>psql</code> nos está escuchando y que podemos empezar a escribir consultas SQL en un espacio de trabajo mantenido por <code>psql</code>. Prueba estos comandos:</p>
-<pre><code class="language-postgresql">mydb=&gt; SELECT version();
-                                         versión
--------------------------------------------------------------------------------
- PostgreSQL 16.0 on x86o64-pc-linux-gnu, compiled by gcc (Debian 4.9.2-10) 4.9.2, 64-bit
-(1 fila) 
-
-mydb=&gt; SELECT current_date;
- current_date
---------------
- 2023-10-19
-(1 row)
-
-
-mydb=&gt; SELECT 2 + 2;
- ?column?
-----------
-        4
-(1 row)
-</code></pre>
-<p>El programa  <code>psql</code> tiene una serie de comandos internos que no son comandos SQL. Comienzan con el carácter, <code>\</code>. Por ejemplo, podemos obtener ayuda en la sintaxis de varios comandos PostgreSQL SQL escribiendo:</p>
-<pre><code class="language-postgresql">mydb=&gt; \h
-</code></pre>
-<p>Para salir de <code>psql</code>, escribiremos:</p>
-<pre><code class="language-postgresql">mydb=&gt; \q
-</code></pre>
-<p>y <code>psql</code> nos devolverá a nuestra línea de comandos habitual. (Para más comandos internos, escribir <code>\?</code>en el prompt <code>psql</code>). Todas la capacidades de <code>psql</code>están <a href="https://www.postgresql.org/docs/current/app-psql.html" title="psql">documentadas</a> . No usaremos estas características explícitamente, pero podemos usarlas cuando sea preciso.</p>
 </article>
 </div>
 </div>

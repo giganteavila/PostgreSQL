@@ -5,11 +5,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="../../01.-Consultas/04.-SELECT%20DISTINCT/" rel="prev"/>
-<link href="../02.-Operador%20AND/" rel="next"/>
+<link href="../04.-LIMIT/" rel="prev"/>
+<link href="../06.-FETCH/" rel="next"/>
 <link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.4.9" name="generator"/>
-<title>01.-Where - ASGBD</title>
+<title>05.-.Operador IN - ASGBD</title>
 <link href="../../../assets/stylesheets/main.78cf6014.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,7 +23,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#ejemplos-de-la-clausula-where">
+<a class="md-skip" href="#ejemplos-del-operador-in-de-postgresql">
           Saltar a contenido
         </a>
 </div>
@@ -47,7 +47,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              01.-Where
+              05.-.Operador IN
             
           </span>
 </div>
@@ -503,27 +503,55 @@
 <input checked="" class="md-nav__toggle md-toggle" id="__nav_4_3" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
 <span class="md-ellipsis">
-    02.-Friltrado de datos
+    02.-Filtrado de datos
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-expanded="true" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_3">
 <span class="md-nav__icon md-icon"></span>
-            02.-Friltrado de datos
+            02.-Filtrado de datos
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../01.-WHERE/">
+<span class="md-ellipsis">
+    01.-WHERE
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../02.-Operador%20AND/">
+<span class="md-ellipsis">
+    02.-Operador AND
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../03.-Operador%20OR/">
+<span class="md-ellipsis">
+    03.-Operador OR
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../04.-LIMIT/">
+<span class="md-ellipsis">
+    04.-LIMIT
+  </span>
+</a>
+</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
 <span class="md-ellipsis">
-    01.-Where
+    05.-.Operador IN
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
-    01.-Where
+    05.-.Operador IN
   </span>
 </a>
 <nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
@@ -533,59 +561,16 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ejemplos-de-la-clausula-where">
+<a class="md-nav__link" href="#uso-del-operador-in-de-postgresql-con-una-lista-de-numeros">
 <span class="md-ellipsis">
-      Ejemplos de la cláusula WHERE
-    </span>
-</a>
-<nav aria-label="Ejemplos de la cláusula WHERE" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#1-ejemplo-de-uso-de-la-clausula-where-con-el-operador-igual">
-<span class="md-ellipsis">
-      1) Ejemplo de uso de la cláusula WHERE con el operador igual (=)
+      Uso del operador IN de PostgreSQL con una lista de números
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ejemplo-de-uso-de-la-clausula-where-con-el-operador-and">
+<a class="md-nav__link" href="#uso-del-operador-in-con-una-lista-de-fechas">
 <span class="md-ellipsis">
-      Ejemplo de uso de la cláusula WHERE con el operador AND
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#utilizacion-de-la-clausula-where-con-el-operador-or-ejemplo">
-<span class="md-ellipsis">
-      Utilización de la cláusula WHERE con el operador OR ejemplo
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ejemplo-de-utilizacion-de-la-clausula-where-con-el-operador-in">
-<span class="md-ellipsis">
-      Ejemplo de utilización de la cláusula WHERE con el operador IN
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ejemplo-de-uso-de-la-clausula-where-con-el-operador-like">
-<span class="md-ellipsis">
-      Ejemplo de uso de la cláusula WHERE con el operador LIKE
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ejemplo-de-uso-de-la-clausula-where-con-el-operador-between">
-<span class="md-ellipsis">
-      Ejemplo de uso de la cláusula WHERE con el operador BETWEEN
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#7-ejemplo-de-uso-de-la-clausula-where-con-el-operador-distinto">
-<span class="md-ellipsis">
-      7) Ejemplo de uso de la cláusula WHERE con el operador distinto (&lt;&gt;)
+      Uso del operador IN con una lista de fechas
     </span>
 </a>
 </li>
@@ -593,19 +578,37 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#resumen">
+<a class="md-nav__link" href="../06.-FETCH/">
 <span class="md-ellipsis">
-      Resumen
-    </span>
+    06.-FETCH
+  </span>
 </a>
 </li>
-</ul>
-</nav>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../07.-IN/">
+<span class="md-ellipsis">
+    07.-IN
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../02.-Operador%20AND/">
+<a class="md-nav__link" href="../08.-BETWEEN/">
 <span class="md-ellipsis">
-    02.-Operador AND
+    08.-BETWEEN
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../09.-LIKE/">
+<span class="md-ellipsis">
+    09.-LIKE
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../10.-IS%20NULL/">
+<span class="md-ellipsis">
+    10.-IS NULL
   </span>
 </a>
 </li>
@@ -637,69 +640,16 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ejemplos-de-la-clausula-where">
+<a class="md-nav__link" href="#uso-del-operador-in-de-postgresql-con-una-lista-de-numeros">
 <span class="md-ellipsis">
-      Ejemplos de la cláusula WHERE
-    </span>
-</a>
-<nav aria-label="Ejemplos de la cláusula WHERE" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#1-ejemplo-de-uso-de-la-clausula-where-con-el-operador-igual">
-<span class="md-ellipsis">
-      1) Ejemplo de uso de la cláusula WHERE con el operador igual (=)
+      Uso del operador IN de PostgreSQL con una lista de números
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ejemplo-de-uso-de-la-clausula-where-con-el-operador-and">
+<a class="md-nav__link" href="#uso-del-operador-in-con-una-lista-de-fechas">
 <span class="md-ellipsis">
-      Ejemplo de uso de la cláusula WHERE con el operador AND
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#utilizacion-de-la-clausula-where-con-el-operador-or-ejemplo">
-<span class="md-ellipsis">
-      Utilización de la cláusula WHERE con el operador OR ejemplo
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ejemplo-de-utilizacion-de-la-clausula-where-con-el-operador-in">
-<span class="md-ellipsis">
-      Ejemplo de utilización de la cláusula WHERE con el operador IN
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ejemplo-de-uso-de-la-clausula-where-con-el-operador-like">
-<span class="md-ellipsis">
-      Ejemplo de uso de la cláusula WHERE con el operador LIKE
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ejemplo-de-uso-de-la-clausula-where-con-el-operador-between">
-<span class="md-ellipsis">
-      Ejemplo de uso de la cláusula WHERE con el operador BETWEEN
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#7-ejemplo-de-uso-de-la-clausula-where-con-el-operador-distinto">
-<span class="md-ellipsis">
-      7) Ejemplo de uso de la cláusula WHERE con el operador distinto (&lt;&gt;)
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#resumen">
-<span class="md-ellipsis">
-      Resumen
+      Uso del operador IN con una lista de fechas
     </span>
 </a>
 </li>
@@ -710,241 +660,147 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1>01.-Where</h1>
-<p>La sentencia <code>SELECT</code> devuelve todas las filas de una o varias columnas de una tabla. Para recuperar filas que satisfacen una condición especificada, se utiliza una cláusula <code>WHERE</code>.</p>
-<p>La sintaxis de la cláusula <code>WHERE</code> de PostgreSQL es la siguiente:</p>
-<pre><code class="language-postgresql">SELECT 
-  seleccionar_lista 
-FROM 
-  nombre_tabla 
-WHERE 
-  condición 
-ORDENAR POR 
-  sort_expression;
+<p>El operador <code>IN</code> permite comprobar si un valor coincide con cualquier valor de una lista de valores.</p>
+<p>Ésta es la sintaxis básica del operador <code>IN</code>:</p>
+<pre><code class="language-postgresql">valor IN (valor1,valor2,...)
 </code></pre>
-<p>En esta sintaxis, la cláusula <code>WHERE</code> se coloca justo después de la cláusula <code>FROM</code> de la sentencia <code>SELECT</code>. </p>
-<p>La cláusula <code>WHERE</code> utiliza la condición <code>condition</code> para filtrar las filas devueltas por la cláusula <code>SELECT</code>.</p>
-<p>La condición es una expresión booleana que se evalúa como verdadero, falso o desconocido.</p>
-<p>La consulta sólo devuelve las filas que cumplen la "condición" de la cláusula "WHERE". En otras palabras, la consulta incluirá en el conjunto de resultados sólo las filas que hagan que la "condición" se evalúe como verdadera.</p>
-<p>PostgreSQL evalúa la cláusula <code>WHERE</code> después de la cláusula <code>FROM</code> pero antes de las cláusulas <code>SELECT</code> y <code>ORDER BY</code>:</p>
-<p><img alt="img" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-WHERE.png"/></p>
-<p>Si utiliza un alias de columna en la cláusula <code>SELECT</code>, no se podrá utilizar en la cláusula <code>WHERE</code>.</p>
-<p>Además de la sentencia <code>SELECT</code>, se puede utilizar la cláusula <code>WHERE</code> en las sentencias <code>UPDATE</code> y <code>DELETE</code> para especificar filas a actualizar y borrar.</p>
-<p>Para formar la condición en la cláusula <code>WHERE</code>, se utilizan operadores lógicos y de comparación:</p>
-<table>
-<thead>
-<tr>
-<th>Operador</th>
-<th>Descripción</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>=</td>
-<td>Igual</td>
-</tr>
-<tr>
-<td>&gt;</td>
-<td>Mayor que than</td>
-</tr>
-<tr>
-<td>&lt;</td>
-<td>Menos que</td>
-</tr>
-<tr>
-<td>&gt;=</td>
-<td>Mayor o igual que</td>
-</tr>
-<tr>
-<td>&lt;=</td>
-<td>Menor o igual que</td>
-</tr>
-<tr>
-<td>&lt;&gt; or !=</td>
-<td>Distinto</td>
-</tr>
-<tr>
-<td>AND</td>
-<td>Operador lógico AND</td>
-</tr>
-<tr>
-<td>OR</td>
-<td>Operador lógico OR</td>
-</tr>
-<tr>
-<td>IN</td>
-<td>Devuelve <code>true</code> si un valor coincide con cualquier valor de la lista</td>
-</tr>
-<tr>
-<td>BETWEEN</td>
-<td>Devuelve <code>true</code> si un valor está entre un rango de valores</td>
-</tr>
-<tr>
-<td>LIKE</td>
-<td>Devuelve <code>true</code> si un valor coincide con el patrón</td>
-</tr>
-<tr>
-<td>IS NULL</td>
-<td>Devuelve <code>true</code> si un valor es NULL</td>
-</tr>
-<tr>
-<td>NOT</td>
-<td>Niega el resultado de otros operadores</td>
-</tr>
-</tbody>
-</table>
-<h2 id="ejemplos-de-la-clausula-where">Ejemplos de la cláusula <code>WHERE</code><a class="headerlink" href="#ejemplos-de-la-clausula-where" title="Permanent link">¶</a></h2>
-<p>Practiquemos con algunos ejemplos de uso de la cláusula <code>WHERE</code>.</p>
-<p>Utilizaremos la tabla <code>customer</code> de la base de datos de ejemplo para la demostración.</p>
-<p><img alt="customer table" src="https://www.postgresqltutorial.com/wp-content/uploads/2019/05/customer.png"/></p>
-<h3 id="1-ejemplo-de-uso-de-la-clausula-where-con-el-operador-igual">1) Ejemplo de uso de la cláusula <code>WHERE</code> con el operador igual (<code>=</code>)<a class="headerlink" href="#1-ejemplo-de-uso-de-la-clausula-where-con-el-operador-igual" title="Permanent link">¶</a></h3>
-<p>La siguiente sentencia utiliza la cláusula <code>WHERE</code> para encontrar clientes cuyo nombre de pila sea <code>Jamie</code>:</p>
-<pre><code class="language-postgresql">SELECT 
-  last_name 
-  first_name
-FROM 
-  customer
+<p>El operador <code>IN</code> devuelve verdadero si el <code>valor</code> es igual a cualquier valor de la lista como <code>valor1</code> y <code>valor2</code>.</p>
+<p>La lista de valores puede ser una lista de valores literales, incluidos números y cadenas.</p>
+<p>Además de valores literales, el operador <code>IN</code> también acepta una lista de valores devueltos por una consulta. </p>
+<p>Funcionalmente, el operador <code>IN</code> es equivalente a combinar varias expresiones booleanas con los operadores OR:</p>
+<pre><code class="language-postgresql">value = value1 OR value = value2 OR ...
+</code></pre>
+<h1 id="ejemplos-del-operador-in-de-postgresql">Ejemplos del operador IN de PostgreSQL<a class="headerlink" href="#ejemplos-del-operador-in-de-postgresql" title="Permanent link">¶</a></h1>
+<p>Utilizaremos la tabla <code>film</code> de la base de datos de ejemplo:</p>
+<p><img alt="img" src="https://www.postgresqltutorial.com/wp-content/uploads/2019/05/film.png"/></p>
+<h2 id="uso-del-operador-in-de-postgresql-con-una-lista-de-numeros">Uso del operador IN de PostgreSQL con una lista de números<a class="headerlink" href="#uso-del-operador-in-de-postgresql-con-una-lista-de-numeros" title="Permanent link">¶</a></h2>
+<p>El siguiente ejemplo utiliza el operador <code>IN</code> para recuperar información sobre la película con id 1, 2 y 3:</p>
+<pre><code class="language-postgresql">SELECT
+  film_id, 
+  title 
+FROM
+  film 
 WHERE
-  first_name = 'Jamie';
+  film_id in (1, 2, 3);
 </code></pre>
 <p>Salida:</p>
-<pre><code> last_name | first_name
------------+------------
- Rice      | Jamie
- Waugh     | Jamie
-(2 rows)
-</code></pre>
-<h3 id="ejemplo-de-uso-de-la-clausula-where-con-el-operador-and">Ejemplo de uso de la cláusula <code>WHERE</code> con el operador <code>AND</code><a class="headerlink" href="#ejemplo-de-uso-de-la-clausula-where-con-el-operador-and" title="Permanent link">¶</a></h3>
-<p>El siguiente ejemplo utiliza una cláusula <code>WHERE</code> con el operador lógico <code>AND</code> para buscar clientes cuyo nombre y apellidos sean <code>Jamie</code> y <code>rice</code>:</p>
-<pre><code class="language-postgresql">SELECT 
-  last_name, 
-  first_name 
-FROM 
-  customer 
-WHERE 
-  first_name = 'Jamie' 
-  AND last_name = 'Rice';
-</code></pre>
-<p>Salida:</p>
-<pre><code> last_name | first_name
------------+------------
- Rice      | Jamie
-(1 row)
-</code></pre>
-<h3 id="utilizacion-de-la-clausula-where-con-el-operador-or-ejemplo">Utilización de la cláusula <code>WHERE</code> con el operador <code>OR</code> ejemplo<a class="headerlink" href="#utilizacion-de-la-clausula-where-con-el-operador-or-ejemplo" title="Permanent link">¶</a></h3>
-<p>El siguiente ejemplo utiliza una cláusula WHERE con un operador OR para encontrar los clientes cuyo apellido es <code>Rodriguez</code> o cuyo nombre es <code>Adam</code>:</p>
-<pre><code class="language-postgresql">SELECT 
-  first_name, 
-  last_name 
-FROM 
-  customer 
-WHERE 
-  last_name = 'Rodriguez' 
-  OR first_name = 'Adam';
-</code></pre>
-<p>Salida:</p>
-<pre><code> first_name | last_name
-------------+-----------
- Laura      | Rodriguez
- Adam       | Gooch
-(2 rows)
-</code></pre>
-<h3 id="ejemplo-de-utilizacion-de-la-clausula-where-con-el-operador-in">Ejemplo de utilización de la cláusula <code>WHERE</code> con el operador <code>IN</code><a class="headerlink" href="#ejemplo-de-utilizacion-de-la-clausula-where-con-el-operador-in" title="Permanent link">¶</a></h3>
-<p>Si desea encontrar un valor en una lista de valores, puede utilizar el operador <code>IN</code>.</p>
-<p>El siguiente ejemplo utiliza la cláusula <code>WHERE</code> con el operador <code>IN</code> para encontrar los clientes con nombres en la lista Ann, Anne y Annie:</p>
-<pre><code class="language-postgresql">SELECT 
-  first_name, 
-  last_name 
-FROM 
-  customer 
-WHERE 
-  first_name IN ('Ann', 'Anne', 'Annie');Code language: SQL (Structured Query Language) (sql)
-</code></pre>
-<p>Salida:</p>
-<pre><code> first_name | last_name
-------------+-----------
- Ann        | Evans
- Anne       | Powell
- Annie      | Russell
+<pre><code> film_id |      title
+---------+------------------
+       1 | Academy Dinosaur
+       2 | Ace Goldfinger
+       3 | Adaptation Holes
 (3 rows)
 </code></pre>
-<h3 id="ejemplo-de-uso-de-la-clausula-where-con-el-operador-like">Ejemplo de uso de la cláusula <code>WHERE</code> con el operador <code>LIKE</code><a class="headerlink" href="#ejemplo-de-uso-de-la-clausula-where-con-el-operador-like" title="Permanent link">¶</a></h3>
-<p>Para encontrar una cadena que coincida con un patrón especificado, utilice el operador <code>LIKE</code>.</p>
-<p>El siguiente ejemplo utiliza el operador LIKE en la cláusula WHERE para buscar clientes cuyo nombre empiece por la palabra <code>Ann</code>:</p>
+<p>La siguiente sentencia utiliza los operadores igual (<code>=</code>) y <code>OR</code> en lugar del operador <code>IN</code>, lo que equivale a la consulta anterior:</p>
+<pre><code class="language-postgresql">SELECT 
+  film_id, 
+  title 
+FROM 
+  film 
+WHERE 
+  film_id = 1 
+  OR film_id = 2 
+  OR film_id = 3;
+</code></pre>
+<p>La siguiente sentencia utiliza los operadores igual (<code>=</code>) y <code>OR</code> en lugar del operador <code>IN</code>, lo que equivale a la consulta anterior:</p>
+<p><img alt="img" src="https://www.postgresqltutorial.com/wp-content/uploads/2019/05/actor.png"/></p>
+<p>El siguiente ejemplo utiliza el operador <code>IN</code> para encontrar los actores que tienen el apellido en la lista <code>'Allen'</code>, <code>'Chase'</code> y <code>'Davis'</code>:</p>
 <pre><code class="language-postgresql">SELECT 
   first_name, 
-  last_name 
+  last_name
 FROM 
-  customer 
+  actor 
 WHERE 
-  first_name LIKE 'Ann%';
+  last_name IN ('Allen', 'Chase', 'Davis') 
+ORDER BY 
+  last_name;
 </code></pre>
 <p>Salida:</p>
 <pre><code> first_name | last_name
 ------------+-----------
- Anna       | Hill
- Ann        | Evans
- Anne       | Powell
- Annie      | Russell
- Annette    | Olson
-(5 rows)
+ Meryl      | Allen
+ Cuba       | Allen
+ Kim        | Allen
+ Jon        | Chase
+ Ed         | Chase
+ Susan      | Davis
+ Jennifer   | Davis
+ Susan      | Davis
+(8 rows)
 </code></pre>
-<p>El <code>%</code> es un comodín que coincide con cualquier cadena. El patrón <code>'Ann%'</code> coincide con cualquier cadena que empiece por <code>'Ann'</code>.</p>
-<h3 id="ejemplo-de-uso-de-la-clausula-where-con-el-operador-between">Ejemplo de uso de la cláusula <code>WHERE</code> con el operador <code>BETWEEN</code><a class="headerlink" href="#ejemplo-de-uso-de-la-clausula-where-con-el-operador-between" title="Permanent link">¶</a></h3>
-<p>El siguiente ejemplo busca clientes cuyo nombre empiece por la letra <code>A</code> y contenga de 3 a 5 caracteres utilizando el operador <code>BETWEEN</code>.</p>
-<p>El operador <code>BETWEEN</code> devuelve verdadero si un valor se encuentra en un rango de valores.</p>
+<h2 id="uso-del-operador-in-con-una-lista-de-fechas">Uso del operador IN con una lista de fechas<a class="headerlink" href="#uso-del-operador-in-con-una-lista-de-fechas" title="Permanent link">¶</a></h2>
+<p>La siguiente sentencia utiliza el operador IN para buscar pagos cuyas fechas de pago se encuentren en una lista de fechas: <code>2007-02-15</code> y <code>2007-02-16</code>:</p>
 <pre><code class="language-postgresql">SELECT 
-  first_name, 
-  LENGTH(first_name) name_length 
+  payment_id, 
+  amount, 
+  payment_date 
 FROM 
-  customer 
+  payment 
 WHERE 
-  first_name LIKE 'A%' 
-  AND LENGTH(first_name) BETWEEN 3 
-  AND 5 
-ORDER BY 
-  name_length;
+  payment_date::date IN ('2007-02-15', '2007-02-16');
 </code></pre>
 <p>Salida:</p>
-<pre><code>first_name | name_length
-------------+-------------
- Amy        |           3
- Ann        |           3
- Ana        |           3
- Andy       |           4
- Anna       |           4
- Anne       |           4
- Alma       |           4
- Adam       |           4
- Alan       |           4
- Alex       |           4
- Angel      |           5
+<pre><code>payment_id | amount |        payment_date
+------------+--------+----------------------------
+      17503 |   7.99 | 2007-02-15 22:25:46.996577
+      17504 |   1.99 | 2007-02-16 17:23:14.996577
+      17505 |   7.99 | 2007-02-16 22:41:45.996577
+      17512 |   4.99 | 2007-02-16 00:10:50.996577
 ...
 </code></pre>
-<p>En este ejemplo, utilizamos la función <code>LENGTH()</code> para obtener el número de caracteres de una cadena de entrada.</p>
-<h3 id="7-ejemplo-de-uso-de-la-clausula-where-con-el-operador-distinto">7) Ejemplo de uso de la cláusula <code>WHERE</code> con el operador distinto (<code>&lt;&gt;</code>)<a class="headerlink" href="#7-ejemplo-de-uso-de-la-clausula-where-con-el-operador-distinto" title="Permanent link">¶</a></h3>
-<p>Este ejemplo busca clientes cuyo nombre empiece por <code>Bra</code> y cuyo apellido no sea <code>Motley</code>:</p>
+<p>En este ejemplo, la columna <code>payment_date</code> tiene el tipo <code>timestamp</code> que consta de partes de fecha y hora.</p>
+<p>Para hacer coincidir los valores de la columna <code>payment_date</code> con una lista de fechas, es necesario convertirlos en valores de fecha que sólo contengan la parte de fecha.</p>
+<p>Para ello se utiliza el operador <code>::</code> cast operator:</p>
+<pre><code class="language-postgresql">payment_date::dateCode
+</code></pre>
+<p>Por ejemplo, si el valor de la marca de tiempo es <code>2007-02-15 22:25:46.996577</code>, el operador <code>cast</code> lo convertirá a <code>2007-02-15</code>.</p>
+<h1 id="operador-not-in-de-postgresql">Operador NOT IN de PostgreSQL<a class="headerlink" href="#operador-not-in-de-postgresql" title="Permanent link">¶</a></h1>
+<p>Para negar el operador <code>IN</code>, se utiliza el operador <code>NOT IN</code>. Esta es la sintaxis básica del operador <code>NOT IN</code>:</p>
+<pre><code class="language-postgresql">valor NOT IN (valor1, valor2, ...)
+</code></pre>
+<p>El operador <code>NOT IN</code> devuelve <code>true</code> si el <code>valor</code> no es igual a ningún valor de la lista como <code>valor1</code> y <code>valor2</code>; en caso contrario, el operador <code>NOT IN</code> devuelve <code>false</code>.</p>
+<p>El operador <code>NOT IN</code> equivale a una combinación de varias expresiones booleanas con los operadores AND:</p>
+<pre><code class="language-postgresql">valor &lt;&gt; valor1 AND valor &lt;&gt; valor2 AND ...
+</code></pre>
+<h2 id="ejemplo-de-operador-not-in-en-postgresql">Ejemplo de operador NOT IN en PostgreSQL<a class="headerlink" href="#ejemplo-de-operador-not-in-en-postgresql" title="Permanent link">¶</a></h2>
+<p>El siguiente ejemplo utiliza el operador <code>NOT IN</code> para recuperar películas cuyo id no sea 1, 2 o 3:</p>
 <pre><code class="language-postgresql">SELECT 
-  first_name, 
-  last_name 
+  film_id, 
+  title 
 FROM 
-  customer 
+  film 
 WHERE 
-  first_name LIKE 'Bra%' 
-  AND last_name &lt;&gt; 'Motley';Code language: SQL (Structured Query Language) (sql)
+  film_id NOT IN (1, 2, 3) 
+ORDER BY 
+  film_id;
 </code></pre>
-<p>Salida:</p>
-<pre><code> first_name | last_name
-------------+-----------
- Brandy     | Graves
- Brandon    | Huey
- Brad       | Mccurdy
-(3 rows)
+<p>Salioda:</p>
+<pre><code> film_id |            title
+---------+-----------------------------
+       4 | Affair Prejudice
+       5 | African Egg
+       6 | Agent Truman
+       7 | Airplane Sierra
+       8 | Airport Pollock
+...
 </code></pre>
-<p>Tenga en cuenta que puede utilizar el operador <code>!=</code> y el operador <code>&lt;&gt;</code> indistintamente porque son equivalentes.</p>
-<h2 id="resumen">Resumen<a class="headerlink" href="#resumen" title="Permanent link">¶</a></h2>
+<p>La siguiente consulta recupera el mismo conjunto de datos pero utiliza los operadores no igual (<code>&lt;&gt;</code>) y <code>AND</code>:</p>
+<pre><code class="language-postgresql">SELECT 
+  film_id, 
+  title 
+FROM 
+  film 
+WHERE 
+  film_id &lt;&gt; 1 
+  AND film_id &lt;&gt; 2 
+  AND film_id &lt;&gt; 3 
+ORDER BY 
+  film_id;
+</code></pre>
+<h1 id="resumen">Resumen<a class="headerlink" href="#resumen" title="Permanent link">¶</a></h1>
 <ul>
-<li>Utiliza una cláusula <code>WHERE</code> en la sentencia <code>SELECT</code> para filtrar filas de una consulta en función de una o varias condiciones.</li>
+<li>Utilice el operador <code>IN</code> para comprobar si un valor coincide con cualquier valor de una lista de valores.</li>
+<li>Utilice el operador <code>NOT</code> para negar el operador <code>IN</code>.</li>
 </ul>
 </article>
 </div>

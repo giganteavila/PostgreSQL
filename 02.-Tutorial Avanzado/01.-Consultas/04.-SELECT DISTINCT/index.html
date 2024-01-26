@@ -6,7 +6,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../03.-ORDER%20BY/" rel="prev"/>
-<link href="../../02.-Friltrado%20de%20datos/01.-Where/" rel="next"/>
+<link href="../../02.-Filtrado%20de%20datos/01.-WHERE/" rel="next"/>
 <link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.4.9" name="generator"/>
 <title>04.-SELECT DISTINCT - ASGBD</title>
@@ -539,27 +539,83 @@
 <input class="md-nav__toggle md-toggle" id="__nav_4_3" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
 <span class="md-ellipsis">
-    02.-Friltrado de datos
+    02.-Filtrado de datos
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_3">
 <span class="md-nav__icon md-icon"></span>
-            02.-Friltrado de datos
+            02.-Filtrado de datos
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../02.-Friltrado%20de%20datos/01.-Where/">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/01.-WHERE/">
 <span class="md-ellipsis">
-    01.-Where
+    01.-WHERE
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../02.-Friltrado%20de%20datos/02.-Operador%20AND/">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/02.-Operador%20AND/">
 <span class="md-ellipsis">
     02.-Operador AND
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/03.-Operador%20OR/">
+<span class="md-ellipsis">
+    03.-Operador OR
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/04.-LIMIT/">
+<span class="md-ellipsis">
+    04.-LIMIT
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/05.-.Operador%20IN/">
+<span class="md-ellipsis">
+    05.-.Operador IN
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/06.-FETCH/">
+<span class="md-ellipsis">
+    06.-FETCH
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/07.-IN/">
+<span class="md-ellipsis">
+    07.-IN
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/08.-BETWEEN/">
+<span class="md-ellipsis">
+    08.-BETWEEN
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/09.-LIKE/">
+<span class="md-ellipsis">
+    09.-LIKE
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/10.-IS%20NULL/">
+<span class="md-ellipsis">
+    10.-IS NULL
   </span>
 </a>
 </li>
@@ -624,14 +680,14 @@
 <pre><code class="language-postgresql">SELECT 
   DISTINCT columna1 
 FROM 
-  nombre_tabla;Lenguaje de código
+  nombre_tabla;
 </code></pre>
 <p>En esta sintaxis, <code>SELECT DISTINCT</code> utiliza los valores de la columna <code>columna1</code> para evaluar el duplicado.</p>
 <p>Si especifica varias columnas, la cláusula <code>SELECT DISTINCT</code> evaluará el duplicado basándose en la combinación de valores de dichas columnas. Por ejemplo</p>
 <pre><code class="language-postgresql">SELECT
    DISTINCT columna1, columna2
 FROM
-   nombre_tabla;Lenguaje del código
+   nombre_tabla;
 </code></pre>
 <p>En esta sintaxis, el <code>SELECT DISTINCT</code> utiliza la combinación de valores de las columnas <code>columna1</code> y <code>columna2</code> para evaluar el duplicado.</p>
 <p>Tenga en cuenta que PostgreSQL también ofrece la cláusula DISTINCT ON que conserva la primera entrada única de una columna o combinación de columnas en el conjunto de resultados. </p>
@@ -639,7 +695,7 @@ FROM
 <p>Vamos a crear una nueva tabla llamada <code>distinct_demo</code> e insertar datos en ella para practicar la cláusula <code>DISTINCT</code>.</p>
 <p>Ten en cuenta que aprenderás a crear una tabla y a insertar datos en una tabla en el tutorial siguiente. En este tutorial, solo ejecute la sentencia en psql o pgAdmin para ejecutar las sentencias.</p>
 <p>Primero, crea la tabla <code>distinct_demo</code> que tiene tres columnas: <code>id</code>, <code>bcolor</code> y <code>fcolor</code> usando la siguiente sentencia <code>CREATE TABLE</code>:</p>
-<pre><code class="language-postgresql">CREAR TABLA distinct_demo (
+<pre><code class="language-postgresql">CREATE TABLE distinct_demo (
   id SERIAL NOT NULL PRIMARY KEY, 
   bcolor VARCHAR, 
   fcolor VARCHAR
