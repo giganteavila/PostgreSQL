@@ -5,11 +5,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="../02.-Operador%20AND/" rel="prev"/>
-<link href="../04.-LIMIT/" rel="next"/>
+<link href="../06.-IN/" rel="prev"/>
+<link href="../08.-LIKE/" rel="next"/>
 <link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.4.9" name="generator"/>
-<title>03.-Operador OR - ASGBD</title>
+<title>07.-BETWEEN - ASGBD</title>
 <link href="../../../assets/stylesheets/main.78cf6014.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,7 +23,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#operador-or">
+<a class="md-skip" href="#ejemplos-del-operador-between-de-postgresql">
           Saltar a contenido
         </a>
 </div>
@@ -47,7 +47,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              03.-Operador OR
+              07.-BETWEEN
             
           </span>
 </div>
@@ -521,47 +521,18 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../02.-Operador%20AND/">
+<a class="md-nav__link" href="../02.-AND/">
 <span class="md-ellipsis">
-    02.-Operador AND
+    02.-AND
   </span>
-</a>
-</li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    03.-Operador OR
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
-<span class="md-ellipsis">
-    03.-Operador OR
-  </span>
-</a>
-<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ejemplos-basicos-del-operador-or-de-postgresql">
-<span class="md-ellipsis">
-      Ejemplos básicos del operador OR de PostgreSQL
-    </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#uso-del-operador-or-en-la-clausula-where">
+<a class="md-nav__link" href="../03.-OR/">
 <span class="md-ellipsis">
-      Uso del operador OR en la cláusula WHERE
-    </span>
+    03.-OR
+  </span>
 </a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../04.-LIMIT/">
@@ -571,44 +542,73 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../05.-.Operador%20IN/">
+<a class="md-nav__link" href="../05.-FETCH/">
 <span class="md-ellipsis">
-    05.-.Operador IN
+    05.-FETCH
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../06.-FETCH/">
+<a class="md-nav__link" href="../06.-IN/">
 <span class="md-ellipsis">
-    06.-FETCH
+    06.-IN
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    07.-BETWEEN
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    07.-BETWEEN
+  </span>
+</a>
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#uso-del-operador-between-de-postgresql-con-numeros">
+<span class="md-ellipsis">
+      Uso del operador BETWEEN de PostgreSQL con números
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#uso-del-ejemplo-not-between-de-postgresql">
+<span class="md-ellipsis">
+      Uso del ejemplo NOT BETWEEN de PostgreSQL
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#usando-el-between-de-postgresql-con-un-rango-de-fechas">
+<span class="md-ellipsis">
+      Usando el BETWEEN de PostgreSQL con un rango de fechas
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../08.-LIKE/">
+<span class="md-ellipsis">
+    08.-LIKE
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../07.-IN/">
+<a class="md-nav__link" href="../09.-IS%20NULL/">
 <span class="md-ellipsis">
-    07.-IN
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../08.-BETWEEN/">
-<span class="md-ellipsis">
-    08.-BETWEEN
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../09.-LIKE/">
-<span class="md-ellipsis">
-    09.-LIKE
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../10.-IS%20NULL/">
-<span class="md-ellipsis">
-    10.-IS NULL
+    09.-IS NULL
   </span>
 </a>
 </li>
@@ -640,16 +640,23 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ejemplos-basicos-del-operador-or-de-postgresql">
+<a class="md-nav__link" href="#uso-del-operador-between-de-postgresql-con-numeros">
 <span class="md-ellipsis">
-      Ejemplos básicos del operador OR de PostgreSQL
+      Uso del operador BETWEEN de PostgreSQL con números
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#uso-del-operador-or-en-la-clausula-where">
+<a class="md-nav__link" href="#uso-del-ejemplo-not-between-de-postgresql">
 <span class="md-ellipsis">
-      Uso del operador OR en la cláusula WHERE
+      Uso del ejemplo NOT BETWEEN de PostgreSQL
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#usando-el-between-de-postgresql-con-un-rango-de-fechas">
+<span class="md-ellipsis">
+      Usando el BETWEEN de PostgreSQL con un rango de fechas
     </span>
 </a>
 </li>
@@ -660,137 +667,97 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<p>En PostgreSQL, un valor lógico puede tener uno de estos tres valores: <code>true</code>, <code>false</code>, y <code>null</code>.</p>
-<p>PostgreSQL utiliza <code>true</code>, <code>'t'</code>, <code>'true'</code>, <code>'y'</code>, <code>'yes'</code>, <code>'1'</code> para representar <code>true</code> y <code>false</code>, <code>'f'</code>, <code>'false'</code>, <code>'n'</code>, <code>'no'</code>, y <code>'0'</code> para representar <code>false</code>.</p>
-<p>Una expresión lógica es una expresión que se evalúa con un valor lógico. Por ejemplo, la expresión <code>1&lt;&gt;1</code> es una expresión lógica que se evalúa como <code>false</code>:</p>
-<pre><code class="language-postgresql">SELECT 1 &lt;&gt; 1 AS result;
+<p>El operador <code>BETWEEN</code> permite comprobar si un valor se encuentra dentro de un rango de valores.</p>
+<p>La sintaxis básica del operador <code>BETWEEN</code> es la siguiente:</p>
+<pre><code class="language-postgresql">value BETWEEN low AND high;
 </code></pre>
-<p>Salida:</p>
-<pre><code> result
---------
- f
-(1 row)Code language: SQL (Structured Query Language) (sql)
+<p>Si el <code>valor</code> es mayor o igual que el <code>valor bajo</code> y menor o igual que el <code>valor alto</code>, el operador <code>BETWEEN</code> devuelve <code>true</code>; en caso contrario, devuelve <code>false</code>.</p>
+<p>Puede reescribir el operador <code>BETWEEN</code> utilizando los operadores mayor que o igual ( <code>&gt;=</code>) y menor que o igual a ( <code>&lt;=</code>) y el operador lógico AND:</p>
+<pre><code class="language-postgresql">value &gt;= low AND value &lt;= high
 </code></pre>
-<p>La letra <code>f</code> en la salida indica <code>false</code>.</p>
-<p>El operador <code>OR</code> es un operador lógico que combina múltiples expresiones booleanas. Esta es la sintaxis básica del operador <code>OR</code>:</p>
-<pre><code class="language-postgresql">expression1 OR expression2
+<p>Si desea comprobar si un valor está fuera de un rango específico, puede utilizar el operador <code>NOT BETWEEN</code> de la siguiente manera:</p>
+<pre><code class="language-postgresql">value NOT BETWEEN low AND high
 </code></pre>
-<p>En esta sintaxis, <code>expresión1</code> y <code>expresión2</code> son expresiones booleanas que se evalúan como <code>true</code>, <code>false</code> o <code>null</code>.</p>
-<p>El operador <code>OR</code> devuelve <code>true</code> sólo si alguna de las expresiones es <code>true</code>. Devuelve <code>false</code> si ambas expresiones son falsas. En caso contrario, devuelve null.</p>
-<p>La siguiente tabla muestra los resultados del operador <code>OR</code> al combinar <code>true</code>, <code>false</code> y <code>null</code>.</p>
-<table>
-<thead>
-<tr>
-<th>OR</th>
-<th>True</th>
-<th>False</th>
-<th>Null</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>True</td>
-<td>True</td>
-<td>True</td>
-<td>True</td>
-</tr>
-<tr>
-<td>False</td>
-<td>True</td>
-<td>False</td>
-<td>Null</td>
-</tr>
-<tr>
-<td>Null</td>
-<td>True</td>
-<td>Null</td>
-<td>Null</td>
-</tr>
-</tbody>
-</table>
-<p>En la práctica, se suele utilizar el operador <code>OR</code> en una cláusula <code>WHERE</code> para garantizar que cualquiera de las expresiones especificadas debe ser verdadera para que una fila se incluya en el conjunto de resultados.</p>
-<h1 id="operador-or">Operador OR<a class="headerlink" href="#operador-or" title="Permanent link">¶</a></h1>
-<p>Exploremos algunos ejemplos de uso del operador <code>OR</code>.</p>
-<h2 id="ejemplos-basicos-del-operador-or-de-postgresql">Ejemplos básicos del operador OR de PostgreSQL<a class="headerlink" href="#ejemplos-basicos-del-operador-or-de-postgresql" title="Permanent link">¶</a></h2>
-<p>El siguiente ejemplo usa el operador <code>OR</code> para combinar <code>true</code> con <code>true</code>, lo cual retorna <code>true</code>:</p>
-<pre><code class="language-postgresql">SELECT true OR true AS result;
+<p>La siguiente expresión es equivalente a la expresión que utiliza los operadores <code>NOT BETWEEN</code>:</p>
+<pre><code class="language-postgresql">value &lt; low OR value &gt; high
 </code></pre>
-<p>Salida:</p>
-<pre><code class="language-postgresql"> result
---------
- t
-(1 row)Code language: SQL (Structured Query Language) (sql)
-</code></pre>
-<p>La siguiente sentencia utiliza el operador <code>OR</code> para combinar <code>true</code> con <code>false</code>, lo que devuelve verdadero:</p>
-<pre><code>SELECT true OR false AS result;
-</code></pre>
-<p>Salida:</p>
-<pre><code> result
---------
- t
-(1 row)
-</code></pre>
-<p>El siguiente ejemplo utiliza el operador <code>OR</code> para combinar <code>true</code> con <code>null</code>, que devuelve <code>true</code>:</p>
-<pre><code>SELECT true OR null AS result;Code language: SQL (Structured Query Language) (sql)
-</code></pre>
-<p>Salida:</p>
-<pre><code> result
---------
- t
-(1 row)
-</code></pre>
-<p>El siguiente ejemplo utiliza el operador <code>OR</code> para combinar <code>false</code> con <code>false</code>, lo que devuelve <code>false</code>:</p>
-<pre><code class="language-postgresql">SELECT false OR false AS result;
-</code></pre>
-<p>Salida:</p>
-<pre><code> result
---------
- f
-(1 row)Code language: SQL (Structured Query Language) (sql)
-</code></pre>
-<p>El siguiente ejemplo utiliza el operador <code>OR</code> para combinar <code>false</code> con <code>null</code>, lo que devuelve <code>null</code>:</p>
-<pre><code class="language-postgresql">SELECT false OR null AS result;
-</code></pre>
-<p>Salida:</p>
-<pre><code> result
---------
- null
-(1 row)
-</code></pre>
-<p>El siguiente ejemplo utiliza el operador <code>OR</code> para combinar <code>false</code> con <code>false</code>, lo que devuelve <code>false</code>:</p>
-<pre><code class="language-postgresql">SELECT false OR false AS result;
-</code></pre>
-<p>Salida:</p>
-<pre><code> result
---------
- f
-(1 row)
-</code></pre>
-<h2 id="uso-del-operador-or-en-la-clausula-where">Uso del operador OR en la cláusula WHERE<a class="headerlink" href="#uso-del-operador-or-en-la-clausula-where" title="Permanent link">¶</a></h2>
-<p>Utilizaremos la tabla <code>film</code> de la base de ejemplo para la demostración:</p>
-<p><img alt="img" src="https://www.postgresqltutorial.com/wp-content/uploads/2019/05/film.png"/></p>
-<p>El siguiente ejemplo utiliza el operador <code>OR</code> en la cláusula <code>WHERE</code> para encontrar las películas que tienen una tarifa de alquiler es <code>0.99</code> o <code>2.99</code>:</p>
+<p>En la práctica, a menudo se utiliza el operador <code>BETWEEN</code> en la cláusula WHERE de las sentencias SELECT, INSERT, UPDATE,y DELETE.</p>
+<h1 id="ejemplos-del-operador-between-de-postgresql">Ejemplos del operador BETWEEN de PostgreSQL<a class="headerlink" href="#ejemplos-del-operador-between-de-postgresql" title="Permanent link">¶</a></h1>
+<p>Echemos un vistazo a la tabla <code>payment</code> de la base de datos de ejemplo.</p>
+<p><img alt="payment table" src="https://www.postgresqltutorial.com/wp-content/uploads/2013/05/payment-table.png"/></p>
+<h2 id="uso-del-operador-between-de-postgresql-con-numeros">Uso del operador BETWEEN de PostgreSQL con números<a class="headerlink" href="#uso-del-operador-between-de-postgresql-con-numeros" title="Permanent link">¶</a></h2>
+<p>La siguiente consulta utiliza el operador <code>BETWEEN</code> para recuperar pagos con <code>payment_id</code> entre <code>17510</code> y <code>17505</code>:</p>
 <pre><code class="language-postgresql">SELECT 
-  title, 
-  rental_rate 
+  payment_id, 
+  amount 
 FROM 
-  film 
+  payment 
 WHERE 
-  rental_rate = 0.99 OR 
-  rental_rate = 2.99;
+  payment_id BETWEEN 17503 AND 17505 
+ORDER BY 
+  payment_id;
 </code></pre>
 <p>Salida:</p>
-<pre><code>            title            | rental_rate
------------------------------+-------------
- Academy Dinosaur            |        0.99
- Adaptation Holes            |        2.99
- Affair Prejudice            |        2.99
- African Egg                 |        2.99
+<pre><code> payment_id | amount
+------------+--------
+      17503 |   7.99
+      17504 |   1.99
+      17505 |   7.99
+(3 rows)
+</code></pre>
+<h2 id="uso-del-ejemplo-not-between-de-postgresql">Uso del ejemplo NOT BETWEEN de PostgreSQL<a class="headerlink" href="#uso-del-ejemplo-not-between-de-postgresql" title="Permanent link">¶</a></h2>
+<p>El siguiente ejemplo utiliza el operador <code>NOT BETWEEN</code> para encontrar pagos cuyo <code>payment_id</code> no esté entre <code>17510</code> y <code>17505</code>:</p>
+<pre><code class="language-postgresql">SELECT 
+  payment_id, 
+  amount 
+FROM 
+  payment 
+WHERE 
+  payment_id NOT BETWEEN 17503 AND 17505 
+ORDER BY 
+  payment_id;
+</code></pre>
+<p>Salida:</p>
+<pre><code>payment_id | amount
+------------+--------
+      17506 |   2.99
+      17507 |   7.99
+      17508 |   5.99
+      17509 |   5.99
+      17510 |   5.99
 ...
+</code></pre>
+<h2 id="usando-el-between-de-postgresql-con-un-rango-de-fechas">Usando el BETWEEN de PostgreSQL con un rango de fechas<a class="headerlink" href="#usando-el-between-de-postgresql-con-un-rango-de-fechas" title="Permanent link">¶</a></h2>
+<p>Si desea comprobar un valor con respecto a un intervalo de fechas, utilice la fecha literal en formato ISO 8601, que es <code>YYYY-MM-DD</code>.</p>
+<p>El siguiente ejemplo utiliza el operador <code>BETWEEN</code> para buscar pagos cuyas fechas de pago estén comprendidas entre el <code>2007-02-14</code> y el <code>2007-02-20</code> y cuyo importe sea superior a 10:</p>
+<pre><code class="language-postgresql">SELECT 
+  payment_id, 
+  amount, 
+  payment_date 
+FROM 
+  payment 
+WHERE 
+  payment_date BETWEEN '2007-02-15' AND '2007-02-20' 
+  AND amount &gt; 10 
+ORDER BY 
+  payment_date;
+</code></pre>
+<p>Salida:</p>
+<pre><code> customer_id | payment_id | amount |        payment_date
+-------------+------------+--------+----------------------------
+          33 |      18640 |  10.99 | 2007-02-15 08:14:59.996577
+         544 |      18272 |  10.99 | 2007-02-15 16:59:12.996577
+         516 |      18175 |  10.99 | 2007-02-16 13:20:28.996577
+         572 |      18367 |  10.99 | 2007-02-17 02:33:38.996577
+         260 |      19481 |  10.99 | 2007-02-17 16:37:30.996577
+         477 |      18035 |  10.99 | 2007-02-18 07:01:49.996577
+         221 |      19336 |  10.99 | 2007-02-19 09:18:28.996577
+(7 rows)
 </code></pre>
 <h1 id="resumen">Resumen<a class="headerlink" href="#resumen" title="Permanent link">¶</a></h1>
 <ul>
-<li>Utilice el operador <code>OR</code> para combinar varias expresiones lógicas.</li>
+<li>Utilice el operador <code>BETWEEN</code> para comprobar si un valor se encuentra dentro de un rango determinado.</li>
+<li>Utilice el operador <code>NOT BETWEEN</code> para negar el operador <code>BETWEEN</code>.</li>
 </ul>
 </article>
 </div>

@@ -5,11 +5,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="../01.-WHERE/" rel="prev"/>
-<link href="../03.-Operador%20OR/" rel="next"/>
+<link href="../07.-BETWEEN/" rel="prev"/>
+<link href="../09.-IS%20NULL/" rel="next"/>
 <link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.4.9" name="generator"/>
-<title>02.-Operador AND - ASGBD</title>
+<title>08.-LIKE - ASGBD</title>
 <link href="../../../assets/stylesheets/main.78cf6014.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,7 +23,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#operador-and-de-postgresql">
+<a class="md-skip" href="#ejemplos-del-operador-like-en-postgresql">
           Saltar a contenido
         </a>
 </div>
@@ -47,7 +47,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              02.-Operador AND
+              08.-LIKE
             
           </span>
 </div>
@@ -520,46 +520,17 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../02.-AND/">
 <span class="md-ellipsis">
-    02.-Operador AND
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
-<span class="md-ellipsis">
-    02.-Operador AND
+    02.-AND
   </span>
 </a>
-<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ejemplos-basicos-del-operador-and-en-postgresql">
-<span class="md-ellipsis">
-      Ejemplos básicos del operador AND en PostgreSQL
-    </span>
-</a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#uso-del-operador-and-en-la-clausula-where">
+<a class="md-nav__link" href="../03.-OR/">
 <span class="md-ellipsis">
-      Uso del operador AND en la cláusula WHERE
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../03.-Operador%20OR/">
-<span class="md-ellipsis">
-    03.-Operador OR
+    03.-OR
   </span>
 </a>
 </li>
@@ -571,44 +542,80 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../05.-.Operador%20IN/">
+<a class="md-nav__link" href="../05.-FETCH/">
 <span class="md-ellipsis">
-    05.-.Operador IN
+    05.-FETCH
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../06.-FETCH/">
+<a class="md-nav__link" href="../06.-IN/">
 <span class="md-ellipsis">
-    06.-FETCH
+    06.-IN
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../07.-IN/">
+<a class="md-nav__link" href="../07.-BETWEEN/">
 <span class="md-ellipsis">
-    07.-IN
+    07.-BETWEEN
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../08.-BETWEEN/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
 <span class="md-ellipsis">
-    08.-BETWEEN
+    08.-LIKE
   </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    08.-LIKE
+  </span>
+</a>
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejemplos-basicos-del-operador-like">
+<span class="md-ellipsis">
+      Ejemplos básicos del operador LIKE
+    </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../09.-LIKE/">
+<a class="md-nav__link" href="#uso-del-operador-like-con-datos-de-tabla">
 <span class="md-ellipsis">
-    09.-LIKE
-  </span>
+      Uso del operador LIKE con datos de tabla
+    </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../10.-IS%20NULL/">
+<a class="md-nav__link" href="#utilizar-el-operador-like-con-un-patron-que-contenga-ambos-comodines">
 <span class="md-ellipsis">
-    10.-IS NULL
+      Utilizar el operador LIKE con un patrón que contenga ambos comodines
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejemplos-de-not-like-en-postgresql">
+<span class="md-ellipsis">
+      Ejemplos de NOT LIKE en PostgreSQL
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../09.-IS%20NULL/">
+<span class="md-ellipsis">
+    09.-IS NULL
   </span>
 </a>
 </li>
@@ -640,16 +647,30 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ejemplos-basicos-del-operador-and-en-postgresql">
+<a class="md-nav__link" href="#ejemplos-basicos-del-operador-like">
 <span class="md-ellipsis">
-      Ejemplos básicos del operador AND en PostgreSQL
+      Ejemplos básicos del operador LIKE
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#uso-del-operador-and-en-la-clausula-where">
+<a class="md-nav__link" href="#uso-del-operador-like-con-datos-de-tabla">
 <span class="md-ellipsis">
-      Uso del operador AND en la cláusula WHERE
+      Uso del operador LIKE con datos de tabla
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#utilizar-el-operador-like-con-un-patron-que-contenga-ambos-comodines">
+<span class="md-ellipsis">
+      Utilizar el operador LIKE con un patrón que contenga ambos comodines
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejemplos-de-not-like-en-postgresql">
+<span class="md-ellipsis">
+      Ejemplos de NOT LIKE en PostgreSQL
     </span>
 </a>
 </li>
@@ -660,144 +681,264 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<p>En PostgreSQL, un valor lógico puede tener uno de estos tres valores: <code>true</code>, <code>false</code>, y <code>null</code>.</p>
-<p>PostgreSQL utiliza <code>true</code>, <code>'t'</code>, <code>'true'</code>, <code>'y'</code>, <code>'yes'</code>, <code>'1'</code> para representar <code>true</code> y <code>false</code>, <code>'f'</code>, <code>'false'</code>, <code>'n'</code>, <code>'no'</code>, y <code>'0'</code> para representar <code>false</code>.</p>
-<p>Una expresión lógica es una expresión que se evalúa con un valor booleano. Por ejemplo, la expresión <code>1=1</code> es una expresión lógica que se evalúa como <code>true</code>:</p>
-<pre><code class="language-postgresql">SELECT 1 = 1 AS result;
+<p>Supongamos que quiere encontrar a unos clientes, pero no recuerda exactamente sus nombres. Sin embargo, recuerda que empiezan por "Jen".</p>
+<p>¿Cómo localiza a los clientes exactos en la base de datos? Puede identificar a los clientes en la tabla <code>cliente</code> examinando la columna nombre para ver si algún valor empieza por <code>Jen</code>. Sin embargo, este proceso puede llevar mucho tiempo, sobre todo cuando la tabla <code>customer</code> tiene un gran número de filas.</p>
+<p>Afortunadamente, puede utilizar el operador <code>LIKE</code> de PostgreSQL para hacer coincidir los nombres de pila de los clientes con una cadena utilizando la siguiente consulta:</p>
+<pre><code class="language-postgresql">SELECT 
+  first_name, 
+  last_name 
+FROM 
+  customer 
+WHERE 
+  first_name LIKE 'Jen%';
 </code></pre>
 <p>Salida:</p>
-<pre><code class="language-postgresql"> result
+<pre><code> first_name | last_name
+------------+-----------
+ Jennifer   | Davis
+ Jennie     | Terry
+ Jenny      | Castro
+(3 rows)
+</code></pre>
+<p>La cláusula <code>WHERE</code> de la consulta contiene una expresión:</p>
+<pre><code class="language-postgresql">first_name LIKE 'Jen%'
+</code></pre>
+<p>Ta expresión está formada por el <code>nombre</code>, el operador <code>LIKE</code> y una cadena literal que contiene un signo de porcentaje <code>(%</code>). La cadena <code>'Jen%</code> se denomina patrón.</p>
+<p>La consulta devuelve las filas cuyos valores de la columna <code>nombre</code> empiezan por <code>Jen</code> y van seguidos de cualquier secuencia de caracteres. Esta técnica se denomina comparación de patrones.</p>
+<p>Se construye un patrón combinando valores literales con caracteres comodín y utilizando el operador <code>LIKE</code> o <code>NOT LIKE</code> para encontrar las coincidencias.</p>
+<p>PostgreSQL ofrece dos comodines:</p>
+<ul>
+<li>Signo de porcentaje ( <code>%</code>) coincide con cualquier secuencia de cero o más caracteres.</li>
+<li>El guión bajo (<code>_</code>) coincide con cualquier carácter.</li>
+</ul>
+<p>Esta es la sintaxis básica del operador <code>LIKE</code>:</p>
+<pre><code class="language-postgresql">value LIKE pattern
+</code></pre>
+<p>El operador <code>LIKE</code> devuelve <code>true</code> si el <code>value</code> coincide con el <code>pattern</code>. Para negar el operador <code>LIKE</code>, utilice el operador <code>NOT</code> de la siguiente manera:</p>
+<pre><code class="language-postgresql">value NOT LIKE pattern
+</code></pre>
+<p>El operador <code>NOT LIKE</code> devuelve <code>true</code> cuando el <code>value</code> no coincide con el <code>pattern</code>.</p>
+<p>Si el patrón no contiene ningún carácter comodín, el operador <code>LIKE</code> se comporta como el operador igual (<code>=</code>).</p>
+<h1 id="ejemplos-del-operador-like-en-postgresql">Ejemplos del operador LIKE en PostgreSQL<a class="headerlink" href="#ejemplos-del-operador-like-en-postgresql" title="Permanent link">¶</a></h1>
+<p>Veamos algunos ejemplos de uso del operador `LIKE</p>
+<h2 id="ejemplos-basicos-del-operador-like">Ejemplos básicos del operador LIKE<a class="headerlink" href="#ejemplos-basicos-del-operador-like" title="Permanent link">¶</a></h2>
+<p>La siguiente sentencia utiliza el operador <code>LIKE</code> con un patrón que no tiene caracteres comodín:</p>
+<pre><code class="language-postgresql">SELECT 'Apple' LIKE 'Apple' AS result;
+</code></pre>
+<p>Salida:</p>
+<pre><code> result
 --------
  t
 (1 row)
 </code></pre>
-<p>La letra <code>t</code> en la salida indica el valor verdadero.</p>
-<p>El operador <code>AND</code> es un operador lógico que combina múltiples expresiones lógicas. Esta es la sintaxis básica del operador <code>AND</code>:</p>
-<pre><code>expresión1 AND expresión2Código del lenguaje: SQL (Lenguaje de consulta estructurado) (sql)
+<p>En este ejemplo, el operador <code>LIKE</code> se comporta como el operador igual a (<code>=</code>). La consulta devuelve <code>true</code> porque '<code>Apple' = 'Apple'</code> es <code>true</code>.</p>
+<p>El siguiente ejemplo utiliza el operador <code>LIKE</code> para buscar cualquier cadena que empiece por la letra <code>A</code>:</p>
+<pre><code class="language-postgresql">SELECT 'Apple' LIKE 'A%' AS result;
 </code></pre>
-<p>En esta sintaxis, <code>expresión1</code> y <code>expresión2</code> son expresiones lógicas que se evalúan como <code>true</code>, <code>false</code> o <code>null</code>.</p>
-<p>El operador <code>AND</code> devuelve <code>true</code> sólo si ambas expresiones son <code>true</code>. Devuelve <code>false</code> si una de las expresiones es falsa. En caso contrario, devuelve <code>null</code>.</p>
-<p>La siguiente tabla muestra los resultados del operador <code>AND</code> al combinar <code>true</code>, <code>false</code> y <code>null</code>.</p>
+<p>Salida:</p>
+<pre><code> result
+--------
+ t
+(1 row)
+</code></pre>
+<p>La consulta devuelve verdadero porque la cadena <code>'Apple'</code> empieza por la letra <code>'A'</code>.</p>
+<h2 id="uso-del-operador-like-con-datos-de-tabla">Uso del operador LIKE con datos de tabla<a class="headerlink" href="#uso-del-operador-like-con-datos-de-tabla" title="Permanent link">¶</a></h2>
+<p>Utilizaremos la tabla <code>customer</code> de la base de datos de ejemplo:</p>
+<p><img alt="customer table - PostgreSQL LIKE and ILIKE examples" src="https://www.postgresqltutorial.com/wp-content/uploads/2019/05/customer.png"/></p>
+<p>El siguiente ejemplo utiliza el operador <code>LIKE</code> para buscar clientes cuyo nombre contenga la cadena <code>er</code> :</p>
+<pre><code class="language-postgresql">SELECT 
+  first_name, 
+  last_name 
+FROM 
+  customer 
+WHERE 
+  first_name LIKE '%er%' 
+ORDER BY 
+  first_name;
+</code></pre>
+<p>Salida:</p>
+<pre><code>first_name  |  last_name
+-------------+-------------
+ Albert      | Crouse
+ Alberto     | Henning
+ Alexander   | Fennell
+ Amber       | Dixon
+ Bernard     | Colby
+...
+</code></pre>
+<h2 id="utilizar-el-operador-like-con-un-patron-que-contenga-ambos-comodines">Utilizar el operador LIKE con un patrón que contenga ambos comodines<a class="headerlink" href="#utilizar-el-operador-like-con-un-patron-que-contenga-ambos-comodines" title="Permanent link">¶</a></h2>
+<p>El siguiente ejemplo utiliza el operador <code>LIKE</code> con un patrón que contiene los comodines porcentaje ( <code>%</code>) y guión bajo (<code>_</code>):</p>
+<pre><code class="language-postgresql">SELECT 
+  first_name, 
+  last_name 
+FROM 
+  customer 
+WHERE 
+  first_name LIKE '_her%' 
+ORDER BY 
+  first_name;
+</code></pre>
+<p>Salida:</p>
+<pre><code> first_name | last_name
+------------+-----------
+ Cheryl     | Murphy
+ Sherri     | Rhodes
+ Sherry     | Marshall
+ Theresa    | Watson
+(4 rows)
+</code></pre>
+<p>El patrón <code>_her%</code> coincide con cualquier cadena que cumpla las siguientes condiciones:</p>
+<ul>
+<li>El primer carácter puede ser cualquier cosa.</li>
+<li>Los caracteres siguientes deben ser "ella".</li>
+<li>Puede haber cualquier número de caracteres (incluido cero) después de "ella".</li>
+</ul>
+<h2 id="ejemplos-de-not-like-en-postgresql">Ejemplos de NOT LIKE en PostgreSQL<a class="headerlink" href="#ejemplos-de-not-like-en-postgresql" title="Permanent link">¶</a></h2>
+<p>La siguiente consulta utiliza el operador <code>NOT LIKE</code> para encontrar clientes cuyo nombre no empiece por <code>Jen</code>:</p>
+<pre><code class="language-postgresql">SELECT 
+  first_name, 
+  last_name 
+FROM 
+  customer 
+WHERE 
+  first_name NOT LIKE 'Jen%' 
+ORDER BY 
+  first_name;
+</code></pre>
+<p>Salida:</p>
+<pre><code> first_name  |  last_name
+-------------+--------------
+ Aaron       | Selby
+ Adam        | Gooch
+ Adrian      | Clary
+ Agnes       | Bishop
+...
+</code></pre>
+<h1 id="extensiones-postgresql-del-operador-like">Extensiones PostgreSQL del operador LIKE<a class="headerlink" href="#extensiones-postgresql-del-operador-like" title="Permanent link">¶</a></h1>
+<p>El operador <code>ILIKE</code> de PostgreSQL, que es similar al operador <code>LIKE</code>, pero permite <strong>coincidencias insensibles a mayúsculas/minúsculas</strong>. Por ejemplo:</p>
+<pre><code class="language-postgresql">SELECT 
+  first_name, 
+  last_name 
+FROM 
+  customer 
+WHERE 
+  first_name ILIKE 'BAR%';
+</code></pre>
+<p>Salida:</p>
+<pre><code> first_name | last_name
+------------+-----------
+ Barbara    | Jones
+ Barry      | Lovelace
+(2 rows)
+</code></pre>
+<p>En este ejemplo, el patrón <code>BAR%</code> coincide con cualquier cadena que empiece por <code>BAR</code>, <code>Bar</code>, <code>BaR</code>, etc. Si utiliza el operador <code>LIKE</code> en su lugar, la consulta no devolverá ninguna fila:</p>
+<pre><code class="language-postgresql">SELECT 
+  first_name, 
+  last_name 
+FROM 
+  customer 
+WHERE 
+  first_name LIKE 'BAR%';
+</code></pre>
+<p>Salida:</p>
+<pre><code> first_name | last_name
+------------+-----------
+(0 rows)
+</code></pre>
+<p>PostgreSQL también proporciona algunos operadores que reflejan la funcionalidad de <code>LIKE</code>, <code>NOT LIKE</code>, <code>ILIKE</code>, <code>NOT ILIKE</code>, como se muestra en la siguiente tabla:</p>
 <table>
 <thead>
 <tr>
-<th>AND</th>
-<th>True</th>
-<th>False</th>
-<th>Null</th>
+<th>Operador</th>
+<th>Equivalente a</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>True</td>
-<td>True</td>
-<td>False</td>
-<td>Null</td>
+<td>~~</td>
+<td>LIKE</td>
 </tr>
 <tr>
-<td>False</td>
-<td>False</td>
-<td>False</td>
-<td>False</td>
+<td>~~*</td>
+<td>ILIKE</td>
 </tr>
 <tr>
-<td>Null</td>
-<td>Null</td>
-<td>False</td>
-<td>Null</td>
+<td>!~~</td>
+<td>NOT LIKE</td>
+</tr>
+<tr>
+<td>!~~*</td>
+<td>NOT ILIKE</td>
 </tr>
 </tbody>
 </table>
-<p>En la práctica, a menudo se utiliza el operador <code>AND</code> en una cláusula <code>WHERE</code> para garantizar que todas las expresiones especificadas deben ser verdaderas para que una fila se incluya en el conjunto de resultados.</p>
-<h1 id="operador-and-de-postgresql">Operador AND de PostgreSQL<a class="headerlink" href="#operador-and-de-postgresql" title="Permanent link">¶</a></h1>
-<p>Exploremos algunos ejemplos de uso del operador <code>AND</code>.</p>
-<h2 id="ejemplos-basicos-del-operador-and-en-postgresql">Ejemplos básicos del operador AND en PostgreSQL<a class="headerlink" href="#ejemplos-basicos-del-operador-and-en-postgresql" title="Permanent link">¶</a></h2>
-<p>El siguiente ejemplo utiliza el operador <code>AND</code> para combinar dos valores verdaderos, que devuelve true:</p>
-<pre><code class="language-postgresql">SELECT true AND true AS result;
-</code></pre>
-<p>Salida:</p>
-<pre><code> result
---------
- t
-(1 row)
-</code></pre>
-<p>La siguiente sentencia utiliza el operador <code>AND</code> para combinar verdadero con falso, lo que devuelve falso:</p>
-<pre><code class="language-postgresql">SELECT true AND false AS result;
-</code></pre>
-<p>Salida:</p>
-<pre><code> result
---------
- f
-(1 row)
-</code></pre>
-<p>El siguiente ejemplo utiliza el operador <code>AND</code> para combinar true con null, que devuelve null:</p>
-<pre><code class="language-postgresql">SELECT true AND null AS result;
-</code></pre>
-<p>Output:</p>
-<pre><code> result
---------
- null
-(1 row)Code language: SQL (Structured Query Language) (sql)
-</code></pre>
-<p>El siguiente ejemplo utiliza el operador <code>AND</code> para combinar false con false, lo que devuelve false:</p>
-<pre><code class="language-postgresql">SELECT false AND false AS result;
-</code></pre>
-<p>Salida:</p>
-<pre><code> result
---------
- f
-(1 row)
-</code></pre>
-<p>El siguiente ejemplo utiliza el operador <code>AND</code> para combinar false con null, lo que devuelve f:</p>
-<pre><code class="language-postgresql">SELECT false AND null AS result;
-</code></pre>
-<p>Salida:</p>
-<pre><code> result
---------
- f
-(1 row)
-</code></pre>
-<p>El siguiente ejemplo utiliza el operador <code>AND</code> para combinar false con false, lo que devuelve false:</p>
-<pre><code>SELECT false AND false AS result;
-</code></pre>
-<p>Salida:</p>
-<pre><code> result
---------
- f
-(1 row)
-</code></pre>
-<h2 id="uso-del-operador-and-en-la-clausula-where">Uso del operador AND en la cláusula WHERE<a class="headerlink" href="#uso-del-operador-and-en-la-clausula-where" title="Permanent link">¶</a></h2>
-<p>Utilizaremos la tabla <code>film</code> de la base de datos de ejemplo para la demostración:</p>
-<p><img alt="img" src="https://www.postgresqltutorial.com/wp-content/uploads/2019/05/film.png"/></p>
-<p>El siguiente ejemplo utiliza el operador <code>AND</code> en la cláusula <code>WHERE</code> para encontrar las películas que tienen una duración superior a 180 y un precio de alquiler inferior a 1:</p>
+<p>Por ejemplo, la siguiente sentencia utiliza el operador <code>~~</code> para buscar un cliente cuyo nombre empiece por la cadena <code>Dar</code>:</p>
 <pre><code class="language-postgresql">SELECT 
-  title, 
-  length, 
-  rental_rate 
+  first_name, 
+  last_name 
 FROM 
-  film 
+  customer 
 WHERE 
-  length &gt; 180 
-  AND rental_rate &lt; 1;
+  first_name ~~ 'Dar%' 
+ORDER BY 
+  first_name;
 </code></pre>
 <p>Salida:</p>
-<pre><code>       title        | length | rental_rate
---------------------+--------+-------------
- Catch Amistad      |    183 |        0.99
- Haunting Pianist   |    181 |        0.99
- Intrigue Worst     |    181 |        0.99
- Love Suicides      |    181 |        0.99
- Runaway Tenenbaums |    181 |        0.99
- Smoochy Control    |    184 |        0.99
- Sorority Queen     |    184 |        0.99
- Theory Mermaid     |    184 |        0.99
- Wild Apollo        |    181 |        0.99
- Young Language     |    183 |        0.99
-(10 rows)
+<pre><code> first_name | last_name
+------------+-----------
+ Darlene    | Rose
+ Darrell    | Power
+ Darren     | Windham
+ Darryl     | Ashcraft
+ Daryl      | Larue
+(5 rows)
 </code></pre>
+<h1 id="operador-like-de-postgresql-con-opcion-escape">Operador LIKE de PostgreSQL con opción ESCAPE<a class="headerlink" href="#operador-like-de-postgresql-con-opcion-escape" title="Permanent link">¶</a></h1>
+<p>A veces, los datos que desea comparar contienen los caracteres comodín <code>%</code> y <code>_</code>. Por ejemplo:</p>
+<pre><code>The rents are now 10% higher than last month
+The new film will have _ in the titleCode language: JavaScript (javascript)
+</code></pre>
+<p>Para indicar al operador <code>LIKE</code> que trate los caracteres comodín <code>%</code> y <code>_</code> como caracteres literales normales, puede utilizar la opción <code>ESCAPE</code> en el operador <code>LIKE</code>:</p>
+<pre><code class="language-postgresql">string LIKE pattern ESCAPE escape_character;
+</code></pre>
+<p>Vamos a <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-create-table/">crear una tabla simple</a> para demostración:</p>
+<pre><code class="language-postgresql">CREATE TABLE t(
+   message text
+);
+
+INSERT INTO t(message) 
+VALUES('The rents are now 10% higher than last month'), 
+      ('The new film will have _ in the title');
+
+SELECT message FROM t;
+</code></pre>
+<p>Ten en cuenta que aprenderás a <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-create-table/">crear una tabla</a> y a <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-insert-multiple-rows/">insertar datos en ella</a> en los próximos tutoriales.</p>
+<p>Salida:</p>
+<pre><code>                   message
+----------------------------------------------
+ The rents are now 10% higher than last month
+ The new film will have _ in the title
+(2 rows)Code language: JavaScript (javascript)
+</code></pre>
+<p>La siguiente sentencia utiliza el operador <code>LIKE</code> con la opción <code>ESCAPE</code> para tratar el <code>%</code> seguido del número <code>10</code> como un carácter regular:</p>
+<pre><code class="language-postgresql">SELECT * FROM t 
+WHERE message LIKE '%10$%%' ESCAPE '$';
+</code></pre>
+<p>Salida:</p>
+<pre><code>                   message
+----------------------------------------------
+ The rents are now 10% higher than last month
+(1 row)
+</code></pre>
+<p>En el patrón <code>%10$%%</code>, el primer y el último <code>%</code> son los caracteres comodín, mientras que el <code>%</code> que aparece después del carácter de escape <code>$</code> es un carácter regular.</p>
 <h1 id="resumen">Resumen<a class="headerlink" href="#resumen" title="Permanent link">¶</a></h1>
 <ul>
-<li>Utilice el operador <code>AND</code> para combinar varias expresiones lógicas.</li>
+<li>Utilice el operador <code>LIKE</code> para hacer coincidir datos por patrones.</li>
+<li>Utilice el operador <code>NOT LIKE</code> para negar el operador <code>LIKE</code>.</li>
+<li>Use el comodín <code>%</code> para coincidir con cero o más caracteres.</li>
+<li>Utilice el comodín <code>_</code> para buscar un único carácter.</li>
+<li>Utilice la opción <code>ESCAPE</code> para especificar el carácter de escape.</li>
+<li>Utilice el operador <code>ILIKE</code> para distinguir entre mayúsculas y minúsculas.</li>
 </ul>
 </article>
 </div>

@@ -5,11 +5,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="../09.-LIKE/" rel="prev"/>
-<link href="../../dvdrental.tar" rel="next"/>
+<link href="../05.-FETCH/" rel="prev"/>
+<link href="../07.-BETWEEN/" rel="next"/>
 <link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.4.9" name="generator"/>
-<title>10.-IS NULL - ASGBD</title>
+<title>06.-IN - ASGBD</title>
 <link href="../../../assets/stylesheets/main.78cf6014.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,7 +23,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#operador-is-null">
+<a class="md-skip" href="#ejemplos-del-operador-in">
           Saltar a contenido
         </a>
 </div>
@@ -47,7 +47,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              10.-IS NULL
+              06.-IN
             
           </span>
 </div>
@@ -521,16 +521,16 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../02.-Operador%20AND/">
+<a class="md-nav__link" href="../02.-AND/">
 <span class="md-ellipsis">
-    02.-Operador AND
+    02.-AND
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../03.-Operador%20OR/">
+<a class="md-nav__link" href="../03.-OR/">
 <span class="md-ellipsis">
-    03.-Operador OR
+    03.-OR
   </span>
 </a>
 </li>
@@ -542,45 +542,73 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../05.-.Operador%20IN/">
+<a class="md-nav__link" href="../05.-FETCH/">
 <span class="md-ellipsis">
-    05.-.Operador IN
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../06.-FETCH/">
-<span class="md-ellipsis">
-    06.-FETCH
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../07.-IN/">
-<span class="md-ellipsis">
-    07.-IN
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../08.-BETWEEN/">
-<span class="md-ellipsis">
-    08.-BETWEEN
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../09.-LIKE/">
-<span class="md-ellipsis">
-    09.-LIKE
+    05.-FETCH
   </span>
 </a>
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    06.-IN
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
-    10.-IS NULL
+    06.-IN
+  </span>
+</a>
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#uso-del-operador-in-de-postgresql-con-una-lista-de-numeros">
+<span class="md-ellipsis">
+      Uso del operador IN de PostgreSQL con una lista de números
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#uso-del-operador-in-de-postgresql-con-una-lista-de-cadenas">
+<span class="md-ellipsis">
+      Uso del operador IN de PostgreSQL con una lista de cadenas
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#uso-del-operador-in-de-postgresql-con-una-lista-de-fechas">
+<span class="md-ellipsis">
+      Uso del operador IN de PostgreSQL con una lista de fechas
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../07.-BETWEEN/">
+<span class="md-ellipsis">
+    07.-BETWEEN
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../08.-LIKE/">
+<span class="md-ellipsis">
+    08.-LIKE
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../09.-IS%20NULL/">
+<span class="md-ellipsis">
+    09.-IS NULL
   </span>
 </a>
 </li>
@@ -606,82 +634,183 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#uso-del-operador-in-de-postgresql-con-una-lista-de-numeros">
+<span class="md-ellipsis">
+      Uso del operador IN de PostgreSQL con una lista de números
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#uso-del-operador-in-de-postgresql-con-una-lista-de-cadenas">
+<span class="md-ellipsis">
+      Uso del operador IN de PostgreSQL con una lista de cadenas
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#uso-del-operador-in-de-postgresql-con-una-lista-de-fechas">
+<span class="md-ellipsis">
+      Uso del operador IN de PostgreSQL con una lista de fechas
+    </span>
+</a>
+</li>
+</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<p>En el mundo de las bases de datos, NULL significa que falta información o que no es aplicable. NULL no es un valor, por lo tanto, no se puede comparar con otros valores como números o cadenas.</p>
-<p>La comparación de NULL con un valor siempre dará como resultado NULL. Además, NULL no es igual a NULL por lo que la siguiente expresión devuelve NULL:</p>
-<pre><code class="language-postgresql">SELECT null = null AS result;
+<p>El operador <code>IN</code> permite verificar si un valor coincide con algún otro en una lista de valores.</p>
+<p>Aquí está la sintaxis básica del operador "IN":</p>
+<pre><code class="language-postgresql">valor IN (valor1,valor2,...)
+</code></pre>
+<p>El operador "IN" devuelve verdadero si el "valor" es igual a cualquier valor de la lista, como "valor1" y "valor2".</p>
+<p>La lista de valores puede ser una lista de valores literales que incluyen números y cadenas.</p>
+<p>Además de los valores literales, el operador "IN" también acepta una lista de valores devueltos por una consulta. </p>
+<p>Funcionalmente, el operador <code>IN</code> equivale a combinar múltiples expresiones booleanas con los operadores OR:</p>
+<pre><code class="language-postgresql">valor = valor1 OR valor = valor2 OR ...
+</code></pre>
+<h1 id="ejemplos-del-operador-in">Ejemplos del operador IN<a class="headerlink" href="#ejemplos-del-operador-in" title="Permanent link">¶</a></h1>
+<p>Usaremos la tabla <code>film</code> de la base de datos de muestra:</p>
+<p><img alt="img" src="https://www.postgresqltutorial.com/wp-content/uploads/2019/05/film.png"/></p>
+<h2 id="uso-del-operador-in-de-postgresql-con-una-lista-de-numeros">Uso del operador IN de PostgreSQL con una lista de números<a class="headerlink" href="#uso-del-operador-in-de-postgresql-con-una-lista-de-numeros" title="Permanent link">¶</a></h2>
+<p>El siguiente ejemplo utiliza el operador <code>IN</code> para recuperar información sobre la película con id 1, 2 y 3:</p>
+<pre><code class="language-postgresql">SELECT
+  film_id, 
+  title 
+FROM
+  film 
+WHERE
+  film_id in (1, 2, 3);Code language: SQL (Structured Query Language) (sql)
 </code></pre>
 <p>Salida:</p>
-<pre><code> result
---------
- null
-(1 row)Code language: JavaScript (javascript)
+<pre><code> film_id |      title
+---------+------------------
+       1 | Academy Dinosaur
+       2 | Ace Goldfinger
+       3 | Adaptation Holes
+(3 rows)
 </code></pre>
-<h1 id="operador-is-null">Operador IS NULL<a class="headerlink" href="#operador-is-null" title="Permanent link">¶</a></h1>
-<p>Para comprobar si un valor es NULL o no, no se pueden utilizar los operadores igual a (<code>=</code>) o no igual a (<code>&lt;&gt;</code>). En su lugar, se utiliza el operador <code>IS NULL</code>.</p>
-<p>Esta es la sintaxis básica del operador <code>IS NULL</code>:</p>
-<pre><code class="language-postgresql">value IS NULL
-</code></pre>
-<p>El operador <code>IS NULL</code> devuelve NULL si el valor es NULL o false en caso contrario.</p>
-<p>Para negar el operador <code>IS NULL</code>, se utiliza el operador <code>IS NOT NULL</code>:</p>
-<pre><code class="language-postgresql">value IS NOT NULL
-</code></pre>
-<p>El operador <code>IS NOT NULL</code> devuelve verdadero si el valor no es nulo o falso en caso contrario.</p>
-<p>Para tratar con NULL en la ordenación, consulte el tutorial ORDER BY).</p>
-<p>PostgreSQL ofrece algunas funciones que tratan con NULL incluyendo NULLIF, ISNULL, y COALESCE.</p>
-<p>Para asegurar una columna que no contiene NULL, puede utilizar la restricción NOT NULL.</p>
-<h1 id="ejemplos-del-operador-is-null-de-postgresql">Ejemplos del operador IS NULL de PostgreSQL<a class="headerlink" href="#ejemplos-del-operador-is-null-de-postgresql" title="Permanent link">¶</a></h1>
-<p>Utilizaremos la tabla <code>address</code> de la base de datos de ejemplo:</p>
-<p><img alt="address table" src="https://www.postgresqltutorial.com/wp-content/uploads/2018/12/address.png"/></p>
-<p>El <code>psql</code> muestra <code>NULL</code> como una cadena vacía por defecto. Para cambiar la forma en que <code>psql</code> muestra el null en la terminal, puede utilizar el comando <code>\pset null null</code>. Mostrará NULL como null.</p>
-<h2 id="ejemplo-basico-del-operador-is-null">Ejemplo básico del operador IS NULL<a class="headerlink" href="#ejemplo-basico-del-operador-is-null" title="Permanent link">¶</a></h2>
-<p>El siguiente ejemplo utiliza el operador <code>IS NULL</code> para encontrar las direcciones de la tabla <code>address</code> que la columna <code>address2</code> contiene <code>NULL</code>:</p>
+<p>La siguiente sentencia utiliza los operadores igual (<code>=</code>) y <code>OR</code> en lugar del operador <code>IN</code>, lo que equivale a la consulta anterior:</p>
 <pre><code class="language-postgresql">SELECT 
-  address, 
-  address2 
+  film_id, 
+  title 
 FROM 
-  address 
+  film 
 WHERE 
-  address2 IS NULL;
+  film_id = 1 
+  OR film_id = 2 
+  OR film_id = 3;
 </code></pre>
-<p>Salida:</p>
-<pre><code>       address        | address2
-----------------------+----------
- 47 MySakila Drive    | null
- 28 MySQL Boulevard   | null
- 23 Workhaven Lane    | null
- 1411 Lillydale Drive | null
-(4 rows)Code language: JavaScript (javascript)
-</code></pre>
-<h2 id="ejemplo-de-uso-del-operador-is-not-null">Ejemplo de uso del operador IS NOT NULL<a class="headerlink" href="#ejemplo-de-uso-del-operador-is-not-null" title="Permanent link">¶</a></h2>
-<p>El siguiente ejemplo utiliza el operador <code>IS NOT NULL</code> para recuperar la dirección que tiene la dirección2 no nula:</p>
+<p>La consulta que utiliza el operador <code>IN</code> es más corta y más legible que la consulta que utiliza operadores iguales (<code>=</code>) y <code>OR</code>.</p>
+<p>Además, PostgreSQL ejecuta la consulta con el operador <code>IN</code> mucho más rápido que la misma consulta que utiliza una lista de operadores <code>OR</code>.</p>
+<h2 id="uso-del-operador-in-de-postgresql-con-una-lista-de-cadenas">Uso del operador IN de PostgreSQL con una lista de cadenas<a class="headerlink" href="#uso-del-operador-in-de-postgresql-con-una-lista-de-cadenas" title="Permanent link">¶</a></h2>
+<p>Utilizaremos la tabla <code>actor</code> de la base de datos de ejemplo:</p>
+<p><img alt="img" src="https://www.postgresqltutorial.com/wp-content/uploads/2019/05/actor.png"/></p>
+<p>El siguiente ejemplo utiliza el operador <code>IN</code> para encontrar los actores que tienen el apellido en la lista <code>'Allen'</code>, <code>'Chase'</code> y <code>'Davis'</code>:</p>
 <pre><code class="language-postgresql">SELECT 
-  address, 
-  address2 
+  first_name, 
+  last_name
 FROM 
-  address 
+  actor 
 WHERE 
-  address2 IS NOT NULL;
+  last_name IN ('Allen', 'Chase', 'Davis') 
+ORDER BY 
+  last_name;
 </code></pre>
 <p>Salida:</p>
-<pre><code>                address                 | address2
-----------------------------------------+----------
- 1913 Hanoi Way                         |
- 1121 Loja Avenue                       |
- 692 Joliet Street                      |
- 1566 Inegl Manor                       |
+<pre><code> first_name | last_name
+------------+-----------
+ Meryl      | Allen
+ Cuba       | Allen
+ Kim        | Allen
+ Jon        | Chase
+ Ed         | Chase
+ Susan      | Davis
+ Jennifer   | Davis
+ Susan      | Davis
+(8 rows)
 </code></pre>
-<p>Fíjate en que la <code>dirección2</code> está vacía, no es NULL. Este es un buen ejemplo de una <strong>mala práctica</strong> cuando se trata de almacenar cadenas vacías y NULL en la misma columna.</p>
-<p>Para arreglarlo, puedes usar la sentencia <code>UPDATE</code> para cambiar las cadenas vacías a NULL en la columna <code>address2</code>, lo cual aprenderás en el tutorial UPDATE.</p>
+<h2 id="uso-del-operador-in-de-postgresql-con-una-lista-de-fechas">Uso del operador IN de PostgreSQL con una lista de fechas<a class="headerlink" href="#uso-del-operador-in-de-postgresql-con-una-lista-de-fechas" title="Permanent link">¶</a></h2>
+<p>La siguiente sentencia utiliza el operador IN para encontrar pagos cuyas fechas de pago se encuentren en una lista de fechas: <code>2007-02-15</code> y <code>2007-02-16</code>:</p>
+<pre><code class="language-postgresql">SELECT 
+  payment_id, 
+  amount, 
+  payment_date 
+FROM 
+  payment 
+WHERE 
+  payment_date::date IN ('2007-02-15', '2007-02-16');
+</code></pre>
+<p>Salida:</p>
+<pre><code>payment_id | amount |        payment_date
+------------+--------+----------------------------
+      17503 |   7.99 | 2007-02-15 22:25:46.996577
+      17504 |   1.99 | 2007-02-16 17:23:14.996577
+      17505 |   7.99 | 2007-02-16 22:41:45.996577
+      17512 |   4.99 | 2007-02-16 00:10:50.996577
+...
+</code></pre>
+<p>En este ejemplo, la columna <code>payment_date</code> tiene el tipo <code>timestamp</code> que consta de partes de fecha y hora.</p>
+<p>Para hacer coincidir los valores de la columna <code>payment_date</code> con una lista de fechas, debe convertirlos en valores de fecha que sólo contengan la parte de fecha.</p>
+<p>Para ello, utilice el operador cast <code>::</code></p>
+<pre><code>payment_date::date
+</code></pre>
+<p>Por ejemplo, si el valor del timestamp es <code>2007-02-15 22:25:46.996577</code>, el operador cast <code>::</code> lo convertirá a <code>2007-02-15</code>.</p>
+<h1 id="operador-not-in-de-postgresql">Operador NOT IN de PostgreSQL<a class="headerlink" href="#operador-not-in-de-postgresql" title="Permanent link">¶</a></h1>
+<p>Para negar el operador <code>IN</code>, se utiliza el operador <code>NOT IN</code>. Esta es la sintaxis básica del operador <code>NOT IN</code>:</p>
+<pre><code>value NOT IN (value1, value2, ...)Code language: SQL (Structured Query Language) (sql)
+</code></pre>
+<p>El operador <code>NOT IN</code> devuelve <code>true</code> si el <code>value</code> no es igual a ningún valor de la lista como <code>value1</code> y <code>value2</code>; en caso contrario, el operador <code>NOT IN</code> devuelve <code>false</code>.</p>
+<p>El operador <code>NOT IN</code> equivale a una combinación de varias expresiones booleanas con los operadores AND:</p>
+<pre><code class="language-postgresql">value &lt;&gt; value1 AND value &lt;&gt; value2 AND ...
+</code></pre>
+<h2 id="ejemplo-de-operador-not-in-de-postgresql">Ejemplo de operador NOT IN de PostgreSQL<a class="headerlink" href="#ejemplo-de-operador-not-in-de-postgresql" title="Permanent link">¶</a></h2>
+<p>El siguiente ejemplo utiliza el operador <code>NOT IN</code> para recuperar películas cuyo id no sea 1, 2 o 3:</p>
+<pre><code class="language-postgresql">SELECT 
+  film_id, 
+  title 
+FROM 
+  film 
+WHERE 
+  film_id NOT IN (1, 2, 3) 
+ORDER BY 
+  film_id;
+</code></pre>
+<p>Salida:</p>
+<pre><code> film_id |            title
+---------+-----------------------------
+       4 | Affair Prejudice
+       5 | African Egg
+       6 | Agent Truman
+       7 | Airplane Sierra
+       8 | Airport Pollock
+...
+</code></pre>
+<p>La siguiente consulta recupera el mismo conjunto de datos pero utiliza los operadores no igual (<code>&lt;&gt;</code>) y <code>AND</code>:</p>
+<pre><code class="language-postgresql">SELECT 
+  film_id, 
+  title 
+FROM 
+  film 
+WHERE 
+  film_id &lt;&gt; 1 
+  AND film_id &lt;&gt; 2 
+  AND film_id &lt;&gt; 3 
+ORDER BY 
+  film_id;
+</code></pre>
 <h1 id="resumen">Resumen<a class="headerlink" href="#resumen" title="Permanent link">¶</a></h1>
 <ul>
-<li>En bases de datos, NULL significa información faltante o no aplicable.</li>
-<li>Utilice el operador <code>IS NULL</code> para comprobar si un valor es NULL o no.</li>
+<li>Utilice el operador <code>IN</code> para comprobar si un valor coincide con cualquier valor de una lista de valores.</li>
+<li>Utilice el operador <code>NOT</code> para negar el operador <code>IN</code>. </li>
 </ul>
 </article>
 </div>
