@@ -5,11 +5,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="../02.-Fundamentos%20arquitect%C3%B3nicos/" rel="prev"/>
-<link href="../04.-Accediendo%20a%20una%20base%20de%20datos/" rel="next"/>
+<link href="../05.-SELF%20JOIN/" rel="prev"/>
+<link href="../07.-CROSS%20JOIN/" rel="next"/>
 <link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.4.9" name="generator"/>
-<title>03.-Creando una Base de Datos - ASGBD</title>
+<title>06.-FULL OUTER JOIN - ASGBD</title>
 <link href="../../../assets/stylesheets/main.78cf6014.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,6 +23,9 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
+<a class="md-skip" href="#como-funciona-el-full-outer-join">
+          Saltar a contenido
+        </a>
 </div>
 <div data-md-component="announce">
 </div>
@@ -44,7 +47,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              03.-Creando una Base de Datos
+              06.-FULL OUTER JOIN
             
           </span>
 </div>
@@ -116,8 +119,8 @@
 
         </a>
 </li>
-<li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="../../">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../01.-Tutorial/">
           
   
     
@@ -126,8 +129,8 @@
 
         </a>
 </li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../../02.-Tutorial%20Avanzado/00.-Base%20de%20datos%20PostgreSQL%20de%20ejemplo/">
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../../00.-Base%20de%20datos%20PostgreSQL%20de%20ejemplo/">
           
   
     
@@ -218,10 +221,10 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../">
+<a class="md-nav__link" href="../../../01.-Tutorial/">
 <span class="md-ellipsis">
     01.-Tutorial
   </span>
@@ -230,50 +233,49 @@
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_3">
 <span class="md-nav__icon md-icon"></span>
             01.-Tutorial
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_3_2" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2" type="checkbox"/>
 <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
 <span class="md-ellipsis">
     01.-Cómo empezar
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="true" aria-labelledby="__nav_3_2_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_3_2">
 <span class="md-nav__icon md-icon"></span>
             01.-Cómo empezar
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../01.-Instalaci%C3%B3n/">
+<a class="md-nav__link" href="../../../01.-Tutorial/01.-C%C3%B3mo%20empezar/01.-Instalaci%C3%B3n/">
 <span class="md-ellipsis">
     01.-Instalación
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../02.-Fundamentos%20arquitect%C3%B3nicos/">
+<a class="md-nav__link" href="../../../01.-Tutorial/01.-C%C3%B3mo%20empezar/02.-Fundamentos%20arquitect%C3%B3nicos/">
 <span class="md-ellipsis">
     02.-Fundamentos arquitectónicos
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/01.-C%C3%B3mo%20empezar/03.-Creando%20una%20Base%20de%20Datos/">
 <span class="md-ellipsis">
     03.-Creando una Base de Datos
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../04.-Accediendo%20a%20una%20base%20de%20datos/">
+<a class="md-nav__link" href="../../../01.-Tutorial/01.-C%C3%B3mo%20empezar/04.-Accediendo%20a%20una%20base%20de%20datos/">
 <span class="md-ellipsis">
     04.-Accediendo a una base de datos
   </span>
@@ -297,63 +299,63 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../02.-El%20lenguaje%20SQL/01.-Introducci%C3%B3n/">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/01.-Introducci%C3%B3n/">
 <span class="md-ellipsis">
     01.-Introducción
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../02.-El%20lenguaje%20SQL/02.-Conceptos/">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/02.-Conceptos/">
 <span class="md-ellipsis">
     02.-Conceptos
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../02.-El%20lenguaje%20SQL/03.-Creando%20una%20nueva%20tabla/">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/03.-Creando%20una%20nueva%20tabla/">
 <span class="md-ellipsis">
     03.-Creando una nueva tabla
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../02.-El%20lenguaje%20SQL/04.-Cargando%20una%20tabla%20con%20filas/">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/04.-Cargando%20una%20tabla%20con%20filas/">
 <span class="md-ellipsis">
     04.-Cargando una tabla con filas
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../02.-El%20lenguaje%20SQL/05.-Consulta%20de%20tablas/">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/05.-Consulta%20de%20tablas/">
 <span class="md-ellipsis">
     05.-Consulta de tablas
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../02.-El%20lenguaje%20SQL/06.-Uniones%20de%20tablas/">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/06.-Uniones%20de%20tablas/">
 <span class="md-ellipsis">
     06.-Uniones de tablas
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../02.-El%20lenguaje%20SQL/07.-Funciones%20agregadas/">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/07.-Funciones%20agregadas/">
 <span class="md-ellipsis">
     07.-Funciones agregadas
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../02.-El%20lenguaje%20SQL/08.-Actualizaciones/">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/08.-Actualizaciones/">
 <span class="md-ellipsis">
     08.-Actualizaciones
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../02.-El%20lenguaje%20SQL/09.-Borrados/">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/09.-Borrados/">
 <span class="md-ellipsis">
     09.-Borrados
   </span>
@@ -377,49 +379,49 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../03.-Caracter%C3%ADsticas%20avanzadas/01.-Introducci%C3%B3n/">
+<a class="md-nav__link" href="../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/01.-Introducci%C3%B3n/">
 <span class="md-ellipsis">
     01.-Introducción
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../03.-Caracter%C3%ADsticas%20avanzadas/02.-Vistas/">
+<a class="md-nav__link" href="../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/02.-Vistas/">
 <span class="md-ellipsis">
     02.-Vistas
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../03.-Caracter%C3%ADsticas%20avanzadas/03.-Claves%20for%C3%A1neas/">
+<a class="md-nav__link" href="../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/03.-Claves%20for%C3%A1neas/">
 <span class="md-ellipsis">
     03.-Claves foráneas
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../03.-Caracter%C3%ADsticas%20avanzadas/04.-Transacciones/">
+<a class="md-nav__link" href="../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/04.-Transacciones/">
 <span class="md-ellipsis">
     04.-Transacciones
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../03.-Caracter%C3%ADsticas%20avanzadas/05.-Funciones%20de%20ventanas/">
+<a class="md-nav__link" href="../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/05.-Funciones%20de%20ventanas/">
 <span class="md-ellipsis">
     05.-Funciones de ventanas
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../03.-Caracter%C3%ADsticas%20avanzadas/06.-Herencia/">
+<a class="md-nav__link" href="../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/06.-Herencia/">
 <span class="md-ellipsis">
     06.-Herencia
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../03.-Caracter%C3%ADsticas%20avanzadas/07.-Conclusi%C3%B3n/">
+<a class="md-nav__link" href="../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/07.-Conclusi%C3%B3n/">
 <span class="md-ellipsis">
     07.-Conclusión
   </span>
@@ -431,22 +433,22 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
 <span class="md-ellipsis">
     02.-Tutorial Avanzado
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
             02.-Tutorial Avanzado
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../02.-Tutorial%20Avanzado/00.-Base%20de%20datos%20PostgreSQL%20de%20ejemplo/">
+<a class="md-nav__link" href="../../00.-Base%20de%20datos%20PostgreSQL%20de%20ejemplo/">
 <span class="md-ellipsis">
     00.-Base de datos PostgreSQL de ejemplo
   </span>
@@ -467,28 +469,28 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../02.-Tutorial%20Avanzado/01.-Consultas/01.-SELECT/">
+<a class="md-nav__link" href="../../01.-Consultas/01.-SELECT/">
 <span class="md-ellipsis">
     01.-SELECT
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../02.-Tutorial%20Avanzado/01.-Consultas/02.-Alias%20de%20columnas/">
+<a class="md-nav__link" href="../../01.-Consultas/02.-Alias%20de%20columnas/">
 <span class="md-ellipsis">
     02.-Alias de columnas
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../02.-Tutorial%20Avanzado/01.-Consultas/03.-ORDER%20BY/">
+<a class="md-nav__link" href="../../01.-Consultas/03.-ORDER%20BY/">
 <span class="md-ellipsis">
     03.-ORDER BY
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../02.-Tutorial%20Avanzado/01.-Consultas/04.-SELECT%20DISTINCT/">
+<a class="md-nav__link" href="../../01.-Consultas/04.-SELECT%20DISTINCT/">
 <span class="md-ellipsis">
     04.-SELECT DISTINCT
   </span>
@@ -512,63 +514,63 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../02.-Tutorial%20Avanzado/02.-Filtrado%20de%20datos/01.-WHERE/">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/01.-WHERE/">
 <span class="md-ellipsis">
     01.-WHERE
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../02.-Tutorial%20Avanzado/02.-Filtrado%20de%20datos/02.-AND/">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/02.-AND/">
 <span class="md-ellipsis">
     02.-AND
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../02.-Tutorial%20Avanzado/02.-Filtrado%20de%20datos/03.-OR/">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/03.-OR/">
 <span class="md-ellipsis">
     03.-OR
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../02.-Tutorial%20Avanzado/02.-Filtrado%20de%20datos/04.-LIMIT/">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/04.-LIMIT/">
 <span class="md-ellipsis">
     04.-LIMIT
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../02.-Tutorial%20Avanzado/02.-Filtrado%20de%20datos/05.-FETCH/">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/05.-FETCH/">
 <span class="md-ellipsis">
     05.-FETCH
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../02.-Tutorial%20Avanzado/02.-Filtrado%20de%20datos/06.-IN/">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/06.-IN/">
 <span class="md-ellipsis">
     06.-IN
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../02.-Tutorial%20Avanzado/02.-Filtrado%20de%20datos/07.-BETWEEN/">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/07.-BETWEEN/">
 <span class="md-ellipsis">
     07.-BETWEEN
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../02.-Tutorial%20Avanzado/02.-Filtrado%20de%20datos/08.-LIKE/">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/08.-LIKE/">
 <span class="md-ellipsis">
     08.-LIKE
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../02.-Tutorial%20Avanzado/02.-Filtrado%20de%20datos/09.-IS%20NULL/">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/09.-IS%20NULL/">
 <span class="md-ellipsis">
     09.-IS NULL
   </span>
@@ -577,71 +579,114 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4_4" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4_4" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
 <span class="md-ellipsis">
     03.-Uniendo múltiples tablas
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_4_4_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="true" aria-labelledby="__nav_4_4_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_4">
 <span class="md-nav__icon md-icon"></span>
             03.-Uniendo múltiples tablas
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../02.-Tutorial%20Avanzado/03.-Uniendo%20m%C3%BAltiples%20tablas/01.-Joins/">
+<a class="md-nav__link" href="../01.-Joins/">
 <span class="md-ellipsis">
     01.-Joins
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../02.-Tutorial%20Avanzado/03.-Uniendo%20m%C3%BAltiples%20tablas/02.-Alias%20de%20tablas/">
+<a class="md-nav__link" href="../02.-Alias%20de%20tablas/">
 <span class="md-ellipsis">
     02.-Alias de tablas
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../02.-Tutorial%20Avanzado/03.-Uniendo%20m%C3%BAltiples%20tablas/03.-INNER%20JOIN/">
+<a class="md-nav__link" href="../03.-INNER%20JOIN/">
 <span class="md-ellipsis">
     03.-INNER JOIN
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../02.-Tutorial%20Avanzado/03.-Uniendo%20m%C3%BAltiples%20tablas/04.-LEFT%20JOIN/">
+<a class="md-nav__link" href="../04.-LEFT%20JOIN/">
 <span class="md-ellipsis">
     04.-LEFT JOIN
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../02.-Tutorial%20Avanzado/03.-Uniendo%20m%C3%BAltiples%20tablas/05.-SELF%20JOIN/">
+<a class="md-nav__link" href="../05.-SELF%20JOIN/">
 <span class="md-ellipsis">
     05.-SELF JOIN
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../02.-Tutorial%20Avanzado/03.-Uniendo%20m%C3%BAltiples%20tablas/06.-FULL%20OUTER%20JOIN/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    06.-FULL OUTER JOIN
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     06.-FULL OUTER JOIN
   </span>
 </a>
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#paso-1-inicializar-el-conjunto-de-resultados">
+<span class="md-ellipsis">
+      Paso 1. Inicializar el conjunto de resultados:
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../02.-Tutorial%20Avanzado/03.-Uniendo%20m%C3%BAltiples%20tablas/07.-CROSS%20JOIN/">
+<a class="md-nav__link" href="#paso-2-coincidencia-de-filas">
+<span class="md-ellipsis">
+      Paso 2. Coincidencia de filas:
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#paso-3-incluir-filas-no-coincidentes-de-la-tabla1-y-la-tabla2">
+<span class="md-ellipsis">
+      Paso 3. Incluir filas no coincidentes de la tabla1 y la tabla2:
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#paso-4-devolver-el-conjunto-de-resultados">
+<span class="md-ellipsis">
+      Paso 4. Devolver el conjunto de resultados:
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../07.-CROSS%20JOIN/">
 <span class="md-ellipsis">
     07.-CROSS JOIN
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../02.-Tutorial%20Avanzado/03.-Uniendo%20m%C3%BAltiples%20tablas/08.-NATURAL%20JOIN/">
+<a class="md-nav__link" href="../08.-NATURAL%20JOIN/">
 <span class="md-ellipsis">
     08.-NATURAL JOIN
   </span>
@@ -651,7 +696,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../02.-Tutorial%20Avanzado/dvdrental.tar">
+<a class="md-nav__link" href="../../dvdrental.tar">
 <span class="md-ellipsis">
     dvdrental
   </span>
@@ -669,51 +714,209 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#paso-1-inicializar-el-conjunto-de-resultados">
+<span class="md-ellipsis">
+      Paso 1. Inicializar el conjunto de resultados:
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#paso-2-coincidencia-de-filas">
+<span class="md-ellipsis">
+      Paso 2. Coincidencia de filas:
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#paso-3-incluir-filas-no-coincidentes-de-la-tabla1-y-la-tabla2">
+<span class="md-ellipsis">
+      Paso 3. Incluir filas no coincidentes de la tabla1 y la tabla2:
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#paso-4-devolver-el-conjunto-de-resultados">
+<span class="md-ellipsis">
+      Paso 4. Devolver el conjunto de resultados:
+    </span>
+</a>
+</li>
+</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1>03.-Creando una Base de Datos</h1>
-<p>La primera prueba para ver si puede acceder al servidor de base de datos es tratar de crear una base de datos. Un servidor PostgreSQL en ejecución puede administrar muchas bases de datos. Normalmente, se utiliza una base de datos separada para cada proyecto o para cada usuario.</p>
-<p>Posiblemente, el administrador de tu sitio ya ha creado una base de datos para nuestro uso. En ese caso puedes omitir este paso y saltar a la siguiente sección.</p>
-<p>Para crear una nueva base de datos, en este ejemplo nombrada <code>mydb</code>, se utiliza el siguiente comando:</p>
-<pre><code class="language-bash">$ createdb mydb
+<p>El <code>FULL OUTER JOIN</code> combina datos de dos tablas y devuelve todas las filas de ambas tablas, incluidas las filas coincidentes y no coincidentes de ambos lados.</p>
+<p>En otras palabras, el <code>FULL OUTER JOIN</code> combina los resultados del <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-left-join/">left join</a> y del <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-right-join/">right join</a>.</p>
+<p>Esta es la sintaxis básica de la cláusula <code>FULL OUTER JOIN</code>:</p>
+<pre><code class="language-postgresql">SELECT select_list
+FROM table1
+FULL OUTER JOIN table2 
+   ON table1.column_name = table2.column_name;
 </code></pre>
-<p>Si esto no produce respuesta, este paso fue exitoso y se puede saltar el resto de esta sección.</p>
-<p>Si ves un mensaje similar a:</p>
-<pre><code>createdb: comando no encontrado
+<p>En esta sintaxis:</p>
+<ul>
+<li>Primero, especifique las columnas de <code>table1</code> y <code>table2</code> en la <code>select_list</code>.</li>
+<li>En segundo lugar, especifique la <code>table1</code> que desea recuperar los datos en la cláusula <code>FROM</code>.</li>
+<li>En tercer lugar, especifique la <code>table2</code> que desea unir con la <code>table1</code> en la cláusula <code>FULL OUTER JOIN</code>.</li>
+<li>Por último, defina una condición para unir dos tablas.</li>
+</ul>
+<p>El <code>FULL OUTER JOIN</code> también se conoce como <code>FULL JOIN</code>. La palabra clave <code>OUTER</code> es opcional.</p>
+<h1 id="como-funciona-el-full-outer-join">Cómo funciona el FULL OUTER JOIN<a class="headerlink" href="#como-funciona-el-full-outer-join" title="Permanent link">¶</a></h1>
+<h5 id="paso-1-inicializar-el-conjunto-de-resultados"><strong>Paso 1. Inicializar el conjunto de resultados:</strong><a class="headerlink" href="#paso-1-inicializar-el-conjunto-de-resultados" title="Permanent link">¶</a></h5>
+<ul>
+<li>El <code>FULL OUTER JOIN</code> comienza con un resultado vacío.</li>
+</ul>
+<h5 id="paso-2-coincidencia-de-filas"><strong>Paso 2. Coincidencia de filas:</strong><a class="headerlink" href="#paso-2-coincidencia-de-filas" title="Permanent link">¶</a></h5>
+<ul>
+<li>En primer lugar, identifique las filas de la <code>tabla1</code> y la <code>tabla2</code> en las que coincidan los valores del <code>nombre_columna</code> especificado.</li>
+<li>A continuación, incluya estas filas coincidentes en el conjunto de resultados.</li>
+</ul>
+<h5 id="paso-3-incluir-filas-no-coincidentes-de-la-tabla1-y-la-tabla2"><strong>Paso 3. Incluir filas no coincidentes de la <code>tabla1</code> y la <code>tabla2</code>:</strong><a class="headerlink" href="#paso-3-incluir-filas-no-coincidentes-de-la-tabla1-y-la-tabla2" title="Permanent link">¶</a></h5>
+<ul>
+<li>En primer lugar, incluya las filas de la <code>tabla1</code> que no coincidan con las de la <code>tabla2</code>. Para las columnas de la <code>tabla2</code> en estas filas, incluya NULLs.</li>
+<li>En segundo lugar, incluya las filas de la <code>tabla2</code> que no coincidan con las de la <code>tabla1</code>. Para las columnas de la <code>tabla1</code> en estas filas, incluya NULLs.</li>
+</ul>
+<h5 id="paso-4-devolver-el-conjunto-de-resultados"><strong>Paso 4. Devolver el conjunto de resultados:</strong><a class="headerlink" href="#paso-4-devolver-el-conjunto-de-resultados" title="Permanent link">¶</a></h5>
+<ul>
+<li>Devuelve el conjunto de resultados final que contendrá todas las filas de ambas tablas, con filas coincidentes y no coincidentes tanto de <code>table1</code> como de <code>table2</code>.</li>
+<li>Si una fila tiene una coincidencia en ambos lados, combina los valores en una sola fila.</li>
+<li>Si no hay ninguna coincidencia en uno de los lados, las columnas del lado no coincidente tendrán valores NULL.</li>
+</ul>
+<p>El siguiente diagrama de Venn ilustra la operación <code>FULL OUTER JOIN</code>.</p>
+<p><img alt="PostgreSQL Join - Full Outer Join" src="https://www.postgresqltutorial.com/wp-content/uploads/2018/12/PostgreSQL-Join-Full-Outer-Join.png"/></p>
+<h1 id="configurar-tablas-de-ejemplo">Configurar tablas de ejemplo<a class="headerlink" href="#configurar-tablas-de-ejemplo" title="Permanent link">¶</a></h1>
+<p>Primero, <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-create-table/">cree dos nuevas tablas</a> para la demostración: <code>employees</code> y <code>departments</code>:</p>
+<pre><code class="language-postgresql">CREATE TABLE departments (
+  department_id serial PRIMARY KEY, 
+  department_name VARCHAR (255) NOT NULL
+);
+CREATE TABLE employees (
+  employee_id serial PRIMARY KEY, 
+  employee_name VARCHAR (255), 
+  department_id INTEGER
+);
 </code></pre>
-<p>Entonces PostgreSQL no se instaló correctamente. O no se instaló en absoluto o la ruta de búsqueda de su shell no estaba configurada para incluirlo. Llamaremos al comando con un camino absoluto en su lugar:</p>
-<pre><code class="language-bash">$/usr/local/pgsql/bin/createdb mydb
+<p>Cada departamento tiene cero o muchos empleados y cada empleado pertenece a cero o un departamento.</p>
+<p>En segundo lugar, inserte algunos datos de ejemplo en las tablas <code>departments</code> y <code>employees</code>.</p>
+<pre><code class="language-postgresql">INSERT INTO departments (department_name) 
+VALUES 
+  ('Sales'), 
+  ('Marketing'), 
+  ('HR'), 
+  ('IT'), 
+  ('Production');
+INSERT INTO employees (employee_name, department_id) 
+VALUES 
+  ('Bette Nicholson', 1), 
+  ('Christian Gable', 1), 
+  ('Joe Swank', 2), 
+  ('Fred Costner', 3), 
+  ('Sandra Kilmer', 4), 
+  ('Julia Mcqueen', NULL);
+
 </code></pre>
-<p>El camino en nuestro sitio podría ser diferente (<code>/usr/bin/createdb mydb</code> en archlinux). El administrador del sitio o las instrucciones de instalación puede ayudarnos a corregir la situación.</p>
-<p>Otra respuesta podría ser esta:</p>
-<pre><code>createdb: error: connection to server on socket "/tmp/.s.PGSQL.5432" failed: No such file or directory
-        Is the server running locally and accepting connections on that socket?
+<p>En tercer lugar, consulta los datos de las tablas <code>departments</code> y <code>employees</code>:</p>
+<pre><code class="language-postgresql">SELECT * FROM departments;
 </code></pre>
-<p>Esto significa que el servidor no se inició, o no está escuchando dónde <code>createdb</code>espera contactarlo. Una vez más, revise las instrucciones de instalación o consulte al administrador.</p>
-<p>Otra respuesta podría ser esta:</p>
-<pre><code>createdb: error: connection to server on socket "/tmp/.s.PGSQL.5432" failed: FATAL:  role "joe" does not exist
+<p>Salida:</p>
+<pre><code> department_id | department_name
+---------------+-----------------
+             1 | Sales
+             2 | Marketing
+             3 | HR
+             4 | IT
+             5 | Production
+(5 rows)
+SELECT * FROM employees;
 </code></pre>
-<p>donde se menciona nuestro propio nombre de inicio de sesión. Esto sucederá si el administrador no ha creado una cuenta de usuario de PostgreSQL para nosotros. (Las cuentas de usuario de PostgreSQL son distintas de las cuentas de usuario del sistema operativo.) Si somos el administrador, consultar <a href="https://www.postgresql.org/docs/current/user-manag.html" title="Chapter 22. Database Roles">el capítulo 22</a> para ayudar en la creación de cuentas. Debemos convertirnos en el usuario del sistema operativo bajo el cual PostgreSQL fue instalado (generalmente <code>postgres</code>) para crear la primera cuenta de usuario. También podría ser que se nos asignó un nombre de usuario de PostgreSQL que es diferente de nuestro nombre de usuario de nuestro sistema operativo; en ese caso necesitamos utilizar la opción <code>-U</code> o configurar la variable de entorno <code>PGUSER</code> para especificar nuestro nombre de usuario de PostgreSQL.</p>
-<p>Si tenemos una cuenta de usuario pero no tiene los privilegios necesarios para crear una base de datos, veremos lo siguiente:</p>
-<pre><code>createdb: error: database creation failed: ERROR:  permission denied to create database
+<p>Salida:</p>
+<pre><code> employee_id |  employee_name  | department_id
+-------------+-----------------+---------------
+           1 | Bette Nicholson |             1
+           2 | Christian Gable |             1
+           3 | Joe Swank       |             2
+           4 | Fred Costner    |             3
+           5 | Sandra Kilmer   |             4
+           6 | Julia Mcqueen   |          null
+(6 rows)
 </code></pre>
-<p>No todos los usuarios tienen autorización para crear nuevas bases de datos. Si PostgreSQL se niega a crear bases de datos para nosotros, entonces el administrador del sitio necesita concedenos permiso para crear bases de datos. Consultaremos a nuestro administrador del sitio si esto ocurre. Si hemos instalado PostgreSQL nosotros mismos, entonces debemos iniciar sesión bajo la cuenta de usuario con la que iniciamos el servidor. </p>
-<p>También podemos crear bases de datos con otros nombres. PostgreSQL nos permite crear cualquier número de bases de datos en un sitio determinado. Los nombres de la base de datos deben tener un primer carácter alfabético y se limitan a 63 bytes de longitud. Una opción conveniente es crear una base de datos con el mismo nombre que nuestro nombre de usuario actual. Muchas herramientas asumen ese nombre de base de datos como predeterminado, por lo que puede ahorrarnos algo de escritura. Para crear esa base de datos, simplemente escribiremos:</p>
-<pre><code class="language-bash">$ createdb
+<h1 id="ejemplos-de-full-outer-join-en-postgresql">Ejemplos de FULL OUTER JOIN en PostgreSQL<a class="headerlink" href="#ejemplos-de-full-outer-join-en-postgresql" title="Permanent link">¶</a></h1>
+<p>Veamos algunos ejemplos del uso de la cláusula <code>FULL OUTER JOIN</code>.</p>
+<h2 id="ejemplo-basico-de-full-outer-join">Ejemplo básico de FULL OUTER JOIN<a class="headerlink" href="#ejemplo-basico-de-full-outer-join" title="Permanent link">¶</a></h2>
+<p>La siguiente consulta utiliza la cláusula <code>FULL OUTER JOIN</code> para consultar datos de las tablas <code>employees</code> y <code>departments</code>:</p>
+<pre><code class="language-postgresql">SELECT 
+  employee_name, 
+  department_name 
+FROM 
+  employees e 
+FULL OUTER JOIN departments d 
+  ON d.department_id = e.department_id;
 </code></pre>
-<p>Si ya no queremos usar tu base de datos, podemos eliminarla. Por ejemplo, si somos el propietario (creador) de la base de datos <code>mydb</code>, podemos destruirla usando el siguiente comando:</p>
-<pre><code class="language-bash">$ dropdb mydb
+<p>Salida:</p>
+<pre><code>  employee_name  | department_name
+-----------------+-----------------
+ Bette Nicholson | Sales
+ Christian Gable | Sales
+ Joe Swank       | Marketing
+ Fred Costner    | HR
+ Sandra Kilmer   | IT
+ Julia Mcqueen   | null
+ null            | Production
+(7 rows)
 </code></pre>
-<p>(Para este comando, el nombre de la base de datos no predetermina el nombre de la cuenta de usuario. Siempre tienes que especificarlo.) Esta acción elimina físicamente todos los archivos asociados con la base de datos y no se puede deshacer, por lo que debe hacerse con mucho cuidado.</p>
-<p>Más sobre <code>createdb</code>y <code>dropdb</code>se puede encontrar en <a href="https://www.postgresql.org/docs/current/app-createdb.html" title="createdb">createdb</a> y <a href="https://www.postgresql.org/docs/current/app-dropdb.html" title="dropdb">dropdb</a> respectivamente.</p>
-<hr/>
-<blockquote>
-<p><strong>Nota aclaratoria</strong>: Los nombres de usuario están separados de las cuentas de usuario del sistema operativo. Cuando nos conectamos a una base de datos, se puede elegir con qué nombre de usuario de PostgreSQL nos conectamos; si no lo hacemos, se predeterminará al mismo nombre de nuestra cuenta actual del sistema operativo. Sucede que siempre habrá una cuenta de usuario de PostgreSQL que tenga el mismo nombre que el usuario del sistema operativo que inició el servidor, y también sucede que ese usuario siempre tiene permiso para crear bases de datos. En lugar de iniciar sesión como ese usuario también se puede especificar opción <code>-U</code>opción en todas partes para seleccionar un nombre de usuario de PostgreSQL con el que conectarse.</p>
-</blockquote>
+<p>El conjunto de resultados incluye todos los empleados que pertenecen a un departamento y todos los departamentos que tienen un empleado.</p>
+<p>Además, incluye todos los empleados que no pertenecen a ningún departamento y todos los departamentos que no tienen empleados.</p>
+<h2 id="ejemplo-de-utilizacion-de-full-outer-join-con-clausula-where">Ejemplo de utilización de FULL OUTER JOIN con cláusula WHERE<a class="headerlink" href="#ejemplo-de-utilizacion-de-full-outer-join-con-clausula-where" title="Permanent link">¶</a></h2>
+<p>El siguiente ejemplo utiliza <code>FULL OUTER JOIN</code> con una cláusula <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/">WHERE</a> para encontrar el departamento que no tiene ningún empleado:</p>
+<pre><code class="language-postgresql">SELECT 
+  employee_name, 
+  department_name 
+FROM 
+  employees e 
+FULL OUTER JOIN departments d 
+  ON d.department_id = e.department_id 
+WHERE 
+  employee_name IS NULL;
+
+</code></pre>
+<p>Salida:</p>
+<pre><code> employee_name | department_name
+---------------+-----------------
+ null          | Production
+(1 row)
+</code></pre>
+<p>El resultado muestra que el departamento <code>Production</code> no tiene ningún empleado.</p>
+<p>El siguiente ejemplo utiliza el cluase <code>FULL OUTER JOIN</code> con una cláusula <code>WHERE</code> para encontrar empleados que no pertenezcan a ningún departamento:</p>
+<pre><code class="language-postgresql">SELECT 
+  employee_name, 
+  department_name 
+FROM 
+  employees e 
+FULL OUTER JOIN departments d 
+  ON d.department_id = e.department_id 
+WHERE 
+  department_name IS NULL;
+</code></pre>
+<p>Salida:</p>
+<pre><code> employee_name | department_name
+---------------+-----------------
+ Julia Mcqueen | null
+(1 row)
+</code></pre>
+<p>La salida muestra que <code>Juila Mcqueen</code> no pertenece a ningún departamento.</p>
+<h1 id="resumen">Resumen<a class="headerlink" href="#resumen" title="Permanent link">¶</a></h1>
+<ul>
+<li>Utilice la cláusula <code>FULL OUTER JOIN</code> de PostgreSQL para combinar datos de ambas tablas, asegurándose de que se incluyen las filas coincidentes tanto de la tabla izquierda como de la derecha, así como las filas no coincidentes de cualquiera de las tablas.</li>
+</ul>
 </article>
 </div>
 </div>
