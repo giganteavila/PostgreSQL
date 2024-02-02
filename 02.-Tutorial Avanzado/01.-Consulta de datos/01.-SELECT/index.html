@@ -5,11 +5,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="../03.-OR/" rel="prev"/>
-<link href="../05.-FETCH/" rel="next"/>
+<link href="../../00.-Base%20de%20datos%20PostgreSQL%20de%20ejemplo/" rel="prev"/>
+<link href="../02.-Alias%20de%20columnas/" rel="next"/>
 <link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.4.9" name="generator"/>
-<title>04.-LIMIT - ASGBD</title>
+<title>01.-SELECT - ASGBD</title>
 <link href="../../../assets/stylesheets/main.78cf6014.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,7 +23,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#ejemplos-de-limit-en-postgresql">
+<a class="md-skip" href="#sintaxis-de-declaracion-postgresql-select">
           Saltar a contenido
         </a>
 </div>
@@ -47,7 +47,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              04.-LIMIT
+              01.-SELECT
             
           </span>
 </div>
@@ -454,43 +454,44 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4_2" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4_2" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
 <span class="md-ellipsis">
     01.-Consulta de datos
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="true" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_2">
 <span class="md-nav__icon md-icon"></span>
             01.-Consulta de datos
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../01.-Consulta%20de%20datos/01.-SELECT/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     01.-SELECT
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../01.-Consulta%20de%20datos/02.-Alias%20de%20columnas/">
+<a class="md-nav__link" href="../02.-Alias%20de%20columnas/">
 <span class="md-ellipsis">
     02.-Alias de columnas
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../01.-Consulta%20de%20datos/03.-ORDER%20BY/">
+<a class="md-nav__link" href="../03.-ORDER%20BY/">
 <span class="md-ellipsis">
     03.-ORDER BY
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../01.-Consulta%20de%20datos/04.-SELECT%20DISTINCT/">
+<a class="md-nav__link" href="../04.-SELECT%20DISTINCT/">
 <span class="md-ellipsis">
     04.-SELECT DISTINCT
   </span>
@@ -499,121 +500,78 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_4_3" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
 <span class="md-ellipsis">
     02.-Filtrado de datos
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="true" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_3">
 <span class="md-nav__icon md-icon"></span>
             02.-Filtrado de datos
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../01.-WHERE/">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/01.-WHERE/">
 <span class="md-ellipsis">
     01.-WHERE
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../02.-AND/">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/02.-AND/">
 <span class="md-ellipsis">
     02.-AND
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../03.-OR/">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/03.-OR/">
 <span class="md-ellipsis">
     03.-OR
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    04.-LIMIT
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/04.-LIMIT/">
 <span class="md-ellipsis">
     04.-LIMIT
   </span>
 </a>
-<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#uso-de-postgresql-limit-para-restringir-el-numero-de-filas-devueltas-ejemplo">
-<span class="md-ellipsis">
-      Uso de PostgreSQL LIMIT para restringir el número de filas devueltas ejemplo
-    </span>
-</a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ejemplo-de-uso-de-postgresql-limit-con-offset">
-<span class="md-ellipsis">
-      Ejemplo de uso de PostgreSQL LIMIT con OFFSET
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#usando-offset-limit-de-postgresql-para-obtener-n-filas-superioresinferiores">
-<span class="md-ellipsis">
-      Usando OFFSET LIMIT de PostgreSQL para obtener N filas superiores/inferiores
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#resumen">
-<span class="md-ellipsis">
-      Resumen
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../05.-FETCH/">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/05.-FETCH/">
 <span class="md-ellipsis">
     05.-FETCH
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../06.-IN/">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/06.-IN/">
 <span class="md-ellipsis">
     06.-IN
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../07.-BETWEEN/">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/07.-BETWEEN/">
 <span class="md-ellipsis">
     07.-BETWEEN
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../08.-LIKE/">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/08.-LIKE/">
 <span class="md-ellipsis">
     08.-LIKE
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../09.-IS%20NULL/">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/09.-IS%20NULL/">
 <span class="md-ellipsis">
     09.-IS NULL
   </span>
@@ -776,167 +734,162 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#uso-de-postgresql-limit-para-restringir-el-numero-de-filas-devueltas-ejemplo">
-<span class="md-ellipsis">
-      Uso de PostgreSQL LIMIT para restringir el número de filas devueltas ejemplo
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ejemplo-de-uso-de-postgresql-limit-con-offset">
-<span class="md-ellipsis">
-      Ejemplo de uso de PostgreSQL LIMIT con OFFSET
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#usando-offset-limit-de-postgresql-para-obtener-n-filas-superioresinferiores">
-<span class="md-ellipsis">
-      Usando OFFSET LIMIT de PostgreSQL para obtener N filas superiores/inferiores
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#resumen">
-<span class="md-ellipsis">
-      Resumen
-    </span>
-</a>
-</li>
-</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<p>PostgreSQL <code>LIMIT</code> es una cláusula opcional de la sentencia <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-select/"><code>SELECT</code></a> que restringe el número de filas devueltas por la consulta.</p>
-<p>A continuación se ilustra la sintaxis de la cláusula <code>LIMIT</code>:</p>
-<pre><code class="language-postgresql">SELECT 
-  select_list 
-FROM 
-  table_name 
-ORDER BY 
-  sort_expression 
-LIMIT 
-  row_count;
+<p>Una de las tareas más comunes, cuando se trabaja con la base de datos, es recuperar los datos de las tablas utilizando la declaración <code>SELECT</code>.</p>
+<p>La declaración  <code>SELECT</code> es una de las declaraciones más complejas en PostgreSQL.  Tiene muchas cláusulas que se puede utilizar para formar una consulta flexible.</p>
+<p>Debido a su complejidad, lo dividiremos en muchos ejercicios más cortos y fáciles de entender para que puedas aprender sobre cada cláusula más rápido.</p>
+<p>La declaración <code>SELECT</code> tiene las siguientes cláusulas:</p>
+<ul>
+<li>Seleccionar filas distintas usando el operador  <code>DISTINCT</code>.</li>
+<li>Ordenar las filas usando la cláusula <code>ORDER BY</code>.</li>
+<li>Filtrar filas usando la cláusula  <code>WHERE</code>.</li>
+<li>Seleccione un subconjunto de filas de una tabla usando la cláusula <code>LIMIT</code> o  <code>FETCH</code>.</li>
+<li>Agrupar filas en grupos usando  la cláusula <code>GROUP BY</code>.</li>
+<li>Grupos de filtro utilizando la cláusula <code>HAVING</code></li>
+<li>Unirse a otras tablas usando uniones con las cláusulas <code>INNER JOIN</code>, <code>LEFT JOIN</code>, <code>FULL OUTER JOIN</code>,  <code>CROSS JOIN</code>.</li>
+<li>Realizar operaciones establecidas mediante <code>UNION</code>, <code>INTERSECT</code>, y <code>EXCEPT</code>.</li>
+</ul>
+<p>En este tutorial, vas a enfocarte en las cláusulas <code>SELECT</code> y  <code>FROM</code>.</p>
+<h1 id="sintaxis-de-declaracion-postgresql-select">Sintaxis de declaración PostgreSQL SELECT<a class="headerlink" href="#sintaxis-de-declaracion-postgresql-select" title="Permanent link">¶</a></h1>
+<p>Comenzamos con la forma básica de la declaración <code>SELECT</code> que recupera los datos de una sola tabla.</p>
+<p>A continuación se ilustra la sintaxis de la  <code>SELECT</code>de la declaración:</p>
+<pre><code class="language-postgresql">SELECT
+   select_list
+FROM
+   table_name;
 </code></pre>
-<p>La sentencia devuelve <code>row_count</code> filas generadas por la consulta. Si <code>row_count</code> es cero, la consulta devuelve un conjunto vacío. En caso de que <code>row_count</code> sea <code>NULL</code>, la consulta devuelve el mismo conjunto de resultados ya que no tiene la cláusula <code>LIMIT</code>.</p>
-<p>Si desea omitir un número de filas antes de devolver <code>row_count</code> filas, puede utilizar <code>OFFSET</code> cláusula colocada después de la cláusula <code>LIMIT</code> como se muestra en la siguiente declaración:</p>
-<pre><code class="language-postgresql">SELECT 
-  select_list 
-FROM 
-  table_name 
-ORDER BY 
-  sort_expression 
-LIMIT 
-  row_count OFFSET row_to_skip;
+<p>En esta sintaxis:</p>
+<ul>
+<li>Primero, especifique una lista de selección que puede ser una columna o una lista de columnas en una tabla de la que desea recuperar datos. Si  especifica una lista de columnas, necesita colocar una coma (<code>,</code>) entre dos columnas para separarlas. Si desea seleccionar datos de todas las columnas de la tabla, puede utilizar un asterisco (<code>*</code>) abreviatura en lugar de especificar todos los nombres de la columna. La <code>select_list</code> también puede contener expresiones o valores literales.</li>
+<li>En segundo lugar, proporcione el nombre de la tabla desde la que desea consultar los datos después de la palabra clave <code>FROM</code>.</li>
+</ul>
+<p>La cláusula  <code>FROM</code> es opcional. Si no estás consultando datos de ninguna tabla, puedes omitir la cláusula  <code>FROM</code> en la declaración  <code>SELECT</code>.</p>
+<p>PostgreSQL evalúa la cláusula  <code>FROM</code> antes de la cláusula <code>SELECT</code> en la declaración del  <code>SELECT</code>:</p>
+<p><img alt="img" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Select.png"/></p>
+<p>Tenga en cuenta que las palabras clave SQL son insensibles a mayúsculas/minúsculas. Significa que  <code>SELECT</code> es equivalente a  <code>select</code> a <code>Select</code>. Por convención, usaremos todas las palabras clave SQL en mayúsculas para hacer las consultas más fáciles de leer.</p>
+<h1 id="ejemplos-de-postgresql-select">Ejemplos de PostgreSQL SELECT<a class="headerlink" href="#ejemplos-de-postgresql-select" title="Permanent link">¶</a></h1>
+<p>Exploremos algunos ejemplos de uso de la declaración  <code>SELECT</code>.</p>
+<p>Usaremos la tabla  <code>customer</code> en la BD  <code>dvdrental</code> para la demostración.</p>
+<p><img alt="customer table" src="https://www.postgresqltutorial.com/wp-content/uploads/2019/05/customer.png"/></p>
+<p>Primero, conéctese al servidor PostgreSQL usando el usuario  <code>postgres</code>:</p>
+<pre><code class="language-postgresql">psql -U postgres
 </code></pre>
-<p>La sentencia omite primero las filas <code>row_to_skip</code> antes de devolver las filas <code>row_count</code> generadas por la consulta.</p>
-<p>Si <code>row_to_skip</code> es cero, la sentencia funcionará como si no tuviera la cláusula <code>OFFSET</code>.</p>
-<p>Debido a que una tabla almacena las filas en un orden no especificado cuando se utiliza la cláusula <code>LIMIT</code>, siempre se debe utilizar la cláusula <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-order-by/"><code>ORDER BY</code></a> para controlar el orden de las filas.</p>
-<p>Si no utiliza la cláusula <code>ORDER BY</code>, puede obtener un conjunto de resultados con el orden de filas no especificado.</p>
-<h1 id="ejemplos-de-limit-en-postgresql">Ejemplos de LIMIT en PostgreSQL<a class="headerlink" href="#ejemplos-de-limit-en-postgresql" title="Permanent link">¶</a></h1>
-<p>Veamos algunos ejemplos de uso de la cláusula <code>LIMIT</code> de PostgreSQL. Utilizaremos la tabla <code>film</code> de la base de datos de ejemplo para la demostración.</p>
-<p><img alt="Film table" src="https://www.postgresqltutorial.com/wp-content/uploads/2018/03/film_table.png"/></p>
-<h2 id="uso-de-postgresql-limit-para-restringir-el-numero-de-filas-devueltas-ejemplo">Uso de PostgreSQL LIMIT para restringir el número de filas devueltas ejemplo<a class="headerlink" href="#uso-de-postgresql-limit-para-restringir-el-numero-de-filas-devueltas-ejemplo" title="Permanent link">¶</a></h2>
-<p>Este ejemplo utiliza la cláusula <code>LIMIT</code> para obtener las cinco primeras películas ordenadas por <code>film_id</code>:</p>
+<p>Se le pedirá que introduzca una contraseña para el usuario  <code>postgres</code>.  Después de introducir la contraseña correctamente, estará conectado al servidor PostgreSQL:</p>
+<pre><code class="language-postgresql">postgres=#
+</code></pre>
+<p>En segundo lugar, cambie la base de datos actual a dvdrental:</p>
+<pre><code class="language-postgresql">\c dvdrental
+</code></pre>
+<p>Tercero, ejecutar la consulta en los siguientes ejemplos.</p>
+<h2 id="usar-la-declaracion-select-para-consultar-los-datos-de-una-columna">Usar la declaración <code>SELECT</code> para consultar los datos de una columna<a class="headerlink" href="#usar-la-declaracion-select-para-consultar-los-datos-de-una-columna" title="Permanent link">¶</a></h2>
+<p>Este ejemplo utiliza la declaración <code>SELECT</code> para encontrar los nombres de los primeros nombres de todos los clientes de la tabla <code>customer</code>:</p>
+<pre><code class="language-postgresql">SELECT first_name FROM customer;
+</code></pre>
+<p>Aquí está la salida parcial:</p>
+<pre><code class="language-postgresql"> first_name
+-------------
+ Jared
+ Mary
+ Patricia
+ Linda
+ Barbara
+...
+</code></pre>
+<p>Observe que añadimos un punto y coma (<code>;</code>) al final de la declaración <code>SELECT</code>. El punto y coma no es parte de la declaración SQL; más bien, sirve como señal a PostgreSQL indicando la conclusión de una declaración SQL. Además, se utilizan los (<code>;</code>)  para separar dos o más declaraciones SQL.</p>
+<h2 id="ejemplo-uso-de-select-para-consultar-datos-de-varias-columnas">Ejemplo.- Uso de SELECT para consultar datos de varias columnas<a class="headerlink" href="#ejemplo-uso-de-select-para-consultar-datos-de-varias-columnas" title="Permanent link">¶</a></h2>
+<p>La siguiente consulta utiliza  <code>SELECT</code> para recuperar el nombre, apellido y correo electrónico de los clientes de la tabla <code>customer</code>:</p>
+<pre><code class="language-postgresql">SELECT
+   first_name,
+   last_name,
+   email
+FROM
+   customer;
+</code></pre>
+<p>Salida parcial:</p>
+<pre><code> first_name  |  last_name   |                  email
+-------------+--------------+------------------------------------------
+ Jared       | Ely          | jared.ely@sakilacustomer.org
+ Mary        | Smith        | mary.smith@sakilacustomer.org
+ Patricia    | Johnson      | patricia.johnson@sakilacustomer.org
+...
+</code></pre>
+<p>La salida muestra tres columnas correspondientes de nombre, apellido y correo electrónico.</p>
+<h2 id="ejemplo-uso-de-select-para-consultar-datos-de-todas-las-columnas-de-una-tabla">Ejemplo.- Uso de SELECT para consultar datos de todas las columnas de una tabla<a class="headerlink" href="#ejemplo-uso-de-select-para-consultar-datos-de-todas-las-columnas-de-una-tabla" title="Permanent link">¶</a></h2>
+<p>La siguiente consulta utiliza la la declaración  <code>SELECT *</code> para recuperar los datos de todas las columnas de la  tabla <code>customer</code>:</p>
+<pre><code class="language-postgresql">SELECT * FROM customer;
+</code></pre>
+<p>Salida parcial:</p>
+<pre><code> customer_id | store_id | first_name  |  last_name   |                  email                   | address_id | activebool | create_date |       last_update       | active
+-------------+----------+-------------+--------------+------------------------------------------+------------+------------+-------------+-------------------------+--------
+         524 |        1 | Jared       | Ely          | jared.ely@sakilacustomer.org             |        530 | t          | 2006-02-14  | 2013-05-26 14:49:45.738 |      1
+           1 |        1 | Mary        | Smith        | mary.smith@sakilacustomer.org            |          5 | t          | 2006-02-14  | 2013-05-26 14:49:45.738 |      1
+           2 |        1 | Patricia    | Johnson      | patricia.johnson@sakilacustomer.org      |          6 | t          | 2006-02-14  | 2013-05-26 14:49:45.738 |      1
+...
+</code></pre>
+<p>En este ejemplo, usamos un asterisco (<code>*</code>) en la cláusula <code>SELECT</code>, que sirve de abreviatura para "todas las columnas".</p>
+<p>En lugar de enumerar todas las columnas en la cláusula  <code>SELECT</code> individualmente, podemos utilizar el asterisco (<code>*</code>) para hacer la consulta más corta.</p>
+<p>Sin embargo, el uso del asterisco (<code>*</code>) en la declaración  <code>SELECT</code> se considera una mala práctica cuando se incrustan declaraciones de SQL en el código de solicitud, como Python, Java o PHP por las siguientes razones:</p>
+<ul>
+<li>Rendimiento de la base de datos.- Supongamos que se tiene una tabla con muchas columnas y datos sustanciales, la delcaración  <code>SELECT</code> con el asterisco (<code>*</code>) seleccionará los datos de todas las columnas de la tabla,  potencialmente recuperando más datos de los requeridos para la  aplicación.</li>
+<li>Rendimiento de la aplicación. La recuperación de  datos innecesarios aumenta el tráfico entre el servidor PostgreSQL y el servidor de la aplicación. En consecuencia, esto puede resultar en tiempos de respuesta más lentos y una escalabilidad reducida para sus  aplicaciones.</li>
+</ul>
+<p>Por estas razones, se recomienda especificar explícitamente los nombres de las columnas requeridas en la cláusula  <code>SELECT</code> siempre que sea posible. Esto garantiza que sólo los datos necesarios se recuperen de la base de datos, contribuyendo a consultas más  eficientes y optimizadas.</p>
+<p>La abreviatura (*) debe reservarse exclusivamente para las consultas ad-hoc que examinan los datos de la base de datos.</p>
+<h2 id="ejemplo-uso-de-select-con-expresiones">Ejemplo.- Uso de SELECT con expresiones<a class="headerlink" href="#ejemplo-uso-de-select-con-expresiones" title="Permanent link">¶</a></h2>
+<p>El siguiente ejemplo utiliza el  <code>SELECT</code> para devolver los nombres completos y correos electrónicos de todos los clientes de la tabla <code>customer</code>:</p>
 <pre><code class="language-postgresql">SELECT 
-  film_id, 
-  title, 
-  release_year 
+   first_name || ' ' || last_name,
+   email
 FROM 
-  film 
-ORDER BY 
-  film_id 
-LIMIT 
-  5;
+   customer;
+</code></pre>
+<p>Producto:</p>
+<pre><code>       ?column?        |                  email
+-----------------------+------------------------------------------
+ Jared Ely             | jared.ely@sakilacustomer.org
+ Mary Smith            | mary.smith@sakilacustomer.org
+ Patricia Johnson      | patricia.johnson@sakilacustomer.org
+...
+</code></pre>
+<p>En este ejemplo, utilizamos el operador de  <code>||</code> para concatenar el primer nombre, el espacio y el apellido de cada cliente.</p>
+<p>Observa que la primera columna de la salida no tiene un nombre (<code>?column?</code>). Para asignar un nombre a una columna <strong>temporalmente</strong> en la consulta, se puede utilizar un alias de columna:</p>
+<pre><code>expression AS column_alias
+</code></pre>
+<p>La palabra clave <code>AS</code> es opcional. Por lo tanto, se puede utilizar una sintaxis más corta:</p>
+<pre><code>expression column_lias
+</code></pre>
+<p>Por ejemplo, se puede asignar una columna alias <code>full-name</code> a la primera columna de la consulta de la siguiente manera:</p>
+<pre><code class="language-postgresql">SELECT 
+   first_name || ' ' || last_name full_name,
+   email
+FROM 
+   customer;
 </code></pre>
 <p>Salida:</p>
-<pre><code class="language-postgresql"> film_id |      title       | release_year
----------+------------------+--------------
-       1 | Academy Dinosaur |         2006
-       2 | Ace Goldfinger   |         2006
-       3 | Adaptation Holes |         2006
-       4 | Affair Prejudice |         2006
-       5 | African Egg      |         2006
-(5 rows)
+<pre><code>       full_name       |                  email
+-----------------------+------------------------------------------
+ Jared Ely             | jared.ely@sakilacustomer.org
+ Mary Smith            | mary.smith@sakilacustomer.org
+ Patricia Johnson      | patricia.johnson@sakilacustomer.org
+...
 </code></pre>
-<p>Cómo funciona.</p>
+<h2 id="uso-de-sql-select-sin-una-clausula-from">Uso de SQL SELECT sin una cláusula FROM<a class="headerlink" href="#uso-de-sql-select-sin-una-clausula-from" title="Permanent link">¶</a></h2>
+<p>La cláusula  <code>FROM</code> de la declaración <code>SELECT</code> es opcional. Por lo tanto, se puedes omitirlo.</p>
+<p>Típicamente, se usa la cláusula  <code>SELECT</code> con una función para recuperar el resultado de la función. Por ejemplo:</p>
+<pre><code>SELECT NOW();
+</code></pre>
+<p>En este ejemplo, utilizamos la función  <code>NOW()</code> en la declaración  <code>SELECT</code> que devuelve la fecha y hora actuales del servidor PostgreSQL.</p>
+<h1 id="resumen">Resumen<a class="headerlink" href="#resumen" title="Permanent link">¶</a></h1>
 <ul>
-<li>En primer lugar, ordene las películas por el <code>film_id</code> en orden ascendente utilizando la cláusula <code>ORDER BY film_id</code>.</li>
-<li>En segundo lugar, tome 5 películas de la parte superior utilizando la cláusula <code>LIMIT 5</code>.</li>
-</ul>
-<h2 id="ejemplo-de-uso-de-postgresql-limit-con-offset">Ejemplo de uso de PostgreSQL LIMIT con OFFSET<a class="headerlink" href="#ejemplo-de-uso-de-postgresql-limit-con-offset" title="Permanent link">¶</a></h2>
-<p>Para recuperar 4 películas empezando por la cuarta ordenada por <code>film_id</code>, se utilizan las cláusulas <code>LIMIT</code> y <code>OFFSET</code> de la siguiente manera:</p>
-<pre><code class="language-postgresql">SELECT 
-  film_id, 
-  title, 
-  release_year 
-FROM 
-  film 
-ORDER BY 
-  film_id 
-LIMIT 4 OFFSET 3;
-</code></pre>
-<p>Salida:</p>
-<pre><code> film_id |      title       | release_year
----------+------------------+--------------
-       4 | Affair Prejudice |         2006
-       5 | African Egg      |         2006
-       6 | Agent Truman     |         2006
-       7 | Airplane Sierra  |         2006
-(4 rows)
-</code></pre>
-<p>Cómo funciona.</p>
-<ul>
-<li>En primer lugar, ordene las películas por el identificador de película en orden ascendente.</li>
-<li>En segundo lugar, omita las tres primeras filas utilizando la cláusula <code>OFFSET 3</code>.</li>
-<li>Segundo, toma las siguientes cuatro filas usando la cláusula <code>LIMIT 4</code>.</li>
-</ul>
-<h2 id="usando-offset-limit-de-postgresql-para-obtener-n-filas-superioresinferiores">Usando OFFSET LIMIT de PostgreSQL para obtener N filas superiores/inferiores<a class="headerlink" href="#usando-offset-limit-de-postgresql-para-obtener-n-filas-superioresinferiores" title="Permanent link">¶</a></h2>
-<p>Normalmente, se utiliza la cláusula <code>LIMIT</code> para seleccionar las filas con los valores más altos o más bajos de una tabla.</p>
-<p>El siguiente ejemplo utiliza la cláusula LIMIT para recuperar las 10 películas más caras por precio de alquiler:</p>
-<pre><code class="language-postgresql">SELECT 
-  film_id, 
-  title, 
-  rental_rate 
-FROM 
-  film 
-ORDER BY 
-  rental_rate DESC 
-LIMIT 
-  10;
-</code></pre>
-<p>Salida:</p>
-<pre><code> film_id |        title        | rental_rate
----------+---------------------+-------------
-      13 | Ali Forever         |        4.99
-      20 | Amelie Hellfighters |        4.99
-       7 | Airplane Sierra     |        4.99
-      10 | Aladdin Calendar    |        4.99
-       2 | Ace Goldfinger      |        4.99
-       8 | Airport Pollock     |        4.99
-      98 | Bright Encounters   |        4.99
-     133 | Chamber Italian     |        4.99
-     384 | Grosse Wonderful    |        4.99
-      21 | American Circus     |        4.99
-(10 rows)
-</code></pre>
-<p>Cómo funciona.</p>
-<ul>
-<li>En primer lugar, ordene todas las películas por precio de alquiler de mayor a menor utilizando la cláusula <code>ORDER BY rental_rate</code>.</li>
-<li>Segundo, tome sólo 10 filas de la parte superior utilizando la cláusula <code>LIMIT 10</code>.</li>
-</ul>
-<h2 id="resumen">Resumen<a class="headerlink" href="#resumen" title="Permanent link">¶</a></h2>
-<ul>
-<li>Utilice la cláusula <code>LIMIT OFFSET</code> de PostgreSQL para recuperar un subconjunto de filas devueltas por una consulta.</li>
+<li>Utiliza la declaración  <code>SELECT ... FROM</code> para recuperar los datos de una tabla.</li>
+<li>PostgreSQL evalúa primero la declaración <code>FROM</code> en la cláusula  <code>SELECT</code>.</li>
+<li>Utiliza un alias de columna para asignar un nombre temporal a una columna o a una expresión en una consulta.</li>
+<li>En PostgreSQL, la cláusula  <code>FROM</code> es opcional.</li>
 </ul>
 </article>
 </div>

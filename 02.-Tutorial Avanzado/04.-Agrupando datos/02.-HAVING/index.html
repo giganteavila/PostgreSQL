@@ -5,16 +5,17 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="00.-Conceptos%20B%C3%A1sicos%20sobre%20SGBD/01.-Datos%20y%20archivos/" rel="next"/>
-<link href="assets/images/favicon.png" rel="icon"/>
+<link href="../01.-GROUP%20BY/" rel="prev"/>
+<link href="../../05.-Operaciones%20con%20conjuntos/01.-Introducci%C3%B3n%20al%20operador%20UNION/" rel="next"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.4.9" name="generator"/>
-<title>ASGBD</title>
-<link href="assets/stylesheets/main.78cf6014.min.css" rel="stylesheet"/>
-<link href="assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
+<title>02.-HAVING - ASGBD</title>
+<link href="../../../assets/stylesheets/main.78cf6014.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 </head>
 <body data-md-color-accent="green" data-md-color-primary="blue-grey" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
@@ -22,7 +23,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#postgresql">
+<a class="md-skip" href="#having-vs-where">
           Saltar a contenido
         </a>
 </div>
@@ -30,7 +31,7 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="Cabecera" class="md-header__inner md-grid">
-<a aria-label="ASGBD" class="md-header__button md-logo" data-md-component="logo" href="." title="ASGBD">
+<a aria-label="ASGBD" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="ASGBD">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -46,7 +47,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              PostgreSQL
+              02.-HAVING
             
           </span>
 </div>
@@ -98,8 +99,8 @@
 <nav aria-label="Pestañas" class="md-tabs" data-md-component="tabs">
 <div class="md-grid">
 <ul class="md-tabs__list">
-<li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href=".">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../..">
         
   
     
@@ -109,7 +110,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="00.-Conceptos%20B%C3%A1sicos%20sobre%20SGBD/01.-Datos%20y%20archivos/">
+<a class="md-tabs__link" href="../../../00.-Conceptos%20B%C3%A1sicos%20sobre%20SGBD/01.-Datos%20y%20archivos/">
           
   
     
@@ -119,7 +120,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="01.-Tutorial/">
+<a class="md-tabs__link" href="../../../01.-Tutorial/">
           
   
     
@@ -128,8 +129,8 @@
 
         </a>
 </li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="02.-Tutorial%20Avanzado/00.-Base%20de%20datos%20PostgreSQL%20de%20ejemplo/">
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../../00.-Base%20de%20datos%20PostgreSQL%20de%20ejemplo/">
           
   
     
@@ -148,54 +149,18 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navegación" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="ASGBD" class="md-nav__button md-logo" data-md-component="logo" href="." title="ASGBD">
+<a aria-label="ASGBD" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="ASGBD">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
     ASGBD
   </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    PostgreSQL
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href=".">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
 <span class="md-ellipsis">
     PostgreSQL
   </span>
 </a>
-<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#que-es-postgresql">
-<span class="md-ellipsis">
-      ¿Qué es PostgreSQL?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#por-que-usar-postgresql">
-<span class="md-ellipsis">
-      ¿Por qué usar PostgreSQL?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#alguna-pregunta">
-<span class="md-ellipsis">
-      ¿Alguna pregunta?
-    </span>
-</a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
@@ -212,42 +177,42 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="00.-Conceptos%20B%C3%A1sicos%20sobre%20SGBD/01.-Datos%20y%20archivos/">
+<a class="md-nav__link" href="../../../00.-Conceptos%20B%C3%A1sicos%20sobre%20SGBD/01.-Datos%20y%20archivos/">
 <span class="md-ellipsis">
     01.-Datos y archivos
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="00.-Conceptos%20B%C3%A1sicos%20sobre%20SGBD/02.-Tipos%20de%20gesti%C3%B3n%20de%20Informaci%C3%B3n%20mediante%20el%20ordenador/">
+<a class="md-nav__link" href="../../../00.-Conceptos%20B%C3%A1sicos%20sobre%20SGBD/02.-Tipos%20de%20gesti%C3%B3n%20de%20Informaci%C3%B3n%20mediante%20el%20ordenador/">
 <span class="md-ellipsis">
     02.-Tipos de gestión de Información mediante el ordenador
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="00.-Conceptos%20B%C3%A1sicos%20sobre%20SGBD/03.-Funcionamiento%20de%20un%20SGBD/">
+<a class="md-nav__link" href="../../../00.-Conceptos%20B%C3%A1sicos%20sobre%20SGBD/03.-Funcionamiento%20de%20un%20SGBD/">
 <span class="md-ellipsis">
     03.-Funcionamiento de un SGBD
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="00.-Conceptos%20B%C3%A1sicos%20sobre%20SGBD/04.-Tipos%20de%20SGBD/">
+<a class="md-nav__link" href="../../../00.-Conceptos%20B%C3%A1sicos%20sobre%20SGBD/04.-Tipos%20de%20SGBD/">
 <span class="md-ellipsis">
     04.-Tipos de SGBD
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="00.-Conceptos%20B%C3%A1sicos%20sobre%20SGBD/05.-Archivos/">
+<a class="md-nav__link" href="../../../00.-Conceptos%20B%C3%A1sicos%20sobre%20SGBD/05.-Archivos/">
 <span class="md-ellipsis">
     05.-Archivos
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="00.-Conceptos%20B%C3%A1sicos%20sobre%20SGBD/06.-Est%C3%A1ndares%20y%20modelo%20ANSI/">
+<a class="md-nav__link" href="../../../00.-Conceptos%20B%C3%A1sicos%20sobre%20SGBD/06.-Est%C3%A1ndares%20y%20modelo%20ANSI/">
 <span class="md-ellipsis">
     06.-Estándares y modelo ANSI
   </span>
@@ -259,7 +224,7 @@
 <li class="md-nav__item md-nav__item--section md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="01.-Tutorial/">
+<a class="md-nav__link" href="../../../01.-Tutorial/">
 <span class="md-ellipsis">
     01.-Tutorial
   </span>
@@ -289,28 +254,28 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="01.-Tutorial/01.-C%C3%B3mo%20empezar/01.-Instalaci%C3%B3n/">
+<a class="md-nav__link" href="../../../01.-Tutorial/01.-C%C3%B3mo%20empezar/01.-Instalaci%C3%B3n/">
 <span class="md-ellipsis">
     01.-Instalación
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="01.-Tutorial/01.-C%C3%B3mo%20empezar/02.-Fundamentos%20arquitect%C3%B3nicos/">
+<a class="md-nav__link" href="../../../01.-Tutorial/01.-C%C3%B3mo%20empezar/02.-Fundamentos%20arquitect%C3%B3nicos/">
 <span class="md-ellipsis">
     02.-Fundamentos arquitectónicos
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="01.-Tutorial/01.-C%C3%B3mo%20empezar/03.-Creando%20una%20Base%20de%20Datos/">
+<a class="md-nav__link" href="../../../01.-Tutorial/01.-C%C3%B3mo%20empezar/03.-Creando%20una%20Base%20de%20Datos/">
 <span class="md-ellipsis">
     03.-Creando una Base de Datos
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="01.-Tutorial/01.-C%C3%B3mo%20empezar/04.-Accediendo%20a%20una%20base%20de%20datos/">
+<a class="md-nav__link" href="../../../01.-Tutorial/01.-C%C3%B3mo%20empezar/04.-Accediendo%20a%20una%20base%20de%20datos/">
 <span class="md-ellipsis">
     04.-Accediendo a una base de datos
   </span>
@@ -334,63 +299,63 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="01.-Tutorial/02.-El%20lenguaje%20SQL/01.-Introducci%C3%B3n/">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/01.-Introducci%C3%B3n/">
 <span class="md-ellipsis">
     01.-Introducción
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="01.-Tutorial/02.-El%20lenguaje%20SQL/02.-Conceptos/">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/02.-Conceptos/">
 <span class="md-ellipsis">
     02.-Conceptos
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="01.-Tutorial/02.-El%20lenguaje%20SQL/03.-Creando%20una%20nueva%20tabla/">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/03.-Creando%20una%20nueva%20tabla/">
 <span class="md-ellipsis">
     03.-Creando una nueva tabla
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="01.-Tutorial/02.-El%20lenguaje%20SQL/04.-Cargando%20una%20tabla%20con%20filas/">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/04.-Cargando%20una%20tabla%20con%20filas/">
 <span class="md-ellipsis">
     04.-Cargando una tabla con filas
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="01.-Tutorial/02.-El%20lenguaje%20SQL/05.-Consulta%20de%20tablas/">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/05.-Consulta%20de%20tablas/">
 <span class="md-ellipsis">
     05.-Consulta de tablas
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="01.-Tutorial/02.-El%20lenguaje%20SQL/06.-Uniones%20de%20tablas/">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/06.-Uniones%20de%20tablas/">
 <span class="md-ellipsis">
     06.-Uniones de tablas
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="01.-Tutorial/02.-El%20lenguaje%20SQL/07.-Funciones%20agregadas/">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/07.-Funciones%20agregadas/">
 <span class="md-ellipsis">
     07.-Funciones agregadas
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="01.-Tutorial/02.-El%20lenguaje%20SQL/08.-Actualizaciones/">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/08.-Actualizaciones/">
 <span class="md-ellipsis">
     08.-Actualizaciones
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="01.-Tutorial/02.-El%20lenguaje%20SQL/09.-Borrados/">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/09.-Borrados/">
 <span class="md-ellipsis">
     09.-Borrados
   </span>
@@ -414,49 +379,49 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/01.-Introducci%C3%B3n/">
+<a class="md-nav__link" href="../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/01.-Introducci%C3%B3n/">
 <span class="md-ellipsis">
     01.-Introducción
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/02.-Vistas/">
+<a class="md-nav__link" href="../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/02.-Vistas/">
 <span class="md-ellipsis">
     02.-Vistas
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/03.-Claves%20for%C3%A1neas/">
+<a class="md-nav__link" href="../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/03.-Claves%20for%C3%A1neas/">
 <span class="md-ellipsis">
     03.-Claves foráneas
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/04.-Transacciones/">
+<a class="md-nav__link" href="../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/04.-Transacciones/">
 <span class="md-ellipsis">
     04.-Transacciones
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/05.-Funciones%20de%20ventanas/">
+<a class="md-nav__link" href="../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/05.-Funciones%20de%20ventanas/">
 <span class="md-ellipsis">
     05.-Funciones de ventanas
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/06.-Herencia/">
+<a class="md-nav__link" href="../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/06.-Herencia/">
 <span class="md-ellipsis">
     06.-Herencia
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/07.-Conclusi%C3%B3n/">
+<a class="md-nav__link" href="../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/07.-Conclusi%C3%B3n/">
 <span class="md-ellipsis">
     07.-Conclusión
   </span>
@@ -468,22 +433,22 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
 <span class="md-ellipsis">
     02.-Tutorial Avanzado
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_4">
 <span class="md-nav__icon md-icon"></span>
             02.-Tutorial Avanzado
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="02.-Tutorial%20Avanzado/00.-Base%20de%20datos%20PostgreSQL%20de%20ejemplo/">
+<a class="md-nav__link" href="../../00.-Base%20de%20datos%20PostgreSQL%20de%20ejemplo/">
 <span class="md-ellipsis">
     00.-Base de datos PostgreSQL de ejemplo
   </span>
@@ -504,28 +469,28 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="02.-Tutorial%20Avanzado/01.-Consulta%20de%20datos/01.-SELECT/">
+<a class="md-nav__link" href="../../01.-Consulta%20de%20datos/01.-SELECT/">
 <span class="md-ellipsis">
     01.-SELECT
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="02.-Tutorial%20Avanzado/01.-Consulta%20de%20datos/02.-Alias%20de%20columnas/">
+<a class="md-nav__link" href="../../01.-Consulta%20de%20datos/02.-Alias%20de%20columnas/">
 <span class="md-ellipsis">
     02.-Alias de columnas
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="02.-Tutorial%20Avanzado/01.-Consulta%20de%20datos/03.-ORDER%20BY/">
+<a class="md-nav__link" href="../../01.-Consulta%20de%20datos/03.-ORDER%20BY/">
 <span class="md-ellipsis">
     03.-ORDER BY
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="02.-Tutorial%20Avanzado/01.-Consulta%20de%20datos/04.-SELECT%20DISTINCT/">
+<a class="md-nav__link" href="../../01.-Consulta%20de%20datos/04.-SELECT%20DISTINCT/">
 <span class="md-ellipsis">
     04.-SELECT DISTINCT
   </span>
@@ -549,63 +514,63 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="02.-Tutorial%20Avanzado/02.-Filtrado%20de%20datos/01.-WHERE/">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/01.-WHERE/">
 <span class="md-ellipsis">
     01.-WHERE
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="02.-Tutorial%20Avanzado/02.-Filtrado%20de%20datos/02.-AND/">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/02.-AND/">
 <span class="md-ellipsis">
     02.-AND
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="02.-Tutorial%20Avanzado/02.-Filtrado%20de%20datos/03.-OR/">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/03.-OR/">
 <span class="md-ellipsis">
     03.-OR
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="02.-Tutorial%20Avanzado/02.-Filtrado%20de%20datos/04.-LIMIT/">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/04.-LIMIT/">
 <span class="md-ellipsis">
     04.-LIMIT
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="02.-Tutorial%20Avanzado/02.-Filtrado%20de%20datos/05.-FETCH/">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/05.-FETCH/">
 <span class="md-ellipsis">
     05.-FETCH
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="02.-Tutorial%20Avanzado/02.-Filtrado%20de%20datos/06.-IN/">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/06.-IN/">
 <span class="md-ellipsis">
     06.-IN
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="02.-Tutorial%20Avanzado/02.-Filtrado%20de%20datos/07.-BETWEEN/">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/07.-BETWEEN/">
 <span class="md-ellipsis">
     07.-BETWEEN
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="02.-Tutorial%20Avanzado/02.-Filtrado%20de%20datos/08.-LIKE/">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/08.-LIKE/">
 <span class="md-ellipsis">
     08.-LIKE
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="02.-Tutorial%20Avanzado/02.-Filtrado%20de%20datos/09.-IS%20NULL/">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/09.-IS%20NULL/">
 <span class="md-ellipsis">
     09.-IS NULL
   </span>
@@ -629,56 +594,56 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="02.-Tutorial%20Avanzado/03.-Uniendo%20m%C3%BAltiples%20tablas/01.-Joins/">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/01.-Joins/">
 <span class="md-ellipsis">
     01.-Joins
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="02.-Tutorial%20Avanzado/03.-Uniendo%20m%C3%BAltiples%20tablas/02.-Alias%20de%20tablas/">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/02.-Alias%20de%20tablas/">
 <span class="md-ellipsis">
     02.-Alias de tablas
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="02.-Tutorial%20Avanzado/03.-Uniendo%20m%C3%BAltiples%20tablas/03.-INNER%20JOIN/">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/03.-INNER%20JOIN/">
 <span class="md-ellipsis">
     03.-INNER JOIN
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="02.-Tutorial%20Avanzado/03.-Uniendo%20m%C3%BAltiples%20tablas/04.-LEFT%20JOIN/">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/04.-LEFT%20JOIN/">
 <span class="md-ellipsis">
     04.-LEFT JOIN
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="02.-Tutorial%20Avanzado/03.-Uniendo%20m%C3%BAltiples%20tablas/05.-SELF%20JOIN/">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/05.-SELF%20JOIN/">
 <span class="md-ellipsis">
     05.-SELF JOIN
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="02.-Tutorial%20Avanzado/03.-Uniendo%20m%C3%BAltiples%20tablas/06.-FULL%20OUTER%20JOIN/">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/06.-FULL%20OUTER%20JOIN/">
 <span class="md-ellipsis">
     06.-FULL OUTER JOIN
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="02.-Tutorial%20Avanzado/03.-Uniendo%20m%C3%BAltiples%20tablas/07.-CROSS%20JOIN/">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/07.-CROSS%20JOIN/">
 <span class="md-ellipsis">
     07.-CROSS JOIN
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="02.-Tutorial%20Avanzado/03.-Uniendo%20m%C3%BAltiples%20tablas/08.-NATURAL%20JOIN/">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/08.-NATURAL%20JOIN/">
 <span class="md-ellipsis">
     08.-NATURAL JOIN
   </span>
@@ -687,29 +652,30 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4_5" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4_5" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
 <span class="md-ellipsis">
     04.-Agrupando datos
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_4_5_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="true" aria-labelledby="__nav_4_5_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_5">
 <span class="md-nav__icon md-icon"></span>
             04.-Agrupando datos
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="02.-Tutorial%20Avanzado/04.-Agrupando%20datos/01.-GROUP%20BY/">
+<a class="md-nav__link" href="../01.-GROUP%20BY/">
 <span class="md-ellipsis">
     01.-GROUP BY
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="02.-Tutorial%20Avanzado/04.-Agrupando%20datos/02.-HAVING/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     02.-HAVING
   </span>
@@ -733,14 +699,14 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="02.-Tutorial%20Avanzado/05.-Operaciones%20con%20conjuntos/01.-Introducci%C3%B3n%20al%20operador%20UNION/">
+<a class="md-nav__link" href="../../05.-Operaciones%20con%20conjuntos/01.-Introducci%C3%B3n%20al%20operador%20UNION/">
 <span class="md-ellipsis">
     01.-Introducción al operador UNION
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="02.-Tutorial%20Avanzado/05.-Operaciones%20con%20conjuntos/02.-Introducci%C3%B3n%20al%20operador%20INTERSECT/">
+<a class="md-nav__link" href="../../05.-Operaciones%20con%20conjuntos/02.-Introducci%C3%B3n%20al%20operador%20INTERSECT/">
 <span class="md-ellipsis">
     02.-Introducción al operador INTERSECT
   </span>
@@ -750,7 +716,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="02.-Tutorial%20Avanzado/dvdrental.tar">
+<a class="md-nav__link" href="../../dvdrental.tar">
 <span class="md-ellipsis">
     dvdrental
   </span>
@@ -768,110 +734,122 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#que-es-postgresql">
-<span class="md-ellipsis">
-      ¿Qué es PostgreSQL?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#por-que-usar-postgresql">
-<span class="md-ellipsis">
-      ¿Por qué usar PostgreSQL?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#alguna-pregunta">
-<span class="md-ellipsis">
-      ¿Alguna pregunta?
-    </span>
-</a>
-</li>
-</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="postgresql">PostgreSQL<a class="headerlink" href="#postgresql" title="Permanent link">¶</a></h1>
-<h2 id="que-es-postgresql">¿Qué es PostgreSQL?<a class="headerlink" href="#que-es-postgresql" title="Permanent link">¶</a></h2>
-<p>PostgreSQL es un potente sistema de bases de datos de <strong>código abierto</strong> que utiliza y extiende el lenguaje SQL combinado con muchas características que almacenan y escalan las cargas de datos más complicadas. Los orígenes de PostgreSQL se remontan a <strong>1986</strong> como parte del proyecto <a href="https://www.postgresql.org/docs/current/history.html">POSTGRES</a> en la Universidad de California en Berkeley y tiene más de 35 años de desarrollo activo en la plataforma central.</p>
-<p>PostgreSQL se ha ganado una sólida reputación por su <strong>arquitectura probada</strong>, <strong>fiabilidad</strong>, <strong>integridad de datos</strong>, conjunto de <strong>características robustas</strong>, <strong>extensibilidad</strong> y la <strong>dedicación de la comunidad</strong> de código abierto detrás del software para ofrecer constantemente soluciones eficaces e innovadoras. PostgreSQL se ejecuta en <a href="https://www.postgresql.org/download/">todos los principales sistemas operativos</a>, ha sido <a href="https://en.wikipedia.org/wiki/ACID">compatible</a> con <a href="https://en.wikipedia.org/wiki/ACID">ACID</a> desde 2001, y tiene potentes complementos como el popular extensor de bases de datos geoespaciales <a href="https://postgis.net/">PostGIS</a>. No es de extrañar que PostgreSQL se haya convertido en la base de datos relacional de código abierto de elección para muchas personas y organizaciones.</p>
-<p><a href="https://www.postgresql.org/docs/current/tutorial.html">Empezar</a> con el uso de PostgreSQL nunca ha sido más fácil: elige un proyecto que quieres construir, y deja que PostgreSQL almacene de forma segura y robusta tus datos.</p>
-<h2 id="por-que-usar-postgresql">¿Por qué usar PostgreSQL?<a class="headerlink" href="#por-que-usar-postgresql" title="Permanent link">¶</a></h2>
-<p>PostgreSQL viene con <a href="https://www.postgresql.org/about/featurematrix/">muchas características</a> destinadas a ayudar a los desarrolladores a construir aplicaciones, administradores para proteger la integridad de los datos y construir entornos tolerantes a fallos, y ayudarle a administrar sus datos sin importar el conjunto de datos tan grande o pequeño. Además de ser <a href="https://www.postgresql.org/about/license/">de código libre y abierto</a>, PostgreSQL es <strong>muy extensible</strong>. Por ejemplo, puede definir sus propios tipos de datos, construir funciones personalizadas, incluso escribir código de <a href="https://www.postgresql.org/docs/current/xplang.html">diferentes lenguajes</a> de <a href="https://www.postgresql.org/docs/current/xplang.html">programación</a> sin recompilar su base de datos.</p>
-<p>PostgreSQL trata de ajustarse al <a href="https://www.postgresql.org/docs/current/features.html">estándar SQL</a> donde tal conformidad no contradice las características tradicionales o podría conducir a malas decisiones arquitectónicas. Muchas de las características requeridas por el estándar SQL son compatibles, aunque a veces con una sintaxis o función ligeramente diferente. Se pueden esperar nuevos pasos hacia la conformidad con el tiempo. A partir de la versión 16 de septiembre de 2023, PostgreSQL se ajusta al menos a 170 de las 179 funciones obligatorias para la conformidad del núcleo SQL:2023. A partir de este escrito, ninguna base de datos relacional cumple con toda la conformidad con esta norma.</p>
-<p>A continuación se muestra una lista no exhaustiva de varias características que se encuentran en PostgreSQL, se añaden más en cada <a href="https://www.postgresql.org/developer/roadmap/">versión importante:</a></p>
+<p>La cláusula <code>HAVING</code> especifica una condición de búsqueda para un grupo. La cláusula <code>HAVING</code> se utiliza a menudo con la cláusula <code>GROUP BY</code> para filtrar grupos en función de una condición especificada.</p>
+<p>La siguiente sentencia ilustra la sintaxis básica de la cláusula <code>HAVING</code>:</p>
+<pre><code class="language-postgresql">SELECT 
+  column1, 
+  aggregate_function (column2) 
+FROM 
+  table_name 
+GROUP BY 
+  column1 
+HAVING 
+  condition;
+</code></pre>
+<p>En esta sintaxis:</p>
 <ul>
-<li><strong>Tipos de datos</strong><ul>
-<li>Primitivas: entero, numérico, cadena, booleano</li>
-<li>Estructurado: Fecha/hora, Array, Range / Multirange, UUID</li>
-<li>Documento: JSON/JSONB, XML, Clave-valor (Hstore)</li>
-<li>Geometría: Punto, Línea, Círculo, Polígono</li>
-<li>Personalizaciones: Composite, Tipos personalizados</li>
+<li>Primero, la cláusula <code>GROUP BY</code> agrupa las filas en grupos según los valores de la <code>columna1</code>.</li>
+<li>A continuación, la cláusula <code>HAVING</code> filtra los grupos en función de la <code>condition</code>.</li>
 </ul>
-</li>
-<li><strong>Integridad de los datos</strong><ul>
-<li>UNIQUE, NO NULL</li>
-<li>Claves primarias</li>
-<li>Claves foráneas</li>
-<li>Restricciones de exclusión</li>
-<li>Explicit Locks, Advisory Locks</li>
+<p>Si un grupo cumple la condición especificada, la cláusula <code>HAVING</code> lo incluirá en el conjunto de resultados.</p>
+<p>Además de la cláusula <code>GROUP BY</code>, también puede incluir otras cláusulas como <code>JOIN</code> y <code>LIMIT</code> en la sentencia que utiliza la cláusula <code>HAVING</code>.</p>
+<p>PostgreSQL evalúa la cláusula <code>HAVING</code> después de las cláusulas <code>FROM</code>, <code>WHERE</code>, <code>GROUP BY</code>, y antes de las cláusulas <code>DISTINCT</code>, <code>SELECT</code>, <code>ORDER BY</code> y <code>LIMIT</code>:</p>
+<p><img alt="img" src="https://www.postgresqltutorial.com/wp-content/uploads/2024/01/postgresql-having.svg"/></p>
+<p>Debido a que PostgreSQL evalúa la cláusula <code>HAVING</code> antes que la cláusula <code>SELECT</code>, no puede usar los alias de columna en la cláusula <code>HAVING</code>.</p>
+<p>Esta restricción surge del hecho de que, en el punto de evaluación de la cláusula <code>HAVING</code>, los alias de columna especificados en la cláusula <code>SELECT</code> aún no están disponibles.</p>
+<h1 id="having-vs-where">HAVING vs. WHERE<a class="headerlink" href="#having-vs-where" title="Permanent link">¶</a></h1>
+<p>La cláusula <code>WHERE</code> filtra las filas basándose en una condición específica mientras que la cláusula <code>HAVING</code> filtra grupos de filas según una condición especificada.</p>
+<p>En otras palabras, usted aplica la condición en la cláusula <code>WHERE</code> a las filas mientras que aplica la condición en la cláusula <code>HAVING</code> a los grupos de filas.</p>
+<h1 id="ejemplos-de-la-clausula-having-en-postgresql">Ejemplos de la cláusula HAVING en PostgreSQL<a class="headerlink" href="#ejemplos-de-la-clausula-having-en-postgresql" title="Permanent link">¶</a></h1>
+<p>Veamos la tabla <code>payment</code> en la <a href="https://www.postgresqltutorial.com/postgresql-getting-started/postgresql-sample-database/">base de datos de ejemplo</a>:</p>
+<p><img alt="payment" src="https://www.postgresqltutorial.com/wp-content/uploads/2019/12/payment.png"/></p>
+<h2 id="uso-de-la-clausula-having-de-postgresql-con-la-funcion-sum-ejemplo">Uso de la cláusula HAVING de PostgreSQL con la función SUM ejemplo<a class="headerlink" href="#uso-de-la-clausula-having-de-postgresql-con-la-funcion-sum-ejemplo" title="Permanent link">¶</a></h2>
+<p>La siguiente consulta utiliza la cláusula <code>GROUP BY</code> con la función <code>SUM()</code> para encontrar el pago total de cada cliente:</p>
+<pre><code class="language-postgresql">SELECT 
+  customer_id, 
+  SUM (amount) amount 
+FROM 
+  payment 
+GROUP BY 
+  customer_id 
+ORDER BY 
+  amount DESC;
+</code></pre>
+<p>Salida:</p>
+<pre><code> customer_id | amount
+-------------+--------
+         148 | 211.55
+         526 | 208.58
+         178 | 194.61
+         137 | 191.62
+...
+</code></pre>
+<p>La siguiente sentencia añade la cláusula <code>HAVING</code> para seleccionar los únicos clientes que han gastado más de <code>200</code>:</p>
+<pre><code class="language-postgresql">SELECT 
+  customer_id, 
+  SUM (amount) amount 
+FROM 
+  payment 
+GROUP BY 
+  customer_id 
+HAVING 
+  SUM (amount) &gt; 200 
+ORDER BY 
+  amount DESC;
+</code></pre>
+<p>Salida:</p>
+<pre><code> customer_id | amount
+-------------+--------
+         148 | 211.55
+         526 | 208.58
+(2 rows)
+</code></pre>
+<h2 id="ejemplo-de-clausula-having-con-count-en-postgresql">Ejemplo de cláusula HAVING con COUNT en PostgreSQL<a class="headerlink" href="#ejemplo-de-clausula-having-con-count-en-postgresql" title="Permanent link">¶</a></h2>
+<p>Vea la siguiente tabla <code>customer</code> de la <a href="https://www.postgresqltutorial.com/postgresql-getting-started/postgresql-sample-database/">base de datos de ejemplo</a>:</p>
+<p><img alt="customer table" src="https://www.postgresqltutorial.com/wp-content/uploads/2013/05/customer-table.png"/></p>
+<p>La siguiente consulta utiliza la cláusula <code>GROUP BY</code> para encontrar el número de clientes por tienda:</p>
+<pre><code class="language-PostgreSQL">SELECT 
+  store_id, 
+  COUNT (customer_id) 
+FROM 
+  customer 
+GROUP BY 
+  store_id
+</code></pre>
+<p>Salida:</p>
+<pre><code> store_id | count
+----------+-------
+        1 |   326
+        2 |   273
+(2 rows)
+</code></pre>
+<p>La siguiente sentencia añade la cláusula <code>HAVING</code> para seleccionar una tienda que tenga más de 300 clientes:</p>
+<pre><code class="language-PostgreSQL">SELECT 
+  store_id, 
+  COUNT (customer_id) 
+FROM 
+  customer 
+GROUP BY 
+  store_id 
+HAVING 
+  COUNT (customer_id) &gt; 300;
+</code></pre>
+<p>Salida:</p>
+<pre><code> store_id | count
+----------+-------
+        1 |   326
+(1 row)
+</code></pre>
+<h1 id="resumen">Resumen<a class="headerlink" href="#resumen" title="Permanent link">¶</a></h1>
+<ul>
+<li>Utilice la cláusula <code>HAVING</code> para especificar la condición de filtrado para los grupos devueltos por la cláusula <code>GROUP BY</code>.</li>
 </ul>
-</li>
-<li><strong>Concurrencia, Rendimiento</strong><ul>
-<li>Indización: Árbol B, Multicolumna, Expresiones, Partial</li>
-<li>Indización avanzada: GiST, SP-Gist, KNN Gist, GIN, BRIN, Covering indexes, Bloom filters</li>
-<li>Sofisticado planificador de consultas/optimizador, escaneos de solo índice, estadísticas multicolumna</li>
-<li>Transacciones, Operaciones anidadas (a través de puntos de ahorro)</li>
-<li>Control de concurrencia Multi-Versión (MVCC)</li>
-<li>Paralelización de las consultas de lectura y la construcción de índices de árbol B</li>
-<li>Particionado de tablas</li>
-<li>Todos los niveles de aislamiento de las transacciones definidos en la norma SQL, incluyendo Serializable</li>
-<li>Compilatión de expresiones Just-In-Time (JIT)</li>
-</ul>
-</li>
-<li><strong>Fiabilidad, Recuperación de Desastres</strong></li>
-<li>Write-ahead Logging (WAL)</li>
-<li>Replication: Asynchronous, Synchronous, Logical</li>
-<li>Point-in-time-recovery (PITR), active standbys</li>
-<li>Tablespaces</li>
-<li><strong>Seguridad</strong><ul>
-<li>Autenticación: GSSAPI, SSPI, LDAP, SCRAM-SHA-256, Certificado, y más</li>
-<li>Sistema de control de acceso robusto</li>
-<li>Seguridad a nivel de columna y fila</li>
-<li>La autenticación multifactor con certificados y un método adicional</li>
-</ul>
-</li>
-<li><strong>Extensibilidad</strong><ul>
-<li>Funciones y procedimientos almacenados</li>
-<li>Lenguajes procedurales: PL/pgSQL, Perl, Python y Tcl. Hay otros lenguajes disponibles a través de extensiones, por ejemplo. Java, JavaScript (V8), R, Lua y Rust</li>
-<li>Constructores SQL/JSON y expresiones de ruta</li>
-<li>Envoltorios de datos extranjeros: conéctese a otras bases de datos o flujos con una interfaz SQL estándar</li>
-<li>Interfaz de almacenamiento personalizable para tablas</li>
-<li>Muchas extensiones que proporcionan funcionalidad adicional, incluyendo PostGIS</li>
-</ul>
-</li>
-<li><strong>Internacionalización, Búsqueda de Texto</strong><ul>
-<li>Apoyo a conjuntos internacionales de caracteres, por ejemplo, a través de las recopilaciones de la UCI</li>
-<li>Cifras de casos insensibles e insensibles a los acentos</li>
-<li>Búsqueda de texto completo</li>
-</ul>
-</li>
-</ul>
-<p>Hay muchas más características que se pueden descubrir en la <a href="https://www.postgresql.org/docs/">documentación</a> PostgreSQL. Además, PostgreSQL es altamente extensible: muchas características, como los índices, tienen API definidas para que se pueda construir con PostgreSQL tus desafíos.</p>
-<p>PostgreSQL ha demostrado ser altamente escalable tanto en la cantidad de datos que puede gestionar y en el número de usuarios concurrentes que puede acomodarse. Hay clústeres activos PostgreSQL en entornos de producción que manejan muchos terabytes de datos, y sistemas especializados que manejan petabytes.</p>
-<h2 id="alguna-pregunta">¿Alguna pregunta?<a class="headerlink" href="#alguna-pregunta" title="Permanent link">¶</a></h2>
-<p>El primer lugar al que acudir para cualquier pregunta en PostgreSQL es su <a href="https://www.postgresql.org/docs/">documentación de renombre mundial</a> que discute cómo usar PostgreSQL en profundidad.</p>
-<p>También hay muchas <strong><a href="https://www.postgresql.org/list/">listas de correo</a></strong> donde te puedes conectar y participar en la <a href="https://www.postgresql.org/community/">comunidad</a>. También hay muchos <a href="https://www.postgresql.org/about/events/">eventos</a> y <a href="https://www.postgresql.org/community/user-groups/">grupos de usuarios locales</a> donde te puedes conectar con otros usuarios de PostgreSQL.</p>
 </article>
 </div>
 </div>
@@ -898,9 +876,9 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": ".", "features": ["navigation.top", "navigation.top.sticky", "navigation.tabs", "navigation.indexes"], "search": "assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
-<script src="assets/javascripts/bundle.6c14ae12.min.js"></script>
-<script src="javascripts/mathjax.js"></script>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.top.sticky", "navigation.tabs", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+<script src="../../../assets/javascripts/bundle.6c14ae12.min.js"></script>
+<script src="../../../javascripts/mathjax.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
