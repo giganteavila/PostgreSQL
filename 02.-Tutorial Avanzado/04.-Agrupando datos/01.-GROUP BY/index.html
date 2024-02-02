@@ -23,7 +23,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#ejemplos-de-la-funcion-reverse-de-mysql">
+<a class="md-skip" href="#postgresql-group-by-clause-examples">
           Saltar a contenido
         </a>
 </div>
@@ -686,23 +686,62 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ejemplo-basico-de-la-funcion-postgresql-reverse">
+<a class="md-nav__link" href="#postgresql-group-by-clause-examples">
 <span class="md-ellipsis">
-      Ejemplo básico de la función PostgreSQL REVERSE()
+      PostgreSQL GROUP BY clause examples
+    </span>
+</a>
+<nav aria-label="PostgreSQL GROUP BY clause examples" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-using-postgresql-group-by-without-an-aggregate-function-example">
+<span class="md-ellipsis">
+      1) Using PostgreSQL GROUP BY without an aggregate function example
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#uso-de-la-funcion-reverse-de-postgresql-con-datos-de-tabla">
+<a class="md-nav__link" href="#2-using-postgresql-group-by-with-sum-function-example">
 <span class="md-ellipsis">
-      Uso de la función REVERSE() de PostgreSQL con datos de tabla
+      2) Using PostgreSQL GROUP BY with SUM() function example
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#uso-de-la-funcion-reverse-para-detectar-palindromos">
+<a class="md-nav__link" href="#3-using-postgresql-group-by-clause-with-the-join-clause">
 <span class="md-ellipsis">
-      Uso de la función REVERSE() para detectar palíndromos
+      3) Using PostgreSQL GROUP BY clause with the JOIN clause
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-using-postgresql-group-by-with-count-function-example">
+<span class="md-ellipsis">
+      4) Using PostgreSQL GROUP BY with COUNT() function example
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#5-using-postgresql-group-by-with-multiple-columns">
+<span class="md-ellipsis">
+      5) Using PostgreSQL GROUP BY with multiple columns
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#6-using-postgresql-group-by-clause-with-a-date-column">
+<span class="md-ellipsis">
+      6) Using PostgreSQL GROUP BY clause with a date column
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#summary">
+<span class="md-ellipsis">
+      Summary
     </span>
 </a>
 </li>
@@ -775,23 +814,62 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ejemplo-basico-de-la-funcion-postgresql-reverse">
+<a class="md-nav__link" href="#postgresql-group-by-clause-examples">
 <span class="md-ellipsis">
-      Ejemplo básico de la función PostgreSQL REVERSE()
+      PostgreSQL GROUP BY clause examples
+    </span>
+</a>
+<nav aria-label="PostgreSQL GROUP BY clause examples" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-using-postgresql-group-by-without-an-aggregate-function-example">
+<span class="md-ellipsis">
+      1) Using PostgreSQL GROUP BY without an aggregate function example
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#uso-de-la-funcion-reverse-de-postgresql-con-datos-de-tabla">
+<a class="md-nav__link" href="#2-using-postgresql-group-by-with-sum-function-example">
 <span class="md-ellipsis">
-      Uso de la función REVERSE() de PostgreSQL con datos de tabla
+      2) Using PostgreSQL GROUP BY with SUM() function example
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#uso-de-la-funcion-reverse-para-detectar-palindromos">
+<a class="md-nav__link" href="#3-using-postgresql-group-by-clause-with-the-join-clause">
 <span class="md-ellipsis">
-      Uso de la función REVERSE() para detectar palíndromos
+      3) Using PostgreSQL GROUP BY clause with the JOIN clause
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-using-postgresql-group-by-with-count-function-example">
+<span class="md-ellipsis">
+      4) Using PostgreSQL GROUP BY with COUNT() function example
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#5-using-postgresql-group-by-with-multiple-columns">
+<span class="md-ellipsis">
+      5) Using PostgreSQL GROUP BY with multiple columns
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#6-using-postgresql-group-by-clause-with-a-date-column">
+<span class="md-ellipsis">
+      6) Using PostgreSQL GROUP BY clause with a date column
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#summary">
+<span class="md-ellipsis">
+      Summary
     </span>
 </a>
 </li>
@@ -802,98 +880,198 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<p>La función <code>REVERSE()</code> acepta una cadena y devuelve una nueva cadena con el orden de todos los caracteres invertido.</p>
-<p>Esta es la sintaxis de la función <code>REVERSE()</code>:</p>
-<pre><code class="language-postgresql">REVERSE(text)
+<h1>01.-GROUP BY</h1>
+<p>The <code>GROUP BY</code> clause divides the rows returned from the <code>SELECT</code> statement into groups.</p>
+<p>For each group, you can apply an <a href="https://www.postgresqltutorial.com/postgresql-aggregate-functions/">aggregate function</a> such as <code>SUM()</code> to calculate the sum of items or <code>COUNT()</code> to get the number of items in the groups.</p>
+<p>The following illustrates the basic syntax of the <code>GROUP BY</code> clause:</p>
+<pre><code>SELECT 
+   column_1, 
+   column_2,
+   ...,
+   aggregate_function(column_3)
+FROM 
+   table_name
+GROUP BY 
+   column_1,
+   column_2,
+   ...;
+Code language: SQL (Structured Query Language) (sql)
 </code></pre>
-<p>En esta sintaxis:</p>
+<p>In this syntax:</p>
 <ul>
-<li><code>texto</code>: La cadena de entrada que desea invertir.</li>
+<li>First, select the columns that you want to group such as <code>column1</code> and <code>column2</code>, and column that you want to apply an aggregate function (<code>column3</code>).</li>
+<li>Second, list the columns that you want to group in the <code>GROUP BY</code> clause.</li>
 </ul>
-<p>La función <code>REVERSE()</code> devuelve una cadena con el orden de todos los caracteres invertido.</p>
-<p>La función <code>REVERSE()</code> devuelve <code>NULL</code> si el <code>text</code> es <code>NULL</code>.</p>
-<h1 id="ejemplos-de-la-funcion-reverse-de-mysql">Ejemplos de la función REVERSE() de MySQL<a class="headerlink" href="#ejemplos-de-la-funcion-reverse-de-mysql" title="Permanent link">¶</a></h1>
-<p>Exploremos algunos ejemplos de uso de la función <code>REVERSE()</code>.</p>
-<h2 id="ejemplo-basico-de-la-funcion-postgresql-reverse">Ejemplo básico de la función PostgreSQL REVERSE()<a class="headerlink" href="#ejemplo-basico-de-la-funcion-postgresql-reverse" title="Permanent link">¶</a></h2>
-<p>El siguiente ejemplo utiliza la función <code>REVERSE()</code> para invertir la cadena <code>"SQL"</code>:</p>
-<p>Traducción realizada con la versión gratuita del traductor DeepL.com</p>
-<pre><code class="language-PostgreSQL">SELECT REVERSE('SQL');
-</code></pre>
-<p>Salida:</p>
-<pre><code> reverse
----------
- LQS
-(1 row)
-</code></pre>
-<h2 id="uso-de-la-funcion-reverse-de-postgresql-con-datos-de-tabla">Uso de la función REVERSE() de PostgreSQL con datos de tabla<a class="headerlink" href="#uso-de-la-funcion-reverse-de-postgresql-con-datos-de-tabla" title="Permanent link">¶</a></h2>
-<p>Utilizaremos la tabla <code>customer</code> de la base de datos de ejemplo:</p>
-<p><img alt="customer table" src="https://www.postgresqltutorial.com/wp-content/uploads/2019/05/customer.png"/></p>
-<p>El siguiente ejemplo utiliza la función <code>REVERSE()</code> para invertir los nombres de pila de los clientes:</p>
-<pre><code class="language-PostgreSQL">SELECT 
-  first_name, 
-  REVERSE(first_name) 
+<p>The <code>GROUP BY</code> clause divides the rows by the values in the columns specified in the <code>GROUP BY</code> clause and calculates a value for each group.</p>
+<p>It’s possible to use other clauses of the <code>SELECT</code> statement with the <code>GROUP BY</code> clause.</p>
+<p>PostgreSQL evaluates the <code>GROUP BY</code> clause after the <code>FROM</code> and <code>WHERE</code> clauses and before the <code>HAVING</code> <code>SELECT</code>, <code>DISTINCT</code>, <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-order-by/"><code>ORDER BY</code> </a>and <code>LIMIT</code> clauses.</p>
+<p><img alt="PostgreSQL GROUP BY" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-GROUP-BY-1.png"/></p>
+<h2 id="postgresql-group-by-clause-examples">PostgreSQL GROUP BY clause examples<a class="headerlink" href="#postgresql-group-by-clause-examples" title="Permanent link">¶</a></h2>
+<p>Let’s take a look at the <code>payment</code> table in the <a href="https://www.postgresqltutorial.com/postgresql-getting-started/postgresql-sample-database/">sample database</a>.</p>
+<p><img alt="payment" src="https://www.postgresqltutorial.com/wp-content/uploads/2019/12/payment.png"/></p>
+<h3 id="1-using-postgresql-group-by-without-an-aggregate-function-example">1) Using PostgreSQL GROUP BY without an aggregate function example<a class="headerlink" href="#1-using-postgresql-group-by-without-an-aggregate-function-example" title="Permanent link">¶</a></h3>
+<p>The following example uses the <code>GROUP BY</code> clause to retrieve the <code>customer_id</code> from the payment table:</p>
+<pre><code>SELECT 
+  customer_id 
 FROM 
-  customer 
+  payment 
+GROUP BY 
+  customer_id 
 ORDER BY 
-  first_name;
+  customer_id;Code language: SQL (Structured Query Language) (sql)
 </code></pre>
-<p>Salida:</p>
-<pre><code> first_name  |   reverse
--------------+-------------
- Aaron       | noraA
- Adam        | madA
- Adrian      | nairdA
- Agnes       | sengA
+<p>Output:</p>
+<pre><code> customer_id
+-------------
+           1
+           2
+           3
+           4
+           5
+           6
+           7
+           8
+...
 </code></pre>
-<h2 id="uso-de-la-funcion-reverse-para-detectar-palindromos">Uso de la función REVERSE() para detectar palíndromos<a class="headerlink" href="#uso-de-la-funcion-reverse-para-detectar-palindromos" title="Permanent link">¶</a></h2>
-<p>Un palíndromo es una cadena que se lee igual hacia delante y hacia atrás, como <code>"radar"</code>.</p>
-<p>Puede utilizar la función <code>REVERSE()</code> para invertir una cadena y luego comparar la cadena invertida con la cadena original para determinar si se trata de un palíndromo. Por ejemplo:</p>
-<p>Primero, cree una nueva tabla llamada <code>words</code> para almacenar las palabras:</p>
-<pre><code class="language-PostgreSQL">CREATE TABLE words(
-  id SERIAL PRIMARY KEY,
-  word VARCHAR(255) NOT NULL
-);
-</code></pre>
-<p>En segundo lugar, inserte algunas filas en la tabla <code>words</code>:</p>
-<pre><code class="language-PostgreSQL">INSERT INTO words(word)
-VALUES('radar'), ('level'),('civic'),('man'),('12321'),('madam')
-RETURNING *;
-</code></pre>
-<p>Salida:</p>
-<pre><code> id | word
-----+-------
-  1 | radar
-  2 | level
-  3 | civic
-  4 | man
-  5 | 12321
-  6 | madam
-(6 rows)
-</code></pre>
-<p>En tercer lugar, determina si un valor de la columna <code>palabra</code> es un palíndromo utilizando la función <code>REVERSE()</code>:</p>
-<pre><code class="language-PostgreSQL">SELECT 
-  word, 
-  REVERSE(word), 
-  (
-    word = REVERSE(word)
-  ) palindrome 
+<p>Each customer has one or more payments. The <code>GROUP BY</code> clause removes duplicate values in the customer_id column and returns distinct customer ids. In this example, the <code>GROUP BY</code> clause works like the <code>DISTINCT</code> operator.</p>
+<h3 id="2-using-postgresql-group-by-with-sum-function-example">2) Using PostgreSQL GROUP BY with SUM() function example<a class="headerlink" href="#2-using-postgresql-group-by-with-sum-function-example" title="Permanent link">¶</a></h3>
+<p>The <code>GROUP BY</code> clause is useful when used in conjunction with an <a href="https://www.postgresqltutorial.com/postgresql-aggregate-functions/">aggregate function</a>.</p>
+<p>The following query uses the <code>GROUP BY</code> clause to retrieve the total payment paid by each customer:</p>
+<pre><code>SELECT 
+  customer_id, 
+  SUM (amount) 
 FROM 
-  words;
+  payment 
+GROUP BY 
+  customer_id 
+ORDER BY 
+  customer_id;Code language: SQL (Structured Query Language) (sql)
 </code></pre>
-<p>Salida:</p>
-<pre><code> word  | reverse | palindrome
--------+---------+------------
- radar | radar   | t
- level | level   | t
- civic | civic   | t
- man   | nam     | f
- 12321 | 12321   | t
- madam | madam   | t
-(6 rows)
+<p>Output:</p>
+<pre><code> customer_id |  sum
+-------------+--------
+           1 | 114.70
+           2 | 123.74
+           3 | 130.76
+           4 |  81.78
+           5 | 134.65
+           6 |  84.75
+           7 | 130.72
+...
 </code></pre>
-<h1 id="resumen">Resumen<a class="headerlink" href="#resumen" title="Permanent link">¶</a></h1>
+<p>In this example, the <code>GROUP BY</code> clause groups the payments by the customer id. For each group, it calculates the total payment.</p>
+<p>The following statement uses the <code>ORDER BY</code> clause with <code>GROUP BY</code> clause to sort the groups by total payments:</p>
+<pre><code>SELECT 
+  customer_id, 
+  SUM (amount) 
+FROM 
+  payment 
+GROUP BY 
+  customer_id 
+ORDER BY 
+  SUM (amount) DESC;Code language: SQL (Structured Query Language) (sql)
+</code></pre>
+<p>Output:</p>
+<pre><code> customer_id |  sum
+-------------+--------
+         148 | 211.55
+         526 | 208.58
+         178 | 194.61
+         137 | 191.62
+         144 | 189.60
+</code></pre>
+<h3 id="3-using-postgresql-group-by-clause-with-the-join-clause">3) Using PostgreSQL GROUP BY clause with the JOIN clause<a class="headerlink" href="#3-using-postgresql-group-by-clause-with-the-join-clause" title="Permanent link">¶</a></h3>
+<p>The following statement uses the <code>GROUP BY</code> clause to retrieve the total payment for each customer and display the customer name and amount:</p>
+<pre><code>SELECT 
+  first_name || ' ' || last_name full_name, 
+  SUM (amount) amount 
+FROM 
+  payment 
+  INNER JOIN customer USING (customer_id) 
+GROUP BY 
+  full_name 
+ORDER BY 
+  amount DESC;Code language: JavaScript (javascript)
+</code></pre>
+<p>Output:</p>
+<pre><code>       full_name       | amount
+-----------------------+--------
+ Eleanor Hunt          | 211.55
+ Karl Seal             | 208.58
+ Marion Snyder         | 194.61
+ Rhonda Kennedy        | 191.62
+ Clara Shaw            | 189.60
+...
+</code></pre>
+<p>In this example, we join the <code>payment</code> table with the <code>customer</code> table using an <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-inner-join/">inner join</a> to get the customer names and group customers by their names.</p>
+<h3 id="4-using-postgresql-group-by-with-count-function-example">4) Using PostgreSQL GROUP BY with COUNT() function example<a class="headerlink" href="#4-using-postgresql-group-by-with-count-function-example" title="Permanent link">¶</a></h3>
+<p>The following example uses the <code>GROUP BY</code> clause with the <code>COUNT()</code> function to count the number of payments processed by each staff:</p>
+<pre><code>SELECT
+    staff_id,
+    COUNT (payment_id)
+FROM
+    payment
+GROUP BY
+    staff_id;Code language: SQL (Structured Query Language) (sql)
+</code></pre>
+<p>Output:</p>
+<pre><code> staff_id | count
+----------+-------
+        1 |  7292
+        2 |  7304
+(2 rows)
+</code></pre>
+<p>In this example, the <code>GROUP BY</code> clause divides the rows in the <code>payment</code> table into groups and groups them by value in the <code>staff_id</code> column. For each group, it counts the number of rows using the <code>COUNT()</code> function.</p>
+<h3 id="5-using-postgresql-group-by-with-multiple-columns">5) Using PostgreSQL GROUP BY with multiple columns<a class="headerlink" href="#5-using-postgresql-group-by-with-multiple-columns" title="Permanent link">¶</a></h3>
+<p>The following example uses a <code>GROUP BY</code> clause to group rows by values in two columns:</p>
+<pre><code>SELECT 
+  customer_id, 
+  staff_id, 
+  SUM(amount) 
+FROM 
+  payment 
+GROUP BY 
+  staff_id, 
+  customer_id 
+ORDER BY 
+  customer_id;Code language: SQL (Structured Query Language) (sql)
+</code></pre>
+<p>Output:</p>
+<pre><code> customer_id | staff_id |  sum
+-------------+----------+--------
+           1 |        2 |  53.85
+           1 |        1 |  60.85
+           2 |        2 |  67.88
+           2 |        1 |  55.86
+           3 |        1 |  59.88
+...
+</code></pre>
+<p>In this example, the <code>GROUP BY</code> clause divides the rows in the <code>payment</code> table by the values in the <code>customer_id</code> and <code>staff_id</code> columns. For each group of <code>(customer_id, staff_id)</code>, the <code>SUM()</code> calculates the total amount.</p>
+<h3 id="6-using-postgresql-group-by-clause-with-a-date-column">6) Using PostgreSQL GROUP BY clause with a date column<a class="headerlink" href="#6-using-postgresql-group-by-clause-with-a-date-column" title="Permanent link">¶</a></h3>
+<p>The following example uses the <code>GROUP BY</code> clause to group payments by payment date:</p>
+<pre><code>SELECT 
+  DATE(payment_date) payment_date, 
+  SUM(amount) sum 
+FROM 
+  payment 
+GROUP BY 
+  DATE(payment_date) 
+ORDER BY 
+  payment_date DESC;Code language: SQL (Structured Query Language) (sql)
+</code></pre>
+<p>Output:</p>
+<pre><code>payment_date |   sum
+--------------+---------
+ 2007-05-14   |  514.18
+ 2007-04-30   | 5723.89
+ 2007-04-29   | 2717.60
+ 2007-04-28   | 2622.73
+...
+</code></pre>
+<p>Since the <code>payment_date</code> is a <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-timestamp/">timestamp</a> column, we convert it to a date using the DATE() function and group the payments by the date.</p>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
 <ul>
-<li>Utilice la función <code>REVERSE()</code> de PostgreSQL para invertir el orden de los caracteres dentro de una cadena.</li>
+<li>Use the PostgreSQL <code>GROUP BY</code> clause to divide rows into groups and apply an aggregate function to each group.</li>
 </ul>
 </article>
 </div>
