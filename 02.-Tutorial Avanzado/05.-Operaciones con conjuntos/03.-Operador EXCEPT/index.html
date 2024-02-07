@@ -5,11 +5,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="../01.-Introducci%C3%B3n%20al%20operador%20UNION/" rel="prev"/>
-<link href="../../dvdrental.tar" rel="next"/>
+<link href="../02.-Operador%20INTERSECT/" rel="prev"/>
+<link href="../../06.-Grouping%20sets%2C%20Cube%2C%20and%20Rollup/01.-Cl%C3%A1usula%20GROUPING%20SETS/" rel="next"/>
 <link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.4.9" name="generator"/>
-<title>02.-Introducción al operador INTERSECT - ASGBD</title>
+<title>03.-Operador EXCEPT - ASGBD</title>
 <link href="../../../assets/stylesheets/main.78cf6014.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,7 +23,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#postgresql-intersect-con-clausula-order-by">
+<a class="md-skip" href="#creacion-de-tablas-de-ejemplo">
           Saltar a contenido
         </a>
 </div>
@@ -47,7 +47,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              02.-Introducción al operador INTERSECT
+              03.-Operador EXCEPT
             
           </span>
 </div>
@@ -698,9 +698,16 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../01.-Introducci%C3%B3n%20al%20operador%20UNION/">
+<a class="md-nav__link" href="../01.-Operador%20UNION/">
 <span class="md-ellipsis">
-    01.-Introducción al operador UNION
+    01.-Operador UNION
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../02.-Operador%20INTERSECT/">
+<span class="md-ellipsis">
+    02.-Operador INTERSECT
   </span>
 </a>
 </li>
@@ -708,7 +715,45 @@
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
-    02.-Introducción al operador INTERSECT
+    03.-Operador EXCEPT
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+<span class="md-ellipsis">
+    06.-Grouping sets, Cube, and Rollup
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_7">
+<span class="md-nav__icon md-icon"></span>
+            06.-Grouping sets, Cube, and Rollup
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06.-Grouping%20sets%2C%20Cube%2C%20and%20Rollup/01.-Cl%C3%A1usula%20GROUPING%20SETS/">
+<span class="md-ellipsis">
+    01.-Cláusula GROUPING SETS
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06.-Grouping%20sets%2C%20Cube%2C%20and%20Rollup/02.-Subcl%C3%A1usula%20CUBE/">
+<span class="md-ellipsis">
+    02.-Subcláusula CUBE
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06.-Grouping%20sets%2C%20Cube%2C%20and%20Rollup/03.-Subcl%C3%A1usula%20ROLLUP/">
+<span class="md-ellipsis">
+    03.-Subcláusula ROLLUP
   </span>
 </a>
 </li>
@@ -740,33 +785,33 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<p>Al igual que los operadores UNION y EXCEPT, el operador <code>INTERSECT</code> de PostgreSQL combina conjuntos de resultados de dos sentencias SELECT  en un único conjunto de resultados. El operador <code>INTERSECT</code> devuelve un conjunto de resultados que contiene filas que están disponibles en ambos conjuntos de resultados.</p>
-<p>Esta es la sintaxis básica del operador <code>INTERSECT</code>:</p>
-<pre><code class="language-PostgreSQL">SELECT select_list
+<p>Al igual que los operadores <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-union/">UNION</a> e <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-intersect/">INTERSECT</a>, el operador <code>EXCEPT</code> devuelve filas comparando los conjuntos de resultados de dos o más consultas.</p>
+<p>El operador <code>EXCEPT</code> devuelve filas distintas de la primera consulta (izquierda) que no están en la segunda consulta (derecha).</p>
+<p>A continuación se ilustra la sintaxis del operador <code>EXCEPT</code>.</p>
+<pre><code class="language-postgresql">SELECT select_list
 FROM A
-INTERSECT
+EXCEPT 
 SELECT select_list
 FROM B;
 </code></pre>
-<p>Para utilizar el operador <code>INTERSECT</code>, las columnas que aparecen en las sentencias <code>SELECT</code> deben seguir estas reglas:</p>
+<p>Las consultas que implican el <code>EXCEPT</code> tienen que seguir estas reglas:</p>
 <ul>
-<li>El número de columnas y su orden en las consultas debe ser el mismo.</li>
-<li>Los tipos de datos de las columnas en las consultas deben ser compatibles.</li>
+<li>El número de columnas y su orden deben ser los mismos en las dos consultas.</li>
+<li>Los tipos de datos de las columnas respectivas deben ser compatibles.</li>
 </ul>
-<p>El siguiente diagrama ilustra cómo el operador <code>INTERSECT</code> combina los conjuntos de resultados A y B. El conjunto de resultados final está representado por el área amarilla donde el círculo A interseca al círculo B.</p>
-<p><img alt="PostgreSQL INTERSECT Operator" src="https://www.postgresqltutorial.com/wp-content/uploads/2016/06/PostgreSQL-INTERSECT-Operator-300x206.png"/></p>
-<h1 id="postgresql-intersect-con-clausula-order-by">PostgreSQL INTERSECT con cláusula ORDER BY<a class="headerlink" href="#postgresql-intersect-con-clausula-order-by" title="Permanent link">¶</a></h1>
-<p>Si desea ordenar el conjunto de resultados devuelto por el operador <code>INTERSECT</code>, coloque la cláusula <code>ORDER BY</code> después de la consulta final:</p>
-<pre><code class="language-PostgreSQL">SELECT select_list
+<p>El siguiente diagrama de Venn ilustra el operador <code>EXCEPT</code>:</p>
+<p><img alt="PostgreSQL EXCEPT" src="https://www.postgresqltutorial.com/wp-content/uploads/2016/06/PostgreSQL-EXCEPT-300x202.png"/></p>
+<p>Si desea ordenar las filas de los conjuntos de resultados combinados, debe colocar la cláusula <code>ORDER BY</code> después de la segunda consulta:</p>
+<pre><code class="language-postgresql">SELECT select_list
 FROM A
-INTERSECT
+EXCEPT 
 SELECT select_list
 FROM B
 ORDER BY sort_expression;
 </code></pre>
 <h1 id="creacion-de-tablas-de-ejemplo">Creación de tablas de ejemplo<a class="headerlink" href="#creacion-de-tablas-de-ejemplo" title="Permanent link">¶</a></h1>
-<p>Crearemos dos tablas <code>top_rated_films</code> y <code>most_popular_films</code> para demostración:</p>
-<pre><code class="language-PostgreSQL">CREATE TABLE top_rated_films(
+<p>Crearemos las tablas <code>top_rated_films</code> y <code>most_popular_films</code> para demostración:</p>
+<pre><code class="language-postgresql">CREATE TABLE top_rated_films(
   title VARCHAR NOT NULL, 
   release_year SMALLINT
 );
@@ -811,44 +856,39 @@ SELECT * FROM most_popular_films;
  Greyhound          |         2020
 (4 rows)
 </code></pre>
-<h1 id="ejemplos-del-operador-intersect-en-postgresql">Ejemplos del operador INTERSECT en PostgreSQL<a class="headerlink" href="#ejemplos-del-operador-intersect-en-postgresql" title="Permanent link">¶</a></h1>
-<p>Exploremos algunos ejemplos de uso del operador <code>INTERSECT</code>.</p>
-<h2 id="ejemplo-basico-del-operador-intersect">Ejemplo básico del operador INTERSECT<a class="headerlink" href="#ejemplo-basico-del-operador-intersect" title="Permanent link">¶</a></h2>
-<p>El siguiente ejemplo utiliza el operador <code>INTERSECT</code> para recuperar las películas populares que también son las mejor valoradas:</p>
-<pre><code class="language-PostgreSQL">SELECT *
-FROM most_popular_films 
-INTERSECT
-SELECT *
-FROM top_rated_films;
+<h1 id="ejemplos-del-operador-except-de-postgresql">Ejemplos del operador EXCEPT de PostgreSQL<a class="headerlink" href="#ejemplos-del-operador-except-de-postgresql" title="Permanent link">¶</a></h1>
+<p>Veamos algunos ejemplos de uso del operador `EXCEPT</p>
+<h2 id="ejemplo-basico-del-operador-except">Ejemplo básico del operador EXCEPT<a class="headerlink" href="#ejemplo-basico-del-operador-except" title="Permanent link">¶</a></h2>
+<p>La siguiente sentencia utiliza el operador <code>EXCEPT</code> para encontrar las películas mejor valoradas que no son populares:</p>
+<pre><code class="language-postgresql">SELECT * FROM top_rated_films
+EXCEPT 
+SELECT * FROM most_popular_films;
 </code></pre>
 <p>Salida:</p>
-<pre><code>      title      | release_year
------------------+--------------
- The Godfather   |         1972
- The Dark Knight |         2008
+<pre><code>          title           | release_year
+--------------------------+--------------
+ The Shawshank Redemption |         1994
+ 12 Angry Men             |         1957
 (2 rows)
 </code></pre>
-<p>El conjunto de resultados devuelve una película que aparece en ambas tablas.</p>
-<h2 id="ejemplo-de-uso-del-operador-intersect-con-la-clausula-order-by">Ejemplo de uso del operador INTERSECT con la cláusula ORDER BY<a class="headerlink" href="#ejemplo-de-uso-del-operador-intersect-con-la-clausula-order-by" title="Permanent link">¶</a></h2>
-<p>La siguiente sentencia utiliza el operador INTERSECT para encontrar las películas más populares que también son las más valoradas y ordena las películas por año de estreno:</p>
-<pre><code class="language-PostgreSQL">SELECT *
-FROM most_popular_films 
-INTERSECT
-SELECT *
-FROM top_rated_films
-ORDER BY release_year;
+<h2 id="uso-del-operador-except-con-la-clausula-order-by">Uso del operador EXCEPT con la cláusula ORDER BY<a class="headerlink" href="#uso-del-operador-except-con-la-clausula-order-by" title="Permanent link">¶</a></h2>
+<p>La siguiente sentencia utiliza la cláusula <code>ORDER BY</code> en la consulta para ordenar por títulos el conjunto de resultados devuelto por el operador <code>EXCEPT</code>:</p>
+<pre><code class="language-postgresql">SELECT * FROM top_rated_films
+EXCEPT 
+SELECT * FROM most_popular_films
+ORDER BY title;
 </code></pre>
 <p>Salida:</p>
-<pre><code>      title      | release_year
------------------+--------------
- The Godfather   |         1972
- The Dark Knight |         2008
+<pre><code>          title           | release_year
+--------------------------+--------------
+ 12 Angry Men             |         1957
+ The Shawshank Redemption |         1994
 (2 rows)
 </code></pre>
+<p>Observe que hemos colocado la cláusula <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-order-by/">ORDER BY</a> después de la segunda consulta para ordenar las películas por títulos.</p>
 <h1 id="resumen">Resumen<a class="headerlink" href="#resumen" title="Permanent link">¶</a></h1>
 <ul>
-<li>Utilice el operador <code>INTERSECT</code> de PostgreSQL para combinar dos conjuntos de resultados y devolver un único conjunto de resultados que contenga las filas que aparecen en ambos conjuntos de resultados.</li>
-<li>Coloque la cláusula <code>ORDER BY</code> después de la segunda consulta para ordenar las filas en el conjunto de resultados devuelto por el operador <code>INTERSECT</code>.</li>
+<li>Utilice el operador <code>EXCEPT</code> de PostgreSQL para combinar filas de dos conjuntos de resultados y devolver un conjunto de resultados que contenga filas del primer conjunto de resultados que no aparezcan en el segundo conjunto de resultados.</li>
 </ul>
 </article>
 </div>

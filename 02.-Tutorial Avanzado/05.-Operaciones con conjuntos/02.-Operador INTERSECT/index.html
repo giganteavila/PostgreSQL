@@ -5,11 +5,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="../05.-SELF%20JOIN/" rel="prev"/>
-<link href="../07.-CROSS%20JOIN/" rel="next"/>
+<link href="../01.-Operador%20UNION/" rel="prev"/>
+<link href="../03.-Operador%20EXCEPT/" rel="next"/>
 <link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.4.9" name="generator"/>
-<title>06.-FULL OUTER JOIN - ASGBD</title>
+<title>02.-Operador INTERSECT - ASGBD</title>
 <link href="../../../assets/stylesheets/main.78cf6014.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,7 +23,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#como-funciona-el-full-outer-join">
+<a class="md-skip" href="#intersect-con-clausula-order-by">
           Saltar a contenido
         </a>
 </div>
@@ -47,7 +47,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              06.-FULL OUTER JOIN
+              02.-Operador INTERSECT
             
           </span>
 </div>
@@ -579,114 +579,71 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_4_4" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_4" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
 <span class="md-ellipsis">
     03.-Uniendo múltiples tablas
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="true" aria-labelledby="__nav_4_4_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_4_4_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_4">
 <span class="md-nav__icon md-icon"></span>
             03.-Uniendo múltiples tablas
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../01.-Joins/">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/01.-Joins/">
 <span class="md-ellipsis">
     01.-Joins
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../02.-Alias%20de%20tablas/">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/02.-Alias%20de%20tablas/">
 <span class="md-ellipsis">
     02.-Alias de tablas
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../03.-INNER%20JOIN/">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/03.-INNER%20JOIN/">
 <span class="md-ellipsis">
     03.-INNER JOIN
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../04.-LEFT%20JOIN/">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/04.-LEFT%20JOIN/">
 <span class="md-ellipsis">
     04.-LEFT JOIN
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../05.-SELF%20JOIN/">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/05.-SELF%20JOIN/">
 <span class="md-ellipsis">
     05.-SELF JOIN
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    06.-FULL OUTER JOIN
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/06.-FULL%20OUTER%20JOIN/">
 <span class="md-ellipsis">
     06.-FULL OUTER JOIN
   </span>
 </a>
-<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#paso-1-inicializar-el-conjunto-de-resultados">
-<span class="md-ellipsis">
-      Paso 1. Inicializar el conjunto de resultados:
-    </span>
-</a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#paso-2-coincidencia-de-filas">
-<span class="md-ellipsis">
-      Paso 2. Coincidencia de filas:
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#paso-3-incluir-filas-no-coincidentes-de-la-tabla1-y-la-tabla2">
-<span class="md-ellipsis">
-      Paso 3. Incluir filas no coincidentes de la tabla1 y la tabla2:
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#paso-4-devolver-el-conjunto-de-resultados">
-<span class="md-ellipsis">
-      Paso 4. Devolver el conjunto de resultados:
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../07.-CROSS%20JOIN/">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/07.-CROSS%20JOIN/">
 <span class="md-ellipsis">
     07.-CROSS JOIN
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../08.-NATURAL%20JOIN/">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/08.-NATURAL%20JOIN/">
 <span class="md-ellipsis">
     08.-NATURAL JOIN
   </span>
@@ -726,36 +683,37 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4_6" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4_6" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
 <span class="md-ellipsis">
     05.-Operaciones con conjuntos
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_4_6_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="true" aria-labelledby="__nav_4_6_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_6">
 <span class="md-nav__icon md-icon"></span>
             05.-Operaciones con conjuntos
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../05.-Operaciones%20con%20conjuntos/01.-Operador%20UNION/">
+<a class="md-nav__link" href="../01.-Operador%20UNION/">
 <span class="md-ellipsis">
     01.-Operador UNION
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../05.-Operaciones%20con%20conjuntos/02.-Operador%20INTERSECT/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     02.-Operador INTERSECT
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../05.-Operaciones%20con%20conjuntos/03.-Operador%20EXCEPT/">
+<a class="md-nav__link" href="../03.-Operador%20EXCEPT/">
 <span class="md-ellipsis">
     03.-Operador EXCEPT
   </span>
@@ -821,208 +779,121 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#paso-1-inicializar-el-conjunto-de-resultados">
-<span class="md-ellipsis">
-      Paso 1. Inicializar el conjunto de resultados:
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#paso-2-coincidencia-de-filas">
-<span class="md-ellipsis">
-      Paso 2. Coincidencia de filas:
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#paso-3-incluir-filas-no-coincidentes-de-la-tabla1-y-la-tabla2">
-<span class="md-ellipsis">
-      Paso 3. Incluir filas no coincidentes de la tabla1 y la tabla2:
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#paso-4-devolver-el-conjunto-de-resultados">
-<span class="md-ellipsis">
-      Paso 4. Devolver el conjunto de resultados:
-    </span>
-</a>
-</li>
-</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<p>El <code>FULL OUTER JOIN</code> combina datos de dos tablas y devuelve todas las filas de ambas tablas, incluidas las filas coincidentes y no coincidentes de ambos lados.</p>
-<p>En otras palabras, el <code>FULL OUTER JOIN</code> combina los resultados del <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-left-join/">left join</a> y del <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-right-join/">right join</a>.</p>
-<p>Esta es la sintaxis básica de la cláusula <code>FULL OUTER JOIN</code>:</p>
-<pre><code class="language-postgresql">SELECT select_list
-FROM table1
-FULL OUTER JOIN table2 
-   ON table1.column_name = table2.column_name;
+<p>Al igual que los operadores UNION y EXCEPT, el operador <code>INTERSECT</code> de PostgreSQL combina conjuntos de resultados de dos sentencias SELECT  en un único conjunto de resultados. El operador <code>INTERSECT</code> devuelve un conjunto de resultados que contiene filas que están disponibles en ambos conjuntos de resultados.</p>
+<p>Esta es la sintaxis básica del operador <code>INTERSECT</code>:</p>
+<pre><code class="language-PostgreSQL">SELECT select_list
+FROM A
+INTERSECT
+SELECT select_list
+FROM B;
 </code></pre>
-<p>En esta sintaxis:</p>
+<p>Para utilizar el operador <code>INTERSECT</code>, las columnas que aparecen en las sentencias <code>SELECT</code> deben seguir estas reglas:</p>
 <ul>
-<li>Primero, especifique las columnas de <code>table1</code> y <code>table2</code> en la <code>select_list</code>.</li>
-<li>En segundo lugar, especifique la <code>table1</code> que desea recuperar los datos en la cláusula <code>FROM</code>.</li>
-<li>En tercer lugar, especifique la <code>table2</code> que desea unir con la <code>table1</code> en la cláusula <code>FULL OUTER JOIN</code>.</li>
-<li>Por último, defina una condición para unir dos tablas.</li>
+<li>El número de columnas y su orden en las consultas debe ser el mismo.</li>
+<li>Los tipos de datos de las columnas en las consultas deben ser compatibles.</li>
 </ul>
-<p>El <code>FULL OUTER JOIN</code> también se conoce como <code>FULL JOIN</code>. La palabra clave <code>OUTER</code> es opcional.</p>
-<h1 id="como-funciona-el-full-outer-join">Cómo funciona el FULL OUTER JOIN<a class="headerlink" href="#como-funciona-el-full-outer-join" title="Permanent link">¶</a></h1>
-<h5 id="paso-1-inicializar-el-conjunto-de-resultados"><strong>Paso 1. Inicializar el conjunto de resultados:</strong><a class="headerlink" href="#paso-1-inicializar-el-conjunto-de-resultados" title="Permanent link">¶</a></h5>
-<ul>
-<li>El <code>FULL OUTER JOIN</code> comienza con un resultado vacío.</li>
-</ul>
-<h5 id="paso-2-coincidencia-de-filas"><strong>Paso 2. Coincidencia de filas:</strong><a class="headerlink" href="#paso-2-coincidencia-de-filas" title="Permanent link">¶</a></h5>
-<ul>
-<li>En primer lugar, identifique las filas de la <code>tabla1</code> y la <code>tabla2</code> en las que coincidan los valores del <code>nombre_columna</code> especificado.</li>
-<li>A continuación, incluya estas filas coincidentes en el conjunto de resultados.</li>
-</ul>
-<h5 id="paso-3-incluir-filas-no-coincidentes-de-la-tabla1-y-la-tabla2"><strong>Paso 3. Incluir filas no coincidentes de la <code>tabla1</code> y la <code>tabla2</code>:</strong><a class="headerlink" href="#paso-3-incluir-filas-no-coincidentes-de-la-tabla1-y-la-tabla2" title="Permanent link">¶</a></h5>
-<ul>
-<li>En primer lugar, incluya las filas de la <code>tabla1</code> que no coincidan con las de la <code>tabla2</code>. Para las columnas de la <code>tabla2</code> en estas filas, incluya NULLs.</li>
-<li>En segundo lugar, incluya las filas de la <code>tabla2</code> que no coincidan con las de la <code>tabla1</code>. Para las columnas de la <code>tabla1</code> en estas filas, incluya NULLs.</li>
-</ul>
-<h5 id="paso-4-devolver-el-conjunto-de-resultados"><strong>Paso 4. Devolver el conjunto de resultados:</strong><a class="headerlink" href="#paso-4-devolver-el-conjunto-de-resultados" title="Permanent link">¶</a></h5>
-<ul>
-<li>Devuelve el conjunto de resultados final que contendrá todas las filas de ambas tablas, con filas coincidentes y no coincidentes tanto de <code>table1</code> como de <code>table2</code>.</li>
-<li>Si una fila tiene una coincidencia en ambos lados, combina los valores en una sola fila.</li>
-<li>Si no hay ninguna coincidencia en uno de los lados, las columnas del lado no coincidente tendrán valores NULL.</li>
-</ul>
-<p>El siguiente diagrama de Venn ilustra la operación <code>FULL OUTER JOIN</code>.</p>
-<p><img alt="PostgreSQL Join - Full Outer Join" src="https://www.postgresqltutorial.com/wp-content/uploads/2018/12/PostgreSQL-Join-Full-Outer-Join.png"/></p>
-<h1 id="configurar-tablas-de-ejemplo">Configurar tablas de ejemplo<a class="headerlink" href="#configurar-tablas-de-ejemplo" title="Permanent link">¶</a></h1>
-<p>Primero, <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-create-table/">cree dos nuevas tablas</a> para la demostración: <code>employees</code> y <code>departments</code>:</p>
-<pre><code class="language-postgresql">CREATE TABLE departments (
-  department_id serial PRIMARY KEY, 
-  department_name VARCHAR (255) NOT NULL
+<p>El siguiente diagrama ilustra cómo el operador <code>INTERSECT</code> combina los conjuntos de resultados A y B. El conjunto de resultados final está representado por el área amarilla donde el círculo A interseca al círculo B.</p>
+<p><img alt="PostgreSQL INTERSECT Operator" src="https://www.postgresqltutorial.com/wp-content/uploads/2016/06/PostgreSQL-INTERSECT-Operator-300x206.png"/></p>
+<h1 id="intersect-con-clausula-order-by">INTERSECT con cláusula ORDER BY<a class="headerlink" href="#intersect-con-clausula-order-by" title="Permanent link">¶</a></h1>
+<p>Si desea ordenar el conjunto de resultados devuelto por el operador <code>INTERSECT</code>, coloque la cláusula <code>ORDER BY</code> después de la consulta final:</p>
+<pre><code class="language-PostgreSQL">SELECT select_list
+FROM A
+INTERSECT
+SELECT select_list
+FROM B
+ORDER BY sort_expression;
+</code></pre>
+<h1 id="creacion-de-tablas-de-ejemplo">Creación de tablas de ejemplo<a class="headerlink" href="#creacion-de-tablas-de-ejemplo" title="Permanent link">¶</a></h1>
+<p>Crearemos dos tablas <code>top_rated_films</code> y <code>most_popular_films</code> para demostración:</p>
+<pre><code class="language-PostgreSQL">CREATE TABLE top_rated_films(
+  title VARCHAR NOT NULL, 
+  release_year SMALLINT
 );
-CREATE TABLE employees (
-  employee_id serial PRIMARY KEY, 
-  employee_name VARCHAR (255), 
-  department_id INTEGER
+
+CREATE TABLE most_popular_films(
+  title VARCHAR NOT NULL, 
+  release_year SMALLINT
 );
-</code></pre>
-<p>Cada departamento tiene cero o muchos empleados y cada empleado pertenece a cero o un departamento.</p>
-<p>En segundo lugar, inserte algunos datos de ejemplo en las tablas <code>departments</code> y <code>employees</code>.</p>
-<pre><code class="language-postgresql">INSERT INTO departments (department_name) 
-VALUES 
-  ('Sales'), 
-  ('Marketing'), 
-  ('HR'), 
-  ('IT'), 
-  ('Production');
-INSERT INTO employees (employee_name, department_id) 
-VALUES 
-  ('Bette Nicholson', 1), 
-  ('Christian Gable', 1), 
-  ('Joe Swank', 2), 
-  ('Fred Costner', 3), 
-  ('Sandra Kilmer', 4), 
-  ('Julia Mcqueen', NULL);
 
-</code></pre>
-<p>En tercer lugar, consulta los datos de las tablas <code>departments</code> y <code>employees</code>:</p>
-<pre><code class="language-postgresql">SELECT * FROM departments;
-</code></pre>
-<p>Salida:</p>
-<pre><code> department_id | department_name
----------------+-----------------
-             1 | Sales
-             2 | Marketing
-             3 | HR
-             4 | IT
-             5 | Production
-(5 rows)
-SELECT * FROM employees;
-</code></pre>
-<p>Salida:</p>
-<pre><code> employee_id |  employee_name  | department_id
--------------+-----------------+---------------
-           1 | Bette Nicholson |             1
-           2 | Christian Gable |             1
-           3 | Joe Swank       |             2
-           4 | Fred Costner    |             3
-           5 | Sandra Kilmer   |             4
-           6 | Julia Mcqueen   |          null
-(6 rows)
-</code></pre>
-<h1 id="ejemplos-de-full-outer-join-en-postgresql">Ejemplos de FULL OUTER JOIN en PostgreSQL<a class="headerlink" href="#ejemplos-de-full-outer-join-en-postgresql" title="Permanent link">¶</a></h1>
-<p>Veamos algunos ejemplos del uso de la cláusula <code>FULL OUTER JOIN</code>.</p>
-<h2 id="ejemplo-basico-de-full-outer-join">Ejemplo básico de FULL OUTER JOIN<a class="headerlink" href="#ejemplo-basico-de-full-outer-join" title="Permanent link">¶</a></h2>
-<p>La siguiente consulta utiliza la cláusula <code>FULL OUTER JOIN</code> para consultar datos de las tablas <code>employees</code> y <code>departments</code>:</p>
-<pre><code class="language-postgresql">SELECT 
-  employee_name, 
-  department_name 
-FROM 
-  employees e 
-FULL OUTER JOIN departments d 
-  ON d.department_id = e.department_id;
-</code></pre>
-<p>Salida:</p>
-<pre><code>  employee_name  | department_name
------------------+-----------------
- Bette Nicholson | Sales
- Christian Gable | Sales
- Joe Swank       | Marketing
- Fred Costner    | HR
- Sandra Kilmer   | IT
- Julia Mcqueen   | null
- null            | Production
-(7 rows)
-</code></pre>
-<p>El conjunto de resultados incluye todos los empleados que pertenecen a un departamento y todos los departamentos que tienen un empleado.</p>
-<p>Además, incluye todos los empleados que no pertenecen a ningún departamento y todos los departamentos que no tienen empleados.</p>
-<h2 id="ejemplo-de-utilizacion-de-full-outer-join-con-clausula-where">Ejemplo de utilización de FULL OUTER JOIN con cláusula WHERE<a class="headerlink" href="#ejemplo-de-utilizacion-de-full-outer-join-con-clausula-where" title="Permanent link">¶</a></h2>
-<p>El siguiente ejemplo utiliza <code>FULL OUTER JOIN</code> con una cláusula <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/">WHERE</a> para encontrar el departamento que no tiene ningún empleado:</p>
-<pre><code class="language-postgresql">SELECT 
-  employee_name, 
-  department_name 
-FROM 
-  employees e 
-FULL OUTER JOIN departments d 
-  ON d.department_id = e.department_id 
-WHERE 
-  employee_name IS NULL;
+INSERT INTO top_rated_films(title, release_year) 
+VALUES 
+   ('The Shawshank Redemption', 1994), 
+   ('The Godfather', 1972), 
+   ('The Dark Knight', 2008),
+   ('12 Angry Men', 1957);
 
+INSERT INTO most_popular_films(title, release_year) 
+VALUES 
+  ('An American Pickle', 2020), 
+  ('The Godfather', 1972), 
+  ('The Dark Knight', 2008),
+  ('Greyhound', 2020);
+
+SELECT * FROM top_rated_films;
+SELECT * FROM most_popular_films;
+</code></pre>
+<p>El contenido de la tabla <code>top_rated_films</code>:</p>
+<pre><code>          title           | release_year
+--------------------------+--------------
+ The Shawshank Redemption |         1994
+ The Godfather            |         1972
+ The Dark Knight          |         2008
+ 12 Angry Men             |         1957
+(4 rows)
+</code></pre>
+<p>El contenido de la tabla <code>most_popular_films</code>:</p>
+<pre><code>       title        | release_year
+--------------------+--------------
+ An American Pickle |         2020
+ The Godfather      |         1972
+ The Dark Knight    |         2008
+ Greyhound          |         2020
+(4 rows)
+</code></pre>
+<h1 id="ejemplos-del-operador-intersect-en-postgresql">Ejemplos del operador INTERSECT en PostgreSQL<a class="headerlink" href="#ejemplos-del-operador-intersect-en-postgresql" title="Permanent link">¶</a></h1>
+<p>Exploremos algunos ejemplos de uso del operador <code>INTERSECT</code>.</p>
+<h2 id="ejemplo-basico-del-operador-intersect">Ejemplo básico del operador INTERSECT<a class="headerlink" href="#ejemplo-basico-del-operador-intersect" title="Permanent link">¶</a></h2>
+<p>El siguiente ejemplo utiliza el operador <code>INTERSECT</code> para recuperar las películas populares que también son las mejor valoradas:</p>
+<pre><code class="language-PostgreSQL">SELECT *
+FROM most_popular_films 
+INTERSECT
+SELECT *
+FROM top_rated_films;
 </code></pre>
 <p>Salida:</p>
-<pre><code> employee_name | department_name
----------------+-----------------
- null          | Production
-(1 row)
+<pre><code>      title      | release_year
+-----------------+--------------
+ The Godfather   |         1972
+ The Dark Knight |         2008
+(2 rows)
 </code></pre>
-<p>El resultado muestra que el departamento <code>Production</code> no tiene ningún empleado.</p>
-<p>El siguiente ejemplo utiliza el cluase <code>FULL OUTER JOIN</code> con una cláusula <code>WHERE</code> para encontrar empleados que no pertenezcan a ningún departamento:</p>
-<pre><code class="language-postgresql">SELECT 
-  employee_name, 
-  department_name 
-FROM 
-  employees e 
-FULL OUTER JOIN departments d 
-  ON d.department_id = e.department_id 
-WHERE 
-  department_name IS NULL;
+<p>El conjunto de resultados devuelve una película que aparece en ambas tablas.</p>
+<h2 id="ejemplo-de-uso-del-operador-intersect-con-la-clausula-order-by">Ejemplo de uso del operador INTERSECT con la cláusula ORDER BY<a class="headerlink" href="#ejemplo-de-uso-del-operador-intersect-con-la-clausula-order-by" title="Permanent link">¶</a></h2>
+<p>La siguiente sentencia utiliza el operador INTERSECT para encontrar las películas más populares que también son las más valoradas y ordena las películas por año de estreno:</p>
+<pre><code class="language-PostgreSQL">SELECT *
+FROM most_popular_films 
+INTERSECT
+SELECT *
+FROM top_rated_films
+ORDER BY release_year;
 </code></pre>
 <p>Salida:</p>
-<pre><code> employee_name | department_name
----------------+-----------------
- Julia Mcqueen | null
-(1 row)
+<pre><code>      title      | release_year
+-----------------+--------------
+ The Godfather   |         1972
+ The Dark Knight |         2008
+(2 rows)
 </code></pre>
-<p>La salida muestra que <code>Juila Mcqueen</code> no pertenece a ningún departamento.</p>
 <h1 id="resumen">Resumen<a class="headerlink" href="#resumen" title="Permanent link">¶</a></h1>
 <ul>
-<li>Utilice la cláusula <code>FULL OUTER JOIN</code> de PostgreSQL para combinar datos de ambas tablas, asegurándose de que se incluyen las filas coincidentes tanto de la tabla izquierda como de la derecha, así como las filas no coincidentes de cualquiera de las tablas.</li>
+<li>Utilice el operador <code>INTERSECT</code> de PostgreSQL para combinar dos conjuntos de resultados y devolver un único conjunto de resultados que contenga las filas que aparecen en ambos conjuntos de resultados.</li>
+<li>Coloque la cláusula <code>ORDER BY</code> después de la segunda consulta para ordenar las filas en el conjunto de resultados devuelto por el operador <code>INTERSECT</code>.</li>
 </ul>
 </article>
 </div>

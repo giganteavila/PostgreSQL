@@ -5,11 +5,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="../05.-SELF%20JOIN/" rel="prev"/>
-<link href="../07.-CROSS%20JOIN/" rel="next"/>
+<link href="../01.-Cl%C3%A1usula%20GROUPING%20SETS/" rel="prev"/>
+<link href="../03.-Subcl%C3%A1usula%20ROLLUP/" rel="next"/>
 <link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.4.9" name="generator"/>
-<title>06.-FULL OUTER JOIN - ASGBD</title>
+<title>02.-Subcláusula CUBE - ASGBD</title>
 <link href="../../../assets/stylesheets/main.78cf6014.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,7 +23,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#como-funciona-el-full-outer-join">
+<a class="md-skip" href="#introduction-to-the-postgresql-cube">
           Saltar a contenido
         </a>
 </div>
@@ -47,7 +47,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              06.-FULL OUTER JOIN
+              02.-Subcláusula CUBE
             
           </span>
 </div>
@@ -579,114 +579,71 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_4_4" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_4" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
 <span class="md-ellipsis">
     03.-Uniendo múltiples tablas
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="true" aria-labelledby="__nav_4_4_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_4_4_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_4">
 <span class="md-nav__icon md-icon"></span>
             03.-Uniendo múltiples tablas
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../01.-Joins/">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/01.-Joins/">
 <span class="md-ellipsis">
     01.-Joins
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../02.-Alias%20de%20tablas/">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/02.-Alias%20de%20tablas/">
 <span class="md-ellipsis">
     02.-Alias de tablas
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../03.-INNER%20JOIN/">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/03.-INNER%20JOIN/">
 <span class="md-ellipsis">
     03.-INNER JOIN
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../04.-LEFT%20JOIN/">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/04.-LEFT%20JOIN/">
 <span class="md-ellipsis">
     04.-LEFT JOIN
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../05.-SELF%20JOIN/">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/05.-SELF%20JOIN/">
 <span class="md-ellipsis">
     05.-SELF JOIN
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    06.-FULL OUTER JOIN
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/06.-FULL%20OUTER%20JOIN/">
 <span class="md-ellipsis">
     06.-FULL OUTER JOIN
   </span>
 </a>
-<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#paso-1-inicializar-el-conjunto-de-resultados">
-<span class="md-ellipsis">
-      Paso 1. Inicializar el conjunto de resultados:
-    </span>
-</a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#paso-2-coincidencia-de-filas">
-<span class="md-ellipsis">
-      Paso 2. Coincidencia de filas:
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#paso-3-incluir-filas-no-coincidentes-de-la-tabla1-y-la-tabla2">
-<span class="md-ellipsis">
-      Paso 3. Incluir filas no coincidentes de la tabla1 y la tabla2:
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#paso-4-devolver-el-conjunto-de-resultados">
-<span class="md-ellipsis">
-      Paso 4. Devolver el conjunto de resultados:
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../07.-CROSS%20JOIN/">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/07.-CROSS%20JOIN/">
 <span class="md-ellipsis">
     07.-CROSS JOIN
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../08.-NATURAL%20JOIN/">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/08.-NATURAL%20JOIN/">
 <span class="md-ellipsis">
     08.-NATURAL JOIN
   </span>
@@ -764,36 +721,65 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4_7" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4_7" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
 <span class="md-ellipsis">
     06.-Grouping sets, Cube, and Rollup
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_4_7_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="true" aria-labelledby="__nav_4_7_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_7">
 <span class="md-nav__icon md-icon"></span>
             06.-Grouping sets, Cube, and Rollup
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../06.-Grouping%20sets%2C%20Cube%2C%20and%20Rollup/01.-Cl%C3%A1usula%20GROUPING%20SETS/">
+<a class="md-nav__link" href="../01.-Cl%C3%A1usula%20GROUPING%20SETS/">
 <span class="md-ellipsis">
     01.-Cláusula GROUPING SETS
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../06.-Grouping%20sets%2C%20Cube%2C%20and%20Rollup/02.-Subcl%C3%A1usula%20CUBE/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    02.-Subcláusula CUBE
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     02.-Subcláusula CUBE
   </span>
 </a>
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#introduction-to-the-postgresql-cube">
+<span class="md-ellipsis">
+      Introduction to the PostgreSQL CUBE
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../06.-Grouping%20sets%2C%20Cube%2C%20and%20Rollup/03.-Subcl%C3%A1usula%20ROLLUP/">
+<a class="md-nav__link" href="#postgresql-cube-examples">
+<span class="md-ellipsis">
+      PostgreSQL CUBE examples
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../03.-Subcl%C3%A1usula%20ROLLUP/">
 <span class="md-ellipsis">
     03.-Subcláusula ROLLUP
   </span>
@@ -827,30 +813,16 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#paso-1-inicializar-el-conjunto-de-resultados">
+<a class="md-nav__link" href="#introduction-to-the-postgresql-cube">
 <span class="md-ellipsis">
-      Paso 1. Inicializar el conjunto de resultados:
+      Introduction to the PostgreSQL CUBE
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#paso-2-coincidencia-de-filas">
+<a class="md-nav__link" href="#postgresql-cube-examples">
 <span class="md-ellipsis">
-      Paso 2. Coincidencia de filas:
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#paso-3-incluir-filas-no-coincidentes-de-la-tabla1-y-la-tabla2">
-<span class="md-ellipsis">
-      Paso 3. Incluir filas no coincidentes de la tabla1 y la tabla2:
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#paso-4-devolver-el-conjunto-de-resultados">
-<span class="md-ellipsis">
-      Paso 4. Devolver el conjunto de resultados:
+      PostgreSQL CUBE examples
     </span>
 </a>
 </li>
@@ -861,169 +833,93 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<p>El <code>FULL OUTER JOIN</code> combina datos de dos tablas y devuelve todas las filas de ambas tablas, incluidas las filas coincidentes y no coincidentes de ambos lados.</p>
-<p>En otras palabras, el <code>FULL OUTER JOIN</code> combina los resultados del <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-left-join/">left join</a> y del <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-right-join/">right join</a>.</p>
-<p>Esta es la sintaxis básica de la cláusula <code>FULL OUTER JOIN</code>:</p>
-<pre><code class="language-postgresql">SELECT select_list
-FROM table1
-FULL OUTER JOIN table2 
-   ON table1.column_name = table2.column_name;
+<h1>02.-Subcláusula CUBE</h1>
+<h2 id="introduction-to-the-postgresql-cube">Introduction to the PostgreSQL <code>CUBE</code><a class="headerlink" href="#introduction-to-the-postgresql-cube" title="Permanent link">¶</a></h2>
+<p>PostgreSQL <code>CUBE</code> is a subclause of the <code>GROUP BY</code> clause. The <code>CUBE</code> allows you to generate multiple grouping sets.</p>
+<p>A grouping set is a set of columns to which you want to group. For more information on the grouping sets, check it out the <code>GROUPING SETS</code> tutorial.</p>
+<p>The following illustrates the syntax of the <code>CUBE</code> subclause:</p>
+<pre><code>SELECT
+    c1,
+    c2,
+    c3,
+    aggregate (c4)
+FROM
+    table_name
+GROUP BY
+    CUBE (c1, c2, c3);
+Code language: SQL (Structured Query Language) (sql)
 </code></pre>
-<p>En esta sintaxis:</p>
+<p>In this syntax:</p>
 <ul>
-<li>Primero, especifique las columnas de <code>table1</code> y <code>table2</code> en la <code>select_list</code>.</li>
-<li>En segundo lugar, especifique la <code>table1</code> que desea recuperar los datos en la cláusula <code>FROM</code>.</li>
-<li>En tercer lugar, especifique la <code>table2</code> que desea unir con la <code>table1</code> en la cláusula <code>FULL OUTER JOIN</code>.</li>
-<li>Por último, defina una condición para unir dos tablas.</li>
+<li>First, specify the <code>CUBE</code> subclause in the the <code>GROUP BY</code> clause of the <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-select/"><code>SELECT</code></a> statement.</li>
+<li>Second, in the select list, specify the columns (dimensions or dimension columns) which you want to analyze and <a href="https://www.postgresqltutorial.com/postgresql-aggregate-functions/">aggregation function</a> expressions.</li>
+<li>Third, in the <code>GROUP BY</code> clause, specify the dimension columns within the parentheses of the <code>CUBE</code> subclause.</li>
 </ul>
-<p>El <code>FULL OUTER JOIN</code> también se conoce como <code>FULL JOIN</code>. La palabra clave <code>OUTER</code> es opcional.</p>
-<h1 id="como-funciona-el-full-outer-join">Cómo funciona el FULL OUTER JOIN<a class="headerlink" href="#como-funciona-el-full-outer-join" title="Permanent link">¶</a></h1>
-<h5 id="paso-1-inicializar-el-conjunto-de-resultados"><strong>Paso 1. Inicializar el conjunto de resultados:</strong><a class="headerlink" href="#paso-1-inicializar-el-conjunto-de-resultados" title="Permanent link">¶</a></h5>
-<ul>
-<li>El <code>FULL OUTER JOIN</code> comienza con un resultado vacío.</li>
-</ul>
-<h5 id="paso-2-coincidencia-de-filas"><strong>Paso 2. Coincidencia de filas:</strong><a class="headerlink" href="#paso-2-coincidencia-de-filas" title="Permanent link">¶</a></h5>
-<ul>
-<li>En primer lugar, identifique las filas de la <code>tabla1</code> y la <code>tabla2</code> en las que coincidan los valores del <code>nombre_columna</code> especificado.</li>
-<li>A continuación, incluya estas filas coincidentes en el conjunto de resultados.</li>
-</ul>
-<h5 id="paso-3-incluir-filas-no-coincidentes-de-la-tabla1-y-la-tabla2"><strong>Paso 3. Incluir filas no coincidentes de la <code>tabla1</code> y la <code>tabla2</code>:</strong><a class="headerlink" href="#paso-3-incluir-filas-no-coincidentes-de-la-tabla1-y-la-tabla2" title="Permanent link">¶</a></h5>
-<ul>
-<li>En primer lugar, incluya las filas de la <code>tabla1</code> que no coincidan con las de la <code>tabla2</code>. Para las columnas de la <code>tabla2</code> en estas filas, incluya NULLs.</li>
-<li>En segundo lugar, incluya las filas de la <code>tabla2</code> que no coincidan con las de la <code>tabla1</code>. Para las columnas de la <code>tabla1</code> en estas filas, incluya NULLs.</li>
-</ul>
-<h5 id="paso-4-devolver-el-conjunto-de-resultados"><strong>Paso 4. Devolver el conjunto de resultados:</strong><a class="headerlink" href="#paso-4-devolver-el-conjunto-de-resultados" title="Permanent link">¶</a></h5>
-<ul>
-<li>Devuelve el conjunto de resultados final que contendrá todas las filas de ambas tablas, con filas coincidentes y no coincidentes tanto de <code>table1</code> como de <code>table2</code>.</li>
-<li>Si una fila tiene una coincidencia en ambos lados, combina los valores en una sola fila.</li>
-<li>Si no hay ninguna coincidencia en uno de los lados, las columnas del lado no coincidente tendrán valores NULL.</li>
-</ul>
-<p>El siguiente diagrama de Venn ilustra la operación <code>FULL OUTER JOIN</code>.</p>
-<p><img alt="PostgreSQL Join - Full Outer Join" src="https://www.postgresqltutorial.com/wp-content/uploads/2018/12/PostgreSQL-Join-Full-Outer-Join.png"/></p>
-<h1 id="configurar-tablas-de-ejemplo">Configurar tablas de ejemplo<a class="headerlink" href="#configurar-tablas-de-ejemplo" title="Permanent link">¶</a></h1>
-<p>Primero, <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-create-table/">cree dos nuevas tablas</a> para la demostración: <code>employees</code> y <code>departments</code>:</p>
-<pre><code class="language-postgresql">CREATE TABLE departments (
-  department_id serial PRIMARY KEY, 
-  department_name VARCHAR (255) NOT NULL
-);
-CREATE TABLE employees (
-  employee_id serial PRIMARY KEY, 
-  employee_name VARCHAR (255), 
-  department_id INTEGER
-);
-</code></pre>
-<p>Cada departamento tiene cero o muchos empleados y cada empleado pertenece a cero o un departamento.</p>
-<p>En segundo lugar, inserte algunos datos de ejemplo en las tablas <code>departments</code> y <code>employees</code>.</p>
-<pre><code class="language-postgresql">INSERT INTO departments (department_name) 
-VALUES 
-  ('Sales'), 
-  ('Marketing'), 
-  ('HR'), 
-  ('IT'), 
-  ('Production');
-INSERT INTO employees (employee_name, department_id) 
-VALUES 
-  ('Bette Nicholson', 1), 
-  ('Christian Gable', 1), 
-  ('Joe Swank', 2), 
-  ('Fred Costner', 3), 
-  ('Sandra Kilmer', 4), 
-  ('Julia Mcqueen', NULL);
+<p>The query generates all possible grouping sets based on the dimension columns specified in <code>CUBE</code>. The <code>CUBE</code> subclause is a short way to define multiple grouping sets so the following are equivalent:</p>
+<pre><code>CUBE(c1,c2,c3) 
 
+GROUPING SETS (
+    (c1,c2,c3), 
+    (c1,c2),
+    (c1,c3),
+    (c2,c3),
+    (c1),
+    (c2),
+    (c3), 
+    ()
+ ) 
+Code language: SQL (Structured Query Language) (sql)
 </code></pre>
-<p>En tercer lugar, consulta los datos de las tablas <code>departments</code> y <code>employees</code>:</p>
-<pre><code class="language-postgresql">SELECT * FROM departments;
+<p>In general, if the number of columns specified in the <code>CUBE</code> is <code>n</code>, then you will have 2n combinations.</p>
+<p>PostgreSQL allows you to perform a partial cube to reduce the number of aggregates calculated. The following shows the syntax:</p>
+<pre><code>SELECT
+    c1,
+    c2,
+    c3,
+    aggregate (c4)
+FROM
+    table_name
+GROUP BY
+    c1,
+    CUBE (c1, c2);
+Code language: SQL (Structured Query Language) (sql)
 </code></pre>
-<p>Salida:</p>
-<pre><code> department_id | department_name
----------------+-----------------
-             1 | Sales
-             2 | Marketing
-             3 | HR
-             4 | IT
-             5 | Production
-(5 rows)
-SELECT * FROM employees;
+<h2 id="postgresql-cube-examples">PostgreSQL <code>CUBE</code> examples<a class="headerlink" href="#postgresql-cube-examples" title="Permanent link">¶</a></h2>
+<p>We will use the <code>sales</code> table created in the <code>GROUPING SETS</code> tutorial for the demonstration.</p>
+<p><img alt="Sales Table" src="https://www.postgresqltutorial.com/wp-content/uploads/2018/03/sales-table.png"/></p>
+<p>The following query uses the <code>CUBE</code> subclause to generate multiple grouping sets:</p>
+<pre><code>SELECT
+    brand,
+    segment,
+    SUM (quantity)
+FROM
+    sales
+GROUP BY
+    CUBE (brand, segment)
+ORDER BY
+    brand,
+    segment;
+Code language: SQL (Structured Query Language) (sql)
 </code></pre>
-<p>Salida:</p>
-<pre><code> employee_id |  employee_name  | department_id
--------------+-----------------+---------------
-           1 | Bette Nicholson |             1
-           2 | Christian Gable |             1
-           3 | Joe Swank       |             2
-           4 | Fred Costner    |             3
-           5 | Sandra Kilmer   |             4
-           6 | Julia Mcqueen   |          null
-(6 rows)
+<p>Here is the output:</p>
+<p><img alt="PostgreSQL CUBE example" src="https://www.postgresqltutorial.com/wp-content/uploads/2018/03/PostgreSQL-CUBE-example.png"/></p>
+<p>The following query performs a partial cube:</p>
+<pre><code>SELECT
+    brand,
+    segment,
+    SUM (quantity)
+FROM
+    sales
+GROUP BY
+    brand,
+    CUBE (segment)
+ORDER BY
+    brand,
+    segment;
+Code language: SQL (Structured Query Language) (sql)
 </code></pre>
-<h1 id="ejemplos-de-full-outer-join-en-postgresql">Ejemplos de FULL OUTER JOIN en PostgreSQL<a class="headerlink" href="#ejemplos-de-full-outer-join-en-postgresql" title="Permanent link">¶</a></h1>
-<p>Veamos algunos ejemplos del uso de la cláusula <code>FULL OUTER JOIN</code>.</p>
-<h2 id="ejemplo-basico-de-full-outer-join">Ejemplo básico de FULL OUTER JOIN<a class="headerlink" href="#ejemplo-basico-de-full-outer-join" title="Permanent link">¶</a></h2>
-<p>La siguiente consulta utiliza la cláusula <code>FULL OUTER JOIN</code> para consultar datos de las tablas <code>employees</code> y <code>departments</code>:</p>
-<pre><code class="language-postgresql">SELECT 
-  employee_name, 
-  department_name 
-FROM 
-  employees e 
-FULL OUTER JOIN departments d 
-  ON d.department_id = e.department_id;
-</code></pre>
-<p>Salida:</p>
-<pre><code>  employee_name  | department_name
------------------+-----------------
- Bette Nicholson | Sales
- Christian Gable | Sales
- Joe Swank       | Marketing
- Fred Costner    | HR
- Sandra Kilmer   | IT
- Julia Mcqueen   | null
- null            | Production
-(7 rows)
-</code></pre>
-<p>El conjunto de resultados incluye todos los empleados que pertenecen a un departamento y todos los departamentos que tienen un empleado.</p>
-<p>Además, incluye todos los empleados que no pertenecen a ningún departamento y todos los departamentos que no tienen empleados.</p>
-<h2 id="ejemplo-de-utilizacion-de-full-outer-join-con-clausula-where">Ejemplo de utilización de FULL OUTER JOIN con cláusula WHERE<a class="headerlink" href="#ejemplo-de-utilizacion-de-full-outer-join-con-clausula-where" title="Permanent link">¶</a></h2>
-<p>El siguiente ejemplo utiliza <code>FULL OUTER JOIN</code> con una cláusula <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/">WHERE</a> para encontrar el departamento que no tiene ningún empleado:</p>
-<pre><code class="language-postgresql">SELECT 
-  employee_name, 
-  department_name 
-FROM 
-  employees e 
-FULL OUTER JOIN departments d 
-  ON d.department_id = e.department_id 
-WHERE 
-  employee_name IS NULL;
-
-</code></pre>
-<p>Salida:</p>
-<pre><code> employee_name | department_name
----------------+-----------------
- null          | Production
-(1 row)
-</code></pre>
-<p>El resultado muestra que el departamento <code>Production</code> no tiene ningún empleado.</p>
-<p>El siguiente ejemplo utiliza el cluase <code>FULL OUTER JOIN</code> con una cláusula <code>WHERE</code> para encontrar empleados que no pertenezcan a ningún departamento:</p>
-<pre><code class="language-postgresql">SELECT 
-  employee_name, 
-  department_name 
-FROM 
-  employees e 
-FULL OUTER JOIN departments d 
-  ON d.department_id = e.department_id 
-WHERE 
-  department_name IS NULL;
-</code></pre>
-<p>Salida:</p>
-<pre><code> employee_name | department_name
----------------+-----------------
- Julia Mcqueen | null
-(1 row)
-</code></pre>
-<p>La salida muestra que <code>Juila Mcqueen</code> no pertenece a ningún departamento.</p>
-<h1 id="resumen">Resumen<a class="headerlink" href="#resumen" title="Permanent link">¶</a></h1>
-<ul>
-<li>Utilice la cláusula <code>FULL OUTER JOIN</code> de PostgreSQL para combinar datos de ambas tablas, asegurándose de que se incluyen las filas coincidentes tanto de la tabla izquierda como de la derecha, así como las filas no coincidentes de cualquiera de las tablas.</li>
-</ul>
+<p><img alt="PostgreSQL CUBE - partial cube example" src="https://www.postgresqltutorial.com/wp-content/uploads/2018/03/PostgreSQL-CUBE-partial-cube-example.png"/></p>
+<p>In this tutorial, you have learned how to use the PostgreSQL <code>CUBE</code> to generate multiple grouping sets.</p>
 </article>
 </div>
 </div>

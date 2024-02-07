@@ -6,10 +6,10 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../../04.-Agrupando%20datos/02.-HAVING/" rel="prev"/>
-<link href="../02.-Introducci%C3%B3n%20al%20operador%20INTERSECT/" rel="next"/>
+<link href="../02.-Operador%20INTERSECT/" rel="next"/>
 <link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.4.9" name="generator"/>
-<title>01.-Introducción al operador UNION - ASGBD</title>
+<title>01.-Operador UNION - ASGBD</title>
 <link href="../../../assets/stylesheets/main.78cf6014.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,7 +23,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#postgresql-union-con-clausula-order-by">
+<a class="md-skip" href="#union-con-clausula-order-by">
           Saltar a contenido
         </a>
 </div>
@@ -47,7 +47,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              01.-Introducción al operador UNION
+              01.-Operador UNION
             
           </span>
 </div>
@@ -701,14 +701,59 @@
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
-    01.-Introducción al operador UNION
+    01.-Operador UNION
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../02.-Introducci%C3%B3n%20al%20operador%20INTERSECT/">
+<a class="md-nav__link" href="../02.-Operador%20INTERSECT/">
 <span class="md-ellipsis">
-    02.-Introducción al operador INTERSECT
+    02.-Operador INTERSECT
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../03.-Operador%20EXCEPT/">
+<span class="md-ellipsis">
+    03.-Operador EXCEPT
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+<span class="md-ellipsis">
+    06.-Grouping sets, Cube, and Rollup
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_7">
+<span class="md-nav__icon md-icon"></span>
+            06.-Grouping sets, Cube, and Rollup
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06.-Grouping%20sets%2C%20Cube%2C%20and%20Rollup/01.-Cl%C3%A1usula%20GROUPING%20SETS/">
+<span class="md-ellipsis">
+    01.-Cláusula GROUPING SETS
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06.-Grouping%20sets%2C%20Cube%2C%20and%20Rollup/02.-Subcl%C3%A1usula%20CUBE/">
+<span class="md-ellipsis">
+    02.-Subcláusula CUBE
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06.-Grouping%20sets%2C%20Cube%2C%20and%20Rollup/03.-Subcl%C3%A1usula%20ROLLUP/">
+<span class="md-ellipsis">
+    03.-Subcláusula ROLLUP
   </span>
 </a>
 </li>
@@ -763,7 +808,7 @@ FROM B;
 </code></pre>
 <p>El siguiente diagrama de Venn ilustra el funcionamiento de la "Unión":</p>
 <p><img alt="img" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgresQL-UNION.png"/></p>
-<h1 id="postgresql-union-con-clausula-order-by">PostgreSQL UNION con cláusula ORDER BY<a class="headerlink" href="#postgresql-union-con-clausula-order-by" title="Permanent link">¶</a></h1>
+<h1 id="union-con-clausula-order-by">UNION con cláusula ORDER BY<a class="headerlink" href="#union-con-clausula-order-by" title="Permanent link">¶</a></h1>
 <p>Los operadores <code>UNION</code> y <code>UNION ALL</code> pueden ordenar las filas del conjunto de resultados final en un orden no especificado. Por ejemplo, puede colocar filas del segundo conjunto de resultados antes/después de la fila del primer conjunto de resultados.</p>
 <p>Para ordenar las filas del conjunto de resultados final, especifique la cláusula <code>ORDER BY</code> después de la segunda consulta:</p>
 <pre><code class="language-PostgreSQL">SELECT select_list

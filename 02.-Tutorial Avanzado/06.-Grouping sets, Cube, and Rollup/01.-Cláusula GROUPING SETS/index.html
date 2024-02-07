@@ -5,11 +5,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="../05.-SELF%20JOIN/" rel="prev"/>
-<link href="../07.-CROSS%20JOIN/" rel="next"/>
+<link href="../../05.-Operaciones%20con%20conjuntos/03.-Operador%20EXCEPT/" rel="prev"/>
+<link href="../02.-Subcl%C3%A1usula%20CUBE/" rel="next"/>
 <link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.4.9" name="generator"/>
-<title>06.-FULL OUTER JOIN - ASGBD</title>
+<title>01.-Cláusula GROUPING SETS - ASGBD</title>
 <link href="../../../assets/stylesheets/main.78cf6014.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,7 +23,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#como-funciona-el-full-outer-join">
+<a class="md-skip" href="#introduction-to-postgresql-grouping-sets">
           Saltar a contenido
         </a>
 </div>
@@ -47,7 +47,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              06.-FULL OUTER JOIN
+              01.-Cláusula GROUPING SETS
             
           </span>
 </div>
@@ -579,114 +579,71 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_4_4" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_4" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
 <span class="md-ellipsis">
     03.-Uniendo múltiples tablas
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="true" aria-labelledby="__nav_4_4_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_4_4_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_4">
 <span class="md-nav__icon md-icon"></span>
             03.-Uniendo múltiples tablas
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../01.-Joins/">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/01.-Joins/">
 <span class="md-ellipsis">
     01.-Joins
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../02.-Alias%20de%20tablas/">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/02.-Alias%20de%20tablas/">
 <span class="md-ellipsis">
     02.-Alias de tablas
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../03.-INNER%20JOIN/">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/03.-INNER%20JOIN/">
 <span class="md-ellipsis">
     03.-INNER JOIN
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../04.-LEFT%20JOIN/">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/04.-LEFT%20JOIN/">
 <span class="md-ellipsis">
     04.-LEFT JOIN
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../05.-SELF%20JOIN/">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/05.-SELF%20JOIN/">
 <span class="md-ellipsis">
     05.-SELF JOIN
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    06.-FULL OUTER JOIN
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/06.-FULL%20OUTER%20JOIN/">
 <span class="md-ellipsis">
     06.-FULL OUTER JOIN
   </span>
 </a>
-<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#paso-1-inicializar-el-conjunto-de-resultados">
-<span class="md-ellipsis">
-      Paso 1. Inicializar el conjunto de resultados:
-    </span>
-</a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#paso-2-coincidencia-de-filas">
-<span class="md-ellipsis">
-      Paso 2. Coincidencia de filas:
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#paso-3-incluir-filas-no-coincidentes-de-la-tabla1-y-la-tabla2">
-<span class="md-ellipsis">
-      Paso 3. Incluir filas no coincidentes de la tabla1 y la tabla2:
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#paso-4-devolver-el-conjunto-de-resultados">
-<span class="md-ellipsis">
-      Paso 4. Devolver el conjunto de resultados:
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../07.-CROSS%20JOIN/">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/07.-CROSS%20JOIN/">
 <span class="md-ellipsis">
     07.-CROSS JOIN
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../08.-NATURAL%20JOIN/">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/08.-NATURAL%20JOIN/">
 <span class="md-ellipsis">
     08.-NATURAL JOIN
   </span>
@@ -764,36 +721,72 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_4_7" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4_7" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
 <span class="md-ellipsis">
     06.-Grouping sets, Cube, and Rollup
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_4_7_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="true" aria-labelledby="__nav_4_7_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_7">
 <span class="md-nav__icon md-icon"></span>
             06.-Grouping sets, Cube, and Rollup
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../06.-Grouping%20sets%2C%20Cube%2C%20and%20Rollup/01.-Cl%C3%A1usula%20GROUPING%20SETS/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    01.-Cláusula GROUPING SETS
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     01.-Cláusula GROUPING SETS
   </span>
 </a>
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#introduction-to-postgresql-grouping-sets">
+<span class="md-ellipsis">
+      Introduction to PostgreSQL GROUPING SETS
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../06.-Grouping%20sets%2C%20Cube%2C%20and%20Rollup/02.-Subcl%C3%A1usula%20CUBE/">
+<a class="md-nav__link" href="#grouping-function">
+<span class="md-ellipsis">
+      Grouping function
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#summary">
+<span class="md-ellipsis">
+      Summary
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../02.-Subcl%C3%A1usula%20CUBE/">
 <span class="md-ellipsis">
     02.-Subcláusula CUBE
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../06.-Grouping%20sets%2C%20Cube%2C%20and%20Rollup/03.-Subcl%C3%A1usula%20ROLLUP/">
+<a class="md-nav__link" href="../03.-Subcl%C3%A1usula%20ROLLUP/">
 <span class="md-ellipsis">
     03.-Subcláusula ROLLUP
   </span>
@@ -827,30 +820,23 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#paso-1-inicializar-el-conjunto-de-resultados">
+<a class="md-nav__link" href="#introduction-to-postgresql-grouping-sets">
 <span class="md-ellipsis">
-      Paso 1. Inicializar el conjunto de resultados:
+      Introduction to PostgreSQL GROUPING SETS
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#paso-2-coincidencia-de-filas">
+<a class="md-nav__link" href="#grouping-function">
 <span class="md-ellipsis">
-      Paso 2. Coincidencia de filas:
+      Grouping function
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#paso-3-incluir-filas-no-coincidentes-de-la-tabla1-y-la-tabla2">
+<a class="md-nav__link" href="#summary">
 <span class="md-ellipsis">
-      Paso 3. Incluir filas no coincidentes de la tabla1 y la tabla2:
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#paso-4-devolver-el-conjunto-de-resultados">
-<span class="md-ellipsis">
-      Paso 4. Devolver el conjunto de resultados:
+      Summary
     </span>
 </a>
 </li>
@@ -861,168 +847,207 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<p>El <code>FULL OUTER JOIN</code> combina datos de dos tablas y devuelve todas las filas de ambas tablas, incluidas las filas coincidentes y no coincidentes de ambos lados.</p>
-<p>En otras palabras, el <code>FULL OUTER JOIN</code> combina los resultados del <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-left-join/">left join</a> y del <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-right-join/">right join</a>.</p>
-<p>Esta es la sintaxis básica de la cláusula <code>FULL OUTER JOIN</code>:</p>
-<pre><code class="language-postgresql">SELECT select_list
-FROM table1
-FULL OUTER JOIN table2 
-   ON table1.column_name = table2.column_name;
-</code></pre>
-<p>En esta sintaxis:</p>
-<ul>
-<li>Primero, especifique las columnas de <code>table1</code> y <code>table2</code> en la <code>select_list</code>.</li>
-<li>En segundo lugar, especifique la <code>table1</code> que desea recuperar los datos en la cláusula <code>FROM</code>.</li>
-<li>En tercer lugar, especifique la <code>table2</code> que desea unir con la <code>table1</code> en la cláusula <code>FULL OUTER JOIN</code>.</li>
-<li>Por último, defina una condición para unir dos tablas.</li>
-</ul>
-<p>El <code>FULL OUTER JOIN</code> también se conoce como <code>FULL JOIN</code>. La palabra clave <code>OUTER</code> es opcional.</p>
-<h1 id="como-funciona-el-full-outer-join">Cómo funciona el FULL OUTER JOIN<a class="headerlink" href="#como-funciona-el-full-outer-join" title="Permanent link">¶</a></h1>
-<h5 id="paso-1-inicializar-el-conjunto-de-resultados"><strong>Paso 1. Inicializar el conjunto de resultados:</strong><a class="headerlink" href="#paso-1-inicializar-el-conjunto-de-resultados" title="Permanent link">¶</a></h5>
-<ul>
-<li>El <code>FULL OUTER JOIN</code> comienza con un resultado vacío.</li>
-</ul>
-<h5 id="paso-2-coincidencia-de-filas"><strong>Paso 2. Coincidencia de filas:</strong><a class="headerlink" href="#paso-2-coincidencia-de-filas" title="Permanent link">¶</a></h5>
-<ul>
-<li>En primer lugar, identifique las filas de la <code>tabla1</code> y la <code>tabla2</code> en las que coincidan los valores del <code>nombre_columna</code> especificado.</li>
-<li>A continuación, incluya estas filas coincidentes en el conjunto de resultados.</li>
-</ul>
-<h5 id="paso-3-incluir-filas-no-coincidentes-de-la-tabla1-y-la-tabla2"><strong>Paso 3. Incluir filas no coincidentes de la <code>tabla1</code> y la <code>tabla2</code>:</strong><a class="headerlink" href="#paso-3-incluir-filas-no-coincidentes-de-la-tabla1-y-la-tabla2" title="Permanent link">¶</a></h5>
-<ul>
-<li>En primer lugar, incluya las filas de la <code>tabla1</code> que no coincidan con las de la <code>tabla2</code>. Para las columnas de la <code>tabla2</code> en estas filas, incluya NULLs.</li>
-<li>En segundo lugar, incluya las filas de la <code>tabla2</code> que no coincidan con las de la <code>tabla1</code>. Para las columnas de la <code>tabla1</code> en estas filas, incluya NULLs.</li>
-</ul>
-<h5 id="paso-4-devolver-el-conjunto-de-resultados"><strong>Paso 4. Devolver el conjunto de resultados:</strong><a class="headerlink" href="#paso-4-devolver-el-conjunto-de-resultados" title="Permanent link">¶</a></h5>
-<ul>
-<li>Devuelve el conjunto de resultados final que contendrá todas las filas de ambas tablas, con filas coincidentes y no coincidentes tanto de <code>table1</code> como de <code>table2</code>.</li>
-<li>Si una fila tiene una coincidencia en ambos lados, combina los valores en una sola fila.</li>
-<li>Si no hay ninguna coincidencia en uno de los lados, las columnas del lado no coincidente tendrán valores NULL.</li>
-</ul>
-<p>El siguiente diagrama de Venn ilustra la operación <code>FULL OUTER JOIN</code>.</p>
-<p><img alt="PostgreSQL Join - Full Outer Join" src="https://www.postgresqltutorial.com/wp-content/uploads/2018/12/PostgreSQL-Join-Full-Outer-Join.png"/></p>
-<h1 id="configurar-tablas-de-ejemplo">Configurar tablas de ejemplo<a class="headerlink" href="#configurar-tablas-de-ejemplo" title="Permanent link">¶</a></h1>
-<p>Primero, <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-create-table/">cree dos nuevas tablas</a> para la demostración: <code>employees</code> y <code>departments</code>:</p>
-<pre><code class="language-postgresql">CREATE TABLE departments (
-  department_id serial PRIMARY KEY, 
-  department_name VARCHAR (255) NOT NULL
-);
-CREATE TABLE employees (
-  employee_id serial PRIMARY KEY, 
-  employee_name VARCHAR (255), 
-  department_id INTEGER
-);
-</code></pre>
-<p>Cada departamento tiene cero o muchos empleados y cada empleado pertenece a cero o un departamento.</p>
-<p>En segundo lugar, inserte algunos datos de ejemplo en las tablas <code>departments</code> y <code>employees</code>.</p>
-<pre><code class="language-postgresql">INSERT INTO departments (department_name) 
-VALUES 
-  ('Sales'), 
-  ('Marketing'), 
-  ('HR'), 
-  ('IT'), 
-  ('Production');
-INSERT INTO employees (employee_name, department_id) 
-VALUES 
-  ('Bette Nicholson', 1), 
-  ('Christian Gable', 1), 
-  ('Joe Swank', 2), 
-  ('Fred Costner', 3), 
-  ('Sandra Kilmer', 4), 
-  ('Julia Mcqueen', NULL);
+<h1>01.-Cláusula GROUPING SETS</h1>
+<p>Setup a sample table</p>
+<p>Let’s get started by <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-create-table/">creating a new table</a> called <code>sales</code> for the demonstration.</p>
+<pre><code>DROP TABLE IF EXISTS sales;
 
-</code></pre>
-<p>En tercer lugar, consulta los datos de las tablas <code>departments</code> y <code>employees</code>:</p>
-<pre><code class="language-postgresql">SELECT * FROM departments;
-</code></pre>
-<p>Salida:</p>
-<pre><code> department_id | department_name
----------------+-----------------
-             1 | Sales
-             2 | Marketing
-             3 | HR
-             4 | IT
-             5 | Production
-(5 rows)
-SELECT * FROM employees;
-</code></pre>
-<p>Salida:</p>
-<pre><code> employee_id |  employee_name  | department_id
--------------+-----------------+---------------
-           1 | Bette Nicholson |             1
-           2 | Christian Gable |             1
-           3 | Joe Swank       |             2
-           4 | Fred Costner    |             3
-           5 | Sandra Kilmer   |             4
-           6 | Julia Mcqueen   |          null
-(6 rows)
-</code></pre>
-<h1 id="ejemplos-de-full-outer-join-en-postgresql">Ejemplos de FULL OUTER JOIN en PostgreSQL<a class="headerlink" href="#ejemplos-de-full-outer-join-en-postgresql" title="Permanent link">¶</a></h1>
-<p>Veamos algunos ejemplos del uso de la cláusula <code>FULL OUTER JOIN</code>.</p>
-<h2 id="ejemplo-basico-de-full-outer-join">Ejemplo básico de FULL OUTER JOIN<a class="headerlink" href="#ejemplo-basico-de-full-outer-join" title="Permanent link">¶</a></h2>
-<p>La siguiente consulta utiliza la cláusula <code>FULL OUTER JOIN</code> para consultar datos de las tablas <code>employees</code> y <code>departments</code>:</p>
-<pre><code class="language-postgresql">SELECT 
-  employee_name, 
-  department_name 
-FROM 
-  employees e 
-FULL OUTER JOIN departments d 
-  ON d.department_id = e.department_id;
-</code></pre>
-<p>Salida:</p>
-<pre><code>  employee_name  | department_name
------------------+-----------------
- Bette Nicholson | Sales
- Christian Gable | Sales
- Joe Swank       | Marketing
- Fred Costner    | HR
- Sandra Kilmer   | IT
- Julia Mcqueen   | null
- null            | Production
-(7 rows)
-</code></pre>
-<p>El conjunto de resultados incluye todos los empleados que pertenecen a un departamento y todos los departamentos que tienen un empleado.</p>
-<p>Además, incluye todos los empleados que no pertenecen a ningún departamento y todos los departamentos que no tienen empleados.</p>
-<h2 id="ejemplo-de-utilizacion-de-full-outer-join-con-clausula-where">Ejemplo de utilización de FULL OUTER JOIN con cláusula WHERE<a class="headerlink" href="#ejemplo-de-utilizacion-de-full-outer-join-con-clausula-where" title="Permanent link">¶</a></h2>
-<p>El siguiente ejemplo utiliza <code>FULL OUTER JOIN</code> con una cláusula <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/">WHERE</a> para encontrar el departamento que no tiene ningún empleado:</p>
-<pre><code class="language-postgresql">SELECT 
-  employee_name, 
-  department_name 
-FROM 
-  employees e 
-FULL OUTER JOIN departments d 
-  ON d.department_id = e.department_id 
-WHERE 
-  employee_name IS NULL;
+CREATE TABLE sales (
+    brand VARCHAR NOT NULL,
+    segment VARCHAR NOT NULL,
+    quantity INT NOT NULL,
+    PRIMARY KEY (brand, segment)
+);
 
+INSERT INTO sales (brand, segment, quantity)
+VALUES
+    ('ABC', 'Premium', 100),
+    ('ABC', 'Basic', 200),
+    ('XYZ', 'Premium', 100),
+    ('XYZ', 'Basic', 300);Code language: SQL (Structured Query Language) (sql)
 </code></pre>
-<p>Salida:</p>
-<pre><code> employee_name | department_name
----------------+-----------------
- null          | Production
-(1 row)
+<p><img alt="img" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Grouping-Sets-Sample-Table.png"/></p>
+<p>The <code>sales</code> table stores the number of products sold by brand and segment.</p>
+<h2 id="introduction-to-postgresql-grouping-sets">Introduction to PostgreSQL GROUPING SETS<a class="headerlink" href="#introduction-to-postgresql-grouping-sets" title="Permanent link">¶</a></h2>
+<p>A grouping set is a set of columns by which you group using the <code>GROUP BY</code> clause.</p>
+<p>A grouping set is denoted by a comma-separated list of columns placed inside parentheses:</p>
+<pre><code>(column1, column2, ...)
 </code></pre>
-<p>El resultado muestra que el departamento <code>Production</code> no tiene ningún empleado.</p>
-<p>El siguiente ejemplo utiliza el cluase <code>FULL OUTER JOIN</code> con una cláusula <code>WHERE</code> para encontrar empleados que no pertenezcan a ningún departamento:</p>
-<pre><code class="language-postgresql">SELECT 
-  employee_name, 
-  department_name 
-FROM 
-  employees e 
-FULL OUTER JOIN departments d 
-  ON d.department_id = e.department_id 
-WHERE 
-  department_name IS NULL;
+<p>For example, the following query uses the <code>GROUP BY</code> clause to return the number of products sold by brand and segment. In  other words, it defines a grouping set of the brand and segment which is denoted by <code>(brand, segement)</code></p>
+<pre><code>SELECT
+    brand,
+    segment,
+    SUM (quantity)
+FROM
+    sales
+GROUP BY
+    brand,
+    segment;Code language: SQL (Structured Query Language) (sql)
 </code></pre>
-<p>Salida:</p>
-<pre><code> employee_name | department_name
----------------+-----------------
- Julia Mcqueen | null
-(1 row)
+<p><img alt="img" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Grouping-Sets-Brand-and-Segment.png"/></p>
+<p>The following query finds the number of products sold by a brand. It defines a grouping set <code>(brand)</code>:</p>
+<pre><code>SELECT
+    brand,
+    SUM (quantity)
+FROM
+    sales
+GROUP BY
+    brand;Code language: SQL (Structured Query Language) (sql)
 </code></pre>
-<p>La salida muestra que <code>Juila Mcqueen</code> no pertenece a ningún departamento.</p>
-<h1 id="resumen">Resumen<a class="headerlink" href="#resumen" title="Permanent link">¶</a></h1>
+<p><img alt="img" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Grouping-Sets-Brand.png"/></p>
+<p>The following query finds the number of products sold by segment. It defines a grouping set <code>(segment)</code>:</p>
+<pre><code>SELECT
+    segment,
+    SUM (quantity)
+FROM
+    sales
+GROUP BY
+    segment;
+Code language: SQL (Structured Query Language) (sql)
+</code></pre>
+<p><img alt="img" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Grouping-Sets-Segment.png"/></p>
+<p>The following query finds the number of products sold for all brands and  segments. It defines an empty grouping set which is denoted by <code>()</code>.</p>
+<pre><code>SELECT SUM (quantity) FROM sales;Code language: SQL (Structured Query Language) (sql)
+</code></pre>
+<p><img alt="img" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Grouping-Sets-Empty.png"/></p>
+<p>Suppose that you want to get all the grouping sets by using a single query. To achieve this, you may use the <code>UNION ALL</code> to combine all the queries above.</p>
+<p>Because <code>UNION ALL</code> requires all result sets to have the same number of columns with  compatible data types, you need to adjust the queries by adding <code>NULL</code> to the selection list of each as shown below:</p>
+<pre><code>SELECT
+    brand,
+    segment,
+    SUM (quantity)
+FROM
+    sales
+GROUP BY
+    brand,
+    segment
+
+UNION ALL
+
+SELECT
+    brand,
+    NULL,
+    SUM (quantity)
+FROM
+    sales
+GROUP BY
+    brand
+
+UNION ALL
+
+SELECT
+    NULL,
+    segment,
+    SUM (quantity)
+FROM
+    sales
+GROUP BY
+    segment
+
+UNION ALL
+
+SELECT
+    NULL,
+    NULL,
+    SUM (quantity)
+FROM
+    sales;
+Code language: SQL (Structured Query Language) (sql)
+</code></pre>
+<p><img alt="img" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Grouping-Sets-Using-UNION-ALL.png"/></p>
+<p>This query generated a single result set with the aggregates for all grouping sets.</p>
+<p>Even though the above query works as you expected, it has two main problems.</p>
 <ul>
-<li>Utilice la cláusula <code>FULL OUTER JOIN</code> de PostgreSQL para combinar datos de ambas tablas, asegurándose de que se incluyen las filas coincidentes tanto de la tabla izquierda como de la derecha, así como las filas no coincidentes de cualquiera de las tablas.</li>
+<li>First, it is quite lengthy.</li>
+<li>Second, it has a performance issue because PostgreSQL has to scan the <code>sales</code> table separately for each query.</li>
+</ul>
+<p>To make it more efficient, PostgreSQL provides the <code>GROUPING SETS</code> clause which is the subclause of the <code>GROUP BY</code> clause.</p>
+<p>The <code>GROUPING SETS</code> allows you to define multiple grouping sets in the same query.</p>
+<p>The general syntax of the <code>GROUPING SETS</code> is as follows:</p>
+<pre><code>SELECT
+    c1,
+    c2,
+    aggregate_function(c3)
+FROM
+    table_name
+GROUP BY
+    GROUPING SETS (
+        (c1, c2),
+        (c1),
+        (c2),
+        ()
+);Code language: SQL (Structured Query Language) (sql)
+</code></pre>
+<p>In this syntax, we have four grouping sets <code>(c1,c2)</code>, <code>(c1)</code>, <code>(c2)</code>, and <code>()</code>.</p>
+<p>To apply this syntax to the above example, you can use <code>GROUPING SETS</code> clause instead of the <code>UNION ALL</code> clause like this:</p>
+<pre><code>SELECT
+    brand,
+    segment,
+    SUM (quantity)
+FROM
+    sales
+GROUP BY
+    GROUPING SETS (
+        (brand, segment),
+        (brand),
+        (segment),
+        ()
+    );Code language: SQL (Structured Query Language) (sql)
+</code></pre>
+<p><img alt="img" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Grouping-Sets-example.png"/></p>
+<p>This query is much shorter and more readable. In addition, PostgreSQL will optimize the number of times it scans the <code>sales</code> table and will not scan multiple times.</p>
+<h2 id="grouping-function">Grouping function<a class="headerlink" href="#grouping-function" title="Permanent link">¶</a></h2>
+<p>The <code>GROUPING()</code> function accepts an argument which can be a column name or an expression:</p>
+<pre><code>GROUPING( column_name | expression)
+</code></pre>
+<p>The <code>column_name</code> or <code>expression</code> must match with the one specified in the <code>GROUP BY</code> clause.</p>
+<p>The <code>GROUPING()</code> function returns bit 0 if the argument is a member of the current grouping set and 1 otherwise.</p>
+<p>See the following example:</p>
+<pre><code>SELECT
+    GROUPING(brand) grouping_brand,
+    GROUPING(segment) grouping_segment,
+    brand,
+    segment,
+    SUM (quantity)
+FROM
+    sales
+GROUP BY
+    GROUPING SETS (
+        (brand),
+        (segment),
+        ()
+    )
+ORDER BY
+    brand,
+    segment;Code language: SQL (Structured Query Language) (sql)
+</code></pre>
+<p><img alt="PostgreSQL GROUPING SETS - GROUPING function." src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Grouping-Sets-GROUPING-function-1.png"/></p>
+<p>As shown in the screenshot, when the value in the <code>grouping_brand</code> is 0, the <code>sum</code> column shows the subtotal of the <code>brand</code>.</p>
+<p>When the value in the <code>grouping_segment</code> is zero, the sum column shows the subtotal of the <code>segment</code>.</p>
+<p>You can use the <code>GROUPING()</code> function in the <code>HAVING</code> clause to find the subtotal of each brand like this:</p>
+<pre><code>SELECT
+    GROUPING(brand) grouping_brand,
+    GROUPING(segment) grouping_segment,
+    brand,
+    segment,
+    SUM (quantity)
+FROM
+    sales
+GROUP BY
+    GROUPING SETS (
+        (brand),
+        (segment),
+        ()
+    )
+HAVING GROUPING(brand) = 0  
+ORDER BY
+    brand,
+    segment;
+</code></pre>
+<p><img alt="PostgreSQL GROUPING SETS - GROUPING function in HAVING clause" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Grouping-Sets-GROUPING-function-in-HAVING-clause.png"/></p>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
+<ul>
+<li>Use the PostgreSQL <code>GROUPING SETS</code> to generate multiple grouping sets.</li>
 </ul>
 </article>
 </div>

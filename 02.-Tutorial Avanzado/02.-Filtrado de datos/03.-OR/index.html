@@ -727,16 +727,61 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../05.-Operaciones%20con%20conjuntos/01.-Introducci%C3%B3n%20al%20operador%20UNION/">
+<a class="md-nav__link" href="../../05.-Operaciones%20con%20conjuntos/01.-Operador%20UNION/">
 <span class="md-ellipsis">
-    01.-Introducción al operador UNION
+    01.-Operador UNION
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../05.-Operaciones%20con%20conjuntos/02.-Introducci%C3%B3n%20al%20operador%20INTERSECT/">
+<a class="md-nav__link" href="../../05.-Operaciones%20con%20conjuntos/02.-Operador%20INTERSECT/">
 <span class="md-ellipsis">
-    02.-Introducción al operador INTERSECT
+    02.-Operador INTERSECT
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05.-Operaciones%20con%20conjuntos/03.-Operador%20EXCEPT/">
+<span class="md-ellipsis">
+    03.-Operador EXCEPT
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+<span class="md-ellipsis">
+    06.-Grouping sets, Cube, and Rollup
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_7">
+<span class="md-nav__icon md-icon"></span>
+            06.-Grouping sets, Cube, and Rollup
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06.-Grouping%20sets%2C%20Cube%2C%20and%20Rollup/01.-Cl%C3%A1usula%20GROUPING%20SETS/">
+<span class="md-ellipsis">
+    01.-Cláusula GROUPING SETS
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06.-Grouping%20sets%2C%20Cube%2C%20and%20Rollup/02.-Subcl%C3%A1usula%20CUBE/">
+<span class="md-ellipsis">
+    02.-Subcláusula CUBE
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06.-Grouping%20sets%2C%20Cube%2C%20and%20Rollup/03.-Subcl%C3%A1usula%20ROLLUP/">
+<span class="md-ellipsis">
+    03.-Subcláusula ROLLUP
   </span>
 </a>
 </li>
@@ -797,7 +842,7 @@
 <pre><code> result
 --------
  f
-(1 row)Code language: SQL (Structured Query Language) (sql)
+(1 row)
 </code></pre>
 <p>La letra <code>f</code> en la salida indica <code>false</code>.</p>
 <p>El operador <code>OR</code> es un operador lógico que combina múltiples expresiones booleanas. Esta es la sintaxis básica del operador <code>OR</code>:</p>
@@ -847,7 +892,7 @@
 <pre><code class="language-postgresql"> result
 --------
  t
-(1 row)Code language: SQL (Structured Query Language) (sql)
+(1 row)
 </code></pre>
 <p>La siguiente sentencia utiliza el operador <code>OR</code> para combinar <code>true</code> con <code>false</code>, lo que devuelve verdadero:</p>
 <pre><code>SELECT true OR false AS result;
@@ -859,7 +904,7 @@
 (1 row)
 </code></pre>
 <p>El siguiente ejemplo utiliza el operador <code>OR</code> para combinar <code>true</code> con <code>null</code>, que devuelve <code>true</code>:</p>
-<pre><code>SELECT true OR null AS result;Code language: SQL (Structured Query Language) (sql)
+<pre><code>SELECT true OR null AS result;
 </code></pre>
 <p>Salida:</p>
 <pre><code> result
@@ -874,7 +919,7 @@
 <pre><code> result
 --------
  f
-(1 row)Code language: SQL (Structured Query Language) (sql)
+(1 row)
 </code></pre>
 <p>El siguiente ejemplo utiliza el operador <code>OR</code> para combinar <code>false</code> con <code>null</code>, lo que devuelve <code>null</code>:</p>
 <pre><code class="language-postgresql">SELECT false OR null AS result;
