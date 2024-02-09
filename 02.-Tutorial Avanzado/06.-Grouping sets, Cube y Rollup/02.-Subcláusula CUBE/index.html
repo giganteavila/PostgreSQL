@@ -23,7 +23,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#introduction-to-the-postgresql-cube">
+<a class="md-skip" href="#ejemplos-de-cube">
           Saltar a contenido
         </a>
 </div>
@@ -776,16 +776,9 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#introduction-to-the-postgresql-cube">
+<a class="md-nav__link" href="#ejemplos-de-cube">
 <span class="md-ellipsis">
-      Introduction to the PostgreSQL CUBE
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#postgresql-cube-examples">
-<span class="md-ellipsis">
-      PostgreSQL CUBE examples
+      Ejemplos de CUBE
     </span>
 </a>
 </li>
@@ -879,16 +872,9 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#introduction-to-the-postgresql-cube">
+<a class="md-nav__link" href="#ejemplos-de-cube">
 <span class="md-ellipsis">
-      Introduction to the PostgreSQL CUBE
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#postgresql-cube-examples">
-<span class="md-ellipsis">
-      PostgreSQL CUBE examples
+      Ejemplos de CUBE
     </span>
 </a>
 </li>
@@ -900,11 +886,10 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1>02.-Subcláusula CUBE</h1>
-<h2 id="introduction-to-the-postgresql-cube">Introduction to the PostgreSQL <code>CUBE</code><a class="headerlink" href="#introduction-to-the-postgresql-cube" title="Permanent link">¶</a></h2>
-<p>PostgreSQL <code>CUBE</code> is a subclause of the <code>GROUP BY</code> clause. The <code>CUBE</code> allows you to generate multiple grouping sets.</p>
-<p>A grouping set is a set of columns to which you want to group. For more information on the grouping sets, check it out the <code>GROUPING SETS</code> tutorial.</p>
-<p>The following illustrates the syntax of the <code>CUBE</code> subclause:</p>
-<pre><code>SELECT
+<p>PostgreSQL <code>CUBE</code> es una subcláusula de la cláusula <code>GROUP BY</code>. <code>CUBE</code> le permite generar múltiples conjuntos de agrupación.</p>
+<p>Un conjunto de agrupación es un conjunto de columnas a las que se desea agrupar.</p>
+<p>A continuación se ilustra la sintaxis de la subcláusula <code>CUBE</code>: </p>
+<pre><code class="language-postgresql">SELECT
     c1,
     c2,
     c3,
@@ -913,16 +898,16 @@ FROM
     table_name
 GROUP BY
     CUBE (c1, c2, c3);
-Code language: SQL (Structured Query Language) (sql)
+
 </code></pre>
-<p>In this syntax:</p>
+<p>En esta sintaxis:</p>
 <ul>
-<li>First, specify the <code>CUBE</code> subclause in the the <code>GROUP BY</code> clause of the <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-select/"><code>SELECT</code></a> statement.</li>
-<li>Second, in the select list, specify the columns (dimensions or dimension columns) which you want to analyze and <a href="https://www.postgresqltutorial.com/postgresql-aggregate-functions/">aggregation function</a> expressions.</li>
-<li>Third, in the <code>GROUP BY</code> clause, specify the dimension columns within the parentheses of the <code>CUBE</code> subclause.</li>
+<li>Primero, especifique la subcláusula <code>CUBE</code> en la cláusula <code>GROUP BY</code> de la sentencia <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-select/"><code>SELECT</code></a>.</li>
+<li>Segundo, en la lista de selección, especifique las columnas (dimensiones o columnas de dimensión) que desea analizar y las expresiones <a href="https://www.postgresqltutorial.com/postgresql-aggregate-functions/">aggregation function</a>.</li>
+<li>En tercer lugar, en la cláusula <code>GROUP BY</code>, especifique las columnas de dimensión dentro de los paréntesis de la subcláusula <code>CUBE</code>.</li>
 </ul>
-<p>The query generates all possible grouping sets based on the dimension columns specified in <code>CUBE</code>. The <code>CUBE</code> subclause is a short way to define multiple grouping sets so the following are equivalent:</p>
-<pre><code>CUBE(c1,c2,c3) 
+<p>La consulta genera todos los posibles conjuntos de agrupación basados en las columnas de dimensión especificadas en <code>CUBE</code>. La subcláusula <code>CUBE</code> es una forma abreviada de definir varios conjuntos de agrupación, por lo que las siguientes son equivalentes:</p>
+<pre><code class="language-PostgreSQL">CUBE(c1,c2,c3) 
 
 GROUPING SETS (
     (c1,c2,c3), 
@@ -934,11 +919,11 @@ GROUPING SETS (
     (c3), 
     ()
  ) 
-Code language: SQL (Structured Query Language) (sql)
+
 </code></pre>
-<p>In general, if the number of columns specified in the <code>CUBE</code> is <code>n</code>, then you will have 2n combinations.</p>
-<p>PostgreSQL allows you to perform a partial cube to reduce the number of aggregates calculated. The following shows the syntax:</p>
-<pre><code>SELECT
+<p>En general, si el número de columnas especificadas en el <code>CUBO</code> es <code>n</code>, entonces tendrá 2^n combinaciones.</p>
+<p>PostgreSQL le permite realizar un cubo parcial para reducir el número de agregados calculados. A continuación se muestra la sintaxis:</p>
+<pre><code class="language-PostgreSQL">SELECT
     c1,
     c2,
     c3,
@@ -948,13 +933,13 @@ FROM
 GROUP BY
     c1,
     CUBE (c1, c2);
-Code language: SQL (Structured Query Language) (sql)
+
 </code></pre>
-<h2 id="postgresql-cube-examples">PostgreSQL <code>CUBE</code> examples<a class="headerlink" href="#postgresql-cube-examples" title="Permanent link">¶</a></h2>
-<p>We will use the <code>sales</code> table created in the <code>GROUPING SETS</code> tutorial for the demonstration.</p>
+<h2 id="ejemplos-de-cube">Ejemplos de <code>CUBE</code><a class="headerlink" href="#ejemplos-de-cube" title="Permanent link">¶</a></h2>
+<p>Utilizaremos la tabla <code>sales</code> creada en el tutorial <code>GROUPING SETS</code> para la demostración.</p>
 <p><img alt="Sales Table" src="https://www.postgresqltutorial.com/wp-content/uploads/2018/03/sales-table.png"/></p>
-<p>The following query uses the <code>CUBE</code> subclause to generate multiple grouping sets:</p>
-<pre><code>SELECT
+<p>La siguiente consulta utiliza la subcláusula <code>CUBE</code> para generar múltiples conjuntos de agrupación:</p>
+<pre><code class="language-PostgreSQL">SELECT
     brand,
     segment,
     SUM (quantity)
@@ -965,12 +950,11 @@ GROUP BY
 ORDER BY
     brand,
     segment;
-Code language: SQL (Structured Query Language) (sql)
 </code></pre>
-<p>Here is the output:</p>
+<p>Este es el resultado:</p>
 <p><img alt="PostgreSQL CUBE example" src="https://www.postgresqltutorial.com/wp-content/uploads/2018/03/PostgreSQL-CUBE-example.png"/></p>
-<p>The following query performs a partial cube:</p>
-<pre><code>SELECT
+<p>La siguiente consulta realiza un cubo parcial:</p>
+<pre><code class="language-PostgreSQL">SELECT
     brand,
     segment,
     SUM (quantity)
@@ -982,10 +966,10 @@ GROUP BY
 ORDER BY
     brand,
     segment;
-Code language: SQL (Structured Query Language) (sql)
+
 </code></pre>
 <p><img alt="PostgreSQL CUBE - partial cube example" src="https://www.postgresqltutorial.com/wp-content/uploads/2018/03/PostgreSQL-CUBE-partial-cube-example.png"/></p>
-<p>In this tutorial, you have learned how to use the PostgreSQL <code>CUBE</code> to generate multiple grouping sets.</p>
+<p>En este tutorial, ha aprendido a utilizar el <code>CUBE</code> de PostgreSQL para generar múltiples conjuntos de agrupación.</p>
 </article>
 </div>
 </div>

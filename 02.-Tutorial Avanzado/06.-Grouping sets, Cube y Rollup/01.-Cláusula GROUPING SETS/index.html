@@ -23,7 +23,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#introduction-to-postgresql-grouping-sets">
+<a class="md-skip" href="#introduccion-a-grouping-sets">
           Saltar a contenido
         </a>
 </div>
@@ -769,23 +769,23 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#introduction-to-postgresql-grouping-sets">
+<a class="md-nav__link" href="#introduccion-a-grouping-sets">
 <span class="md-ellipsis">
-      Introduction to PostgreSQL GROUPING SETS
+      Introducción a GROUPING SETS
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#grouping-function">
+<a class="md-nav__link" href="#funcion-de-agrupacion">
 <span class="md-ellipsis">
-      Grouping function
+      Función de agrupación
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#summary">
+<a class="md-nav__link" href="#resumen">
 <span class="md-ellipsis">
-      Summary
+      Resumen
     </span>
 </a>
 </li>
@@ -886,23 +886,23 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#introduction-to-postgresql-grouping-sets">
+<a class="md-nav__link" href="#introduccion-a-grouping-sets">
 <span class="md-ellipsis">
-      Introduction to PostgreSQL GROUPING SETS
+      Introducción a GROUPING SETS
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#grouping-function">
+<a class="md-nav__link" href="#funcion-de-agrupacion">
 <span class="md-ellipsis">
-      Grouping function
+      Función de agrupación
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#summary">
+<a class="md-nav__link" href="#resumen">
 <span class="md-ellipsis">
-      Summary
+      Resumen
     </span>
 </a>
 </li>
@@ -914,9 +914,8 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1>01.-Cláusula GROUPING SETS</h1>
-<p>Setup a sample table</p>
-<p>Let’s get started by <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-create-table/">creating a new table</a> called <code>sales</code> for the demonstration.</p>
-<pre><code>DROP TABLE IF EXISTS sales;
+<p>Empecemos creando una nueva tabla llamada <code>ventas</code> para la demostración.</p>
+<pre><code class="language-postgresql">DROP TABLE IF EXISTS sales;
 
 CREATE TABLE sales (
     brand VARCHAR NOT NULL,
@@ -933,14 +932,14 @@ VALUES
     ('XYZ', 'Basic', 300);Code language: SQL (Structured Query Language) (sql)
 </code></pre>
 <p><img alt="img" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Grouping-Sets-Sample-Table.png"/></p>
-<p>The <code>sales</code> table stores the number of products sold by brand and segment.</p>
-<h2 id="introduction-to-postgresql-grouping-sets">Introduction to PostgreSQL GROUPING SETS<a class="headerlink" href="#introduction-to-postgresql-grouping-sets" title="Permanent link">¶</a></h2>
-<p>A grouping set is a set of columns by which you group using the <code>GROUP BY</code> clause.</p>
-<p>A grouping set is denoted by a comma-separated list of columns placed inside parentheses:</p>
-<pre><code>(column1, column2, ...)
+<p>La tabla <code>sales</code> almacena el número de productos vendidos por marca y segmento.</p>
+<h2 id="introduccion-a-grouping-sets">Introducción a GROUPING SETS<a class="headerlink" href="#introduccion-a-grouping-sets" title="Permanent link">¶</a></h2>
+<p>Un conjunto de agrupación es un conjunto de columnas por las que se agrupa usando la cláusula <code>GROUP BY</code>.</p>
+<p>Un conjunto de agrupación es denotado por una lista de columnas separadas por comas colocadas dentro de paréntesis:</p>
+<pre><code class="language-PostgreSQL">(column1, column2, ...)
 </code></pre>
-<p>For example, the following query uses the <code>GROUP BY</code> clause to return the number of products sold by brand and segment. In  other words, it defines a grouping set of the brand and segment which is denoted by <code>(brand, segement)</code></p>
-<pre><code>SELECT
+<p>Por ejemplo, la siguiente consulta utiliza la cláusula <code>GROUP BY</code> para devolver el número de productos vendidos por marca y segmento. En otras palabras, define un conjunto de agrupación de la marca y el segmento que se denota por <code>(brand, segement)</code>.</p>
+<pre><code class="language-PostgreSQL">SELECT
     brand,
     segment,
     SUM (quantity)
@@ -951,8 +950,8 @@ GROUP BY
     segment;Code language: SQL (Structured Query Language) (sql)
 </code></pre>
 <p><img alt="img" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Grouping-Sets-Brand-and-Segment.png"/></p>
-<p>The following query finds the number of products sold by a brand. It defines a grouping set <code>(brand)</code>:</p>
-<pre><code>SELECT
+<p>La siguiente consulta busca el número de productos vendidos por una marca. Define un conjunto de agrupación <code>(marca)</code>:</p>
+<pre><code class="language-PostgreSQL">SELECT
     brand,
     SUM (quantity)
 FROM
@@ -961,8 +960,8 @@ GROUP BY
     brand;Code language: SQL (Structured Query Language) (sql)
 </code></pre>
 <p><img alt="img" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Grouping-Sets-Brand.png"/></p>
-<p>The following query finds the number of products sold by segment. It defines a grouping set <code>(segment)</code>:</p>
-<pre><code>SELECT
+<p>La siguiente consulta busca el número de productos vendidos por segmento. Define un conjunto de agrupación <code>(segmento)</code>:</p>
+<pre><code class="language-PostgreSQL">SELECT
     segment,
     SUM (quantity)
 FROM
@@ -972,13 +971,13 @@ GROUP BY
 Code language: SQL (Structured Query Language) (sql)
 </code></pre>
 <p><img alt="img" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Grouping-Sets-Segment.png"/></p>
-<p>The following query finds the number of products sold for all brands and  segments. It defines an empty grouping set which is denoted by <code>()</code>.</p>
-<pre><code>SELECT SUM (quantity) FROM sales;Code language: SQL (Structured Query Language) (sql)
+<p>La siguiente consulta busca el número de productos vendidos para todas las marcas y segmentos. Define un conjunto de agrupación vacío que se denota por <code>()</code>.</p>
+<pre><code class="language-PostgreSQL">SELECT SUM (quantity) FROM sales;Code language: SQL (Structured Query Language) (sql)
 </code></pre>
 <p><img alt="img" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Grouping-Sets-Empty.png"/></p>
-<p>Suppose that you want to get all the grouping sets by using a single query. To achieve this, you may use the <code>UNION ALL</code> to combine all the queries above.</p>
-<p>Because <code>UNION ALL</code> requires all result sets to have the same number of columns with  compatible data types, you need to adjust the queries by adding <code>NULL</code> to the selection list of each as shown below:</p>
-<pre><code>SELECT
+<p>Supongamos que desea obtener todos los conjuntos de agrupación utilizando una única consulta. Para conseguirlo, puede utilizar <code>UNION ALL</code> para combinar todas las consultas anteriores.</p>
+<p>Dado que <code>UNION ALL</code> requiere que todos los conjuntos de resultados tengan el mismo número de columnas con tipos de datos compatibles, deberá ajustar las consultas añadiendo <code>NULL</code> a la lista de selección de cada una de ellas, como se muestra a continuación:</p>
+<pre><code class="language-PostgreSQL">SELECT
     brand,
     segment,
     SUM (quantity)
@@ -1021,16 +1020,16 @@ FROM
 Code language: SQL (Structured Query Language) (sql)
 </code></pre>
 <p><img alt="img" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Grouping-Sets-Using-UNION-ALL.png"/></p>
-<p>This query generated a single result set with the aggregates for all grouping sets.</p>
-<p>Even though the above query works as you expected, it has two main problems.</p>
+<p>Esta consulta generó un único conjunto de resultados con los agregados de todos los conjuntos de agrupación.</p>
+<p>Aunque la consulta anterior funciona como se esperaba, tiene dos problemas principales.</p>
 <ul>
-<li>First, it is quite lengthy.</li>
-<li>Second, it has a performance issue because PostgreSQL has to scan the <code>sales</code> table separately for each query.</li>
+<li>Primero, es bastante larga.</li>
+<li>Segundo, tiene un problema de rendimiento porque PostgreSQL tiene que escanear la tabla <code>sales</code> por separado para cada consulta.</li>
 </ul>
-<p>To make it more efficient, PostgreSQL provides the <code>GROUPING SETS</code> clause which is the subclause of the <code>GROUP BY</code> clause.</p>
-<p>The <code>GROUPING SETS</code> allows you to define multiple grouping sets in the same query.</p>
-<p>The general syntax of the <code>GROUPING SETS</code> is as follows:</p>
-<pre><code>SELECT
+<p>Para hacerlo más eficiente, PostgreSQL proporciona la cláusula <code>GROUPING SETS</code> que es la subcláusula de la cláusula <code>GROUP BY</code>.</p>
+<p>La cláusula <code>GROUPING SETS</code> permite definir múltiples conjuntos de agrupación en la misma consulta.</p>
+<p>La sintaxis general de <code>GROUPING SETS</code> es la siguiente:</p>
+<pre><code class="language-PostgreSQL">SELECT
     c1,
     c2,
     aggregate_function(c3)
@@ -1044,9 +1043,9 @@ GROUP BY
         ()
 );Code language: SQL (Structured Query Language) (sql)
 </code></pre>
-<p>In this syntax, we have four grouping sets <code>(c1,c2)</code>, <code>(c1)</code>, <code>(c2)</code>, and <code>()</code>.</p>
-<p>To apply this syntax to the above example, you can use <code>GROUPING SETS</code> clause instead of the <code>UNION ALL</code> clause like this:</p>
-<pre><code>SELECT
+<p>En esta sintaxis, tenemos cuatro conjuntos de agrupación <code>(c1,c2)</code>, <code>(c1)</code>, <code>(c2)</code> y <code>()</code>.</p>
+<p>Para aplicar esta sintaxis al ejemplo anterior, puede utilizar la cláusula <code>GROUPING SETS</code> en lugar de la cláusula <code>UNION ALL</code> de la siguiente manera:</p>
+<pre><code class="language-PostgreSQL">SELECT
     brand,
     segment,
     SUM (quantity)
@@ -1061,15 +1060,15 @@ GROUP BY
     );Code language: SQL (Structured Query Language) (sql)
 </code></pre>
 <p><img alt="img" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Grouping-Sets-example.png"/></p>
-<p>This query is much shorter and more readable. In addition, PostgreSQL will optimize the number of times it scans the <code>sales</code> table and will not scan multiple times.</p>
-<h2 id="grouping-function">Grouping function<a class="headerlink" href="#grouping-function" title="Permanent link">¶</a></h2>
-<p>The <code>GROUPING()</code> function accepts an argument which can be a column name or an expression:</p>
-<pre><code>GROUPING( column_name | expression)
+<p>Esta consulta es mucho más corta y legible. Además, PostgreSQL optimizará el número de veces que escanea la tabla <code>sales</code> y no la escaneará varias veces.</p>
+<h2 id="funcion-de-agrupacion">Función de agrupación<a class="headerlink" href="#funcion-de-agrupacion" title="Permanent link">¶</a></h2>
+<p>La función <code>GROUPING()</code> acepta un argumento que puede ser un nombre de columna o una expresión:</p>
+<pre><code class="language-PostgreSQL">GROUPING( nombre_columna | expresión)
 </code></pre>
-<p>The <code>column_name</code> or <code>expression</code> must match with the one specified in the <code>GROUP BY</code> clause.</p>
-<p>The <code>GROUPING()</code> function returns bit 0 if the argument is a member of the current grouping set and 1 otherwise.</p>
-<p>See the following example:</p>
-<pre><code>SELECT
+<p>El <code>nombre_columna</code> o <code>expresión</code> debe coincidir con el especificado en la cláusula <code>GROUP BY</code>.</p>
+<p>La función <code>GROUPING()</code> devuelve el bit 0 si el argumento es miembro del conjunto de agrupación actual y 1 en caso contrario.</p>
+<p>Véase el siguiente ejemplo:</p>
+<pre><code class="language-PostgreSQL">SELECT
     GROUPING(brand) grouping_brand,
     GROUPING(segment) grouping_segment,
     brand,
@@ -1088,10 +1087,10 @@ ORDER BY
     segment;Code language: SQL (Structured Query Language) (sql)
 </code></pre>
 <p><img alt="PostgreSQL GROUPING SETS - GROUPING function." src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Grouping-Sets-GROUPING-function-1.png"/></p>
-<p>As shown in the screenshot, when the value in the <code>grouping_brand</code> is 0, the <code>sum</code> column shows the subtotal of the <code>brand</code>.</p>
-<p>When the value in the <code>grouping_segment</code> is zero, the sum column shows the subtotal of the <code>segment</code>.</p>
-<p>You can use the <code>GROUPING()</code> function in the <code>HAVING</code> clause to find the subtotal of each brand like this:</p>
-<pre><code>SELECT
+<p>Como se muestra en la captura de pantalla, cuando el valor en el <code>grouping_brand</code> es 0, la columna <code>sum</code> muestra el subtotal de la <code>brand</code>.</p>
+<p>Cuando el valor del <code>grouping_segment</code> es cero, la columna suma muestra el subtotal del <code>segment</code>.</p>
+<p>Puede utilizar la función <code>GROUPING()</code> en la cláusula <code>HAVING</code> para encontrar el subtotal de cada marca de la siguiente manera:</p>
+<pre><code class="language-PostgreSQL">SELECT
     GROUPING(brand) grouping_brand,
     GROUPING(segment) grouping_segment,
     brand,
@@ -1111,9 +1110,9 @@ ORDER BY
     segment;
 </code></pre>
 <p><img alt="PostgreSQL GROUPING SETS - GROUPING function in HAVING clause" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Grouping-Sets-GROUPING-function-in-HAVING-clause.png"/></p>
-<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
+<h2 id="resumen">Resumen<a class="headerlink" href="#resumen" title="Permanent link">¶</a></h2>
 <ul>
-<li>Use the PostgreSQL <code>GROUPING SETS</code> to generate multiple grouping sets.</li>
+<li>Utilice el <code>GROUPING SETS</code> de PostgreSQL para generar múltiples conjuntos de agrupación.</li>
 </ul>
 </article>
 </div>
