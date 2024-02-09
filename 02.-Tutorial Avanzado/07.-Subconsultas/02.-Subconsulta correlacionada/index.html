@@ -5,11 +5,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="../01.-Cl%C3%A1usula%20GROUPING%20SETS/" rel="prev"/>
-<link href="../03.-Subcl%C3%A1usula%20ROLLUP/" rel="next"/>
+<link href="../01.-Subconsulta/" rel="prev"/>
+<link href="../03.-ANY/" rel="next"/>
 <link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.4.9" name="generator"/>
-<title>02.-Subcláusula CUBE - ASGBD</title>
+<title>02.-Subconsulta correlacionada - ASGBD</title>
 <link href="../../../assets/stylesheets/main.78cf6014.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,7 +23,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#introduction-to-the-postgresql-cube">
+<a class="md-skip" href="#ejemplo-de-subconsulta-correlacionada">
           Saltar a contenido
         </a>
 </div>
@@ -47,7 +47,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              02.-Subcláusula CUBE
+              02.-Subconsulta correlacionada
             
           </span>
 </div>
@@ -698,9 +698,23 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../05.-Operaciones%20con%20conjuntos/01.-Introducci%C3%B3n%20al%20operador%20UNION/">
+<span class="md-ellipsis">
+    01.-Introducción al operador UNION
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../05.-Operaciones%20con%20conjuntos/01.-Operador%20UNION/">
 <span class="md-ellipsis">
     01.-Operador UNION
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05.-Operaciones%20con%20conjuntos/02.-Introducci%C3%B3n%20al%20operador%20INTERSECT/">
+<span class="md-ellipsis">
+    02.-Introducción al operador INTERSECT
   </span>
 </a>
 </li>
@@ -721,67 +735,91 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_4_7" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_7" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
 <span class="md-ellipsis">
-    06.-Grouping sets, Cube, and Rollup
+    06.-Grouping sets, Cube y Rollup
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="true" aria-labelledby="__nav_4_7_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_4_7_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_7">
 <span class="md-nav__icon md-icon"></span>
-            06.-Grouping sets, Cube, and Rollup
+            06.-Grouping sets, Cube y Rollup
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../01.-Cl%C3%A1usula%20GROUPING%20SETS/">
+<a class="md-nav__link" href="../../06.-Grouping%20sets%2C%20Cube%20y%20Rollup/01.-Cl%C3%A1usula%20GROUPING%20SETS/">
 <span class="md-ellipsis">
     01.-Cláusula GROUPING SETS
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    02.-Subcláusula CUBE
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
-<span class="md-ellipsis">
-    02.-Subcláusula CUBE
-  </span>
-</a>
-<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#introduction-to-the-postgresql-cube">
+<a class="md-nav__link" href="../../06.-Grouping%20sets%2C%20Cube%20y%20Rollup/02.-Subcl%C3%A1usula%20CUBE/">
 <span class="md-ellipsis">
-      Introduction to the PostgreSQL CUBE
-    </span>
+    02.-Subcláusula CUBE
+  </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#postgresql-cube-examples">
+<a class="md-nav__link" href="../../06.-Grouping%20sets%2C%20Cube%20y%20Rollup/03.-Subcl%C3%A1usula%20ROLLUP/">
 <span class="md-ellipsis">
-      PostgreSQL CUBE examples
-    </span>
+    03.-Subcláusula ROLLUP
+  </span>
 </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../03.-Subcl%C3%A1usula%20ROLLUP/">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
 <span class="md-ellipsis">
-    03.-Subcláusula ROLLUP
+    07.-Subconsultas
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_4_8_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_8">
+<span class="md-nav__icon md-icon"></span>
+            07.-Subconsultas
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../01.-Subconsulta/">
+<span class="md-ellipsis">
+    01.-Subconsulta
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    02.-Subconsulta correlacionada
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../03.-ANY/">
+<span class="md-ellipsis">
+    03.-ANY
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../04.-ALL/">
+<span class="md-ellipsis">
+    04.-ALL
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../05.-EXISTS/">
+<span class="md-ellipsis">
+    05.-EXISTS
   </span>
 </a>
 </li>
@@ -807,119 +845,56 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#introduction-to-the-postgresql-cube">
-<span class="md-ellipsis">
-      Introduction to the PostgreSQL CUBE
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#postgresql-cube-examples">
-<span class="md-ellipsis">
-      PostgreSQL CUBE examples
-    </span>
-</a>
-</li>
-</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1>02.-Subcláusula CUBE</h1>
-<h2 id="introduction-to-the-postgresql-cube">Introduction to the PostgreSQL <code>CUBE</code><a class="headerlink" href="#introduction-to-the-postgresql-cube" title="Permanent link">¶</a></h2>
-<p>PostgreSQL <code>CUBE</code> is a subclause of the <code>GROUP BY</code> clause. The <code>CUBE</code> allows you to generate multiple grouping sets.</p>
-<p>A grouping set is a set of columns to which you want to group. For more information on the grouping sets, check it out the <code>GROUPING SETS</code> tutorial.</p>
-<p>The following illustrates the syntax of the <code>CUBE</code> subclause:</p>
-<pre><code>SELECT
-    c1,
-    c2,
-    c3,
-    aggregate (c4)
-FROM
-    table_name
-GROUP BY
-    CUBE (c1, c2, c3);
-Code language: SQL (Structured Query Language) (sql)
+<p>En PostgreSQL, una subconsulta correlacionada es una subconsulta que hace referencia a las columnas de la consulta externa.</p>
+<p>A diferencia de una subconsulta regular, PostgreSQL evalúa la subconsulta correlacionada una vez por cada fila procesada por la consulta externa.</p>
+<p>Dado que PostgreSQL reevalúa la subconsulta correlacionada para cada fila de la consulta externa, esto puede conducir a problemas de rendimiento, especialmente cuando se trata de grandes conjuntos de datos.</p>
+<p>Una subconsulta correlacionada puede ser útil cuando se necesita realizar una consulta que depende de los valores de la corriente que se está procesando.v</p>
+<h1 id="ejemplo-de-subconsulta-correlacionada">Ejemplo de subconsulta correlacionada<a class="headerlink" href="#ejemplo-de-subconsulta-correlacionada" title="Permanent link">¶</a></h1>
+<p>Utilizaremos la tabla <code>film</code> de la base de datos de ejemplo para la demostración:</p>
+<p><img alt="img" src="https://www.postgresqltutorial.com/wp-content/uploads/2019/05/film.png"/></p>
+<p>El siguiente ejemplo utiliza una subconsulta correlacionada para encontrar las películas con una duración superior a la media para sus respectivas calificaciones:</p>
+<pre><code class="language-PostgreSQL">SELECT film_id, title, length, rating
+FROM film f
+WHERE length &gt; (
+    SELECT AVG(length)
+    FROM film
+    WHERE rating = f.rating
+);
 </code></pre>
-<p>In this syntax:</p>
+<p>Salida:</p>
+<pre><code> film_id |            title            | length | rating
+---------+-----------------------------+--------+--------
+     133 | Chamber Italian             |    117 | NC-17
+       4 | Affair Prejudice            |    117 | G
+       5 | African Egg                 |    130 | G
+       6 | Agent Truman                |    169 | PG
+...
+</code></pre>
+<p>Cómo funciona.</p>
+<p>La consulta externa recupera id, título, duración y calificación de la tabla <code>film</code> que tiene el alias <code>f</code>:</p>
+<pre><code class="language-PostgreSQL">SELECT film_id, title, length, rating
+FROM film f
+WHERE length &gt; (...)
+</code></pre>
+<p>Para cada fila procesada por la consulta externa, la subconsulta correlacionada calcula la <code>longitud</code> media de las películas que tienen la misma <code>calificación</code> que la fila actual (<code>f.calificación</code>).</p>
+<p>La cláusula <code>WHERE</code> (<code>WHERE length &gt; (...)</code>) comprueba si la duración de la película actual es superior a la media.</p>
+<p>La subconsulta correlacionada calcula la duración [media]de las películas con la misma calificación que la fila actual en la consulta externa:</p>
+<pre><code class="language-PostgreSQL">SELECT AVG(length)
+FROM film
+WHERE rating = f.rating
+</code></pre>
+<p>La cláusula <code>WHERE</code> garantiza que la subconsulta correlacionada sólo tenga en cuenta las películas con la misma calificación que la fila actual de la consulta externa. La condición <code>rating = f.rating</code> crea la correlación.</p>
+<p>Como resultado, la consulta externa devuelve filas en las que la <code>longitud</code> de la película es mayor que la <code>longitud</code> media de las películas con la misma <code>calificación</code>.</p>
+<h1 id="resumen">Resumen<a class="headerlink" href="#resumen" title="Permanent link">¶</a></h1>
 <ul>
-<li>First, specify the <code>CUBE</code> subclause in the the <code>GROUP BY</code> clause of the <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-select/"><code>SELECT</code></a> statement.</li>
-<li>Second, in the select list, specify the columns (dimensions or dimension columns) which you want to analyze and <a href="https://www.postgresqltutorial.com/postgresql-aggregate-functions/">aggregation function</a> expressions.</li>
-<li>Third, in the <code>GROUP BY</code> clause, specify the dimension columns within the parentheses of the <code>CUBE</code> subclause.</li>
+<li>Utilice una subconsulta correlacionada para realizar una consulta que dependa de los valores de la fila actual que se está procesando.</li>
 </ul>
-<p>The query generates all possible grouping sets based on the dimension columns specified in <code>CUBE</code>. The <code>CUBE</code> subclause is a short way to define multiple grouping sets so the following are equivalent:</p>
-<pre><code>CUBE(c1,c2,c3) 
-
-GROUPING SETS (
-    (c1,c2,c3), 
-    (c1,c2),
-    (c1,c3),
-    (c2,c3),
-    (c1),
-    (c2),
-    (c3), 
-    ()
- ) 
-Code language: SQL (Structured Query Language) (sql)
-</code></pre>
-<p>In general, if the number of columns specified in the <code>CUBE</code> is <code>n</code>, then you will have 2n combinations.</p>
-<p>PostgreSQL allows you to perform a partial cube to reduce the number of aggregates calculated. The following shows the syntax:</p>
-<pre><code>SELECT
-    c1,
-    c2,
-    c3,
-    aggregate (c4)
-FROM
-    table_name
-GROUP BY
-    c1,
-    CUBE (c1, c2);
-Code language: SQL (Structured Query Language) (sql)
-</code></pre>
-<h2 id="postgresql-cube-examples">PostgreSQL <code>CUBE</code> examples<a class="headerlink" href="#postgresql-cube-examples" title="Permanent link">¶</a></h2>
-<p>We will use the <code>sales</code> table created in the <code>GROUPING SETS</code> tutorial for the demonstration.</p>
-<p><img alt="Sales Table" src="https://www.postgresqltutorial.com/wp-content/uploads/2018/03/sales-table.png"/></p>
-<p>The following query uses the <code>CUBE</code> subclause to generate multiple grouping sets:</p>
-<pre><code>SELECT
-    brand,
-    segment,
-    SUM (quantity)
-FROM
-    sales
-GROUP BY
-    CUBE (brand, segment)
-ORDER BY
-    brand,
-    segment;
-Code language: SQL (Structured Query Language) (sql)
-</code></pre>
-<p>Here is the output:</p>
-<p><img alt="PostgreSQL CUBE example" src="https://www.postgresqltutorial.com/wp-content/uploads/2018/03/PostgreSQL-CUBE-example.png"/></p>
-<p>The following query performs a partial cube:</p>
-<pre><code>SELECT
-    brand,
-    segment,
-    SUM (quantity)
-FROM
-    sales
-GROUP BY
-    brand,
-    CUBE (segment)
-ORDER BY
-    brand,
-    segment;
-Code language: SQL (Structured Query Language) (sql)
-</code></pre>
-<p><img alt="PostgreSQL CUBE - partial cube example" src="https://www.postgresqltutorial.com/wp-content/uploads/2018/03/PostgreSQL-CUBE-partial-cube-example.png"/></p>
-<p>In this tutorial, you have learned how to use the PostgreSQL <code>CUBE</code> to generate multiple grouping sets.</p>
 </article>
 </div>
 </div>

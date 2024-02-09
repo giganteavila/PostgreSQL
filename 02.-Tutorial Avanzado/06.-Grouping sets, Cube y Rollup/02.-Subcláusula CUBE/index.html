@@ -5,11 +5,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="../../05.-Operaciones%20con%20conjuntos/03.-Operador%20EXCEPT/" rel="prev"/>
-<link href="../02.-Subcl%C3%A1usula%20CUBE/" rel="next"/>
+<link href="../01.-Cl%C3%A1usula%20GROUPING%20SETS/" rel="prev"/>
+<link href="../03.-Subcl%C3%A1usula%20ROLLUP/" rel="next"/>
 <link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-9.4.9" name="generator"/>
-<title>01.-Cláusula GROUPING SETS - ASGBD</title>
+<title>02.-Subcláusula CUBE - ASGBD</title>
 <link href="../../../assets/stylesheets/main.78cf6014.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,7 +23,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#introduction-to-postgresql-grouping-sets">
+<a class="md-skip" href="#introduction-to-the-postgresql-cube">
           Saltar a contenido
         </a>
 </div>
@@ -47,7 +47,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              01.-Cláusula GROUPING SETS
+              02.-Subcláusula CUBE
             
           </span>
 </div>
@@ -698,9 +698,23 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../05.-Operaciones%20con%20conjuntos/01.-Introducci%C3%B3n%20al%20operador%20UNION/">
+<span class="md-ellipsis">
+    01.-Introducción al operador UNION
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../05.-Operaciones%20con%20conjuntos/01.-Operador%20UNION/">
 <span class="md-ellipsis">
     01.-Operador UNION
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05.-Operaciones%20con%20conjuntos/02.-Introducci%C3%B3n%20al%20operador%20INTERSECT/">
+<span class="md-ellipsis">
+    02.-Introducción al operador INTERSECT
   </span>
 </a>
 </li>
@@ -725,27 +739,34 @@
 <input checked="" class="md-nav__toggle md-toggle" id="__nav_4_7" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
 <span class="md-ellipsis">
-    06.-Grouping sets, Cube, and Rollup
+    06.-Grouping sets, Cube y Rollup
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-expanded="true" aria-labelledby="__nav_4_7_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_7">
 <span class="md-nav__icon md-icon"></span>
-            06.-Grouping sets, Cube, and Rollup
+            06.-Grouping sets, Cube y Rollup
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../01.-Cl%C3%A1usula%20GROUPING%20SETS/">
+<span class="md-ellipsis">
+    01.-Cláusula GROUPING SETS
+  </span>
+</a>
+</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
 <span class="md-ellipsis">
-    01.-Cláusula GROUPING SETS
+    02.-Subcláusula CUBE
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
-    01.-Cláusula GROUPING SETS
+    02.-Subcláusula CUBE
   </span>
 </a>
 <nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
@@ -755,23 +776,16 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#introduction-to-postgresql-grouping-sets">
+<a class="md-nav__link" href="#introduction-to-the-postgresql-cube">
 <span class="md-ellipsis">
-      Introduction to PostgreSQL GROUPING SETS
+      Introduction to the PostgreSQL CUBE
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#grouping-function">
+<a class="md-nav__link" href="#postgresql-cube-examples">
 <span class="md-ellipsis">
-      Grouping function
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#summary">
-<span class="md-ellipsis">
-      Summary
+      PostgreSQL CUBE examples
     </span>
 </a>
 </li>
@@ -779,16 +793,61 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../02.-Subcl%C3%A1usula%20CUBE/">
+<a class="md-nav__link" href="../03.-Subcl%C3%A1usula%20ROLLUP/">
 <span class="md-ellipsis">
-    02.-Subcláusula CUBE
+    03.-Subcláusula ROLLUP
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+<span class="md-ellipsis">
+    07.-Subconsultas
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_8_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_8">
+<span class="md-nav__icon md-icon"></span>
+            07.-Subconsultas
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07.-Subconsultas/01.-Subconsulta/">
+<span class="md-ellipsis">
+    01.-Subconsulta
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../03.-Subcl%C3%A1usula%20ROLLUP/">
+<a class="md-nav__link" href="../../07.-Subconsultas/02.-Subconsulta%20correlacionada/">
 <span class="md-ellipsis">
-    03.-Subcláusula ROLLUP
+    02.-Subconsulta correlacionada
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07.-Subconsultas/03.-ANY/">
+<span class="md-ellipsis">
+    03.-ANY
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07.-Subconsultas/04.-ALL/">
+<span class="md-ellipsis">
+    04.-ALL
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07.-Subconsultas/05.-EXISTS/">
+<span class="md-ellipsis">
+    05.-EXISTS
   </span>
 </a>
 </li>
@@ -820,23 +879,16 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#introduction-to-postgresql-grouping-sets">
+<a class="md-nav__link" href="#introduction-to-the-postgresql-cube">
 <span class="md-ellipsis">
-      Introduction to PostgreSQL GROUPING SETS
+      Introduction to the PostgreSQL CUBE
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#grouping-function">
+<a class="md-nav__link" href="#postgresql-cube-examples">
 <span class="md-ellipsis">
-      Grouping function
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#summary">
-<span class="md-ellipsis">
-      Summary
+      PostgreSQL CUBE examples
     </span>
 </a>
 </li>
@@ -847,139 +899,61 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1>01.-Cláusula GROUPING SETS</h1>
-<p>Setup a sample table</p>
-<p>Let’s get started by <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-create-table/">creating a new table</a> called <code>sales</code> for the demonstration.</p>
-<pre><code>DROP TABLE IF EXISTS sales;
-
-CREATE TABLE sales (
-    brand VARCHAR NOT NULL,
-    segment VARCHAR NOT NULL,
-    quantity INT NOT NULL,
-    PRIMARY KEY (brand, segment)
-);
-
-INSERT INTO sales (brand, segment, quantity)
-VALUES
-    ('ABC', 'Premium', 100),
-    ('ABC', 'Basic', 200),
-    ('XYZ', 'Premium', 100),
-    ('XYZ', 'Basic', 300);Code language: SQL (Structured Query Language) (sql)
-</code></pre>
-<p><img alt="img" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Grouping-Sets-Sample-Table.png"/></p>
-<p>The <code>sales</code> table stores the number of products sold by brand and segment.</p>
-<h2 id="introduction-to-postgresql-grouping-sets">Introduction to PostgreSQL GROUPING SETS<a class="headerlink" href="#introduction-to-postgresql-grouping-sets" title="Permanent link">¶</a></h2>
-<p>A grouping set is a set of columns by which you group using the <code>GROUP BY</code> clause.</p>
-<p>A grouping set is denoted by a comma-separated list of columns placed inside parentheses:</p>
-<pre><code>(column1, column2, ...)
-</code></pre>
-<p>For example, the following query uses the <code>GROUP BY</code> clause to return the number of products sold by brand and segment. In  other words, it defines a grouping set of the brand and segment which is denoted by <code>(brand, segement)</code></p>
-<pre><code>SELECT
-    brand,
-    segment,
-    SUM (quantity)
-FROM
-    sales
-GROUP BY
-    brand,
-    segment;Code language: SQL (Structured Query Language) (sql)
-</code></pre>
-<p><img alt="img" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Grouping-Sets-Brand-and-Segment.png"/></p>
-<p>The following query finds the number of products sold by a brand. It defines a grouping set <code>(brand)</code>:</p>
-<pre><code>SELECT
-    brand,
-    SUM (quantity)
-FROM
-    sales
-GROUP BY
-    brand;Code language: SQL (Structured Query Language) (sql)
-</code></pre>
-<p><img alt="img" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Grouping-Sets-Brand.png"/></p>
-<p>The following query finds the number of products sold by segment. It defines a grouping set <code>(segment)</code>:</p>
-<pre><code>SELECT
-    segment,
-    SUM (quantity)
-FROM
-    sales
-GROUP BY
-    segment;
-Code language: SQL (Structured Query Language) (sql)
-</code></pre>
-<p><img alt="img" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Grouping-Sets-Segment.png"/></p>
-<p>The following query finds the number of products sold for all brands and  segments. It defines an empty grouping set which is denoted by <code>()</code>.</p>
-<pre><code>SELECT SUM (quantity) FROM sales;Code language: SQL (Structured Query Language) (sql)
-</code></pre>
-<p><img alt="img" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Grouping-Sets-Empty.png"/></p>
-<p>Suppose that you want to get all the grouping sets by using a single query. To achieve this, you may use the <code>UNION ALL</code> to combine all the queries above.</p>
-<p>Because <code>UNION ALL</code> requires all result sets to have the same number of columns with  compatible data types, you need to adjust the queries by adding <code>NULL</code> to the selection list of each as shown below:</p>
-<pre><code>SELECT
-    brand,
-    segment,
-    SUM (quantity)
-FROM
-    sales
-GROUP BY
-    brand,
-    segment
-
-UNION ALL
-
-SELECT
-    brand,
-    NULL,
-    SUM (quantity)
-FROM
-    sales
-GROUP BY
-    brand
-
-UNION ALL
-
-SELECT
-    NULL,
-    segment,
-    SUM (quantity)
-FROM
-    sales
-GROUP BY
-    segment
-
-UNION ALL
-
-SELECT
-    NULL,
-    NULL,
-    SUM (quantity)
-FROM
-    sales;
-Code language: SQL (Structured Query Language) (sql)
-</code></pre>
-<p><img alt="img" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Grouping-Sets-Using-UNION-ALL.png"/></p>
-<p>This query generated a single result set with the aggregates for all grouping sets.</p>
-<p>Even though the above query works as you expected, it has two main problems.</p>
-<ul>
-<li>First, it is quite lengthy.</li>
-<li>Second, it has a performance issue because PostgreSQL has to scan the <code>sales</code> table separately for each query.</li>
-</ul>
-<p>To make it more efficient, PostgreSQL provides the <code>GROUPING SETS</code> clause which is the subclause of the <code>GROUP BY</code> clause.</p>
-<p>The <code>GROUPING SETS</code> allows you to define multiple grouping sets in the same query.</p>
-<p>The general syntax of the <code>GROUPING SETS</code> is as follows:</p>
+<h1>02.-Subcláusula CUBE</h1>
+<h2 id="introduction-to-the-postgresql-cube">Introduction to the PostgreSQL <code>CUBE</code><a class="headerlink" href="#introduction-to-the-postgresql-cube" title="Permanent link">¶</a></h2>
+<p>PostgreSQL <code>CUBE</code> is a subclause of the <code>GROUP BY</code> clause. The <code>CUBE</code> allows you to generate multiple grouping sets.</p>
+<p>A grouping set is a set of columns to which you want to group. For more information on the grouping sets, check it out the <code>GROUPING SETS</code> tutorial.</p>
+<p>The following illustrates the syntax of the <code>CUBE</code> subclause:</p>
 <pre><code>SELECT
     c1,
     c2,
-    aggregate_function(c3)
+    c3,
+    aggregate (c4)
 FROM
     table_name
 GROUP BY
-    GROUPING SETS (
-        (c1, c2),
-        (c1),
-        (c2),
-        ()
-);Code language: SQL (Structured Query Language) (sql)
+    CUBE (c1, c2, c3);
+Code language: SQL (Structured Query Language) (sql)
 </code></pre>
-<p>In this syntax, we have four grouping sets <code>(c1,c2)</code>, <code>(c1)</code>, <code>(c2)</code>, and <code>()</code>.</p>
-<p>To apply this syntax to the above example, you can use <code>GROUPING SETS</code> clause instead of the <code>UNION ALL</code> clause like this:</p>
+<p>In this syntax:</p>
+<ul>
+<li>First, specify the <code>CUBE</code> subclause in the the <code>GROUP BY</code> clause of the <a href="https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-select/"><code>SELECT</code></a> statement.</li>
+<li>Second, in the select list, specify the columns (dimensions or dimension columns) which you want to analyze and <a href="https://www.postgresqltutorial.com/postgresql-aggregate-functions/">aggregation function</a> expressions.</li>
+<li>Third, in the <code>GROUP BY</code> clause, specify the dimension columns within the parentheses of the <code>CUBE</code> subclause.</li>
+</ul>
+<p>The query generates all possible grouping sets based on the dimension columns specified in <code>CUBE</code>. The <code>CUBE</code> subclause is a short way to define multiple grouping sets so the following are equivalent:</p>
+<pre><code>CUBE(c1,c2,c3) 
+
+GROUPING SETS (
+    (c1,c2,c3), 
+    (c1,c2),
+    (c1,c3),
+    (c2,c3),
+    (c1),
+    (c2),
+    (c3), 
+    ()
+ ) 
+Code language: SQL (Structured Query Language) (sql)
+</code></pre>
+<p>In general, if the number of columns specified in the <code>CUBE</code> is <code>n</code>, then you will have 2n combinations.</p>
+<p>PostgreSQL allows you to perform a partial cube to reduce the number of aggregates calculated. The following shows the syntax:</p>
+<pre><code>SELECT
+    c1,
+    c2,
+    c3,
+    aggregate (c4)
+FROM
+    table_name
+GROUP BY
+    c1,
+    CUBE (c1, c2);
+Code language: SQL (Structured Query Language) (sql)
+</code></pre>
+<h2 id="postgresql-cube-examples">PostgreSQL <code>CUBE</code> examples<a class="headerlink" href="#postgresql-cube-examples" title="Permanent link">¶</a></h2>
+<p>We will use the <code>sales</code> table created in the <code>GROUPING SETS</code> tutorial for the demonstration.</p>
+<p><img alt="Sales Table" src="https://www.postgresqltutorial.com/wp-content/uploads/2018/03/sales-table.png"/></p>
+<p>The following query uses the <code>CUBE</code> subclause to generate multiple grouping sets:</p>
 <pre><code>SELECT
     brand,
     segment,
@@ -987,68 +961,31 @@ GROUP BY
 FROM
     sales
 GROUP BY
-    GROUPING SETS (
-        (brand, segment),
-        (brand),
-        (segment),
-        ()
-    );Code language: SQL (Structured Query Language) (sql)
-</code></pre>
-<p><img alt="img" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Grouping-Sets-example.png"/></p>
-<p>This query is much shorter and more readable. In addition, PostgreSQL will optimize the number of times it scans the <code>sales</code> table and will not scan multiple times.</p>
-<h2 id="grouping-function">Grouping function<a class="headerlink" href="#grouping-function" title="Permanent link">¶</a></h2>
-<p>The <code>GROUPING()</code> function accepts an argument which can be a column name or an expression:</p>
-<pre><code>GROUPING( column_name | expression)
-</code></pre>
-<p>The <code>column_name</code> or <code>expression</code> must match with the one specified in the <code>GROUP BY</code> clause.</p>
-<p>The <code>GROUPING()</code> function returns bit 0 if the argument is a member of the current grouping set and 1 otherwise.</p>
-<p>See the following example:</p>
-<pre><code>SELECT
-    GROUPING(brand) grouping_brand,
-    GROUPING(segment) grouping_segment,
-    brand,
-    segment,
-    SUM (quantity)
-FROM
-    sales
-GROUP BY
-    GROUPING SETS (
-        (brand),
-        (segment),
-        ()
-    )
-ORDER BY
-    brand,
-    segment;Code language: SQL (Structured Query Language) (sql)
-</code></pre>
-<p><img alt="PostgreSQL GROUPING SETS - GROUPING function." src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Grouping-Sets-GROUPING-function-1.png"/></p>
-<p>As shown in the screenshot, when the value in the <code>grouping_brand</code> is 0, the <code>sum</code> column shows the subtotal of the <code>brand</code>.</p>
-<p>When the value in the <code>grouping_segment</code> is zero, the sum column shows the subtotal of the <code>segment</code>.</p>
-<p>You can use the <code>GROUPING()</code> function in the <code>HAVING</code> clause to find the subtotal of each brand like this:</p>
-<pre><code>SELECT
-    GROUPING(brand) grouping_brand,
-    GROUPING(segment) grouping_segment,
-    brand,
-    segment,
-    SUM (quantity)
-FROM
-    sales
-GROUP BY
-    GROUPING SETS (
-        (brand),
-        (segment),
-        ()
-    )
-HAVING GROUPING(brand) = 0  
+    CUBE (brand, segment)
 ORDER BY
     brand,
     segment;
+Code language: SQL (Structured Query Language) (sql)
 </code></pre>
-<p><img alt="PostgreSQL GROUPING SETS - GROUPING function in HAVING clause" src="https://www.postgresqltutorial.com/wp-content/uploads/2020/07/PostgreSQL-Grouping-Sets-GROUPING-function-in-HAVING-clause.png"/></p>
-<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
-<ul>
-<li>Use the PostgreSQL <code>GROUPING SETS</code> to generate multiple grouping sets.</li>
-</ul>
+<p>Here is the output:</p>
+<p><img alt="PostgreSQL CUBE example" src="https://www.postgresqltutorial.com/wp-content/uploads/2018/03/PostgreSQL-CUBE-example.png"/></p>
+<p>The following query performs a partial cube:</p>
+<pre><code>SELECT
+    brand,
+    segment,
+    SUM (quantity)
+FROM
+    sales
+GROUP BY
+    brand,
+    CUBE (segment)
+ORDER BY
+    brand,
+    segment;
+Code language: SQL (Structured Query Language) (sql)
+</code></pre>
+<p><img alt="PostgreSQL CUBE - partial cube example" src="https://www.postgresqltutorial.com/wp-content/uploads/2018/03/PostgreSQL-CUBE-partial-cube-example.png"/></p>
+<p>In this tutorial, you have learned how to use the PostgreSQL <code>CUBE</code> to generate multiple grouping sets.</p>
 </article>
 </div>
 </div>
