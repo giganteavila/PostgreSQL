@@ -1,0 +1,1103 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../08.-Expresiones%20comunes%20de%20tablas/02.-Consultas%20recursivas%20usando%20CTEs/" rel="prev"/>
+<link href="../02.-Inserci%C3%B3n%20de%20m%C3%BAltiples%20filas/" rel="next"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.4.9" name="generator"/>
+<title>01.-Inserción - ASGBD</title>
+<link href="../../../assets/stylesheets/main.78cf6014.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.356b1318.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="green" data-md-color-primary="blue-grey" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#clausula-return">
+          Saltar a contenido
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Cabecera" class="md-header__inner md-grid">
+<a aria-label="ASGBD" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="ASGBD">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            ASGBD
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              01.-Inserción
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="green" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="blue-grey" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="green" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="blue-grey" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Búsqueda" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Búsqueda" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Buscar" class="md-search__options">
+<button aria-label="Limpiar" class="md-search__icon md-icon" tabindex="-1" title="Limpiar" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Pestañas" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../..">
+        
+  
+    
+  
+  PostgreSQL
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../00.-Conceptos%20B%C3%A1sicos%20sobre%20SGBD/01.-Datos%20y%20archivos/">
+          
+  
+    
+  
+  00.-Conceptos Básicos sobre SGBD
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../01.-Tutorial/">
+          
+  
+    
+  
+  01.-Tutorial
+
+        </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../../00.-Base%20de%20datos%20PostgreSQL%20de%20ejemplo/">
+          
+  
+    
+  
+  02.-Tutorial Avanzado
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navegación" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="ASGBD" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="ASGBD">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    ASGBD
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+<span class="md-ellipsis">
+    PostgreSQL
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+<span class="md-ellipsis">
+    00.-Conceptos Básicos sobre SGBD
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            00.-Conceptos Básicos sobre SGBD
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../00.-Conceptos%20B%C3%A1sicos%20sobre%20SGBD/01.-Datos%20y%20archivos/">
+<span class="md-ellipsis">
+    01.-Datos y archivos
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../00.-Conceptos%20B%C3%A1sicos%20sobre%20SGBD/02.-Tipos%20de%20gesti%C3%B3n%20de%20Informaci%C3%B3n%20mediante%20el%20ordenador/">
+<span class="md-ellipsis">
+    02.-Tipos de gestión de Información mediante el ordenador
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../00.-Conceptos%20B%C3%A1sicos%20sobre%20SGBD/03.-Funcionamiento%20de%20un%20SGBD/">
+<span class="md-ellipsis">
+    03.-Funcionamiento de un SGBD
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../00.-Conceptos%20B%C3%A1sicos%20sobre%20SGBD/04.-Tipos%20de%20SGBD/">
+<span class="md-ellipsis">
+    04.-Tipos de SGBD
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../00.-Conceptos%20B%C3%A1sicos%20sobre%20SGBD/05.-Archivos/">
+<span class="md-ellipsis">
+    05.-Archivos
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../00.-Conceptos%20B%C3%A1sicos%20sobre%20SGBD/06.-Est%C3%A1ndares%20y%20modelo%20ANSI/">
+<span class="md-ellipsis">
+    06.-Estándares y modelo ANSI
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../01.-Tutorial/">
+<span class="md-ellipsis">
+    01.-Tutorial
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            01.-Tutorial
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+<span class="md-ellipsis">
+    01.-Cómo empezar
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+            01.-Cómo empezar
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/01.-C%C3%B3mo%20empezar/01.-Instalaci%C3%B3n/">
+<span class="md-ellipsis">
+    01.-Instalación
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/01.-C%C3%B3mo%20empezar/02.-Fundamentos%20arquitect%C3%B3nicos/">
+<span class="md-ellipsis">
+    02.-Fundamentos arquitectónicos
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/01.-C%C3%B3mo%20empezar/03.-Creando%20una%20Base%20de%20Datos/">
+<span class="md-ellipsis">
+    03.-Creando una Base de Datos
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/01.-C%C3%B3mo%20empezar/04.-Accediendo%20a%20una%20base%20de%20datos/">
+<span class="md-ellipsis">
+    04.-Accediendo a una base de datos
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+<span class="md-ellipsis">
+    02.-El lenguaje SQL
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+            02.-El lenguaje SQL
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/01.-Introducci%C3%B3n/">
+<span class="md-ellipsis">
+    01.-Introducción
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/02.-Conceptos/">
+<span class="md-ellipsis">
+    02.-Conceptos
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/03.-Creando%20una%20nueva%20tabla/">
+<span class="md-ellipsis">
+    03.-Creando una nueva tabla
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/04.-Cargando%20una%20tabla%20con%20filas/">
+<span class="md-ellipsis">
+    04.-Cargando una tabla con filas
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/05.-Consulta%20de%20tablas/">
+<span class="md-ellipsis">
+    05.-Consulta de tablas
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/06.-Uniones%20de%20tablas/">
+<span class="md-ellipsis">
+    06.-Uniones de tablas
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/07.-Funciones%20agregadas/">
+<span class="md-ellipsis">
+    07.-Funciones agregadas
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/08.-Actualizaciones/">
+<span class="md-ellipsis">
+    08.-Actualizaciones
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/02.-El%20lenguaje%20SQL/09.-Borrados/">
+<span class="md-ellipsis">
+    09.-Borrados
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+<span class="md-ellipsis">
+    03.-Características avanzadas
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_4">
+<span class="md-nav__icon md-icon"></span>
+            03.-Características avanzadas
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/01.-Introducci%C3%B3n/">
+<span class="md-ellipsis">
+    01.-Introducción
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/02.-Vistas/">
+<span class="md-ellipsis">
+    02.-Vistas
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/03.-Claves%20for%C3%A1neas/">
+<span class="md-ellipsis">
+    03.-Claves foráneas
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/04.-Transacciones/">
+<span class="md-ellipsis">
+    04.-Transacciones
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/05.-Funciones%20de%20ventanas/">
+<span class="md-ellipsis">
+    05.-Funciones de ventanas
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/06.-Herencia/">
+<span class="md-ellipsis">
+    06.-Herencia
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../01.-Tutorial/03.-Caracter%C3%ADsticas%20avanzadas/07.-Conclusi%C3%B3n/">
+<span class="md-ellipsis">
+    07.-Conclusión
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+<span class="md-ellipsis">
+    02.-Tutorial Avanzado
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            02.-Tutorial Avanzado
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../00.-Base%20de%20datos%20PostgreSQL%20de%20ejemplo/">
+<span class="md-ellipsis">
+    00.-Base de datos PostgreSQL de ejemplo
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+<span class="md-ellipsis">
+    01.-Consulta de datos
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+            01.-Consulta de datos
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01.-Consulta%20de%20datos/01.-SELECT/">
+<span class="md-ellipsis">
+    01.-SELECT
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01.-Consulta%20de%20datos/02.-Alias%20de%20columnas/">
+<span class="md-ellipsis">
+    02.-Alias de columnas
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01.-Consulta%20de%20datos/03.-ORDER%20BY/">
+<span class="md-ellipsis">
+    03.-ORDER BY
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../01.-Consulta%20de%20datos/04.-SELECT%20DISTINCT/">
+<span class="md-ellipsis">
+    04.-SELECT DISTINCT
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+<span class="md-ellipsis">
+    02.-Filtrado de datos
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+            02.-Filtrado de datos
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/01.-WHERE/">
+<span class="md-ellipsis">
+    01.-WHERE
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/02.-AND/">
+<span class="md-ellipsis">
+    02.-AND
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/03.-OR/">
+<span class="md-ellipsis">
+    03.-OR
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/04.-LIMIT/">
+<span class="md-ellipsis">
+    04.-LIMIT
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/05.-FETCH/">
+<span class="md-ellipsis">
+    05.-FETCH
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/06.-IN/">
+<span class="md-ellipsis">
+    06.-IN
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/07.-BETWEEN/">
+<span class="md-ellipsis">
+    07.-BETWEEN
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/08.-LIKE/">
+<span class="md-ellipsis">
+    08.-LIKE
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../02.-Filtrado%20de%20datos/09.-IS%20NULL/">
+<span class="md-ellipsis">
+    09.-IS NULL
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+<span class="md-ellipsis">
+    03.-Uniendo múltiples tablas
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_4">
+<span class="md-nav__icon md-icon"></span>
+            03.-Uniendo múltiples tablas
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/01.-Joins/">
+<span class="md-ellipsis">
+    01.-Joins
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/02.-Alias%20de%20tablas/">
+<span class="md-ellipsis">
+    02.-Alias de tablas
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/03.-INNER%20JOIN/">
+<span class="md-ellipsis">
+    03.-INNER JOIN
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/04.-LEFT%20JOIN/">
+<span class="md-ellipsis">
+    04.-LEFT JOIN
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/05.-SELF%20JOIN/">
+<span class="md-ellipsis">
+    05.-SELF JOIN
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/06.-FULL%20OUTER%20JOIN/">
+<span class="md-ellipsis">
+    06.-FULL OUTER JOIN
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/07.-CROSS%20JOIN/">
+<span class="md-ellipsis">
+    07.-CROSS JOIN
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../03.-Uniendo%20m%C3%BAltiples%20tablas/08.-NATURAL%20JOIN/">
+<span class="md-ellipsis">
+    08.-NATURAL JOIN
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+<span class="md-ellipsis">
+    04.-Agrupando datos
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_5">
+<span class="md-nav__icon md-icon"></span>
+            04.-Agrupando datos
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04.-Agrupando%20datos/01.-GROUP%20BY/">
+<span class="md-ellipsis">
+    01.-GROUP BY
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../04.-Agrupando%20datos/02.-HAVING/">
+<span class="md-ellipsis">
+    02.-HAVING
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+<span class="md-ellipsis">
+    05.-Operaciones con conjuntos
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_6">
+<span class="md-nav__icon md-icon"></span>
+            05.-Operaciones con conjuntos
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05.-Operaciones%20con%20conjuntos/01.-Introducci%C3%B3n%20al%20operador%20UNION/">
+<span class="md-ellipsis">
+    01.-Introducción al operador UNION
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05.-Operaciones%20con%20conjuntos/01.-Operador%20UNION/">
+<span class="md-ellipsis">
+    01.-Operador UNION
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05.-Operaciones%20con%20conjuntos/02.-Introducci%C3%B3n%20al%20operador%20INTERSECT/">
+<span class="md-ellipsis">
+    02.-Introducción al operador INTERSECT
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05.-Operaciones%20con%20conjuntos/02.-Operador%20INTERSECT/">
+<span class="md-ellipsis">
+    02.-Operador INTERSECT
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../05.-Operaciones%20con%20conjuntos/03.-Operador%20EXCEPT/">
+<span class="md-ellipsis">
+    03.-Operador EXCEPT
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+<span class="md-ellipsis">
+    06.-Grouping sets, Cube y Rollup
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_7">
+<span class="md-nav__icon md-icon"></span>
+            06.-Grouping sets, Cube y Rollup
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06.-Grouping%20sets%2C%20Cube%20y%20Rollup/01.-Cl%C3%A1usula%20GROUPING%20SETS/">
+<span class="md-ellipsis">
+    01.-Cláusula GROUPING SETS
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06.-Grouping%20sets%2C%20Cube%20y%20Rollup/02.-Subcl%C3%A1usula%20CUBE/">
+<span class="md-ellipsis">
+    02.-Subcláusula CUBE
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../06.-Grouping%20sets%2C%20Cube%20y%20Rollup/03.-Subcl%C3%A1usula%20ROLLUP/">
+<span class="md-ellipsis">
+    03.-Subcláusula ROLLUP
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+<span class="md-ellipsis">
+    07.-Subconsultas
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_8_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_8">
+<span class="md-nav__icon md-icon"></span>
+            07.-Subconsultas
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07.-Subconsultas/01.-Subconsulta/">
+<span class="md-ellipsis">
+    01.-Subconsulta
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07.-Subconsultas/02.-Subconsulta%20correlacionada/">
+<span class="md-ellipsis">
+    02.-Subconsulta correlacionada
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07.-Subconsultas/03.-ANY/">
+<span class="md-ellipsis">
+    03.-ANY
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07.-Subconsultas/04.-ALL/">
+<span class="md-ellipsis">
+    04.-ALL
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../07.-Subconsultas/05.-EXISTS/">
+<span class="md-ellipsis">
+    05.-EXISTS
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_9" id="__nav_4_9_label" tabindex="0">
+<span class="md-ellipsis">
+    08.-Expresiones comunes de tablas
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_9_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_9">
+<span class="md-nav__icon md-icon"></span>
+            08.-Expresiones comunes de tablas
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08.-Expresiones%20comunes%20de%20tablas/01.-CTE/">
+<span class="md-ellipsis">
+    01.-CTE
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../08.-Expresiones%20comunes%20de%20tablas/02.-Consultas%20recursivas%20usando%20CTEs/">
+<span class="md-ellipsis">
+    02.-Consultas recursivas usando CTEs
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_10" id="__nav_4_10_label" tabindex="0">
+<span class="md-ellipsis">
+    09.- Modificación de datos
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_4_10_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_10">
+<span class="md-nav__icon md-icon"></span>
+            09.- Modificación de datos
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    01.-Inserción
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../02.-Inserci%C3%B3n%20de%20m%C3%BAltiples%20filas/">
+<span class="md-ellipsis">
+    02.-Inserción de múltiples filas
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../03.-Actualizaci%C3%B3n/">
+<span class="md-ellipsis">
+    03.-Actualización
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../04.-Actualizaci%C3%B3n%20mediante%20fusi%C3%B3n/">
+<span class="md-ellipsis">
+    04.-Actualización mediante fusión
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../05.-Borrar/">
+<span class="md-ellipsis">
+    05.-Borrar
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../06.-Insertar%20o%20actualizar/">
+<span class="md-ellipsis">
+    06.-Insertar o actualizar
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../dvdrental.tar">
+<span class="md-ellipsis">
+    dvdrental
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<p>La sentencia <code>INSERT</code> de PostgreSQL permite insertar una nueva fila en una tabla.</p>
+<p>Esta es la sintaxis básica de la sentencia <code>INSERT</code>:</p>
+<pre><code class="language-postgresql">INSERT INTO table1(column1, column2, …)
+VALUES (value1, value2, …);
+</code></pre>
+<p>En esta sintaxis:</p>
+<ul>
+<li>En primer lugar, especifique el nombre de la tabla<code>(table1</code>) en la que desea insertar datos después de las palabras clave <code>INSERT INTO</code> y una lista de columnas separadas por comas (<code>colum1, column2, ....)</code>.</li>
+<li>En segundo lugar, proporcione una lista de valores separados por comas entre paréntesis ( <code>valor1, valor2, ...)</code> después de la palabra clave <code>VALUES</code>. Las listas de columnas y valores deben estar en el mismo orden.</li>
+</ul>
+<p>La sentencia <code>INSERT</code> devuelve una etiqueta de comando con la siguiente forma:</p>
+<pre><code class="language-postgresql">INSERT oid count
+</code></pre>
+<p>En esta sintaxis:</p>
+<ul>
+<li>El <code>OID</code> es un identificador de objeto. PostgreSQL utiliza el <code>OID</code> internamente como clave primaria para sus tablas de sistema. Típicamente, la sentencia <code>INSERT</code> devuelve el <code>OID</code> con un valor de 0.</li>
+<li>El <code>count</code> es el número de filas que la sentencia <code>INSERT</code> ha insertado con éxito.</li>
+</ul>
+<p>Si inserta una nueva fila en una tabla con éxito, el retorno típicamente se verá como:</p>
+<pre><code class="language-postgresql">INSERT 0 1
+</code></pre>
+<h1 id="clausula-return">Cláusula RETURN<a class="headerlink" href="#clausula-return" title="Permanent link">¶</a></h1>
+<p>La sentencia <code>INSERT</code> tiene una cláusula <code>RETURNING</code> opcional que devuelve la información de la fila insertada.</p>
+<p>Si desea devolver toda la fila insertada, utilice un asterisco<code>(*</code>) después de la palabra clave <code>RETURNING</code>:</p>
+<pre><code class="language-postgresql">INSERT INTO table1(column1, column2, …)
+VALUES (value1, value2, …)
+RETURNING *;
+</code></pre>
+<p>Si desea devolver alguna información sobre la fila insertada, puede especificar una o más columnas después de la cláusula <code>RETURNING</code>.</p>
+<p>Por ejemplo, la siguiente sentencia devuelve el <code>id</code> de la fila insertada:</p>
+<pre><code class="language-postgresql">INSERT INTO table1(column1, column2, …)
+VALUES (value1, value2, …)
+RETURNING id;
+</code></pre>
+<p>Para renombrar el valor devuelto, se utiliza la palabra clave <code>AS</code> seguida del nombre de la salida. Por ejemplo:</p>
+<pre><code class="language-postgresql">INSERT INTO table1(column1, column2, …)
+VALUES (value1, value2, …)
+RETURNING output_expression AS output_name;
+</code></pre>
+<p>Para insertar varias filas en una tabla simultáneamente, puede utilizar la sentencia INSERT multiple rows.</p>
+<h1 id="ejemplos-de-sentencias-insert-de-postgresql"><strong>Ejemplos de sentencias INSERT de PostgreSQL</strong><a class="headerlink" href="#ejemplos-de-sentencias-insert-de-postgresql" title="Permanent link">¶</a></h1>
+<p>La siguiente sentencia crea una nueva tabla llamada <code>enlaces</code> para la demostración:</p>
+<pre><code class="language-postgresql">CREATE TABLE links (
+  id SERIAL PRIMARY KEY, 
+  url VARCHAR(255) NOT NULL, 
+  name VARCHAR(255) NOT NULL, 
+  description VARCHAR (255), 
+  last_update DATE
+);
+</code></pre>
+<p>Tenga en cuenta que aprenderá a crear una nueva tabla en el tutorial siguiente. En este tutorial, sólo necesita ejecutarlo para crear una nueva tabla.</p>
+<h2 id="ejemplo-basico-de-sentencia-insert-de-postgresql">Ejemplo básico de sentencia INSERT de PostgreSQL<a class="headerlink" href="#ejemplo-basico-de-sentencia-insert-de-postgresql" title="Permanent link">¶</a></h2>
+<p>El siguiente ejemplo utiliza la sentencia <code>INSERT</code> para insertar una nueva fila en la tabla <code>links</code>:</p>
+<pre><code class="language-postgresql">INSERT INTO links (url, name)
+VALUES('https://www.postgresqltutorial.com','PostgreSQL Tutorial');
+</code></pre>
+<p>La sentencia devuelve el siguiente resultado:</p>
+<pre><code class="language-postgresql">INSERT 0 1
+</code></pre>
+<p>Para insertar datos de caracteres, debe encerrarlos entre comillas simples ('), por ejemplo <code>'Tutorial PostgreSQL'.</code></p>
+<p>Si omite las columnas no nulas en la sentencia <code>INSERT</code>, PostgreSQL emitirá un error. Pero si omite la columna nula, PostgreSQL utilizará el valor por defecto de la columna para la inserción.</p>
+<p>En este ejemplo, la <code>descripción</code> es una columna anulable porque no tiene una restricción <code>NOT NULL</code>. Por lo tanto, PostgreSQL utiliza <code>NULL</code> para insertar en la columna <code>description</code>.</p>
+<p>PostgreSQL genera automáticamente un número secuencial para la columna serial, por lo que no es necesario proporcionar un valor para la columna serial en la sentencia <code>INSERT</code>.</p>
+<p>La siguiente sentencia <code>SELECT</code> muestra el contenido de la tabla de <code>enlaces</code>:</p>
+<pre><code class="language-postgresql">SELECT  * FROM links;
+</code></pre>
+<p>Salida:</p>
+<pre><code> id |                url                 |        name         | description | last_update
+----+------------------------------------+---------------------+-------------+-------------
+  1 | https://www.postgresqltutorial.com | PostgreSQL Tutorial | null        | null
+(1 row)
+</code></pre>
+<h2 id="insercion-de-una-cadena-de-caracteres-que-contiene-una-comilla-simple">Inserción de una cadena de caracteres que contiene una comilla simple<a class="headerlink" href="#insercion-de-una-cadena-de-caracteres-que-contiene-una-comilla-simple" title="Permanent link">¶</a></h2>
+<p>Si desea insertar una cadena de caracteres que contenga una comilla simple (<code>')</code>, como <code>O'Reilly Media</code>, deberá utilizar una comilla simple adicional (<code>')</code> para escaparla. Por ejemplo</p>
+<pre><code class="language-postgresql">INSERT INTO links (url, name)
+VALUES('http://www.oreilly.com','O''Reilly Media');
+</code></pre>
+<p>Salida:</p>
+<pre><code class="language-postgresql">INSERT 0 1
+</code></pre>
+<p>La siguiente sentencia verifica la inserción:</p>
+<pre><code class="language-postgresql">SELECT * FROM links;
+</code></pre>
+<p>Salida:</p>
+<pre><code> id |                url                 |        name         | description | last_update
+----+------------------------------------+---------------------+-------------+-------------
+  1 | https://www.postgresqltutorial.com | PostgreSQL Tutorial | null        | null
+  2 | http://www.oreilly.com             | O'Reilly Media      | null        | null
+(2 rows)
+</code></pre>
+<h1 id="insertar-un-valor-de-fecha"><strong>Insertar un valor de fecha</strong><a class="headerlink" href="#insertar-un-valor-de-fecha" title="Permanent link">¶</a></h1>
+<p>Para insertar una fecha en una columna <code>DATE</code>, utilice la fecha en el formato <code>'AAAA-MM-DD'.</code></p>
+<p>Por ejemplo, la siguiente sentencia inserta una nueva fila con una fecha especificada en la tabla de <code>enlaces</code>:</p>
+<pre><code class="language-postgresql">INSERT INTO links (url, name, last_update)
+VALUES('https://www.google.com','Google','2013-06-01');
+</code></pre>
+<p>Salida:</p>
+<pre><code class="language-postgresql">INSERT 0 1
+</code></pre>
+<p>La siguiente sentencia recupera todos los datos de la tabla de enlaces para verificar la inserción:</p>
+<pre><code> id |                url                 |        name         | description | last_update
+----+------------------------------------+---------------------+-------------+-------------
+  1 | https://www.postgresqltutorial.com | PostgreSQL Tutorial | null        | null
+  2 | http://www.oreilly.com             | O'Reilly Media      | null        | null
+  3 | https://www.google.com             | Google              | null        | 2013-06-01
+(3 rows)
+
+</code></pre>
+<h2 id="obtener-el-ultimo-id-insertado"><strong>Obtener el último ID insertado</strong><a class="headerlink" href="#obtener-el-ultimo-id-insertado" title="Permanent link">¶</a></h2>
+<p>Para obtener el último ID insertado de la fila insertada, utilice la cláusula <code>RETURNING</code> de la <code>sentencia INSERT</code>.</p>
+<p>Por ejemplo, la siguiente sentencia inserta una nueva fila en la tabla de <code>enlaces</code> y devuelve el último ID insertado:</p>
+<pre><code class="language-postgresql">INSERT INTO links (url, name)
+VALUES('https://www.postgresql.org','PostgreSQL') 
+RETURNING id;
+</code></pre>
+<p>Salida:</p>
+<pre><code> id
+----
+  4
+(1 row)
+</code></pre>
+<h1 id="resumen">Resumen<a class="headerlink" href="#resumen" title="Permanent link">¶</a></h1>
+<ul>
+<li>Utilice la sentencia <code>INSERT</code> de PostgreSQL para insertar una nueva fila en una tabla.</li>
+<li>Utilice la cláusula <code>RETURNING</code> para obtener las filas insertadas.</li>
+</ul>
+</article>
+</div>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+  Volver al principio
+</button>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "navigation.top.sticky", "navigation.tabs", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+<script src="../../../assets/javascripts/bundle.6c14ae12.min.js"></script>
+<script src="../../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>
